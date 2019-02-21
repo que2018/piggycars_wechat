@@ -1,0 +1,11 @@
+<view class="flex-container">
+  <view id="ld-block" class="{{show_loading?'show':'ldhide'}} ">
+    <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+  </view>
+  <block wx:for="{{categories}}" wx:key="{{item.category_id}}">
+    <view class="cat" hover-class="cat-hover" bindtap="click" data-has_child="{{item.has_child}}" data-category_id="{{item.category_id}}">
+      <view class="cat-img"><image src="{{item.image}}" mode="aspectFit" ></image></view>
+      <view class="cat-text">{{item.name}}</view>
+    </view>
+  </block>
+</view>

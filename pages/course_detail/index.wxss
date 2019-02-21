@@ -1,0 +1,66 @@
+@import "../../utils/wxParse/wxParse.wxss";
+
+.show {
+ display: flex !important;
+}
+.hide {
+ display: none !important;
+}
+#ld-block{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+}
+.ld-img {
+  width: 110px;
+}
+video {
+  width: 100vw;
+}
+.video-wrap {
+  width: 100vw;
+  background: #ffffff;
+}
+.professor-name {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.description {
+  text-align: justify;
+  font-size: 14px;
+  padding: 0px 20px 30px 20px;
+}
+.portrait {
+    width: 100vw;
+    height: 120px;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+}
+.preview {
+    width: 100vw;
+    height: 200px;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+    background-color: #cccccc;
+}
+.portrait image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #33cb67;  
+}
+.btn-login {
+  color: #fff !important;
+  border:none !important;
+  background-color: #33cb67 !important; 
+}

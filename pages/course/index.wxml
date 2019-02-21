@@ -1,0 +1,53 @@
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">简介</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">目录</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">评价</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+  <swiper-item>
+    <view id="ld-block" class="{{show_loading_description?'ldshow':'ldhide'}} ">
+      <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+    </view>
+    <view class="course-desp-wrap">
+      <view class="course-name">{{name}}</view>
+      <view class="course-desp">{{description}}</view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view class="flex-container">
+      <view id="ld-block" class="{{show_loading_course?'ldshow':'ldhide'}} ">
+        <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+      </view>
+      <scroll-view scroll-y="true" style="height: 100vh;">
+        <block wx:for="{{courses}}" wx:key="{{item.course_id}}">
+          <view class="course" hover-class="course-hover" bindtap="click"  data-course_id="{{item.course_id}}">
+            <view class="course-img"><image src="{{item.image}}" mode="aspectFit"></image></view>
+            <view class="course-text">{{item.title}}</view>
+          </view>
+        </block>
+        <view class="place1" ></view>
+      </scroll-view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view class="flex-container">
+      <scroll-view scroll-y="true" style="height: 100vh;">
+        <view class="place2" ></view>
+        <block wx:for="{{comments}}" wx:key="{{item.comment_id}}">
+          <view class="flex-row" style="display: flex;flex-direction: row;">
+            <view class="flex-view-item">
+              <view class="comment">
+                <view class="comment-img" ><image src="{{item.image}}" mode="aspectFit" ></image></view>
+                <view class="comment-text">
+                  <view>{{item.content}}</view>
+                  <view class="comment-name">{{item.name}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>  
+        <view class="place3" ></view>
+      </scroll-view>
+    </view>
+  </swiper-item>
+</swiper>

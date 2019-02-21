@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/home/index",
+    "pages/category_top/index",    
+    "pages/course/index",
+    "pages/course_detail/index",
+    "pages/me/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f27d1d",
+    "navigationBarTitleText": "猪猪车",
+    "navigationBarTextStyle":"white",
+    "backgroundColor": "#cccccc"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/home.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/car.png",
+        "iconPath": "images/car.png",
+        "pagePath": "pages/category_top/index",
+        "text": "车辆"
+      },
+      {
+        "selectedIconPath": "images/me.png",
+        "iconPath": "images/me.png",
+        "pagePath": "pages/me/index",
+        "text": "我的"
+      }
+    ]
+  }  
+}

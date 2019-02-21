@@ -1,0 +1,56 @@
+.show {
+ display: block;
+}
+.hide {
+ display: none;
+}
+.section {
+  width: 80vw;
+  height: 100vh;
+}
+input[name=token] {
+  height: 40px;
+  font-size: 18px;
+}
+.input-token {
+  margin-bottom: 10px;
+  height: 40px;
+  font-size: 18px;
+}
+.input-sms {
+  margin-bottom: 10px;
+  height: 40px;
+}
+.btn-submit {
+  background-color: #33cb67 !important; 
+}
+.btn-logout {
+  background-color: #33cb67 !important; 
+  position: absolute;
+  bottom: 25px;
+  width: 80vw;
+}
+#ld-block{
+    width: 80vw;
+    height: 100px;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+}
+.logo-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #33cb67;  
+}
+.profile {
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+.version {
+  color: #33cb67;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 10px;
+}

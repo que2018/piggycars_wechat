@@ -1,0 +1,4 @@
+<view class="inner">
+  <text>T:{{clock}}</text>
+  <slot></slot>
+</view>

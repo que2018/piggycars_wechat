@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="section">
+    <view id="ld-block">
+      <image src="../../images/logo.png" mode="aspectFit" class="logo-img"></image>
+    </view>
+    <view class="version">{{version}}</view>
+    <form bindsubmit='login' class="{{show_form?'show':'hide'}}">
+      <input name="token" password="true" placeholder="输入江米微课代码" value="{{token_value}}" />
+      <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type="submit">提交</button>
+    </form>
+    <view class="{{show_profile?'show':'hide'}} profile">你好,{{name}}</view>
+    <!--<view class="{{show_logout?'show':'hide'}}">
+      <button type="primary" class="btn-logout" size="{{primarySize}}" bindtap="logout">取消登录</button>
+    </view>-->
+  </view>
+</view>

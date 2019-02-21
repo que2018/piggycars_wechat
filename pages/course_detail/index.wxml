@@ -1,0 +1,39 @@
+
+<import src="../../utils/wxParse/wxParse.wxml"/> 
+
+
+
+<view id="ld-block" class="{{show_loading?'show':'hide'}}">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+</view>
+<view class="video-wrap">
+  <view class="video-frame">
+    <view wx:if="{{is_trial == true}}">
+      <video id="course" src="{{video_url}}" controls="true" objectFit="fill" poster="{{video_poster}}" custom-cache="{{false}}" style="height:{{video_height}}px"></video>
+    </view>
+    <view wx:elif="{{(auth_login == true) && (validated == true)}}">
+      <video id="course" src="{{video_url}}" controls="true" objectFit="fill" poster="{{video_poster}}" custom-cache="{{false}}" style="height:{{video_height}}px"></video>
+    </view>
+    <view wx:elif="{{(auth_login == true) && (validated == false)}}">
+      <view class="preview">
+        <button type="primary" class="btn-login" size="default" plain="false">亲，代码无效哦</button>
+      </view>
+    </view>   
+    <view wx:else>
+      <view class="preview">
+        <button type="primary" class="btn-login" size="default" plain="false" bindtap="click">登录</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="info">
+  <view class="portrait">
+    <image src="{{professor_portrait}}" mode="aspectFit"></image>
+  </view>
+  <view class="professor-name">{{professor_name}}</view>
+  <view class="title">{{title}}</view>
+  <view class="description">
+    <template is="wxParse" data="{{wxParseData:desp_html.nodes}}" />
+  </view>
+</view>
+
