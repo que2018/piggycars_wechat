@@ -5,7 +5,8 @@ Page({
   data: {
     version: app.globalData.VERSION,
     name: app.globalData.name,
-    token_value: '',
+    username_value: '',
+    password_value: '',
     loading: false,
     show_form: true,
     show_profile: false

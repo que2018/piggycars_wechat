@@ -1,7 +1,7 @@
 
 App({
   globalData: {
-    VERSION: 'v2.5.3',
+    VERSION: 'v1.0.0',
     AUTH_LOGIN: false,
     TOKEN: "",
     token_id: 0,
