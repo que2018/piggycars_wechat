@@ -1,14 +1,35 @@
 <view class="flex-container">
-  <view id="ld-block" class="{{show_loading?'ldshow':'ldhide'}} ">
+  <view id="ld-block" class="{{show_loading?'show':'hide'}} ">
     <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
   </view>
   <view id='banner'>
-    <swiper indicator-dots="{{true}}" indicator-active-color="#f27d1d" indicator-color="#ffffff" autoplay="true" circular="true" style="width:{{imgWidth}}px;height:{{imgHeight}}px">
-     <block wx:for="{{sliders}}" wx:key="banner">
-      <swiper-item bindtap="clickSlider" data-category_id="{{item.category_id}}" data-has_child="{{item.has_child}}">
-        <image src='{{item.image}}' mode="aspectFill" style="width:100%;height:100%;" />
-      </swiper-item> 
-    </block>
+    <swiper indicator-dots="{{true}}" indicator-active-color="#008254" indicator-color="#ffffff" autoplay="true" circular="true" style="width:100vw;height:59vw;">
+      <block wx:for="{{adverts}}" wx:key="banner">
+        <swiper-item>
+          <image src='{{item.path}}' data-arcitle_id='{{item.arcitle_id}}' bindtap="clickAdvert" mode="aspectFill" style="width:100%;height:100%;" />
+        </swiper-item> 
+      </block>
     </swiper>
   </view>
+  <view>
+    <block wx:for="{{projects}}" wx:key="project">
+      <view class="project-wrap" hover-class="project-hover">
+        <view class="project">
+          <image src="{{item.image}}" mode="aspectFit" class="pimg" bindtap="clickProject" data-project_id="{{item.id}}"></image>
+          <view class="pname">{{item.names}}</view>
+          <view class="tags">
+            <view class="tag interest">回报率:{{item.interest}}%</view>
+            <view class="tag months">期限:{{item.deadline_month}}个月</view>
+          </view>
+          <view class="percent">
+            <view class="percent_number">{{item.finish_percentage}}%</view>
+            <view class="percent_line"><view class="finish_percentage" style="width:{{item.finish_percentage*0.82}}vw;"></view></view>
+          </view>
+          <!--<button type="primary" class="pbtn" size="default" bindtap="clickApply" data-project_id="{{item.id}}">申购</button>-->
+        </view>
+      </view>
+    </block>
+  </view>
+  <image src="../../images/process.jpg" mode="aspectFit" class="process-img"></image>
+  <image src="../../images/qa.jpg" mode="aspectFit" class="qa-img"></image>
 </view>

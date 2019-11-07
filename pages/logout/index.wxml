@@ -1,0 +1,4 @@
+<view class="flex-container">
+  <view><image src="../../images/logo.png" class="logo"></image></view>
+  <button type="primary" class="btn-logout" size="default" loading="{{loading}}" bindtap="clickLogout">确认退出登录</button>
+</view>

@@ -1,0 +1,16 @@
+ <view class="flex-container">
+  <form class="form_card" bindsubmit='charge_card'>
+    <view class="input-group">
+      <image src="../../images/card.png"></image>
+      <input name="card_number" type="number" placeholder="卡号" />
+    </view>
+    <view class="charge-type">
+      <view class="methods">
+        <input name="month" class="input-group" type="number" maxlength="2" style="margin-right:10px;" placeholder="月" color="#008254" />
+        <input name="year" class="input-group" type="number" maxlength="2" style="margin-right:10px;" placeholder="年" color="#008254" />
+        <input name="cvv" class="input-group"type="number"  maxlength="4" style="margin-left:10px;"placeholder="CVV"/>
+      </view>
+    </view>
+    <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>充值</button>
+  </form>
+</view>

@@ -1,4 +1,6 @@
-/**app.wxss**/
+view {
+    font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+}
 .container {
   height: 100%;
   display: flex;
@@ -7,4 +9,13 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
+} 
+.show {
+ display: flex !important;
+}
+.hide {
+ display: none !important;
+}
+.bgholder {
+  background-size:100% 100%;
 } 

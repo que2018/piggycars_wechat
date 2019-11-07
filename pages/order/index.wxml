@@ -1,0 +1,19 @@
+<view class="flex-container">
+  <view id="ld-block" class="{{show_loading?'show':'hide'}} ">
+    <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+  </view>
+  <view wx:if="{{orders.length != 0}}">
+    <view class="ptable" wx:for="{{orders}}" wx:key="{{order}}" bindtap="orderDetail" data-order_id="{{item.id}}">
+      <view class="prow" hover-class="prow-hover">
+        <view class="column-name">{{item.name}}</view>
+        <view class="prow2">
+          <view class="column-money">${{item.money}}({{item.number}}份)</view>
+          <view class="column-time">{{item.order_time}}</view>
+        </view>
+      </view>
+    </view>
+  </view><view wx:else>
+    <view class="empty" hover-class="prow-hover">无订单</view>
+    <button type="primary" class="pbtn" size="default" catchtap="clickGoApply">马上去投车</button>
+  </view>
+</view>

@@ -1,0 +1,93 @@
+.flex-container {
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+#ld-block{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+}
+.ld-img {
+  width: 110px;
+}
+.project-wrap {
+  padding: 15px 0px 20px 0px;
+}
+.project {
+  display:flex;
+  flex-direction: column;
+  width: 82vw;
+  margin: 0 auto;
+}
+.project-hover {
+  background: #efefef !important;
+}
+.pimg {
+  width: 100%;
+  display: block;
+}
+.pname {
+  width: 100%;
+  display: block;
+  text-align: left;
+  font-size: 20px;
+  padding-bottom: 10px;
+  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+}
+.pbtn {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+}
+.pbtn-enable {
+  background-color: #008254 !important; 
+}
+.pbtn_disable {
+  background-color: #81c884 !important; 
+}
+.pbtn_pending {
+  background-color: #8ac73c !important;
+}
+.tags {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.tag {
+  font-size: 13px;
+  border-radius: 3px;
+  padding: 4px 6px;
+  color: #fff;
+  margin-right: 2px;
+}
+.interest {
+  background: #1d3687;
+}
+.months {
+  background: #e5ca30;
+  margin-left: 8px;
+}
+.percent {
+  display:flex;
+  flex-direction: column;
+}
+.percent_line {
+  background: #8be67b;
+  height: 8rpx;
+  margin-bottom: 16px;
+}
+.percent_number {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.finish_percentage{
+  background: green;
+  height:8rpx;
+  position: absolute;
+  z-index: 0;
+}

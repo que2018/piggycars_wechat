@@ -1,5 +1,5 @@
 
-var app = getApp()
+var app = getApp();
 
 Component({
   properties: {
@@ -19,7 +19,7 @@ Component({
   },
 
   attached: function () {
-    cal(this)
+    cal(this);
   }
 })
 function cal(that) {
@@ -32,10 +32,11 @@ function cal(that) {
     clock: date_format(second)
   });
 
-  if (second <= 0) {
+  if(second <= 0) {
     that.setData({
-      clock: "Time out!"
+      clock: "-- -- --"
     });
+
     return;
   }
 

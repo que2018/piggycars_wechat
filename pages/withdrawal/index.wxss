@@ -1,0 +1,55 @@
+.pgreen-text {
+  color:#008254;
+}
+.psub-title {
+  padding-top:10px;
+  line-height: 30px;
+  font-weight:bold;
+  border-bottom:1px solid #008254;
+}
+.textarea{
+  border:1px solid #69696915;
+  align-items: center; 
+  justify-content: center;
+  width: 70vw;
+}
+.flex-container {
+  display:flex;
+  flex-direction: row;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+.main-flex-container {
+  display:flex;
+  flex-direction: column;
+}
+.input-group.error {
+  border-bottom: 1rpx solid red;
+}
+.input-group {
+  display:flex;
+  flex-direction: row;
+  border-bottom: 1px solid #cccccc;
+  width: 70vw;
+}
+.input-group image {
+  width: 26px;
+  height: 26px;
+  margin-top: 12px;
+  margin-right: 6px;
+}
+input {    
+  font-size: 18px;
+  height: 50px;
+}
+.linkText {
+  color: #008254;
+  width:70vw;
+  margin-top:-10px;
+}
+.pbtn {
+  width: 70vw;
+  height: 40px;
+  line-height: 40px;
+  background-color: #008254 !important; 
+}

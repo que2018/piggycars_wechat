@@ -1,0 +1,52 @@
+.flex-container {
+  display:flex;
+  flex-direction: column;
+}
+.btn-submit {
+  width: 100%;
+  font-size: 18px;
+  margin-top: 30px;
+  height: 36px;
+  line-height: 36px;
+  background-color: #008254 !important; 
+}
+input {    
+  font-size: 18px;
+  height: 50px;
+}
+.input-groups {
+  margin-bottom: 20px;
+}
+.input-group {
+  display:flex;
+  flex-direction: row;
+  border-bottom: 1px solid #cccccc;
+}
+.input-group image {
+  width: 26px;
+  height: 26px;
+  margin-top: 12px;
+  margin-right: 6px;
+}
+.form_card {
+  width: 70vw;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10vw;
+}
+.modalDlg{
+  width: 90%;
+  height: 40%;
+  z-index: 9900;
+  background-color: #FFFFFF;
+  border-radius: 30rpx;
+  border:1px solid #cccccc;
+  position: fixed;
+  top: 10%;
+  left: 5%;
+}
+.methods {
+  display:flex;
+  flex-direction: row;
+  margin-top: 25px;
+}

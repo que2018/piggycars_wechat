@@ -1,0 +1,13 @@
+.version {
+  margin-top: 40vh;
+}
+.vtext {
+  text-align: center;
+}
+.vnumber {
+  text-align: center;
+  font-size: 30px;
+  line-height: 50px;
+  font-weight: bold;
+  color: #008254;
+}

@@ -1,0 +1,21 @@
+<view class="flex-container">
+  <view>满足以下条件才能申请提现</view>
+  <view class="ld-block {{show_loading?'show':'hide'}}">
+    <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+  </view>
+  <view wx:if="{{phone=='null'}}">
+    <view>1.手机认证 <span class="click" bindtap='clickAuthenticPhone'>立刻认证</span></view>
+  </view><view wx:else>
+    <view>1.手机认证 OK</view>
+  </view>
+  <view wx:if="{{name=='null'}}">
+    <view>2.实名认证 <span class="click" bindtap='clickAuthenticName'>立刻认证</span></view>
+  </view><view wx:else>
+    <view>2.实名认证 OK</view>
+  </view>
+  <view wx:if="{{black=='null'}}">
+    <view>3.黑名单 您的帐户不在黑名单中，符合此项提现要求</view>
+  </view><view wx:else>
+    <view>3.黑名单 您的帐户在黑名单中</view>
+  </view>
+</view>

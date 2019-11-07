@@ -1,0 +1,4 @@
+<view class="version">
+  <view class="vtext">当前版本</view>
+  <view class="vnumber">{{version}}</view>
+</view>

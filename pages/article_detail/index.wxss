@@ -1,0 +1,28 @@
+@import "/wxParse/wxParse.wxss";
+.flex-container {
+  display:flex;
+  flex-direction: column;
+}
+#ld-block{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+}
+.ld-img {
+  width: 110px;
+}
+.aimage {
+  width:100vw;
+}
+.atitle {
+  font-size: 23px;
+  padding: 15px 15px 5px 15px;
+  align-self: center;
+}
+.wxParse {
+  font-size: 15px;
+  padding: 0px 15px 15px 15px;
+  line-height: 22px;
+}

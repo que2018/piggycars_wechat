@@ -1,14 +1,96 @@
-<view class="container">
-  <view class="section">
-    <view id="ld-block">
-      <image src="../../images/logo.png" mode="aspectFit" class="logo-img"></image>
+<view id="ld-block" class="{{show_loading?'show':'hide'}}">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+</view>
+<view class="flex-container-login {{is_login?'hide':'show'}}">
+  <form bindsubmit='login'>
+    <view class="input-groups">
+      <view class="input-group">
+        <image src="../../images/user.png"></image>
+        <input name="user_name" placeholder="邮箱 / 电话 / 用户名" value="{{user_name}}" />
+      </view>
+      <view class="input-group">
+        <image src="../../images/pass.png"></image>
+        <input name="password" password="true" placeholder="登录密码" value="{{password}}" />
+      </view>
     </view>
+    <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>登录</button>
+    <view class="register" hover-class="register-hover" bindtap="clickRegister">注册投个车用户</view>
     <view class="version">{{version}}</view>
-    <form bindsubmit='login' class="{{show_form?'show':'hide'}}">
-      <input name="username" placeholder="猪猪车用户名" value="{{username_value}}" />
-      <input name="password" password="true" placeholder="猪猪车密码" value="{{password_value}}" />
-      <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type="submit">提交</button>
-    </form>
-    <view class="{{show_profile?'show':'hide'}} profile">你好,{{name}}</view>
+  </form>
+</view>
+<view class="flex-container-user {{is_login?'show':'hide'}}">
+  <view class="info-wrap">
+    <view class="info">
+      <view class="portrait">
+        <image src="../../images/portrait.png" mode="aspectFit" ></image>
+      </view>
+      <view class="capital">
+        <view class = "flex-container-info">
+          <view class="username">{{user_name}}</view>
+          <!--<view class="linkText" catchtap='clickEditInfo'>编辑</view>-->
+        </view>
+        <view class="money">账户余额: ${{money}}</view>
+        <view wx:if="{{phone!=null}}">
+          <view class="money">电话: <span class="linkText" catchtap="updatePhone"> {{phone}}</span></view>
+        </view><view wx:else>
+          <view class="money">电话: <span class="linkText" catchtap="authPhone">未绑定</span></view>
+        </view>
+        <view wx:if="{{email!=null}}">
+          <view class="money">邮箱: <span class="linkText" catchtap="updateEmail"> {{email}}</span></view>
+        </view><view wx:else>
+          <view class="money">邮箱: <span class="linkText" catchtap="authEmail">未绑定</span></view>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+  <view class="charge">
+    <view class="row" hover-class="row-hover" bindtap="clickCharge">
+      <image src="../../images/card.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">充值</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+  <!--<view class="withdraw">
+    <view class="row" hover-class="row-hover" bindtap="clickWithdrawal">
+      <image src="../../images/card.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">提现</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>-->
+  <view class="order">
+    <view class="row" hover-class="row-hover" bindtap="clickOrder">
+      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">订单</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+  <view class="transition">
+    <view class="row" hover-class="row-hover" bindtap="clickTransition">
+      <image src="../../images/transition.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">流水</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+  <view class="referal">
+    <view class="row" hover-class="row-hover" bindtap="clickReferal">
+      <image src="../../images/referal.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">推荐</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+  <view class="about">
+    <view class="row" hover-class="row-hover" bindtap="clickVersion">
+      <image src="../../images/about.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">关于</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+  <view class="logout">
+    <view class="row" hover-class="row-hover" bindtap="clickLogout">
+      <image src="../../images/logout.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">退出登录</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
   </view>
 </view>

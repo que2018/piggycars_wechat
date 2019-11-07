@@ -1,0 +1,53 @@
+.flex-container {
+  display:flex;
+  flex-direction: column;
+}
+#ld-block {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+}
+.ld-img {
+  width: 110px;
+}
+.prow {
+  display:flex;
+  flex-direction: column;
+  padding: 20px 15px 20px 15px;
+  border-bottom:0.8px solid #ddd;
+}
+.prow-hover {
+  background: #efefef !important;
+}
+.prow2 {
+  display:flex;
+  flex-direction: row;
+}
+.column-name {
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+.column-money {
+  width: 45%;
+  color: #008254; 
+}
+.column-time {
+  width: 55%;
+  text-align: right;
+}
+.empty {
+  display:flex;
+  flex-direction: column;
+  padding: 15px 15px 15px 15px;
+  align-items:center;
+}
+.pbtn {
+  width: 70%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #008254 !important; 
+}
+

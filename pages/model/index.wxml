@@ -1,0 +1,26 @@
+<view class="flex-container">
+  <view class="row">
+    <view class="item" hover-class="item-hover" bindtap="clickArticle" data-tag="help">
+      <image src="../../images/help.png" mode="aspectFit" class="item-img"></image>
+      <view class="item-text">帮助中心</view>
+    </view>
+    <view class="item" hover-class="item-hover" bindtap="clickArticle" data-tag="corp">
+      <image src="../../images/corporate.png" mode="aspectFit" class="item-img"></image>
+      <view class="item-text">我要合作</view>
+    </view>
+    <view class="item" hover-class="item-hover" bindtap="clickArticle" data-tag="model">
+      <image src="../../images/model.png" mode="aspectFit" class="item-img"></image>
+      <view class="item-text">模式介绍</view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="item" hover-class="item-hover" bindtap="clickArticle" data-tag="about">
+      <image src="../../images/us.png" mode="aspectFit" class="item-img"></image>
+      <view class="item-text">关于我们</view>
+    </view>
+    <view class="item" hover-class="item-hover" bindtap="clickArticle" data-tag="news">
+      <image src="../../images/news.png" mode="aspectFit" class="item-img"></image>
+      <view class="item-text">新闻动态</view>
+    </view>
+  </view>
+</view>

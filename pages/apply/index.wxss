@@ -1,0 +1,61 @@
+.flex-container {
+  display:flex;
+  flex-direction: column;
+}
+#ld-block {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+}
+.ld-img {
+  width: 110px;
+}
+form {
+  width: 80vw;
+  display: block;
+  margin: 0 auto;
+  margin-top: 35vw;
+}
+.btn-submit {
+  width: 100%;
+  font-size: 18px;
+  margin-top: 30px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #008254 !important; 
+}
+input {    
+  font-size: 18px;
+  height: 50px;
+}
+.info {
+  background: #c1c1c1;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius:4px;
+  font-size: 15px;
+  line-height: 30px;
+}
+.input-groups {
+  margin-bottom: 20px;
+}
+.input-group {
+  display:flex;
+  flex-direction: row;
+  border-bottom: 1px solid #cccccc;
+}
+.input-group image {
+  width: 26px;
+  height: 26px;
+  margin-top: 12px;
+  margin-right: 6px;
+}
+.input-group.error {
+  border-bottom: 1rpx solid red;
+}
+.flex-container-modal {
+  width: 70vw;
+  margin: 0 auto;
+}

@@ -1,0 +1,26 @@
+.flex-container {
+  display:flex;
+  flex-direction: column;
+  padding: 3.5vw
+}
+.row {
+  display:flex;
+  flex-direction: row;
+}
+.item {
+  width: 31vw;
+  padding: 10px 0px 10px 0px;
+}
+.item-hover {
+  background: #efefef !important;
+}
+.item-img {
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+  display: block;
+}
+.item-text {
+  margin-top: 10px;
+  text-align: center;
+}

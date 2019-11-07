@@ -1,17 +1,40 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/index",
-    "pages/category_top/index",    
-    "pages/course/index",
-    "pages/course_detail/index",
+    "pages/project/index",
+    "pages/charge_option/index",
+    "pages/charge_card/index",
+    "pages/charge_success/index",
+    "pages/charge_fail/index",
+    "pages/apply/index",
+    "pages/apply_success/index",
+    "pages/order/index",
+    "pages/order_detail/index",
+    "pages/finance/index",
+    "pages/model/index",
     "pages/me/index",
-    "pages/logs/logs"
+	  "pages/register/index",
+    "pages/version/index",
+    "pages/logout/index",
+    "pages/logs/logs",
+    "pages/article/index",
+    "pages/article_detail/index",
+    "pages/referal/index",
+    "pages/withdrawal_error/index",
+    "pages/withdrawal/index",
+    "pages/authentic_name/index",
+    "pages/authentic_phone/index",
+    "pages/authentic_email/index",
+    "pages/update_phone/index",
+    "pages/update_email/index",
+    "pages/recharge_notify/index",
+    "pages/project_detail/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#f27d1d",
-    "navigationBarTitleText": "猪猪车",
-    "navigationBarTextStyle":"white",
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fc5861",
+    "navigationBarTitleText": "小猪有车",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#cccccc"
   },
   "tabBar": {
@@ -27,10 +50,16 @@
         "text": "首页"
       },
       {
-        "selectedIconPath": "images/car.png",
-        "iconPath": "images/car.png",
-        "pagePath": "pages/category_top/index",
-        "text": "车辆"
+        "selectedIconPath": "images/class.png",
+        "iconPath": "images/class.png",
+        "pagePath": "pages/project/index",
+        "text": "有车"
+      },
+      {
+        "selectedIconPath": "images/business_mode.png",
+        "iconPath": "images/business_mode.png",
+        "pagePath": "pages/model/index",
+        "text": "关于"
       },
       {
         "selectedIconPath": "images/me.png",
@@ -39,5 +68,6 @@
         "text": "我的"
       }
     ]
-  }  
+  },
+  "sitemapLocation": "sitemap.json"
 }

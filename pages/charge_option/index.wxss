@@ -1,0 +1,51 @@
+.flex-container {
+  display:flex;
+  flex-direction: column;
+}
+.form_method {
+  width: 70vw;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20vw;
+}
+.btn-submit {
+  width: 100%;
+  font-size: 18px;
+  margin-top: 30px;
+  height: 36px;
+  line-height: 36px;
+  background-color: #008254 !important; 
+}
+input {    
+  font-size: 18px;
+  height: 50px;
+}
+.methods {
+  display:flex;
+  flex-direction: row;
+  margin-top: 25px;
+}
+.method {
+  font-size: 18px;
+  flex-basis: 100%;
+}
+.input-groups {
+  margin-bottom: 20px;
+}
+.input-group {
+  display:flex;
+  flex-direction: row;
+  border-bottom: 1px solid #cccccc;
+}
+.input-group image {
+  width: 26px;
+  height: 26px;
+  margin-top: 12px;
+  margin-right: 6px;
+}
+.info{
+  width: 70vw;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5vw;
+}
