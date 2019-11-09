@@ -1,93 +1,39 @@
-.flex-container {
+.container {
   display:flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  padding: 3vw;
 }
-#ld-block{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content:center; 
-    align-items:center;
-}
-.ld-img {
-  width: 110px;
-}
-.project-wrap {
-  padding: 15px 0px 20px 0px;
-}
-.project {
-  display:flex;
-  flex-direction: column;
-  width: 82vw;
-  margin: 0 auto;
-}
-.project-hover {
-  background: #efefef !important;
-}
-.pimg {
+.car-wrap {
   width: 100%;
-  display: block;
 }
-.pname {
-  width: 100%;
-  display: block;
-  text-align: left;
-  font-size: 20px;
-  padding-bottom: 10px;
-  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+.make {
+
 }
-.pbtn {
-  width: 100%;
-  height: 36px;
-  line-height: 36px;
+.model {
+  font-weight: bold;
 }
-.pbtn-enable {
-  background-color: #008254 !important; 
+.year {
+
 }
-.pbtn_disable {
-  background-color: #81c884 !important; 
+.month-pay-tx {
+
 }
-.pbtn_pending {
-  background-color: #8ac73c !important;
+.mileeage {
+
 }
-.tags {
-  display:flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-bottom: 16px;
+.caption .left {
+  display: inline-block;
+  width: 59%;
 }
-.tag {
-  font-size: 13px;
-  border-radius: 3px;
-  padding: 4px 6px;
-  color: #fff;
-  margin-right: 2px;
+.caption .right {
+  display: inline-block;
+  width: 39%;
 }
-.interest {
-  background: #1d3687;
+.car-padding {
+  height: 20px;
+  background: grey;
 }
-.months {
-  background: #e5ca30;
-  margin-left: 8px;
-}
-.percent {
-  display:flex;
-  flex-direction: column;
-}
-.percent_line {
-  background: #8be67b;
-  height: 8rpx;
-  margin-bottom: 16px;
-}
-.percent_number {
-  display:flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-.finish_percentage{
-  background: green;
-  height:8rpx;
-  position: absolute;
-  z-index: 0;
-}
+
+
+
+

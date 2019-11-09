@@ -1,11 +1,9 @@
 
-var util = require('../../utils/util.js');
 var app = getApp();
 
 Page({
   data: {
-    projects: "",
-    base_url: app.globalData.BASE_URL,
+    cars: "",
     show_loading: true
   },
   onLoad: function (options) {
@@ -15,31 +13,40 @@ Page({
     var that = this;
 
     wx.request({
-      url: app.globalData.API_PROJECT,
-      complete: function (res) {
-        if (!res.data.data){
-          for (var i = 0; i < res.data.data.length; i++) {
-            var new_time = util.formatTimeWithFormat(res.data.data[i].b_time, 'h:m');
-            res.data.data[i].b_time = new_time;
-          }
-        }
-        
-        that.setData({
-          show_loading: false,
-          projects: res.data.data
-        })
-        wx.hideNavigationBarLoading()
-        wx.stopPullDownRefresh()
-      },
-    });
-
-    wx.request({
       url: app.globalData.API_CARS,
       complete: function (res) {
-        console.log(res);
-      },
-    });
+        if (res.data.success) {
+          var cars = [];
 
+          for (var i = 0; i < res.data.data.items.length; i++) {
+            var car = new Object();
+            let item = res.data.data.items[i];
+
+            car.id = item.id;
+            car.carId = item.carId;
+            car.year = item.year;
+            car.make = decodeURIComponent(item.make);
+            car.model = decodeURIComponent(item.model);
+            car.mileage = item.mileage
+            car.monthlyPayment = item.monthly_payment
+            car.city = item.location.city
+
+            let images = item.car_images;
+            car.image = app.globalData.API_RES + "/lg/" + images[0].value;
+
+            cars.push(car);
+          }
+
+          that.setData({
+            show_loading: false,
+            cars: cars
+          });
+        }
+
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      }
+    });
   },
   clickProject: function (event) {
     var project_id = event.currentTarget.dataset.project_id

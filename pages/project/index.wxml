@@ -1,33 +1,26 @@
-<view class="flex-container">
+<view class="container">
   <view id="ld-block" class="{{show_loading?'show':'hide'}} ">
     <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
   </view>
-  <view>
-    <block wx:for="{{projects}}" wx:key="project">
-      <view class="project-wrap" hover-class="project-hover">
-        <view class="project">
-          <view>
-            <image src="{{base_url + item.image}}" mode="aspectFit" class="pimg" bindtap="clickProject" data-project_id="{{item.id}}"></image>
-            <view class="pname">{{item.names}}</view>
-          </view>
-          <view class="tags">
-            <view class="tag interest">回报率:{{item.interest}}%</view>
-            <view class="tag months">期限:{{item.deadline_month}}个月</view>
-          </view>
-          <view class="percent">
-            <view class="percent_number">{{item.finish_percentage}}%</view>
-            <view class="percent_line"><view class="finish_percentage" style="width:{{item.finish_percentage*0.82}}vw;"></view></view>
-          </view>
-          <!--<view wx:if="{{item.status == 3}}">
-            <button type="primary" class="pbtn pbtn-enable" size="default" bindtap="clickApply" data-project_id="{{item.id}}">申购</button>
-          </view><view wx:elif="{{item.status == 2}}">
-            <button type="primary" disabled = true hover-class="none" class="pbtn pbtn-pending" size="default">{{item.b_time}}发布</button>
-          </view><view wx:elif="{{item.status == 7}}">
-            <button type="primary" disabled = true hover-class="none" class="pbtn pbtn-disable" size="default">项目过期</button>
-          </view><view wx:else>
-            <button type="primary" disabled = true hover-class="none" class="pbtn pbtn-disable" size="default">项目成功</button>
-          </view>-->
+  <view class="car-wrap">
+    <block wx:for="{{cars}}" wx:key="car">
+      <view class="car">
+        <view>
+          <image src="{{item.image}}" mode="aspectFit" class="pimg" bindtap="clickCar" data-project_id="{{item.id}}"></image>
         </view>
+        <view class="caption">
+          <view class="left">
+            <view class="make">{{item.year}} {{item.make}}</view>
+            <view class="model">{{item.model}}</view>
+            <view class="pickup">在{{item.city}}取车</view>
+          </view>
+          <view class="right">
+            <view class="month-pay-tx">月租金</view>
+            <view class="month-pay">${{item.monthlyPayment}}</view>
+            <view class="mileeage">里程:{{item.mileage}}mil</view>
+          </view>
+        </view>
+        <view class="car-padding"></view>
       </view>
     </block>
   </view>

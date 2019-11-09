@@ -56,7 +56,9 @@ App({
     API_APPLY_EMAIL_CHECK: "https://touacar.com/api/index.php/apply/check_email",
     BASE_URL: "https://touacar.com/",
 
+    API_RES: "https://piggycars.com/assets/image/car",
     API_CARS: "https://piggycars.com/api/catalog/vehicle/get_list",
+
   },
   onLaunch(options) {
     wx.hideTabBar({
