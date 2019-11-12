@@ -50,14 +50,14 @@
         "text": "首页"
       },
       {
-        "selectedIconPath": "images/class.png",
-        "iconPath": "images/class.png",
+        "selectedIconPath": "images/car.png",
+        "iconPath": "images/car.png",
         "pagePath": "pages/project/index",
         "text": "有车"
       },
       {
-        "selectedIconPath": "images/business_mode.png",
-        "iconPath": "images/business_mode.png",
+        "selectedIconPath": "images/news.png",
+        "iconPath": "images/news.png",
         "pagePath": "pages/model/index",
         "text": "关于"
       },

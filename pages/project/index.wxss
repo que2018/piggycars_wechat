@@ -1,25 +1,33 @@
 .container {
   display:flex;
   flex-direction: column;
-  padding: 3vw;
+  padding: 0vw;
 }
 .car-wrap {
   width: 100%;
 }
-.make {
-
+.mimg {
+  width: 100vw;
+  height: 75vw;
 }
 .model {
+  font-size: 19px;
   font-weight: bold;
 }
-.year {
-
-}
 .month-pay-tx {
-
+  text-align: right;
 }
-.mileeage {
-
+.month-pay {
+  color: #fc5861;
+  text-align: right;
+  font-weight: bold;
+  font-size: 17px;
+}
+.mileage {
+  text-align: right;
+}
+.caption {
+  padding: 0px 15px 15px 15px;
 }
 .caption .left {
   display: inline-block;
@@ -31,7 +39,7 @@
 }
 .car-padding {
   height: 20px;
-  background: grey;
+  background: #dbdbdb;
 }
 
 

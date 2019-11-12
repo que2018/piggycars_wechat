@@ -48,25 +48,11 @@ Page({
       }
     });
   },
-  clickProject: function (event) {
-    var project_id = event.currentTarget.dataset.project_id
-
-    wx.navigateTo({
-      url: '../project_detail/index?project_id=' + project_id
-    });
+  clickCar: function (event) {
+    
   },
-  clickApply: function (event) {
-    if (app.globalData.is_login) {
-      var project_id = event.currentTarget.dataset.project_id
-
-      wx.navigateTo({
-        url: '../apply/index?project_id=' + project_id
-      });
-    } else {
-      wx.switchTab({
-        url: '../me/index'
-      });
-    }
+  scroll: function (event) {
+    console.log("fire up in the end .... ");
   },
   onPullDownRefresh: function () {
     this.loadData();  

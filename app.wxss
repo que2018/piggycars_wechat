@@ -10,6 +10,16 @@ view {
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+#ld-block {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+}
+.ld-img {
+  width: 110px;
+}
 .show {
  display: flex !important;
 }
