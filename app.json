@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/home/index",
-    "pages/project/index",
+    "pages/car_list/index",
+	"pages/car_detail/index",
     "pages/charge_option/index",
     "pages/charge_card/index",
     "pages/charge_success/index",
@@ -52,7 +53,7 @@
       {
         "selectedIconPath": "images/car.png",
         "iconPath": "images/car.png",
-        "pagePath": "pages/project/index",
+        "pagePath": "pages/car_list/index",
         "text": "有车"
       },
       {

@@ -58,7 +58,7 @@ App({
 
     API_RES: "https://piggycars.com/assets/image/car",
     API_CARS: "https://piggycars.com/api/catalog/vehicle/get_list",
-
+    API_CAR: "https://piggycars.com/api/catalog/vehicle",
   },
   onLaunch(options) {
     wx.hideTabBar({

@@ -7,7 +7,7 @@
       <block wx:for="{{cars}}" wx:key="car">
         <view class="car">
           <view>
-            <image src="{{item.image}}" mode="aspectFit" class="mimg" bindtap="clickCar" data-project_id="{{item.id}}"></image>
+            <image src="{{item.image}}" mode="aspectFit" class="mimg" bindtap="clickCar" data-id="{{item.id}}"></image>
           </view>
           <view class="caption">
             <view class="left">

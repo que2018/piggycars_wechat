@@ -49,7 +49,11 @@ Page({
     });
   },
   clickCar: function (event) {
-    
+    var id = event.currentTarget.dataset.id;
+
+    wx.navigateTo({
+      url: '../car_detail/index?id=' + id
+    });
   },
   scroll: function (event) {
     console.log("fire up in the end .... ");
