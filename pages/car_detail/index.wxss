@@ -9,31 +9,100 @@
 }
 .info {
   width: 100vw;
-  height: 50vw;
+}
+.info-inner {
+  padding: 20px;
+}
+.make {
+  font-size: 15px;
+}
+.model {
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 30px;
+}
+.city {
+  font-size: 15px;
+  color: #888888;
+}
+.mil {
+  float: right;
+  font-size: 15px;
+  color: #888888;
 }
 .spec {
   width: 100vw;
-  height: 50vw;
+}
+.spec-title {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: bold;
+}
+.spec-key {
+  display: inline-block;
+  font-size: 15px;
+  width: 25vw;
+}
+.spec-value {
+  display: inline-block;
+  font-size: 15px;
+  color: #888888;
+}
+.spec-inner {
+  padding:20px;
 }
 .feature {
   width: 100vw;
-  height: 50vw;
+}
+.feature-inner {
+  padding:20px;
+}
+.feature-title {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: bold;
+}
+.feature-item {
+  font-size: 15px;
+  color: #888888;
 }
 .benifit {
   width: 100vw;
-  height: 50vw;
+}
+.benifit-inner {
+  padding:20px;
+}
+.benifit-title {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: bold;
+}
+.benifit-item {
+  font-size: 15px;
+  color: #888888;
 }
 .map {
   width: 100vw;
-  height: 50vw;
+  height: 60vw;
+}
+map {
+  width: 100%;
+  height: 100%;
 }
 .period {
   width: 100vw;
-  height: 50vw;
 }
 .contact {
   width: 100vw;
-  height: 50vw;
+}
+.contact-inner {
+  padding: 20px;
+  font-size: 15px;
+  color: #888888;
+  text-align: center;
+}
+.res-placeholder {
+  height: 80px;
 }
 .res {
   height: 80px;
@@ -45,6 +114,7 @@
   align-items: center;
   justify-content: center;
   border-top: 1px solid #ebebeb;
+  z-index: 1000;
 }
 .res-btn {
   color: white;

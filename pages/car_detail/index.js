@@ -13,6 +13,8 @@ Page({
     style: "",
     vin: "",
     city: "",
+    lat: "",
+    lng: "",
     transmission: "",
     engine: "",
     drivetrain: "",
@@ -20,7 +22,8 @@ Page({
     interior_color: "",
     car_features: [],
     car_images: [],
-    show_loading: true
+    show_loading: true,
+    markers: [],
   },
   onLoad: function (options) {
     this.setData({
@@ -53,6 +56,8 @@ Page({
           style: res.data.data.style,
           vin: res.data.data.vin,
           city: res.data.data.location.city,
+          lat: res.data.data.location.lat,
+          lng: res.data.data.location.lng,
           transmission: res.data.data.transmission,
           car_features: res.data.data.car_features,
           passenger: res.data.data.passenger,
@@ -60,8 +65,18 @@ Page({
           drivetrain: res.data.data.drivetrain,
           exterior_color: res.data.data.exterior_color,
           interior_color: res.data.data.interior_color,
-          car_images: car_images
+          car_images: car_images,
+          markers: [{
+            iconPath: "../../images/map.png",
+            id: 0,
+            latitude: res.data.data.location.lat,
+            longitude: res.data.data.location.lng,
+            width: 30,
+            height: 30
+          }],
         });
+
+        console.log(that.data)
       }
     });
   }
