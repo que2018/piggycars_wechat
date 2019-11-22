@@ -1,5 +1,0 @@
-<view class="flex-container">
-  <view class="title">通知</view>
-  <view class="note">投个车的启投金额是$100。您现在的余额是<span class="balance">${{balance}}</span>。您可以先进行充值。充值完成后方可申购。</view>
-  <button type="primary" class="btn-recharge" size="default" loading="{{loading}}" bindtap="clickRecharge">充值</button>
-</view>

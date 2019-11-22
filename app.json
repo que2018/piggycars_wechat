@@ -3,33 +3,7 @@
     "pages/home/index",    
     "pages/car_list/index",
 	  "pages/car_detail/index",
-    "pages/charge_option/index",
-    "pages/charge_card/index",
-    "pages/charge_success/index",
-    "pages/charge_fail/index",
-    "pages/apply/index",
-    "pages/apply_success/index",
-    "pages/order/index",
-    "pages/order_detail/index",
-    "pages/finance/index",
-    "pages/model/index",
-    "pages/me/index",
-	  "pages/register/index",
-    "pages/version/index",
-    "pages/logout/index",
-    "pages/logs/logs",
-    "pages/article/index",
-    "pages/article_detail/index",
-    "pages/referal/index",
-    "pages/withdrawal_error/index",
-    "pages/withdrawal/index",
-    "pages/authentic_name/index",
-    "pages/authentic_phone/index",
-    "pages/authentic_email/index",
-    "pages/update_phone/index",
-    "pages/update_email/index",
-    "pages/recharge_notify/index",
-    "pages/project_detail/index"
+    "pages/me/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -59,7 +33,7 @@
       {
         "selectedIconPath": "images/news.png",
         "iconPath": "images/news.png",
-        "pagePath": "pages/model/index",
+        "pagePath": "pages/home/index",
         "text": "关于"
       },
       {

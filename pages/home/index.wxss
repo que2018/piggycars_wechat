@@ -1,1 +1,72 @@
-/* pages/home/index.wxss */
+.flex-container {
+  display:flex;
+  flex-direction: column;
+}
+.pimg {
+  width: 100%;
+  display: block;
+}
+.pname {
+  width: 100%;
+  display: block;
+  text-align: left;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+.pbtn {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  background-color: #008254 !important; 
+}
+.tags {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.percent {
+  display:flex;
+  flex-direction: column;
+}
+.percent_line {
+  background: #8be67b;
+  height: 8rpx;
+  margin-bottom: 16px;
+}
+.percent_number {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.finish_percentage{
+  background: green;
+  height:8rpx;
+  position: absolute;
+  z-index: 0;
+}
+
+.tag {
+  font-size: 13px;
+  border-radius: 3px;
+  padding: 4px 6px;
+  color: #fff;
+  margin-right: 2px;
+}
+.interest {
+  background: #1d3687;
+}
+.months {
+  background: #e5ca30;
+  margin-left: 8px;
+}
+.process-img {
+  width: 100vw;
+  height: 125vw;
+  background: #f6f6f6;
+}
+.qa-img {
+  width: 100vw;
+  height: 898vw;
+  margin-bottom: 50px;
+}

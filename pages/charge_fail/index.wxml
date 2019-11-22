@@ -1,8 +1,0 @@
-<view class="flex-container">
-  <view><image src="../../images/logo.png" class="logo"></image></view>
-  <view class="info">
-    <view class="note">错误</view>
-    <view class="msg">{{msg}}</view>
-  </view>
-  <button type="primary" class="btn-return" size="default"  bindtap="clickReturn">返回</button>
-</view>

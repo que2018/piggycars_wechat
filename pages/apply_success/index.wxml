@@ -1,9 +1,0 @@
-<view class="flex-container">
-  <view><image src="../../images/logo.png" class="logo"></image></view>
-  <view class="info">
-    <view class="note">投车成功</view>
-    <view class="amount">${{amount}}</view>
-  </view>
-  <button type="primary" class="btn-return" size="default"  bindtap="clickReturn">返回</button>
-  <button type="primary" class="btn-return" size="default"  bindtap="clickOrderDetail">查看订单</button>
-</view>

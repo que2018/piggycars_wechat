@@ -1,2 +1,11 @@
-<!--pages/home/index.wxml-->
-<text>pages/home/index.wxml</text>
+<view class="flex-container">
+  <view id='banner'>
+    <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" autoplay="true" circular="true" style="width:100vw;height:51.4vw;">
+      <block wx:for="{{sliders}}" wx:key="slider">
+        <swiper-item>
+          <image src='{{item}}' bindtap="clickSlier" mode="aspectFill" style="width:100%; height:100%;" />
+        </swiper-item> 
+      </block>
+    </swiper>
+  </view>
+</view>
