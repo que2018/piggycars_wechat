@@ -55,10 +55,10 @@
     </view>
     <view class="placeholder"></view>
   </view>
-  <cover-view class="map"> 
-    <map id="map" longitude="{{lng}}" latitude="{{lat}}" scale="11" markers="{{markers}}"></map>
+  <view class="map"> 
+    <image src='' mode="aspectFill" class="map-img" />
     <view class="placeholder"></view>
-  </cover-view>
+  </view>
   <view class="period">
     <view>period</view>
     <view class="placeholder"></view>

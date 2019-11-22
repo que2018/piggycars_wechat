@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/home/index",
+    "pages/home/index",    
     "pages/car_list/index",
-	"pages/car_detail/index",
+	  "pages/car_detail/index",
     "pages/charge_option/index",
     "pages/charge_card/index",
     "pages/charge_success/index",

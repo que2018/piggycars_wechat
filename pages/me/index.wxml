@@ -6,15 +6,15 @@
     <view class="input-groups">
       <view class="input-group">
         <image src="../../images/user.png"></image>
-        <input name="user_name" placeholder="邮箱 / 电话 / 用户名" value="{{user_name}}" />
+        <input name="user_name" placeholder="邮箱" value="{{user_name}}" />
       </view>
       <view class="input-group">
         <image src="../../images/pass.png"></image>
-        <input name="password" password="true" placeholder="登录密码" value="{{password}}" />
+        <input name="password" password="true" placeholder="密码" value="{{password}}" />
       </view>
     </view>
     <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>登录</button>
-    <view class="register" hover-class="register-hover" bindtap="clickRegister">注册投个车用户</view>
+    <view class="register" hover-class="register-hover" bindtap="clickRegister">注册小猪有车</view>
     <view class="version">{{version}}</view>
   </form>
 </view>

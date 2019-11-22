@@ -24,7 +24,7 @@ form {
   margin-top: 30px;
   height: 40px;
   line-height: 40px;
-  background-color: #008254 !important; 
+  background-color: #fc5861 !important; 
 }
 input {    
   font-size: 18px;
@@ -126,11 +126,11 @@ input {
 .version {
   text-align: center;
   font-size: 15px;
-  color: #008254;
+  color: #fc5861;
   margin-top: 10px;
 }
 .linkText {
-  color: #008254;
+  color: #fc5861;
 }
 .flex-container-info {
   display:flex;
