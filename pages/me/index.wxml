@@ -5,17 +5,16 @@
   <form bindsubmit='login'>
     <view class="input-groups">
       <view class="input-group">
-        <image src="../../images/user.png"></image>
-        <input name="user_name" placeholder="邮箱" value="{{user_name}}" />
+        <input name="username" placeholder="请输入邮箱" value="{{user_name}}" />
+        <image src="../../images/mail.png"></image>
       </view>
       <view class="input-group">
+        <input name="password" password="true" placeholder="请输入密码" value="{{password}}" />
         <image src="../../images/pass.png"></image>
-        <input name="password" password="true" placeholder="密码" value="{{password}}" />
       </view>
     </view>
     <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>登录</button>
     <view class="register" hover-class="register-hover" bindtap="clickRegister">注册小猪有车</view>
-    <view class="version">{{version}}</view>
   </form>
 </view>
 <view class="flex-container-user {{is_login?'show':'hide'}}">
@@ -27,62 +26,29 @@
       <view class="capital">
         <view class = "flex-container-info">
           <view class="username">{{user_name}}</view>
-          <!--<view class="linkText" catchtap='clickEditInfo'>编辑</view>-->
-        </view>
-        <view class="money">账户余额: ${{money}}</view>
-        <view wx:if="{{phone!=null}}">
-          <view class="money">电话: <span class="linkText" catchtap="updatePhone"> {{phone}}</span></view>
-        </view><view wx:else>
-          <view class="money">电话: <span class="linkText" catchtap="authPhone">未绑定</span></view>
-        </view>
-        <view wx:if="{{email!=null}}">
-          <view class="money">邮箱: <span class="linkText" catchtap="updateEmail"> {{email}}</span></view>
-        </view><view wx:else>
-          <view class="money">邮箱: <span class="linkText" catchtap="authEmail">未绑定</span></view>
-        </view>
-        
+        </view>  
+        <view class="money">邮箱: <span class="linkText" catchtap="authEmail">未绑定</span></view>
       </view>
     </view>
   </view>
-  <view class="charge">
-    <view class="row" hover-class="row-hover" bindtap="clickCharge">
-      <image src="../../images/card.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">充值</span>
+  <view class="order">
+    <view class="row" hover-class="row-hover" bindtap="clickOrder">
+      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">地址</span>
       <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
     </view>
   </view>
-  <!--<view class="withdraw">
-    <view class="row" hover-class="row-hover" bindtap="clickWithdrawal">
-      <image src="../../images/card.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">提现</span>
+  <view class="order">
+    <view class="row" hover-class="row-hover" bindtap="clickOrder">
+      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">驾照</span>
       <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
     </view>
-  </view>-->
+  </view>
   <view class="order">
     <view class="row" hover-class="row-hover" bindtap="clickOrder">
       <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
       <span class="ele-text">订单</span>
-      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
-    </view>
-  </view>
-  <view class="transition">
-    <view class="row" hover-class="row-hover" bindtap="clickTransition">
-      <image src="../../images/transition.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">流水</span>
-      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
-    </view>
-  </view>
-  <view class="referal">
-    <view class="row" hover-class="row-hover" bindtap="clickReferal">
-      <image src="../../images/referal.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">推荐</span>
-      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
-    </view>
-  </view>
-  <view class="about">
-    <view class="row" hover-class="row-hover" bindtap="clickVersion">
-      <image src="../../images/about.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">关于</span>
       <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
     </view>
   </view>

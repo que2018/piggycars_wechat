@@ -32,7 +32,7 @@ Page({
             car.city = item.location.city
 
             let images = item.car_images;
-            car.image = app.globalData.API_RES + "/lg/" + images[0].value;
+            car.image = app.globalData.API_RES + "/car/lg/" + images[0].value;
 
             cars.push(car);
           }

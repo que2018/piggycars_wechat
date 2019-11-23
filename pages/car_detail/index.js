@@ -43,7 +43,7 @@ Page({
         var car_images = [];
 
         for(var index in res.data.data.car_images) {
-          car_images.push(app.globalData.API_RES + "/lg/" + res.data.data.car_images[index]);
+          car_images.push(app.globalData.API_RES + "/car/lg/" + res.data.data.car_images[index]);
         }
 
         that.setData({

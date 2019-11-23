@@ -3,6 +3,8 @@
     "pages/home/index",    
     "pages/car_list/index",
 	  "pages/car_detail/index",
+    "pages/article_list/index",
+    "pages/article_detail/index",    
     "pages/me/index"
   ],
   "window": {
@@ -33,7 +35,7 @@
       {
         "selectedIconPath": "images/news.png",
         "iconPath": "images/news.png",
-        "pagePath": "pages/home/index",
+        "pagePath": "pages/article_list/index",
         "text": "关于"
       },
       {

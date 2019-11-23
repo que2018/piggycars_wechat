@@ -17,6 +17,8 @@ form {
   display: block;
   margin: 0 auto;
   margin-top: 35vw;
+  padding: 20px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
 .btn-submit {
   width: 100%;
@@ -24,7 +26,7 @@ form {
   margin-top: 30px;
   height: 40px;
   line-height: 40px;
-  background-color: #fc5861 !important; 
+  background: linear-gradient(90deg, rgba(242,72,145,1) 0%, rgba(253,79,80,1) 50%);
 }
 input {    
   font-size: 18px;
@@ -42,7 +44,7 @@ input {
   width: 26px;
   height: 26px;
   margin-top: 12px;
-  margin-right: 6px;
+  margin-left: auto;
 }
 .flex-container-user {
   display:flex;
@@ -122,12 +124,6 @@ input {
 }
 .register-hover {
   background: #efefef !important;
-}
-.version {
-  text-align: center;
-  font-size: 15px;
-  color: #fc5861;
-  margin-top: 10px;
 }
 .linkText {
   color: #fc5861;

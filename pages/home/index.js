@@ -12,8 +12,8 @@ Page({
     var that = this;
 
     var sliders = [];
-    let slider1 = "https://piggycars.com/assets/image/slider1.jpg";
-    let slider2 = "https://piggycars.com/assets/image/slider2.jpg";
+    let slider1 = app.globalData.API_RES + "/slider1.jpg";
+    let slider2 = app.globalData.API_RES + "/slider2.jpg";
 
     sliders.push(slider1);
     sliders.push(slider2);
