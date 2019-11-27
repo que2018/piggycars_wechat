@@ -1,0 +1,6 @@
+<view>
+  <view class="t1"><image src="../../images/logo.png" mode="aspectFit" class="logo-img"></image></view>
+  <view class="t2">如果您有问题，欢迎发邮件或者电话咨询我们</view>
+  <view class="t3">电子邮箱:info@piggycars.com</view>
+  <view class="t4">电话:(949)-350-6186</view>
+</view>

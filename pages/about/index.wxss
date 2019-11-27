@@ -1,0 +1,12 @@
+.article {
+  padding: 15px;
+}
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+}
+.content {
+
+}

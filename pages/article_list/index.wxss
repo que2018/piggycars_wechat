@@ -1,11 +1,7 @@
-.container {
+.flex-container {
   display:flex;
   flex-direction: column;
-  padding: 3vw;
-}
-.aimage {
-  width:100%;
-  height: 64vw;
+  padding: 15px;
 }
 .atitle {
   display:flex;
@@ -23,11 +19,9 @@
   width: 18px;
   margin-right: 8px;
 }
-
 .car-wrap {
   width: 100%;
 }
-
 .caption .left {
   display: block;
   width: 59%;

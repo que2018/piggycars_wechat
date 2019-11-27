@@ -81,13 +81,26 @@
   font-size: 15px;
   color: #888888;
 }
-.map-img {
-  width: 100vw;
-  height: 60vw;
+.bf-check {
+  display:inline-block;
+  width: 14px;
+  height: 14px;
 }
-map {
+.bf-img {
   width: 100%;
   height: 100%;
+}
+.bf-text {
+  display:inline-block;
+  padding-left: 6px;
+}
+.map-inner {
+  width: 100vw;
+  height: 60vw;
+  background-image: url("https://debug.piggycars.com/assets/image/map.jpg");
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
 }
 .period {
   width: 100vw;
@@ -99,7 +112,6 @@ map {
 }
 .period-left {
   width:50vw;
-  background: red;
 }
 .period-right {
   width: 50vw;
@@ -138,9 +150,66 @@ map {
   border-radius: 3px;
   background: linear-gradient(90deg, rgba(242,72,145,1) 0%, rgba(253,79,80,1) 50%);
 }
-
-
-
+.monthp {
+  height: 45px;
+  margin-top: 15px;
+  line-height: 45px;
+}
+.monthp-t1 {
+  float: left;
+  color: #f55a7a;
+  font-weight:bold;
+  line-height: 35px;
+  padding-left: 25%;
+}
+.monthp-t2 {
+  float: left;
+  color: #f55a7a;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 5px;
+}
+.monthp-t3 {
+  float: left;
+  color: #888888;
+  padding-left: 10px;
+}
+.monthp-t4 {
+  float: left;
+  color: #888888;
+  padding-left: 5px;
+}
+.downp {
+  height: 25px;
+  line-height: 25px;
+  margin-bottom: 35px;
+}
+.downp-t1 {
+  float: left;
+  color: #888888;
+  padding-left: 25%;
+}
+.downp-t2 {
+  float: left;
+  color: #888888;
+  padding-left: 6px;
+}
+.picker-t {
+  height: 50px;
+  position: relative;
+}  
+.picker-t-inner {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  color: #f55a7a;
+  text-align: center;
+}
+.picker-c {
+  height: 50px;
+  color: #f55a7a;
+  text-align: center;
+}
 
 
 

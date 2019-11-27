@@ -11,14 +11,35 @@
 .flex-container-login {
   display:flex;
   flex-direction: column;
+  height: 100vh;
+  background-image: url("https://debug.piggycars.com/assets/image/login_bg.jpg");
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
 }
-form {
-  width: 70vw;
+.logo {
+  width: 60vw;
+  height: 12vw;
   display: block;
   margin: 0 auto;
-  margin-top: 35vw;
-  padding: 20px;
+  margin-top: 18vw;
+}
+.logo image {
+  width: 100%;
+  height: 100%;
+}
+form {
+  width: 80vw;
+  height: 85vw;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 10vw;
+  background: #ffffff;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+.form-inner {
+  padding: 20px 20px 0px 20px;
 }
 .btn-submit {
   width: 100%;
@@ -28,12 +49,26 @@ form {
   line-height: 40px;
   background: linear-gradient(90deg, rgba(242,72,145,1) 0%, rgba(253,79,80,1) 50%);
 }
+.reg-l {
+  width: 40vw;
+  display: inline-block;
+  text-align: right;
+  color: #888888;
+  font-size: 13px;
+}
+.reg-r {
+  width: 40vw;
+  display: inline-block;
+  text-align: left;
+  color: #fc5861;
+  font-size: 13px;
+}
 input {    
   font-size: 18px;
   height: 50px;
 }
 .input-groups {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 .input-group {
   display:flex;
@@ -121,6 +156,9 @@ input {
   text-align: center;
   padding: 6px 0px;
   margin-top: 2px;
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
 }
 .register-hover {
   background: #efefef !important;

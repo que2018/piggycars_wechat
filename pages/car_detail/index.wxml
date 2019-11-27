@@ -46,28 +46,66 @@
     <view class="benifit-inner">
       <view class="benifit-title">车辆特征</view>
       <view>
-        <view class="benifit-item">特别优惠</view>
-        <view class="benifit-item">车辆维护</view>
-        <view class="benifit-item">道路救援</view>
-        <view class="benifit-item">车辆注册</view>
-        <view class="benifit-item">附加驾驶员</view>
+        <view class="benifit-item">
+          <view class="bf-check">
+            <image src="../../images/check.png" mode="aspectFit" class="bf-img"></image>
+          </view>
+          <view class="bf-text">特别优惠</view>
+        </view>
+        <view class="benifit-item">
+          <view class="bf-check">
+            <image src="../../images/check.png" mode="aspectFit" class="bf-img"></image>
+          </view>
+          <view class="bf-text">车辆维护</view>
+        </view>
+        <view class="benifit-item">
+          <view class="bf-check">
+            <image src="../../images/check.png" mode="aspectFit" class="bf-img"></image>
+          </view>
+          <view class="bf-text">道路救援</view>
+        </view>
+        <view class="benifit-item">
+          <view class="bf-check">
+            <image src="../../images/check.png" mode="aspectFit" class="bf-img"></image>
+          </view>
+          <view class="bf-text">车辆注册</view>
+        </view>
+        <view class="benifit-item">
+          <view class="bf-check">
+            <image src="../../images/check.png" mode="aspectFit" class="bf-img"></image>
+          </view>
+          <view class="bf-text">附加驾驶员</view>
+        </view>
       </view>
     </view>
     <view class="placeholder"></view>
   </view>
-  <view class="map"> 
-    <image src='' mode="aspectFill" class="map-img" />
+  <!--<view class="map"> 
+    <view class="map-inner"></view>
     <view class="placeholder"></view>
-  </view>
+  </view>-->
   <view class="period">
     <view class="period-inner">
       <view class="period-left">
-        <view>${{down_payment}}</view>
-        <view>${{monthly_payment}}</view>
+        <view class="monthp">
+          <view class="monthp-t1">$</view>
+          <view class="monthp-t2">{{down_payment}}</view>
+          <view class="monthp-t3">/</view>
+          <view class="monthp-t4">月</view>
+        </view>
+        <view class="downp">
+          <view class="downp-t1">订阅费:</view>
+          <view class="downp-t2">${{monthly_payment}}</view>
+        </view>
       </view>
       <view class="period-right">
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{payment_months}}">
-          <view class="picker">{{payment_months[11]}}</view>
+          <view class="picker">
+            <view class="picker-t">
+              <view class="picker-t-inner">选择月数</view>
+            </view>
+            <view class="picker-c">{{payment_months[11]}}</view>
+          </view>
         </picker>
       </view>
     </view>

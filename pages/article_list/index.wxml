@@ -1,6 +1,6 @@
 <view class="flex-container">
   <block wx:for="{{articles}}" wx:key="article">
-    <view class="article" hover-class="article-hover" bindtap="clickArticle" data-article_id="{{item.id}}">
+    <view class="article" hover-class="article-hover" bindtap="clickArticle" data-code="{{item.code}}">
       <view class="atitle">
         <image src="../../images/dot.png" mode="aspectFit" class="adot"></image>
         <view>{{item.title}}</view>

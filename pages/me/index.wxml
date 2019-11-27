@@ -2,19 +2,27 @@
   <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
 </view>
 <view class="flex-container-login {{is_login?'hide':'show'}}">
+  <view class="logo">   
+    <image src="../../images/logo_long.png"></image>
+  </view>
   <form bindsubmit='login'>
-    <view class="input-groups">
-      <view class="input-group">
-        <input name="username" placeholder="请输入邮箱" value="{{user_name}}" />
-        <image src="../../images/mail.png"></image>
+    <view class="form-inner">
+      <view class="input-groups">
+        <view class="input-group">
+          <input name="username" placeholder="请输入邮箱" value="{{user_name}}" />
+          <image src="../../images/mail.png"></image>
+        </view>
+        <view class="input-group">
+          <input name="password" password="true" placeholder="请输入密码" value="{{password}}" />
+          <image src="../../images/pass.png"></image>
+        </view>
       </view>
-      <view class="input-group">
-        <input name="password" password="true" placeholder="请输入密码" value="{{password}}" />
-        <image src="../../images/pass.png"></image>
-      </view>
+      <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>登录</button>
     </view>
-    <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>登录</button>
-    <view class="register" hover-class="register-hover" bindtap="clickRegister">注册小猪有车</view>
+    <view class="register" hover-class="register-hover" bindtap="clickRegister">
+      <view class="reg-l">没有账号?</view>
+      <view class="reg-r">快来注册吧!</view>
+    </view>
   </form>
 </view>
 <view class="flex-container-user {{is_login?'show':'hide'}}">
