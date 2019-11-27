@@ -8,7 +8,8 @@
     "pages/about/index",
     "pages/fee/index",
     "pages/contact/index",
-    "pages/me/index"
+    "pages/me/index",
+    "pages/register/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

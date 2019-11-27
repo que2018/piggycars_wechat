@@ -1,208 +1,30 @@
-<view class="main-flex-container" bindtap='click_form'>
-  <view class="swiper-tab">
-    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">手机注册</view>
-    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">邮箱注册</view>
-  </view>
-  <swiper class="swiper" current="{{currentTab}}" duration="300"  bindchange="swiperTab">
-    <swiper-item>
-      <view class="errorMsg {{show_error ? 'error_show' : 'error_hide'}}">{{error_msg}}</view>
-      <swiper class="swiper" current="{{currentPhoneStep}}" duration="300">
-        <swiper-item catchtouchmove="stopTouchMove">
-          <form class="phone-form" bindsubmit="phoneFormSubmit" bindreset="formReset">
-            <view class="input-flex-container">
-              <view class="options">
-                <view bindtap="optionTap" data-value="1" data-name="美国(+1)" class="{{selectValue==1?'clickedl':'countryl'}}">美国(+1)</view>
-                <view bindtap="optionTap" data-value="86" data-name="中国(+86)" class="{{selectValue==86?'clickedr':'countryr'}}">中国(+86)</view>
-              </view>
-              <view class="flex-container">
-                <view class="input-group">
-                  <image src="../../images/phone.png"></image>
-                  <input name="phone" class="inputPhone" placeholder="电话号码" />
-                </view>
-              </view>
-              <view class="flex-container">
-                <button form-type="submit" type="primary" loading="{{show_loading}}" disabled="{{show_loading}}" class="pbtn" size="default">注册</button>
-              </view>
-            </view>
-          </form>
-        </swiper-item>
-        <swiper-item catchtouchmove="stopTouchMove">
-          <form class="phone-code-form" bindsubmit="phoneActiveSubmit" bindreset="formReset">
-            <view class="input-flex-container">
-              <view class="flex-container">
-                <view class="input-group">
-                  <image src="../../images/activate.png"></image>
-                  <input name="code" placeholder="激活码" />
-                </view>
-              </view>
-              <view class="flex-container">
-                <button form-type="submit" type="primary" loading="{{show_loading}}" disabled="{{show_loading}}" class="pbtn" size="default">激活</button>
-              </view>
-            </view>
-          </form>
-        </swiper-item>
-        <swiper-item catchtouchmove="stopTouchMove">
-          <form class="setting-form" bindsubmit="settingSubmit" bindreset="formReset">
-            <view class="input-flex-container">
-              <view class="flex-container" style="backgrou">
-                <view class="input-group">
-                  <image src="../../images/user.png"></image>
-                  <input name="user_name" class="input" placeholder="用户名" />
-                </view>
-              </view>
-              <input name="recommend" style="display:none;" value="{{referal_id}}"/>
-            </view>
-            <view class="input-flex-container">
-              <view class="flex-container">
-                <view class="{{inputStyle_lpw}}">
-                  <image src="../../images/pass.png"></image>
-                  <input name="password" password="true" bindinput="checkLoginPassword" placeholder="登录密码" />
-                  <image src="../../images/tips.png" catchtap="clickTipPass"></image>
-                </view>
-                <view class="{{tip}}" wx:if="{{tip=='tip show'}}">
-                  <view class="tipText">登录密码必须6-16位并且包含一个数字和一个字母。</view>
-                </view>
-              </view>
-              <view class="flex-container">
-                <view class="{{inputStyle_lpw_re}}">
-                  <image src="../../images/pass.png"></image>
-                  <input name="password_re" password="true" bindinput="checkLoginPasswordRe" placeholder="再输入一次" />
-                </view>
-              </view>
-            </view>
-            <view class="input-flex-container">
-              <view class="flex-container">
-                <view class="{{inputStyle_tpw}}">
-                  <image src="../../images/trade_pass.png"></image>
-                  <input name="trading_password" password="true" bindinput="checkTradingPassword" placeholder="支付密码" />
-                  <image src="../../images/tips.png" catchtap="clickTipPayPass"></image>
-                </view>
-                <view class="{{payTip}}" wx:if="{{payTip=='tip show'}}">
-                  <view class="tipText">登录密码必须6-16位并且包含一个数字和一个字母。并且不能与登陆密码相同。</view>
-                </view>
-              </view>
-              <view class="flex-container">
-                <view class="{{inputStyle_tpw_re}}">
-                  <image src="../../images/trade_pass.png"></image>
-                  <input name="trading_password_re" password="true" bindinput="checkTradingPasswordRe" placeholder="再输入一次" />
-                </view>
-              </view>
-            </view>
-            <view class="flex-container">
-              <button form-type="submit" type="primary" loading="{{show_loading}}" disabled="{{show_loading}}" class="pbtn" size="default">确认</button>
-            </view>
-          </form>
-        </swiper-item>
-        <swiper-item catchtouchmove="stopTouchMove">
-          <view class="register-success" bindreset="formReset">
-            <view class="input-flex-container">
-              <view class="flex-container">
-                <view>注册成功！</view>
-              </view>
-              <view class="flex-container">
-                <button type="primary" bindtap="clickFinish" class="pbtn" size="default">确认</button>
-              </view>
-            </view>
-          </view>
-        </swiper-item>
-      </swiper>
-    </swiper-item>
-    <swiper-item>
-      <view class="errorMsg {{show_error ? 'error_show' : 'error_hide'}}">{{error_msg}}</view>
-      <swiper class="swiper" current="{{currentEmailStep}}" duration="300">
-        <swiper-item catchtouchmove="stopTouchMove">
-          <form class="email-form" bindsubmit="emailFormSubmit" bindreset="formReset">
-            <view class="input-flex-container">
-              <view class="flex-container">
-                <view class="{{inputStyle}}">
-                  <image src="../../images/mailbox.png"></image>
-                  <input name="email" bindinput="checkEmail" placeholder="邮箱地址" />
-                </view>
-              </view>
-              <view class="flex-container">
-                <button form-type="submit" type="primary" loading="{{show_loading}}" disabled="{{show_loading}}" class="pbtn" size="default">注册</button>
-              </view>
-            </view>
-          </form>
-        </swiper-item>
-        <swiper-item catchtouchmove="stopTouchMove">
-          <form bindsubmit="emailActiveSubmit" bindreset="formReset">
-            <view class="input-flex-container">
-              <view class="flex-container">
-                <view>激活码:</view> 
-                <input name="code" class="{{inputStyle}}" placeholder="激活码" />
-              </view>
-              <view class="flex-container">
-                <button form-type="submit" type="primary" loading="{{show_loading}}" disabled="{{show_loading}}" class="pbtn" size="default">激活</button>
-              </view>
-            </view>
-          </form>
-        </swiper-item>
-        <swiper-item catchtouchmove="stopTouchMove">
-          <form class="setting-form" bindsubmit="settingSubmit" bindreset="formReset">
-            <view class="input-flex-container">
-              <view class="flex-container" style="backgrou">
-                <view class="input-group">
-                  <image src="../../images/user.png"></image>
-                  <input name="user_name" class="input" placeholder="用户名" />
-                </view>
-              </view>
-              <input name="recommend" style="display:none;" value="{{referal_id}}"/>
-            </view>
-            <view class="input-flex-container">
-              <view class="flex-container">
-                <view class="{{inputStyle_lpw}}">
-                  <image src="../../images/pass.png"></image>
-                  <input name="password" password="true" bindinput="checkLoginPassword" placeholder="登录密码" />
-                  <image src="../../images/tips.png" catchtap="clickTipPass"></image>
-                </view>
-                <view class="{{tip}}" wx:if="{{tip=='tip show'}}">
-                  <view class="tipText">登录密码必须6-16位并且包含一个数字和一个字母。</view>
-                </view>
-              </view>
-              <view class="flex-container">
-                <view class="{{inputStyle_lpw_re}}">
-                  <image src="../../images/pass.png"></image>
-                  <input name="password_re" password="true" bindinput="checkLoginPasswordRe" placeholder="再输入一次" />
-                </view>
-              </view>
-            </view>
-            <view class="input-flex-container">
-              <view class="flex-container">
-                <view class="{{inputStyle_tpw}}">
-                  <image src="../../images/trade_pass.png"></image>
-                  <input name="trading_password" password="true" bindinput="checkTradingPassword" placeholder="支付密码" />
-                  <image src="../../images/tips.png" catchtap="clickTipPayPass"></image>
-                </view>
-                <view class="{{payTip}}" wx:if="{{payTip=='tip show'}}">
-                  <view class="tipText">登录密码必须6-16位并且包含一个数字和一个字母。并且不能与登陆密码相同。</view>
-                </view>
-              </view>
-              <view class="flex-container">
-                <view class="{{inputStyle_tpw_re}}">
-                  <image src="../../images/trade_pass.png"></image>
-                  <input name="trading_password_re" password="true" bindinput="checkTradingPasswordRe" placeholder="再输入一次" />
-                </view>
-              </view>
-            </view>
-            <view class="flex-container">
-              <button form-type="submit" type="primary" loading="{{show_loading}}" disabled="{{show_loading}}" class="pbtn" size="default">确认</button>
-            </view>
-          </form>
-        </swiper-item>
-        <swiper-item catchtouchmove="stopTouchMove">
-          <view bindreset="formReset">
-            <view class="input-flex-container">
-              <view class="flex-container">
-                <view>注册成功！</view>
-              </view>
-              <view class="flex-container">
-                <button type="primary" bindtap="clickFinish" class="pbtn" size="default">确认</button>
-              </view>
-            </view>
-          </view>
-        </swiper-item>
-      </swiper>
-    </swiper-item>
-  </swiper>
+<view class="container">
+  <view class="title">个人信息</view>
+  <form bindsubmit='register'>
+    <view class="input-groups">
+      <view class="input-group">
+        <input name="first_name" placeholder="名" value="{{first_name}}" />
+        <image src="../../images/user.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="last_name" placeholder="姓" value="{{last_name}}" />
+        <image src="../../images/user.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="email" placeholder="电子邮箱" value="{{email}}" />
+        <image src="../../images/mail.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="password" password="true" placeholder="请输入密码" value="{{password}}" />
+        <image src="../../images/pass.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="password_confirm" password="true" placeholder="请再次输入密码" value="{{password_confirm}}" />
+        <image src="../../images/pass.png"></image>
+      </view>
+    </view>
+    <view class="btn-wrap">
+      <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>下一步</button>
+    </view>
+  </form>
 </view>

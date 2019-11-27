@@ -9,7 +9,7 @@
     <view class="form-inner">
       <view class="input-groups">
         <view class="input-group">
-          <input name="username" placeholder="请输入邮箱" value="{{user_name}}" />
+          <input name="username" placeholder="请输入邮箱" value="{{username}}" />
           <image src="../../images/mail.png"></image>
         </view>
         <view class="input-group">
@@ -20,51 +20,50 @@
       <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>登录</button>
     </view>
     <view class="register" hover-class="register-hover" bindtap="clickRegister">
-      <view class="reg-l">没有账号?</view>
+      <view class="reg-l">没有账号?<text decode="{{true}}">&nbsp;&nbsp;</text></view>
       <view class="reg-r">快来注册吧!</view>
     </view>
   </form>
 </view>
 <view class="flex-container-user {{is_login?'show':'hide'}}">
-  <view class="info-wrap">
-    <view class="info">
-      <view class="portrait">
-        <image src="../../images/portrait.png" mode="aspectFit" ></image>
+  <view class="captain">
+    <view class="title">基本信息</view>
+    <view class="content">
+      <view class="cname">姓名<span class="cvalue">
+        <text decode="{{true}}">&nbsp;&nbsp;</text>{{first_name}}
+        <text decode="{{true}}">&nbsp;&nbsp;</text>{{last_name}}</span>
       </view>
-      <view class="capital">
-        <view class = "flex-container-info">
-          <view class="username">{{user_name}}</view>
-        </view>  
-        <view class="money">邮箱: <span class="linkText" catchtap="authEmail">未绑定</span></view>
-      </view>
+      <view class="cname">邮箱<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{email}}</span></view>
     </view>
   </view>
-  <view class="order">
-    <view class="row" hover-class="row-hover" bindtap="clickOrder">
-      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">地址</span>
-      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+  <view class="space"></view>
+  <view class="captain">
+    <view class="title">地址信息</view>
+    <view class="content">
+      <view class="cname">国家<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{country}}</span></view>
+      <view class="cname">地址<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{address_1}}</span></view>
+      <view class="cname">地址2<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{address_2}}</span></view>
+      <view class="cname">城市<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{city}}</span></view>
+      <view class="cname">州/省<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{zone}}</span></view>
+      <view class="cname">邮编<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{postcode}}</span></view>
     </view>
   </view>
-  <view class="order">
-    <view class="row" hover-class="row-hover" bindtap="clickOrder">
-      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">驾照</span>
-      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+  <view class="space"></view>
+  <view class="captain">
+    <view class="title">驾照信息</view>
+    <view class="content">
+      <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" autoplay="true" circular="true" style="width:50vw; height: 80vw;">
+      <block wx:for="{{id_images}}" wx:key="id_image">
+        <swiper-item>
+          <image src='{{item}}' mode="aspectFill" style="width:100%;height:100%;" />
+        </swiper-item> 
+      </block>
+    </swiper>
     </view>
   </view>
-  <view class="order">
-    <view class="row" hover-class="row-hover" bindtap="clickOrder">
-      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">订单</span>
-      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
-    </view>
+  <view class="space"></view>
+  <view class="logout-wrap">
+    <button type="primary" size="default" loading="{{loading}}" class="logout-btn" bindtap="logout">退出登录</button>
   </view>
-  <view class="logout">
-    <view class="row" hover-class="row-hover" bindtap="clickLogout">
-      <image src="../../images/logout.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">退出登录</span>
-      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
-    </view>
-  </view>
+  <view class="space"></view>
 </view>
