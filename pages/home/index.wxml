@@ -1,11 +1,51 @@
 <view class="flex-container">
-  <view id='banner'>
-    <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" autoplay="true" circular="true" style="width:100vw;height:51.4vw;">
-      <block wx:for="{{sliders}}" wx:key="slider">
-        <swiper-item>
-          <image src='{{item}}' bindtap="clickSlier" mode="aspectFill" style="width:100%; height:100%;" />
-        </swiper-item> 
+  <view class="categories">
+    <view class="category-title">车辆分类</view>
+    <view class="categories-inner">
+      <scroll-view scroll-x="true" style="white-space: nowrap; display: flex;">
+        <block wx:for="{{categories}}" wx:key="category">
+          <view class="category-item">
+            <view class="category-item-inner">
+              <view><image src="{{item.image}}" mode="aspectFit" class="category-item-image"></image></view>
+              <view class="category-item-title">{{item.title}}</view>
+              <view class="category-item-price">{{item.price}}</view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="featured">
+    <view class="featured-title">热门车辆</view>
+    <view class="featured-inner">
+      <block wx:for="{{featureds}}" wx:key="featured">
+        <view class="featured-item">
+          <view><image src="{{item.image}}" mode="aspectFit" class="featured-item-image"></image></view>
+          <view class="featured-captain">
+            <view class="featured-model">{{item.model}}</view>
+            <view>
+              <view class="featured-pickup">{{item.pickup}}</view>
+              <view class="featured-price">{{item.price}}</view>
+            </view>
+          </view>
+        </view>
       </block>
-    </swiper>
+    </view>
+  </view>
+  <view class="blogs">
+    <view class="blog-title">小猪有道</view>
+    <view class="blogs-inner">
+      <scroll-view scroll-x="true" style="white-space: nowrap; display: flex;">
+        <block wx:for="{{blogs}}" wx:key="blog">
+          <view class="blog-item">
+            <view class="blog-item-inner">
+              <view><image src="{{item.image}}" mode="aspectFit" class="blog-item-image"></image></view>
+              <view class="blog-item-title">{{item.title}}</view>
+              <view class="blog-item-price">{{item.price}}</view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
   </view>
 </view>
