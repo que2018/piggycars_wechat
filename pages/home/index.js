@@ -1,120 +1,158 @@
 
 var app = getApp();
+var util = require('../../utils/util.js');
 
 Page({
   data: {
     categories: [],
     featured: [],
-    blogs: []
+    blogs: [],
+    category_loading: true,
+    feature_loading: true,
+    blog_loading: true,
+    show_loading: true
   },
   onLoad: function (options) {
     this.loadData();
   },
   loadData: function () {
+    this.getCategories();
+    this.getFeatureds();
+    this.getBlogs();
+  },
+  getCategories() {
     var that = this;
 
-    var categories = [];
+    wx.request({
+      url: app.globalData.API_CATEGORIES,
+      complete: function (res) {
+        that.setData({
+          category_loading: false
+        });
 
-    let category1 = {
-      image: "https://piggycars.com/assets/image/hp_b1.png",
-      title: "经济型",
-      price: "$69/月"
-    };
+        that.checkComplete();
 
-    let category2 = {
-      image: "https://piggycars.com/assets/image/hp_b2.png",
-      title: "面包车",
-      price: "$269/月"
-    };
+        if(res.data.success) {
+          var categories = [];
 
-    let category3 = {
-      image: "https://piggycars.com/assets/image/hp_b3.png",
-      title: "运动型",
-      price: "$259/月"
-    };
+          for(var i = 0; i < res.data.data.length; i++) {
+            var category = new Object();
+            let item = res.data.data[i];
 
-    let category4 = {
-      image: "https://piggycars.com/assets/image/hp_b4.png",
-      title: "豪华车",
-      price: "$459/月"
-    };
+            category.title = item.name;
+            category.price = item.price;
+            category.params = util.json2Form(item.params);
 
-    let category5 = {
-      image: "https://piggycars.com/assets/image/hp_b5.png",
-      title: "SUV",
-      price: "$269/月"
-    };
+            console.log(category.params);
 
-    let category6 = {
-      image: "https://piggycars.com/assets/image/hp_b6.png",
-      title: "新能源车",
-      price: "$239/月"
-    };
+            category.image = app.globalData.API_RES + "/" + item.image;
+            categories.push(category);
+          }
 
-    let category7 = {
-      image: "https://piggycars.com/assets/image/hp_b7.png",
-      title: "皮卡",
-      price: "$369/月"
-    };
-
-    let category8 = {
-      image: "https://piggycars.com/assets/image/hp_b8.png",
-      title: "商用车",
-      price: "$469/月"
-    };
-   
-    categories.push(category1);
-    categories.push(category2);
-    categories.push(category3);
-    categories.push(category4);
-    categories.push(category5);
-    categories.push(category6);
-    categories.push(category7);
-    categories.push(category8);
-
-    var featureds = [];
-
-    let featured1 = {
-      image: "https://piggycars.com/assets/image/hp_b8.png",
-      title: "Toyota",
-      pickup: "Industory",
-      price: "$100/月"
-    };
-
-    let featured2 = {
-      image: "https://piggycars.com/assets/image/hp_b8.png",
-      title: "Toyota",
-      pickup: "Industory",
-      price: "$100/月"
-    };
-
-    featureds.push(featured1);
-    featureds.push(featured2);
-
-    var blogs = [];
-
-    let blog1 = {
-      image: "https://piggycars.com/assets/image/hp_b8.png",
-      title: "title1",
-      desp: "desp1"
-    };
-
-    let blog2 = {
-      image: "https://piggycars.com/assets/image/hp_b8.png",
-      title: "title2",
-      desp: "desp2"
-    };
-
-    blogs.push(blog1);
-    blogs.push(blog2);
-
-    that.setData({
-      categories: categories,
-      featureds: featureds,
-      blogs: blogs
+          that.setData({
+            categories: categories
+          });
+        }
+      }
     });
   },
-  clickSlider: function (event) {
-    
+  getFeatureds() {
+    var that = this;
+
+    wx.request({
+      url: app.globalData.API_CARS,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      data: util.json2Form({
+        hot: "1"
+      }),
+      complete: function (res) {
+        that.setData({
+          feature_loading: false
+        });
+
+        that.checkComplete();
+
+        if (res.data.success) {
+          var featureds = [];
+
+          for (var i = 0; i < res.data.data.items.length; i++) {
+            var featured = new Object();
+            let item = res.data.data.items[i];
+
+            featured.id = item.id;
+            featured.carId = item.carId;
+            featured.year = item.year;
+            featured.make = decodeURIComponent(item.make);
+            featured.model = decodeURIComponent(item.model);
+            featured.monthlyPayment = item.monthly_payment
+            featured.city = item.location.city
+
+            let images = item.car_images;
+            featured.image = app.globalData.API_RES + "/car/lg/" + images[0].value;
+            featureds.push(featured);
+          }
+
+          that.setData({
+            featureds: featureds
+          });
+        }
+      }
+    });
+  },
+  getBlogs() {
+    var that = this;
+
+    wx.request({
+      url: app.globalData.API_BLOGS,
+      complete: function(res) {
+        that.setData({
+          blog_loading: false
+        });
+
+        that.checkComplete();
+
+        if (res.data.success) {
+          var blogs = [];
+
+          for (var i = 0; i < res.data.data.items.length; i++) {
+            var blog = new Object();
+            let item = res.data.data.items[i];
+
+            blog.title = decodeURIComponent(item.title);
+            blog.description = decodeURIComponent(item.description);
+            blog.image = app.globalData.API_RES + "/article/lg/" + item.image;
+            blogs.push(blog);
+          }
+
+          that.setData({
+            blogs: blogs
+          });
+        }
+      }
+    });
+  },
+  clickCategory: function (event) {
+    app.globalData.filter_params = event.currentTarget.dataset.params;
+
+    wx.switchTab({
+      url: '../car_list/index'
+    });
+  },
+  clickFeature: function (event) {
+    var id = event.currentTarget.dataset.id;
+
+    wx.navigateTo({
+      url: '../car_detail/index?id=' + id
+    });
+  },
+  checkComplete() {
+    if((!this.category_loading) && (!this.feature_loading) && (!this.blog_loading)) {
+      this.setData({
+        show_loading: false
+      });
+    }
   }
 })

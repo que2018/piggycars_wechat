@@ -1,10 +1,13 @@
+<view id="ld-block" class="{{show_loading?'show':'hide'}} ">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+</view>
 <view class="flex-container">
   <view class="categories">
     <view class="category-title">车辆分类</view>
     <view class="categories-inner">
       <scroll-view scroll-x="true" style="white-space: nowrap; display: flex;">
         <block wx:for="{{categories}}" wx:key="category">
-          <view class="category-item">
+          <view class="category-item" bindtap="clickCategory" data-params="{{item.params}}">
             <view class="category-item-inner">
               <view><image src="{{item.image}}" mode="aspectFit" class="category-item-image"></image></view>
               <view class="category-item-title">{{item.title}}</view>
@@ -19,13 +22,19 @@
     <view class="featured-title">热门车辆</view>
     <view class="featured-inner">
       <block wx:for="{{featureds}}" wx:key="featured">
-        <view class="featured-item">
-          <view><image src="{{item.image}}" mode="aspectFit" class="featured-item-image"></image></view>
+        <view class="featured-item" bindtap="clickFeature" data-id="{{item.id}}">
+          <view class="featured-item-image"><image src="{{item.image}}" mode="aspectFit"></image></view>
           <view class="featured-captain">
-            <view class="featured-model">{{item.model}}</view>
-            <view>
-              <view class="featured-pickup">{{item.pickup}}</view>
-              <view class="featured-price">{{item.price}}</view>
+            <view class="featured-model">{{item.year}} {{item.make}} {{item.model}}</view>
+            <view class="featured-captain-sub">
+              <view class="featured-pickup">
+                <span class="pk1"><image src="../../images/location.png" mode="aspectFit"></image></span>
+                <span class="pk2">{{item.city}}</span>
+              </view>
+              <view class="featured-price">
+                <span class="fp1">{{item.monthlyPayment}}</span>
+                <span class="fp2">/月</span>
+              </view>
             </view>
           </view>
         </view>
@@ -33,15 +42,15 @@
     </view>
   </view>
   <view class="blogs">
-    <view class="blog-title">小猪有道</view>
+    <view class="blog-title">小猪故事</view>
     <view class="blogs-inner">
       <scroll-view scroll-x="true" style="white-space: nowrap; display: flex;">
         <block wx:for="{{blogs}}" wx:key="blog">
           <view class="blog-item">
             <view class="blog-item-inner">
-              <view><image src="{{item.image}}" mode="aspectFit" class="blog-item-image"></image></view>
+              <view class="blog-item-image"><image src="{{item.image}}" mode="aspectFit"></image></view>
               <view class="blog-item-title">{{item.title}}</view>
-              <view class="blog-item-price">{{item.price}}</view>
+              <!--<view class="blog-item-desp">{{item.description}}</view>-->
             </view>
           </view>
         </block>

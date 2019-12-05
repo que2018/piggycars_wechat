@@ -1,0 +1,3 @@
+<view id="ld-block">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+</view>

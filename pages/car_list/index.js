@@ -1,5 +1,6 @@
 
 var app = getApp();
+var util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -7,13 +8,27 @@ Page({
     show_loading: true
   },
   onLoad: function (options) {
+    
+  },
+  onShow: function (options) {
     this.loadData();
   },
   loadData: function () {
     var that = this;
 
+    that.setData({
+      show_loading: true
+    });
+
+    let data = app.globalData.filter_params;
+
     wx.request({
       url: app.globalData.API_CARS,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      data: data,
       complete: function (res) {
         if (res.data.success) {
           var cars = [];
@@ -32,7 +47,12 @@ Page({
             car.city = item.location.city
 
             let images = item.car_images;
-            car.image = app.globalData.API_RES + "/car/lg/" + images[0].value;
+
+            if (images[0]) {
+              car.image = app.globalData.API_RES + "/car/lg/" + images[0].value;
+            } else {
+              car.image = "../../images/logo.png"
+            }
 
             cars.push(car);
           }

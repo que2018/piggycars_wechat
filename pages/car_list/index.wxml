@@ -1,3 +1,6 @@
+<view id="ld-block" class="{{show_loading?'show':'hide'}} ">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+</view>
 <scroll-view class="scroll-view_H" scroll-y="true" bindscrolltolower="scroll" style="width: 100%">
   <view class="container">
     <view id="ld-block" class="{{show_loading?'show':'hide'}} ">
