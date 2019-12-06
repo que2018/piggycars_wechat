@@ -16,14 +16,27 @@ Page({
     this.loadData();
   },
   loadData: function () {
-    this.getCategories();
-    this.getFeatureds();
-    this.getBlogs();
+    var that = this;
+
+    wx.request({
+      url: app.globalData.API_LANG,
+      complete: function (res) {
+        wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
+
+        that.getCategories();
+        that.getFeatureds();
+        that.getBlogs();
+      }
+    });
   },
   getCategories() {
     var that = this;
 
     wx.request({
+      header: {
+        'cookie': wx.getStorageSync("sessionid"),
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       url: app.globalData.API_CATEGORIES,
       complete: function (res) {
         that.setData({
@@ -43,8 +56,6 @@ Page({
             category.price = item.price;
             category.params = util.json2Form(item.params);
 
-            console.log(category.params);
-
             category.image = app.globalData.API_RES + "/" + item.image;
             categories.push(category);
           }
@@ -60,10 +71,11 @@ Page({
     var that = this;
 
     wx.request({
-      url: app.globalData.API_CARS,
       header: {
+        'cookie': wx.getStorageSync("sessionid"),
         "Content-Type": "application/x-www-form-urlencoded"
       },
+      url: app.globalData.API_CARS,
       method: "POST",
       data: util.json2Form({
         hot: "1"
@@ -106,6 +118,10 @@ Page({
     var that = this;
 
     wx.request({
+      header: {
+        'cookie': wx.getStorageSync("sessionid"),
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       url: app.globalData.API_BLOGS,
       complete: function(res) {
         that.setData({
@@ -121,6 +137,7 @@ Page({
             var blog = new Object();
             let item = res.data.data.items[i];
 
+            blog.id = item.id;
             blog.title = decodeURIComponent(item.title);
             blog.description = decodeURIComponent(item.description);
             blog.image = app.globalData.API_RES + "/article/lg/" + item.image;
@@ -146,6 +163,13 @@ Page({
 
     wx.navigateTo({
       url: '../car_detail/index?id=' + id
+    });
+  },
+  clickBlog: function (event) {
+    var id = event.currentTarget.dataset.id;
+
+    wx.navigateTo({
+      url: '../article_detail/index?id=' + id
     });
   },
   checkComplete() {

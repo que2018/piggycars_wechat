@@ -43,7 +43,7 @@ Page({
     wx.request({
       url: app.globalData.API_CAR + "?id=" + this.data.id,
       complete: function (res) {
-        console.log(res);
+        //console.log(res);
 
         var car_images = [];
 
@@ -110,8 +110,6 @@ Page({
     });
   },
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-
     let payment = this.data.payments[e.detail.value];
 
     console.log(this.data.payments);

@@ -1,2 +1,8 @@
-<!--pages/article_detail/index.wxml-->
-<text>pages/article_detail/index.wxml</text>
+<import src="../../utils/wxParse/wxParse.wxml"/>
+<view class="article">
+  <view class="title">{{title}}</view>
+  <view class="image"><image src="{{image}}" mode="aspectFit"></image></view>
+  <view class="content">    
+    <template is="wxParse" data="{{wxParseData:desp_html.nodes}}" />
+  </view>
+</view>

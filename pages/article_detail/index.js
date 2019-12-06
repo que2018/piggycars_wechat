@@ -1,66 +1,39 @@
-// pages/article_detail/index.js
+
+var app = getApp();
+var wxParse = require('../../utils/wxParse/wxParse.js');
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    id: "",
+    title: "",
+    content: "",
+    image: ""
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    this.setData({
+      id: decodeURIComponent(options.id)
+    });
 
+    this.loadData();
   },
+  loadData: function () {
+    var that = this;
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    wx.request({
+      url: app.globalData.API_BLOG_DETAIL + "/" + this.data.id,
+      complete: function (res) {
+        console.log(res.data);
 
-  },
+        if (res.data.success) {
+          that.setData({
+            title: res.data.data.heading_title,
+            content: res.data.data.content,
+            image: app.globalData.API_RES + "/article/lg/" + res.data.data.image
+          });
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+          wxParse.wxParse('desp_html', 'html', res.data.data.content, that, 5);  
+        }
+      }
+    });
   }
 })

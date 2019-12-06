@@ -46,7 +46,7 @@
     <view class="blogs-inner">
       <scroll-view scroll-x="true" style="white-space: nowrap; display: flex;">
         <block wx:for="{{blogs}}" wx:key="blog">
-          <view class="blog-item">
+          <view class="blog-item" bindtap="clickBlog" data-id="{{item.id}}">
             <view class="blog-item-inner">
               <view class="blog-item-image"><image src="{{item.image}}" mode="aspectFit"></image></view>
               <view class="blog-item-title">{{item.title}}</view>

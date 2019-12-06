@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/app/index",
     "pages/home/index",    
     "pages/car_list/index",
 	  "pages/car_detail/index",
@@ -9,6 +10,8 @@
     "pages/fee/index",
     "pages/contact/index",
     "pages/me/index",
+    "pages/sms/index",
+    "pages/address/index",
     "pages/register/index"
   ],
   "window": {

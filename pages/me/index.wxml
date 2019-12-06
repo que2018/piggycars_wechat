@@ -28,10 +28,11 @@
 <view class="flex-container-user {{is_login?'show':'hide'}}">
   <view class="captain">
     <view class="title">基本信息</view>
+    <view class="edit-box" bindtap="goToPwd"><image src="../../images/edit.png"></image></view>
     <view class="content">
       <view class="cname">姓名<span class="cvalue">
         <text decode="{{true}}">&nbsp;&nbsp;</text>{{first_name}}
-        <text decode="{{true}}">&nbsp;&nbsp;</text>{{last_name}}</span>
+        <text decode="{{true}}">&nbsp;</text>{{last_name}}</span>
       </view>
       <view class="cname">邮箱<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{email}}</span></view>
     </view>
@@ -39,6 +40,7 @@
   <view class="space"></view>
   <view class="captain">
     <view class="title">地址信息</view>
+    <view class="edit-box" bindtap="goToAddr"><image src="../../images/edit.png"></image></view>
     <view class="content">
       <view class="cname">国家<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{country}}</span></view>
       <view class="cname">地址<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{address_1}}</span></view>
@@ -51,8 +53,9 @@
   <view class="space"></view>
   <view class="captain">
     <view class="title">驾照信息</view>
+    <view class="edit-box" bindtap="goToID"><image src="../../images/edit.png"></image></view>
     <view class="content">
-      <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" autoplay="true" circular="true" style="width:50vw; height: 80vw;">
+      <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" autoplay="true" circular="true" class="id-slider">
       <block wx:for="{{id_images}}" wx:key="id_image">
         <swiper-item>
           <image src='{{item}}' mode="aspectFill" style="width:100%;height:100%;" />

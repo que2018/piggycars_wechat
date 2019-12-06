@@ -122,16 +122,22 @@ Page({
         var id_images =[];
       
         if(res.data.success) {
-          id_images.push(res.data.data.dl_image);
-          id_images.push(res.data.data.dl_image_back);
-          id_images.push(res.data.data.id_image);
+          if (res.data.data.dl_image) {
+            id_images.push(res.data.data.dl_image);
+          }
+
+          if (res.data.data.dl_image_back) {
+            id_images.push(res.data.data.dl_image_back);
+          }
+
+          if (res.data.data.id_image) {
+            id_images.push(res.data.data.id_image);
+          }
 
           that.setData({
             id_images: id_images
           });
         }
-
-        console.log(that.data.id_imags);
       }
     });
   },
@@ -164,4 +170,19 @@ Page({
       url: '../register/index'
     });
   },
+  goToPwd: function (event) {
+    wx.navigateTo({
+      url: '../password/index'
+    });
+  },
+  goToAddr: function (event) {
+    wx.navigateTo({
+      url: '../sms/index'
+    });
+  },
+  goToID: function (event) {
+    wx.navigateTo({
+      url: '../id/index'
+    });
+  }
 })
