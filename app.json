@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/plan/index",
     "pages/app/index",
     "pages/home/index",    
     "pages/car_list/index",
