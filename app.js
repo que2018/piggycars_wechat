@@ -15,6 +15,7 @@ App({
     API_LOGOUT: "https://debug.piggycars.com/api/account/logout",
     API_REGISTER: "https://debug.piggycars.com/api/account/register",
     API_USER: "https://debug.piggycars.com/api/account/user",
+    API_PASSWORD: "https://debug.piggycars.com/api/account/reset",
     API_SMS: "https://debug.piggycars.com/api/account/validation/send_code",
     API_ADDR: "https://debug.piggycars.com/api/account/register/contact",
     API_ID: "https://debug.piggycars.com/api/account/register/get_identity",

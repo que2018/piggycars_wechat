@@ -1,0 +1,17 @@
+<view class="container-id">
+  <view class="title">上传证件</view>
+  <view class="rbtns">
+    <view class="btn-cn">中国</view>
+    <view class="btn-en">美国</view>
+  </view>
+  <view>
+    <view>对您的驾照拍一张照片</view>
+    <view>  
+      <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+   </view>
+  </view>
+</view>
+<view class="btn-wrap">
+  <view class="btn-id" bindtap="openCamera">现在拍照</view>
+</view>
+

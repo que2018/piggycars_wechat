@@ -1,10 +1,12 @@
 <view class="container">
   <view class="plan-title">选择计划</view>
+  <view>${{down_payment}}</view>
+  <view>${{monthly_payment + monthly_insurance}}<span>/月</span></view>
   <view class="plan-items">
     <view class="plan-item">
       <view class="plan-item-l">订阅期</view>
       <view class="plan-item-r">
-        <picker bindchange="bindPickerPayments" range="{{payments}}">
+        <picker bindchange="bindPickerPayment" range="{{payments}}">
           <view class="plan-payment">{{payments[selected_payment_index]}}</view>
         </picker>
       </view>
@@ -21,7 +23,7 @@
       <view class="plan-item-l">保险</view>
       <view class="plan-item-r">
         <picker bindchange="bindPickerInsurance" range="{{insurances}}">
-          <view class="plan-insurance">{{selected_insurance}}</view>
+          <view class="plan-insurance">{{insurances[selected_insurance_index]}}</view>
         </picker>
       </view>
     </view>

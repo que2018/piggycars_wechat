@@ -1,0 +1,5 @@
+<camera device-position="back" flash="off" binderror="error"></camera>
+<view class="{{show_preview?'show':'hide'}}">
+  <image mode="widthFix" src="{{src}}" class="preview"></image>
+</view>
+<button>xxx</button>

@@ -112,11 +112,9 @@ Page({
   bindPickerChange: function (e) {
     let payment = this.data.payments[e.detail.value];
 
-    console.log(this.data.payments);
-
     this.setData({
       down_payment: payment.down_payment,
       monthly_payment: payment.monthly_payment
     });
-  },
+  }
 })

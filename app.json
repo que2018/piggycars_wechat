@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/id/index",    
+    "pages/camera/index",
+    "pages/password/index",
     "pages/plan/index",
     "pages/app/index",
     "pages/home/index",    

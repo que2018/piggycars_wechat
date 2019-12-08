@@ -1,0 +1,22 @@
+<view class="container-password">
+  <view class="title">修改密码</view>
+  <form bindsubmit='password'>
+    <view class="input-groups">
+      <view class="input-group">
+        <input name="old_password"  password="true" placeholder="当前密码" value="{{old_password}}" />
+        <image src="../../images/pass.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="password"  password="true" placeholder="新密码" value="{{password}}" />
+        <image src="../../images/pass.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="password_confirm" password="true" placeholder="再输一次新密码" value="{{password_confirm}}" />
+        <image src="../../images/pass.png"></image>
+      </view>
+    </view>
+    <view class="btn-wrap">
+      <button type="primary" class="btn-submit" size="default" loading="{{btn_loading}}" form-type='submit'>确认修改</button>
+    </view>
+  </form>
+</view>

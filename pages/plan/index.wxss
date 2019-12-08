@@ -33,6 +33,9 @@
 .plan-distance {
   text-align: center;
 }
+.plan-insurance {
+  text-align: center;
+}
 .plan-pickup {
   text-align: center;
 }
