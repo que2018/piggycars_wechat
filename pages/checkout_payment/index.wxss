@@ -1,0 +1,61 @@
+.container-payment {
+  display:flex;
+  flex-direction: column;
+}
+.pimage image {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+.captain {
+  width: 80vw;
+  margin: 0 auto;
+  padding: 15px 0px;
+}
+.cp1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+.cp2 {
+  font-size: 22px;
+}
+.totals {
+  background: #fc5861;
+  color: #ffffff;
+  padding: 30px;
+}
+.total {
+  display:flex;
+  flex-direction: row;
+}
+.tline {
+  width: 80%;
+  font-weight: bold;
+  text-align: right;
+  line-height: 30px;
+}
+.tvalue {
+  width: 20%;
+  line-height: 30px;
+  text-align: right;
+}
+.btns {
+  width: 90vw;
+  margin: 0 auto;
+  display:flex;
+  flex-direction: row;
+  padding-top: 40px;
+}
+.btns-left {
+  width: 50%;
+}
+.btns-right {
+  width: 50%;
+}
+.btn-payment {
+  width: 140px;
+  height: 43px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}

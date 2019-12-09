@@ -38,5 +38,5 @@
   </view>
 </view>
 <view class="btn-wrap">
-  <view class="btn-plan">下一步</view>
+  <button type="primary" size="default" loading="{{btn_loading}}" class="btn-plan" bindtap="bindPlan">下一步</button>
 </view>

@@ -1,0 +1,74 @@
+.flex-container {
+  display:flex;
+  flex-direction: column;
+  height: 100vh;
+}
+form {
+  width: 84vw;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+.form-inner {
+  padding: 26px 26px 0px 26px;
+}
+input {    
+  font-size: 18px;
+  height: 50px;
+}
+.input-group {
+  display:flex;
+  flex-direction: row;
+  border-bottom: 1px solid #cccccc;
+}
+.input-group image {
+  width: 26px;
+  height: 26px;
+  margin-top: 12px;
+  margin-left: auto;
+}
+.addr-title {
+  height: 80px;
+  color: #000000;
+  font-size: 22px;
+  font-weight:bold;
+  text-align: center;
+  line-height: 80px;
+  margin-top: 20px;
+}
+.btn-wrap {
+  height: 80px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 100vw;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ebebeb;
+  z-index: 1000;
+}
+.btn-next {
+  color: white;
+  width: 85%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(242,72,145,1) 0%, rgba(253,79,80,1) 50%);
+}
+.btn-sms {
+  height:40px;
+  line-height: 40px;
+  color:#ffffff;
+  background: #007aff;
+  margin-top: 20px;
+}
+.addr-cancel {
+  text-align: center;
+  color:#888888;
+  margin-top: 10px;
+  font-size: 13px;
+}

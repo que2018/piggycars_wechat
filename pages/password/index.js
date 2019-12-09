@@ -27,6 +27,7 @@ Page({
       },
       method: "POST",
       data: util.json2Form({
+        email: app.globalData.email,
         old_password: e.detail.value.old_password,
         password: e.detail.value.password,
         password_confirm: e.detail.value.password_confirm

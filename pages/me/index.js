@@ -4,8 +4,8 @@ var util = require('../../utils/util.js');
 
 Page({
   data: {
-    username: "",
-    password: "",
+    username: "goodislook588@gmail.com",
+    password: "Sam123456@",
     first_name: "",
     last_name: "",
     email: "",

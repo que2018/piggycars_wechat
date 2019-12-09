@@ -1,0 +1,103 @@
+
+var app = getApp();
+var util = require('../../utils/util.js');
+
+Page({
+  data: {
+    checkout_year: "",
+    checkout_make: "",
+    checkout_model: "",
+    checkout_image: "",
+    checkout_payment_down: 0,
+    checkout_payment_tax: 0,
+    checkout_payment_total: 0
+  },
+  onLoad: function (options) {
+    this.setData({
+      checkout_year: app.globalData.checout_year,
+      checkout_make: app.globalData.checkout_make,
+      checkout_model: app.globalData.checkout_model,
+      checkout_image: app.globalData.checkout_image,
+      checkout_payment_down: app.globalData.checkout_payment_down,
+      checkout_payment_tax: app.globalData.checkout_payment_tax,
+      checkout_payment_total: app.globalData.checkout_payment_total
+    })
+  },
+  wechatPay: function (e) {
+    var that = this;
+
+    wx.login({
+      success: function (res) {
+        var code = res.code;
+
+        wx.request({
+          url: app.globalData.API_WECHAT_AUTH,
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: "POST",
+          data: util.json2Form({
+            code: code,
+            amount: app.globalData.checkout_payment_down_total
+          }),
+          complete: function (res) {
+
+            console.log(res.data);
+
+            that.setData({
+              loading: false
+            });
+
+            if (res.data.status == 1) {
+              var nonceStr = res.data.data.nonceStr;
+              var paySign = res.data.data.paySign;
+              var signType = res.data.data.signType;
+              var timeStamp = res.data.data.timeStamp;
+              var wechatPackage = res.data.data.wechatPackage;
+
+              wx.requestPayment({
+                'timeStamp': timeStamp,
+                'nonceStr': nonceStr,
+                'package': wechatPackage,
+                'signType': signType,
+                'paySign': paySign,
+                'success': function (res) {
+                  wx.redirectTo({
+                    url: '../charge_success/index?amount=' + amount + '&project_id=' + that.data.project_id
+                  });
+                },
+                'fail': function (res) {
+                  wx.navigateTo({
+                    url: '../charge_fail/index'
+                  });
+                },
+                'complete': function (res) {
+                  that.setData({
+                    loading: false
+                  });
+                }
+              });
+            } else {
+              that.setData({
+                amount: ""
+              });
+
+              wx.showToast({
+                title: res.data.info,
+                image: '/images/cry.png',
+                duration: 2500,
+                mask: true
+              });
+            }
+          }
+        });
+      }
+    }); 
+  },
+  aliPay: function (e) {
+
+  },
+  cardPay: function (e) {
+
+  }
+})

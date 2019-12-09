@@ -1,9 +1,5 @@
 {
   "pages": [
-    "pages/id/index",    
-    "pages/camera/index",
-    "pages/password/index",
-    "pages/plan/index",
     "pages/app/index",
     "pages/home/index",    
     "pages/car_list/index",
@@ -11,12 +7,19 @@
     "pages/article_list/index",
     "pages/article_detail/index",   
     "pages/about/index",
+    "pages/id/index",
+    "pages/camera/index",
     "pages/fee/index",
     "pages/contact/index",
     "pages/me/index",
+    "pages/password/index",    
     "pages/sms/index",
     "pages/address/index",
-    "pages/register/index"
+    "pages/register/index",
+    "pages/checkout_sms/index",
+    "pages/checkout_address/index",
+    "pages/checkout_plan/index",
+    "pages/checkout_payment/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,9 +1,10 @@
 
 var app = getApp();
+var util = require('../../utils/util.js');
 
 Page({
   data: {
-    id: 44,
+    id: app.globalData.checkout_id,
     down_payment: 0,
     monthly_payment: 0,
     monthly_insurance: 0,
@@ -13,15 +14,20 @@ Page({
     selected_pickup_index: 0,
     payments: [],
     payment_objs: [],
-    distances: [], 
-    insurances: [], 
-    insurance_objs: [], 
-    pickups: ["取车", "送车"]
+    distances: [],
+    insurances: [],
+    insurance_objs: [],
+    pickups: ["取车", "送车"],
+    btn_loading: false,
+    order_id: 0
   },
   onLoad: function (options) {
-    /* this.setData({
-      id: decodeURIComponent(options.id)
-    }); */
+    this.setData({
+      id: app.globalData.checkout_id
+    });
+
+    console.log("in the checkout plan");
+    console.log(this.data);
 
     this.loadData();
   },
@@ -50,6 +56,7 @@ Page({
           }
 
           let payment_obj = {
+            months: payment.months,
             down_payment: payment.down_payment,
             down_payment_tax: payment.down_payment_tax,
             monthly_payment: payment.monthly_payment,
@@ -81,7 +88,7 @@ Page({
         var insurances = new Array();
         var insurance_objs = new Array();
 
-        insurance_objs[0] = {price: "0"};
+        insurance_objs[0] = { price: "0" };
         insurances.push("自己的保险");
 
         for (var index in res.data.data.insurances) {
@@ -133,5 +140,60 @@ Page({
     this.setData({
       selected_pickup_index: e.detail.value
     });
+  },
+  bindPlan: function (e) {
+    var that = this;
+
+    that.setData({
+      btn_loading: true
+    });
+
+    let checkout_months = that.data.payment_objs[that.data.selected_payment_index].months;
+    let checkout_distance = that.data.distance_objs[that.data.selected_distance_index].mileage;
+    let checkout_insurance = that.data.selected_insurance_index;
+    let checkout_pickup = that.data.selected_pickup_index;
+
+    console.log("going to print plan params ");
+    console.log(checkout_months);
+    console.log(checkout_distance);
+    console.log(checkout_insurance);
+    console.log(checkout_pickup);
+
+    wx.request({
+      url: app.globalData.API_CONFIRM,
+      header: {
+        'cookie': wx.getStorageSync("sessionid"),
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      data: util.json2Form({
+        id: that.data.id,
+        checkout_months: checkout_months,
+        checkout_distance: checkout_distance,
+        checkout_insurance: checkout_insurance,
+        checkout_pickup: checkout_pickup
+      }),
+      complete: function (res) {
+        that.setData({
+          btn_loading: false
+        });
+
+        console.log(res.data);
+
+        if(res.data.success) {
+
+          console.log(res.data.data);
+
+          app.globalData.order_id = res.data.data.order_id;
+          app.globalData.checkout_payment_down = res.data.data.order.payment_down;
+          app.globalData.checkout_payment_down_tax = res.data.data.order.payment_down_tax;
+          app.globalData.checkout_payment_down_total = res.data.data.order.payment_down_total;
+
+          wx.navigateTo({
+            url: '../checkout_payment/index'
+          });
+        }
+      }
+    });  
   }
 })

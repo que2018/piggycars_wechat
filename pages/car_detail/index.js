@@ -43,7 +43,7 @@ Page({
     wx.request({
       url: app.globalData.API_CAR + "?id=" + this.data.id,
       complete: function (res) {
-        //console.log(res);
+        console.log(res);
 
         var car_images = [];
 
@@ -74,6 +74,7 @@ Page({
         }
 
         that.setData({
+          id: res.data.data.id,
           make: res.data.data.make,
           model: res.data.data.model,
           year: res.data.data.year,
@@ -116,5 +117,28 @@ Page({
       down_payment: payment.down_payment,
       monthly_payment: payment.monthly_payment
     });
+  },
+  bindReserve: function (e) {
+    if(app.globalData.is_login) {
+      app.globalData.checkout_id = this.data.id;
+      app.globalData.checkout_year = this.data.year;
+      app.globalData.checkout_make = this.data.make;
+      app.globalData.checkout_model = this.data.model;
+      app.globalData.checkout_image = this.data.car_images[0];
+
+      app.globalData.checkout_id = this.data.id;
+
+      console.log("going to checkout ... ");
+      console.log(app.globalData.checkout_id);
+
+      wx.navigateTo({
+        url: '../checkout_sms/index'
+      });
+      
+    } else {
+      wx.switchTab({
+        url: '../me/index'
+      });
+    }
   }
 })

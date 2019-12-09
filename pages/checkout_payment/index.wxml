@@ -1,0 +1,32 @@
+<view class="container-payment">
+  <view class="pimage">  
+    <image src="{{checkout_image}}" mode="aspectFit"></image>
+  </view>
+  <view class="captain">
+    <view class="cp1">{{checkout_year}} {{checkout_make}}</view>
+    <view class="cp2">{{checkout_model}}</view>
+  </view>
+  <view class="totals">
+    <view class="total">
+      <view class="tline">费用</view>
+      <view class="tvalue">${{checkout_payment_down}}</view>
+    </view>
+    <view class="total">
+      <view class="tline">税</view>
+      <view class="tvalue">${{checkout_payment_down_tax}}</view>
+    </view>
+    <view class="total">
+      <view class="tline">总计</view>
+      <view class="tvalue">${{checkout_payment_total}}</view>
+    </view>
+  </view>
+  <view class="btns">
+    <view class="btns-left">
+      <image src="../../images/btn_wechat.png" mode="aspectFit" class="btn-payment" bindtap="wechatPay"></image>
+      <image src="../../images/btn_alipay.png" mode="aspectFit" class="btn-payment" bindtap="aliPay"></image>
+    </view>
+    <view class="btns-right">
+      <image src="../../images/btn_card.png" mode="aspectFit" class="btn-payment" bindtap="cardPay"></image>
+    </view>
+  </view>
+</view>
