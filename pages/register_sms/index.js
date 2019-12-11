@@ -5,8 +5,7 @@ var util = require('../../utils/util.js');
 Page({
   data: {
     code: "",
-    phone: app.globalData.phone,
-    show_edit: false,
+    phone: "",
     country_code: "+1",
     country_codes: ["+1", "+86"],
     btn_sms_loading: false
@@ -61,16 +60,6 @@ Page({
       code: e.detail.value
     })
   },
-  bindStatic: function (e) {
-    this.setData({
-      show_edit: false
-    });
-  },
-  bindEdit: function (e) {
-    this.setData({
-      show_edit: true
-    });
-  },
   bindNext: function (event) {
     var country_code = "";
 
@@ -81,7 +70,7 @@ Page({
     }
 
     wx.navigateTo({
-      url: '../checkout_address/index?code=' + this.data.code + "&country_code=" + country_code + "&phone=" + this.data.phone
+      url: '../register_address/index?code=' + this.data.code + "&country_code=" + country_code + "&phone=" + this.data.phone
     });
   },
 })

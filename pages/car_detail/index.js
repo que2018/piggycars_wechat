@@ -127,10 +127,7 @@ Page({
       app.globalData.checkout_image = this.data.car_images[0];
 
       app.globalData.checkout_id = this.data.id;
-
-      console.log("going to checkout ... ");
-      console.log(app.globalData.checkout_id);
-
+      
       wx.navigateTo({
         url: '../checkout_sms/index'
       });

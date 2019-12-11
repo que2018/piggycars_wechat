@@ -17,16 +17,13 @@ Page({
     btn_addr_loading: false,
   },
   onLoad: function (options) {
+    console.log("register address .... ");
+    console.log(options);
+
     this.setData({
       country_code: decodeURIComponent(options.country_code),
       phone: decodeURIComponent(options.phone),
-      code: decodeURIComponent(options.code),
-      address_1: app.globalData.address.address_1,
-      address_2: app.globalData.address.address_2,
-      city: app.globalData.address.city,
-      zone: app.globalData.address.zone,
-      country: app.globalData.address.country,
-      postcode: app.globalData.address.postcode
+      code: decodeURIComponent(options.code)
     });
   },
   addr: function (e) {
@@ -35,6 +32,9 @@ Page({
     that.setData({
       btn_addr_loading: true
     });
+
+    console.log("register addresss session id");
+    console.log(wx.getStorageSync("sessionid"));
 
     wx.request({
       header: {

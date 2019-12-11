@@ -9,13 +9,17 @@ Page({
     email: "",
     password: "",
     password_confirm: "",
-    show_loading: false
+    btn_loading: false
   },
   onLoad: function (options) {
     
   },
   register: function (e) {
     var that = this;
+
+    that.setData({
+      btn_loading: true
+    });
 
     wx.request({
       url: app.globalData.API_REGISTER,
@@ -33,14 +37,14 @@ Page({
       }),
       complete: function (res) {
         that.setData({
-          loading: false
+          btn_loading: false
         });
 
-        console.log(res.data)
+        //console.log(res);
 
         if (res.data.success) {
-          that.setData({
-            is_login: true
+          wx.navigateBack({
+            delta: 1
           });
         } else {
 

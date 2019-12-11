@@ -76,7 +76,6 @@ Page({
     });
   },
   scroll: function (event) {
-    console.log("fire up in the end .... ");
   },
   onPullDownRefresh: function () {
     this.loadData();  

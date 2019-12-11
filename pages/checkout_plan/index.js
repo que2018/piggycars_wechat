@@ -26,9 +26,6 @@ Page({
       id: app.globalData.checkout_id
     });
 
-    console.log("in the checkout plan");
-    console.log(this.data);
-
     this.loadData();
   },
   loadData: function () {
@@ -153,12 +150,6 @@ Page({
     let checkout_insurance = that.data.selected_insurance_index;
     let checkout_pickup = that.data.selected_pickup_index;
 
-    console.log("going to print plan params ");
-    console.log(checkout_months);
-    console.log(checkout_distance);
-    console.log(checkout_insurance);
-    console.log(checkout_pickup);
-
     wx.request({
       url: app.globalData.API_CONFIRM,
       header: {
@@ -178,16 +169,11 @@ Page({
           btn_loading: false
         });
 
-        console.log(res.data);
-
         if(res.data.success) {
-
-          console.log(res.data.data);
-
           app.globalData.order_id = res.data.data.order_id;
-          app.globalData.checkout_payment_down = res.data.data.order.payment_down;
-          app.globalData.checkout_payment_down_tax = res.data.data.order.payment_down_tax;
-          app.globalData.checkout_payment_down_total = res.data.data.order.payment_down_total;
+          app.globalData.checkout_payment_down = Math.floor(res.data.data.order.payment_down);
+          app.globalData.checkout_payment_down_tax = Math.floor(res.data.data.order.payment_down_tax);
+          app.globalData.checkout_payment_down_total = Math.floor(res.data.data.order.payment_down_total);
 
           wx.navigateTo({
             url: '../checkout_payment/index'

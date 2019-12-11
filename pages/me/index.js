@@ -5,7 +5,7 @@ var util = require('../../utils/util.js');
 Page({
   data: {
     username: "goodislook588@gmail.com",
-    password: "Sam123456@",
+    password: "Sam12345678@",
     first_name: "",
     last_name: "",
     email: "",
@@ -52,6 +52,9 @@ Page({
 
         if(res.data.success) {
           app.globalData.is_login = true;
+          app.globalData.phone = that.data.phone;
+          app.globalData.password = that.data.password;
+          
           wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
 
           that.setData({

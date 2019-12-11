@@ -1,7 +1,14 @@
 <view class="container">
-  <view class="plan-title">选择计划</view>
-  <view>${{down_payment}}</view>
-  <view>${{monthly_payment + monthly_insurance}}<span>/月</span></view>
+  <view class="monthly-payment">
+    <span class="mo-value">${{monthly_payment + monthly_insurance}}</span>
+    <text decode="true">&nbsp;&nbsp;</text>
+    <span class="mo-text">/<text decode="true">&nbsp;&nbsp;</text>每月</span>
+  </view>
+  <view class="down-payment">
+    <span class="dp-text">订阅费<text decode="true">&nbsp;&nbsp;</text>/</span>
+    <text decode="true">&nbsp;&nbsp;</text>
+    <span class="dp-value">${{down_payment}}</span>
+  </view>
   <view class="plan-items">
     <view class="plan-item">
       <view class="plan-item-l">订阅期</view>

@@ -61,3 +61,27 @@
   border-radius: 3px;
   background: linear-gradient(90deg, rgba(242,72,145,1) 0%, rgba(253,79,80,1) 50%);
 }
+.monthly-payment {
+  text-align: center;
+  line-height: 35px;
+  margin-top: 60px;
+}
+.mo-text {
+  color: #cccccc;
+}
+.mo-value {
+  font-size: 34px;
+  font-weight: bold;
+  color: #fc5861;
+}
+.down-payment {
+  text-align: center;
+  line-height: 35px;
+}
+.dp-text {
+  color: #cccccc;
+}
+.dp-value {
+  font-weight: bold;
+  color: #888888;
+}

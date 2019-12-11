@@ -33,6 +33,7 @@
   font-weight: bold;
   text-align: right;
   line-height: 30px;
+  padding-right: 30px;
 }
 .tvalue {
   width: 20%;
@@ -52,10 +53,22 @@
 .btns-right {
   width: 50%;
 }
-.btn-payment {
+.btn-payment  {
   width: 140px;
   height: 43px;
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
+  background-repeat: no-repeat;
+  background-size: 140px 43px;
+}
+.btn-wechat  {
+  background-image: url("https://debug.piggycars.com/assets/image/btn_wechat.png");
+}
+.btn-card  {
+  background-image: url("https://debug.piggycars.com/assets/image/btn_card.png");
+}
+button[plain] {
+  border: none;
+  background-color: #ffffff;
 }

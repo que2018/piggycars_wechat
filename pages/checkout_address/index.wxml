@@ -1,5 +1,5 @@
 <view class="flex-container">
-  <view class="addr-title">更新地址</view>
+  <view class="addr-title">您的地址</view>
   <form bindsubmit='addr'>
     <view class="form-inner">
       <view class="input-group">
@@ -22,7 +22,6 @@
         <input name="postcode" placeholder="邮编" value="{{postcode}}" />
         <image src="../../images/zipcode.png"></image>
       </view>
-      <view class="addr-cancel">取消重置</view>
     </view>
     <view class="btn-wrap">
       <button class="btn-next" loading="{{btn_addr_loading}}" form-type='submit'>保存</button>

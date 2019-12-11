@@ -17,7 +17,6 @@ Page({
     btn_addr_loading: false,
   },
   onLoad: function (options) {
-
     console.log(options);
 
     this.setData({

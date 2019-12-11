@@ -16,10 +16,13 @@
     "pages/sms/index",
     "pages/address/index",
     "pages/register/index",
+    "pages/register_sms/index",
+    "pages/register_address/index",
     "pages/checkout_sms/index",
     "pages/checkout_address/index",
-    "pages/checkout_plan/index",
-    "pages/checkout_payment/index"
+    "pages/checkout_plan/index", 
+    "pages/checkout_payment/index",
+    "pages/checkout_card/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

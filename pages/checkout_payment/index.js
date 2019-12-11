@@ -9,22 +9,28 @@ Page({
     checkout_model: "",
     checkout_image: "",
     checkout_payment_down: 0,
-    checkout_payment_tax: 0,
-    checkout_payment_total: 0
+    checkout_payment_down_tax: 0,
+    checkout_payment_total: 0,
+    btn_wechat_loading: false,
+    btn_card_loading: false
   },
   onLoad: function (options) {
     this.setData({
-      checkout_year: app.globalData.checout_year,
+      checkout_year: app.globalData.checkout_year,
       checkout_make: app.globalData.checkout_make,
       checkout_model: app.globalData.checkout_model,
       checkout_image: app.globalData.checkout_image,
       checkout_payment_down: app.globalData.checkout_payment_down,
-      checkout_payment_tax: app.globalData.checkout_payment_tax,
-      checkout_payment_total: app.globalData.checkout_payment_total
+      checkout_payment_down_tax: app.globalData.checkout_payment_down_tax,
+      checkout_payment_down_total: app.globalData.checkout_payment_down_total
     })
   },
   wechatPay: function (e) {
     var that = this;
+
+    that.setData({
+      btn_wechat_loading: true
+    });
 
     wx.login({
       success: function (res) {
@@ -45,7 +51,7 @@ Page({
             console.log(res.data);
 
             that.setData({
-              loading: false
+              btn_wechat_loading: false
             });
 
             if (res.data.status == 1) {
@@ -94,10 +100,9 @@ Page({
       }
     }); 
   },
-  aliPay: function (e) {
-
-  },
   cardPay: function (e) {
-
+    wx.navigateTo({
+      url: '../checkout_card/index'
+    });
   }
 })
