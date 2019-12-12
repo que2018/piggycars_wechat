@@ -4,8 +4,8 @@ var util = require('../../utils/util.js');
 
 Page({
   data: {
-    username: "goodislook588@gmail.com",
-    password: "Sam12345678@",
+    username: "",
+    password: "",
     first_name: "",
     last_name: "",
     email: "",
@@ -15,24 +15,36 @@ Page({
     zone: "",
     postcode: "",
     country: "",
-    id_images: [],
+    id_images: "",
     is_login: false,
-    show_loading: false
+    show_loading: true
   },
   onLoad: function (options) {
     this.setData({ 
-      is_login: app.globalData.is_login
+      show_loading: false,
+      is_login: app.globalData.is_login,
+      first_name: app.globalData.first_name,
+      last_name: app.globalData.last_name,
+      email: app.globalData.email,
+      address_1: app.globalData.address.address_1,
+      address_2: app.globalData.address.address_2,
+      city: app.globalData.address.city,
+      zone: app.globalData.address.zone,
+      postcode: app.globalData.address.postcode,
+      country: app.globalData.address.country,
+      id_images: app.globalData.id_images
     });
-
-    if(this.data.is_login) {
-      this.get_profile();
-    }
+  },
+  onReady: function() {
+    this.alert = this.selectComponent("#alert");
   },
   login: function (e) {
     var that = this;
 
     that.setData({
-      loading: true
+      loading: true,
+      username: e.detail.value.username,
+      password: e.detail.value.password
     });
 
     wx.request({
@@ -50,11 +62,17 @@ Page({
           loading: false
         });
 
+        console.log(res.data);
+
+
+
         if(res.data.success) {
           app.globalData.is_login = true;
           app.globalData.phone = that.data.phone;
           app.globalData.password = that.data.password;
           
+          wx.setStorageSync("username", that.data.username);
+          wx.setStorageSync("password", that.data.password);
           wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
 
           that.setData({
@@ -67,7 +85,23 @@ Page({
           that.get_id();
 
         } else {
+          var messages = [];
 
+          if(res.data.code == "error_form_error") {
+            for (var index in res.data.form_error) {
+              var message = res.data.form_error[index];
+              message = message.replace('<p>', '');
+              message = message.replace('</p>', '');
+              messages.push(message);
+            }
+          }
+
+          if (res.data.code == "validation_unsuccessful") {
+            var message = res.data.msg;
+            messages.push(message);
+          }
+
+          that.alert.show(messages);
         }
       }
     });   
@@ -84,7 +118,7 @@ Page({
       header: header,
       url: app.globalData.API_USER,
       complete: function (res) {
-        console.log(res.data);
+        //console.log(res.data);
 
         if(res.data.success) {
           app.globalData.user_id = res.data.user_id;
@@ -120,7 +154,7 @@ Page({
       header: header,
       url: app.globalData.API_ID,
       complete: function (res) {
-        console.log(res.data);
+        //console.log(res.data);
 
         var id_images =[];
       
@@ -140,6 +174,8 @@ Page({
           that.setData({
             id_images: id_images
           });
+
+          app.globalData.id_images = id_images;
         }
       }
     });
@@ -160,8 +196,31 @@ Page({
 
         if (res.data.success) {
           that.setData({
-            is_login: false
+            is_login: false,
+            user_id: "",
+            username: "",
+            password: "",
+            email: "",
+            phone: "",
+            first_name: "",
+            last_name: "",
+            address: {},
+            id_images: [],
+            filter_params: "",
+            checkout_id: 0,
+            checkout_year: "",
+            checkout_make: "",
+            checkout_model: "",
+            checkout_image: "",
+            checkout_payment_down: 0,
+            checkout_payment_down_tax: 0,
+            checkout_payment_down_total: 0
           });
+
+          wx.setStorageSync("username", "");
+          wx.setStorageSync("password", "");
+          wx.setStorageSync("sessionid", "");
+
         } else {
 
         }

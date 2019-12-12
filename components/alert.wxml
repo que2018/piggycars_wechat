@@ -1,0 +1,14 @@
+<view class="{{show?'show':'hide'}}">
+  <view class="alert" class="alert">
+    <view class="alert-inner">
+      <block wx:for="{{messages}}" wx:key="message">
+        <block wx:if="{{index < (length - 1)}}">
+          {{item}}<text>\n</text>
+        </block>
+        <block wx:else>
+          {{item}}
+        </block>
+      </block>
+    </view>
+  </view>
+</view>

@@ -6,12 +6,22 @@ Page({
   data: {
     code: "",
     phone: "",
+    show_edit: false,
     country_code: "+1",
     country_codes: ["+1", "+86"],
     btn_sms_loading: false
   },
   onLoad: function (options) {
-
+    if(app.globalData.phone) {
+      this.setData({
+        phone: app.globalData.phone,
+        show_edit: false
+      });
+    } else {
+      this.setData({
+        show_edit: true
+      });
+    }
   },
   sms: function (e) {
     var that = this;
@@ -23,7 +33,7 @@ Page({
 
     var phone = "";
 
-    if(that.data.country_code == "+1") {
+    if (that.data.country_code == "+1") {
       phone = "1" + e.detail.value.phone;
     } else {
       phone = "86" + e.detail.value.phone;
@@ -56,12 +66,19 @@ Page({
     });
   },
   bindCode: function (e) {
-
-    console.log(e.detail.value);
-
     this.setData({
       code: e.detail.value
     })
+  },
+  bindStatic: function (e) {
+    this.setData({
+      show_edit: false
+    });
+  },
+  bindEdit: function (e) {
+    this.setData({
+      show_edit: true
+    });
   },
   bindNext: function (event) {
     var country_code = "";

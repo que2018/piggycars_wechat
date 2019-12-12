@@ -78,3 +78,27 @@ input {
   text-align: center;
   font-size: 18px;
 }
+.sms-static {
+  width: 84vw;
+  margin: 0 auto;
+  margin-top: 26px;
+}
+.sms-static-inner {
+  padding: 0px 26px;
+  display:flex;
+  flex-direction: row;
+}
+.sst-phone {
+  width: 80%;
+  line-height: 40px;
+  padding-left: 20px;
+  border-bottom: 0.8px solid #cccccc;
+}
+.sst-btn {
+  line-height: 40px;
+  background: #fc5861;
+  width: 20%;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 0px 5px 5px 0px;
+}

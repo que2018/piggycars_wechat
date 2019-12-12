@@ -6,6 +6,7 @@
     <image src="../../images/logo_long.png"></image>
   </view>
   <form bindsubmit='login'>
+    <alert id="alert" message="Some text"></alert>
     <view class="form-inner">
       <view class="input-groups">
         <view class="input-group">
@@ -42,12 +43,12 @@
     <view class="title">地址信息</view>
     <view class="edit-box" bindtap="goToAddr"><image src="../../images/edit.png"></image></view>
     <view class="content">
-      <view class="cname">国家<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{country}}</span></view>
       <view class="cname">地址<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{address_1}}</span></view>
       <view class="cname">地址2<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{address_2}}</span></view>
       <view class="cname">城市<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{city}}</span></view>
       <view class="cname">州/省<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{zone}}</span></view>
       <view class="cname">邮编<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{postcode}}</span></view>
+      <view class="cname" style="text-transform: uppercase;">国家<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{country}}</span></view>
     </view>
   </view>
   <view class="space"></view>

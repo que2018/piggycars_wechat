@@ -1,0 +1,24 @@
+.alert {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  left: 0px;
+}
+.alert-inner {
+  display: block;
+  margin: 0 auto;
+  background: #888888;
+  border-radius: 11px;
+  color: #ffffff;
+  padding: 12px;
+  width: 250px;
+  text-align: center;
+}
+.show {
+  display: fixed;
+}
+.hide {
+  display: none;
+}
+
+

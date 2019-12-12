@@ -3,7 +3,7 @@ flex-container {
   flex-direction: column;
 }
 .categories {
-  background-image: url("https://debug.piggycars.com/assets/image/home_bg1.jpg");
+  background-image: url("https://piggycars.com/assets/image/home_bg1.jpg");
   background-repeat: no-repeat; 
   background-position: center; 
   background-size: cover;
@@ -50,6 +50,7 @@ flex-container {
 .featured {
   padding-left: 8vw;
   padding-right: 8vw;
+  min-height: 40vh;
 }
 .featured-title {
   font-weight: bold;
@@ -132,13 +133,16 @@ flex-container {
 }
 .blog-item-title {
   font-size: 11px;
+  color: #888888;
   font-weight: bold;
   text-align: center;
-  padding-top: 6px;
+  padding: 6px 0px 6px 0px;
 }
 .blog-item-desp {
-  color: #000000;
-  font-size: 12px;
+  font-size: 11px;
+  color: #888888;
+  display: block;
+  white-space: pre-wrap;
 }
 .pk1 image {
   width: 12px;

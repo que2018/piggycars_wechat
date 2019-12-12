@@ -4,6 +4,7 @@ var util = require('../../utils/util.js');
 
 Page({
   data: {
+    order_id: 0,
     checkout_year: "",
     checkout_make: "",
     checkout_model: "",
@@ -16,6 +17,7 @@ Page({
   },
   onLoad: function (options) {
     this.setData({
+      order_id: app.globalData.order_id,
       checkout_year: app.globalData.checkout_year,
       checkout_make: app.globalData.checkout_make,
       checkout_model: app.globalData.checkout_model,
@@ -44,22 +46,22 @@ Page({
           method: "POST",
           data: util.json2Form({
             code: code,
+            order_id: app.globalData.order_id,
             amount: app.globalData.checkout_payment_down_total
           }),
           complete: function (res) {
-
             console.log(res.data);
 
             that.setData({
               btn_wechat_loading: false
             });
 
-            if (res.data.status == 1) {
-              var nonceStr = res.data.data.nonceStr;
-              var paySign = res.data.data.paySign;
-              var signType = res.data.data.signType;
-              var timeStamp = res.data.data.timeStamp;
-              var wechatPackage = res.data.data.wechatPackage;
+            if (true) {
+              var nonceStr = res.data.nonceStr;
+              var paySign = res.data.paySign;
+              var signType = res.data.signType;
+              var timeStamp = res.data.timeStamp;
+              var wechatPackage = res.data.wechatPackage;
 
               wx.requestPayment({
                 'timeStamp': timeStamp,

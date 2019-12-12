@@ -78,7 +78,7 @@ Page({
       url: app.globalData.API_CARS,
       method: "POST",
       data: util.json2Form({
-        hot: "1"
+        "hot": "1"
       }),
       complete: function (res) {
         that.setData({
@@ -86,6 +86,8 @@ Page({
         });
 
         that.checkComplete();
+
+        console.log(res.data);
 
         if (res.data.success) {
           var featureds = [];
@@ -130,6 +132,8 @@ Page({
 
         that.checkComplete();
 
+        console.log(res.data);
+
         if (res.data.success) {
           var blogs = [];
 
@@ -139,7 +143,7 @@ Page({
 
             blog.id = item.id;
             blog.title = decodeURIComponent(item.title);
-            blog.description = decodeURIComponent(item.description);
+            blog.description = decodeURIComponent(item.meta_description);
             blog.image = app.globalData.API_RES + "/article/lg/" + item.image;
             blogs.push(blog);
           }

@@ -171,9 +171,14 @@ Page({
 
         if(res.data.success) {
           app.globalData.order_id = res.data.data.order_id;
-          app.globalData.checkout_payment_down = Math.floor(res.data.data.order.payment_down);
-          app.globalData.checkout_payment_down_tax = Math.floor(res.data.data.order.payment_down_tax);
-          app.globalData.checkout_payment_down_total = Math.floor(res.data.data.order.payment_down_total);
+
+          let payment_down = Number(res.data.data.order.payment_down);
+          let payment_down_tax = Number(res.data.data.order.payment_down_tax);
+          let payment_down_total = Number(res.data.data.order.payment_down_total);
+
+          app.globalData.checkout_payment_down = payment_down.toFixed(2);
+          app.globalData.checkout_payment_down_tax = payment_down_tax.toFixed(2);
+          app.globalData.checkout_payment_down_total = payment_down_total.toFixed(2);
 
           wx.navigateTo({
             url: '../checkout_payment/index'

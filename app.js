@@ -1,16 +1,17 @@
 
 App({
   globalData: {
-    version: 'v0.2.2',
+    version: 'v0.8.0',
     is_login: false,
     user_id: "",
     username: "",
     password: "",
     email: "",
-    phone: "626551200",
+    phone: "",
     first_name: "",
     last_name: "",
     address: {},
+    id_images: [],
     filter_params: "",
     checkout_id: 0,
     checkout_year: "",
