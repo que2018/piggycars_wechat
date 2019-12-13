@@ -31,7 +31,7 @@ Component({
         that.setData({
           show: false
         });
-      }, 4000)
+      }, 3000);
     }
   }
 })

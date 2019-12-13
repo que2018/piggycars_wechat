@@ -6,7 +6,6 @@
     <image src="../../images/logo_long.png"></image>
   </view>
   <form bindsubmit='login'>
-    <alert id="alert" message="Some text"></alert>
     <view class="form-inner">
       <view class="input-groups">
         <view class="input-group">
@@ -24,6 +23,7 @@
       <view class="reg-l">没有账号?<text decode="{{true}}">&nbsp;&nbsp;</text></view>
       <view class="reg-r">快来注册吧!</view>
     </view>
+    <alert id="alert"></alert>
   </form>
 </view>
 <view class="flex-container-user {{is_login?'show':'hide'}}">

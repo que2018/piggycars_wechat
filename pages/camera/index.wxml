@@ -1,5 +1,23 @@
-<camera device-position="back" flash="off" binderror="error"></camera>
+<camera device-position="back" flash="off" binderror="error" class="{{show_preview?'hide':'show'}}"></camera>
 <view class="{{show_preview?'show':'hide'}}">
-  <image mode="widthFix" src="{{src}}" class="preview"></image>
+  <image src="{{src}}" class="preview"></image>
 </view>
-<button>xxx</button>
+<view class="{{show_preview?'hide':'show'}}">
+  <view class="take">
+    <image src="../../images/btn_take.png" mode="aspectFit" class="btn-take" bindtap="takePhoto"></image>
+  </view>
+</view>
+<view class="{{show_preview?'show':'hide'}}">
+  <view class="result">
+    <view class="btn-wrap">
+      <view class="btn-dismiss" bindtap="dismissPhoto">
+        <image src="../../images/x.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="btn-wrap">
+      <view class="btn-confirm" bindtap="confirmPhoto">
+        <image src="../../images/check-white.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+</view>

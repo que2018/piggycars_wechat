@@ -38,6 +38,6 @@ App({
     API_BLOGS: "https://debug.piggycars.com/info/article/get_list",
     API_BLOG_DETAIL: "https://debug.piggycars.com/info/article/json/",
     API_LANG: "https://debug.piggycars.com/api/common/language?lang=chinese&no_redirect=1",
-    API_RES: "https://debug.piggycars.com/assets/image"
+    API_RES: "https://piggycars.com/assets/image"
   }
 })

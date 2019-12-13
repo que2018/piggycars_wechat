@@ -9,16 +9,28 @@ Page({
     this.ctx = wx.createCameraContext()
   },
   takePhoto() {
+    var that = this;
+
     this.ctx.takePhoto({
       quality: 'high',
       success: (res) => {
-
         console.log(res.tempImagePath);
-
-        this.setData({
+        that.setData({
+          show_preview: true,
           src: res.tempImagePath
         })
       }
     })
+  },
+  dismissPhoto() {
+    this.setData({
+      show_preview: false,
+      src: ""
+    });
+  },
+  confirmPhoto() {
+    wx.navigateBack({
+      delta: 1
+    });
   },
 })

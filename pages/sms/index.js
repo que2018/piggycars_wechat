@@ -13,15 +13,32 @@ Page({
   },
   onLoad: function (options) {
     if(app.globalData.phone) {
-      this.setData({
-        phone: app.globalData.phone,
-        show_edit: false
-      });
+      let phone = app.globalData.phone;
+
+      console.log(phone);
+      console.log(phone.substr(2));
+
+      if (phone.startsWith("86")) {
+        this.setData({
+          country_code: "+86",
+          phone: phone.substr(2),
+          show_edit: false
+        });
+      } else {
+        this.setData({
+          country_code: "+1",
+          phone: phone.substr(1),
+          show_edit: false
+        });
+      }
     } else {
       this.setData({
         show_edit: true
       });
     }
+  },
+  onReady: function () {
+    this.alert = this.selectComponent("#alert");
   },
   sms: function (e) {
     var that = this;
@@ -55,6 +72,19 @@ Page({
         that.setData({
           btn_sms_loading: false
         });
+
+        //console.log(res.data);
+
+        if(res.data.success == false) {
+          var messages = [];
+
+          if (res.data.code == "error_send_sms_failed") {
+            let message = res.data.msg;
+            messages.push(message);
+          }
+
+          that.alert.show(messages);
+        }
       }
     });
   },
@@ -88,6 +118,9 @@ Page({
     } else {
       country_code = "86";
     }
+
+    console.log(this.data.country_code);
+    console.log(this.data.phone);
 
     wx.navigateTo({
       url: '../address/index?code=' + this.data.code + "&country_code=" + country_code + "&phone=" + this.data.phone

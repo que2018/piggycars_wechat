@@ -1,13 +1,12 @@
 <view class="container-id">
-  <view class="title">上传证件</view>
-  <view class="rbtns">
+  <view class="id-btns">
     <view class="btn-cn">中国</view>
     <view class="btn-en">美国</view>
   </view>
-  <view>
-    <view>对您的驾照拍一张照片</view>
-    <view>  
-      <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+  <view class="id-content">
+    <view class="id-desp">{{description}}</view>
+    <view class="id-image">  
+      <image src="{{sample_image}}" mode="aspectFit"></image>
    </view>
   </view>
 </view>

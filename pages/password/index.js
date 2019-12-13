@@ -9,8 +9,8 @@ Page({
     password_confirm: "",
     btn_loading: false
   },
-  onLoad: function (options) {
-
+  onReady: function () {
+    this.alert = this.selectComponent("#alert");
   },
   password: function (e) {
     var that = this;
@@ -43,6 +43,19 @@ Page({
           wx.navigateBack({
             delta: 1
           });
+        } else {
+          var messages = [];
+
+          if (res.data.code == "error_form_error") {
+            for (var index in res.data.form_error) {
+              var message = res.data.form_error[index];
+              message = message.replace('<p>', '');
+              message = message.replace('</p>', '');
+              messages.push(message);
+            }
+          }
+
+          that.alert.show(messages);
         }
       }
     });

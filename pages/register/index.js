@@ -14,6 +14,9 @@ Page({
   onLoad: function (options) {
     
   },
+  onReady: function () {
+    this.alert = this.selectComponent("#alert");
+  },
   register: function (e) {
     var that = this;
 
@@ -47,7 +50,18 @@ Page({
             delta: 1
           });
         } else {
+          var messages = [];
 
+          if (res.data.code == "error_form_error") {
+            for (var index in res.data.form_error) {
+              var message = res.data.form_error[index];
+              message = message.replace('<p>', '');
+              message = message.replace('</p>', '');
+              messages.push(message);
+            }
+          }
+
+          that.alert.show(messages);
         }
       }
     });

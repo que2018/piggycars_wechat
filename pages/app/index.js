@@ -26,7 +26,7 @@ Page({
         complete: function (res) {
           if (res.data.success) {
             app.globalData.is_login = true;
-            app.globalData.phone = that.data.phone;
+            app.globalData.phone = res.data.data.phone;
             app.globalData.password = that.data.password;
 
             wx.setStorageSync("sessionid", res.header["Set-Cookie"]);

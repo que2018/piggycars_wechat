@@ -1,8 +1,9 @@
 .alert {
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   width: 100%;
   left: 0px;
+  z-index: 1000;
 }
 .alert-inner {
   display: block;
