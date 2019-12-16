@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/id/index",
+    "pages/checkout/index",
     "pages/app/index",
     "pages/home/index",    
     "pages/car_list/index",
@@ -12,10 +12,11 @@
     "pages/fee/index",
     "pages/contact/index",
     "pages/me/index",
+    "pages/register/index", 
     "pages/password/index",    
     "pages/sms/index",
     "pages/address/index",
-    "pages/register/index",
+    "pages/id/index",
     "pages/register_sms/index",
     "pages/register_address/index",
     "pages/checkout_sms/index",

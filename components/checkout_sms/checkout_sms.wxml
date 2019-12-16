@@ -1,0 +1,33 @@
+<view class="flex-container">
+  <view class="sms-title">确认电话号码</view>
+  <view class="{{show_edit?'hide':'show'}}">
+    <view class="sms-static">
+      <view class="sms-static-inner">
+        <view class="sst-phone">{{phone}}</view>
+        <view class="sst-btn" bindtap="bindEdit">重置</view>
+      </view>
+    </view>
+  </view>
+  <view class="{{show_edit?'show':'hide'}}">
+    <form bindsubmit='sms'>
+      <view class="form-inner">
+        <view class="input-group">
+          <picker bindchange="bindCountryCodeChange" value="{{country_code}}" range="{{country_codes}}" class="country-code">
+            <view class="picker">{{country_code}}</view>
+          </picker>
+          <input name="phone" placeholder="电话" />
+          <image src="../../images/phone.png"></image>
+        </view>
+        <view class="input-group">
+          <input name="code" placeholder="短信验证码" bindinput="bindCode" />
+          <image src="../../images/message.png"></image>
+        </view>
+        <button size="default" loading="{{btn_sms_loading}}" class="btn-sms" form-type='submit'>发送代码</button>
+        <view class="sms-cancel" bindtap="bindStatic">取消重置</view>
+      </view>
+    </form>
+  </view>
+</view>
+<view class="btn-wrap">
+  <view class="btn-next" bindtap="bindNext">下一步</view>
+</view>

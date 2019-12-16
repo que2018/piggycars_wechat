@@ -1,2 +1,7 @@
-<!--pages/checkout_success/index.wxml-->
-<text>pages/checkout_success/index.wxml</text>
+<view class="container-success">
+  <view class="title">下单成功</view>
+  <view class="content"></view>
+</view>
+<view class="btn-wrap">
+  <view class="btn-detail" bindtap="bindOrderDetail">查看订单</view>
+</view>
