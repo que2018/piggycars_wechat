@@ -1,0 +1,123 @@
+.container-card {
+  display:flex;
+  flex-direction: column;
+}
+.card-wrap {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin-top: 20px;
+}
+.card {
+  width: 70vw;
+  height: 44vw;
+  background: #fc5861;
+  border-radius: 10px;
+}
+.btn-wrap {
+  height: 80px;
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ebebeb;
+  z-index: 1000;
+}
+.btn-pay {
+  color: white;
+  width: 85%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(242,72,145,1) 0%, rgba(253,79,80,1) 50%);
+}
+.captain {
+  width: 80vw;
+  margin: 0 auto;
+}
+.row-card-number {
+  display:flex;
+  flex-direction: row;
+}
+.cn-l {
+  width: 30%;
+  height: 50px;
+  line-height: 50px;
+  text-align: right;
+  padding-right: 15px;
+} 
+.cn-r input {
+  height: 50px;
+  line-height: 50px;
+  text-align:center;
+}
+.cn-r {
+  width: 70%;
+  border-bottom: 1px solid #cccccc;
+}
+.row-card-exp {
+  display:flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.ce-l {
+  width: 30%;
+  height: 50px;
+  line-height: 50px;
+  text-align: right;
+  padding-right: 15px;
+} 
+.ce-r {
+  width: 70%;
+  height: 50px;
+  line-height: 50px;
+  display:flex;
+  flex-direction: row;
+}
+.row-card-cvv {
+  display:flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.cc-l {
+  width: 30%;
+  height: 50px;
+  line-height: 50px;
+  text-align: right;
+  padding-right: 15px;
+} 
+.cc-r {
+  width: 20%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #cccccc;
+}
+.cc-r input {
+  height: 50px;
+  line-height: 50px;
+  text-align:center;
+}
+.exp-month {
+  width: 50px;
+    border-bottom: 1px solid #cccccc;
+}
+.exp-space {
+  width: 30px;
+  text-align: center;
+}
+.exp-year {
+  width: 50px;
+    border-bottom: 1px solid #cccccc;
+}
+.exp-month-value {
+  text-align: center;
+}
+.exp-year-value {
+  text-align: center;
+}

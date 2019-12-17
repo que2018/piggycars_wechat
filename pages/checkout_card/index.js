@@ -71,6 +71,14 @@ Page({
         });
 
         console.log(res.data);
+
+        if(res.data.success) {
+          wx.navigateTo({
+            url: '../checkout_success/index?order_id=' + app.globalData.order_id
+          });
+        } else {
+
+        }
       }
     });
   },

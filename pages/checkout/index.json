@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "checkout_sms": "/components/checkout_sms/checkout_sms"
+    "checkout_sms": "/components/checkout_sms/checkout_sms",
+    "checkout_address": "/components/checkout_address/checkout_address",
+    "checkout_plan": "/components/checkout_plan/checkout_plan",
+    "checkout_payment": "/components/checkout_payment/checkout_payment",
+    "checkout_card": "/components/checkout_card/checkout_card"
   }
 }

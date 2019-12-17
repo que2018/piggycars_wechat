@@ -22,7 +22,8 @@
   height: 12vw;
   display: block;
   margin: 0 auto;
-  margin-top: 18vw;
+  margin-top: 70px;
+  margin-bottom: 40px;
 }
 .logo image {
   width: 100%;

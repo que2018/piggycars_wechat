@@ -129,7 +129,7 @@ Page({
       app.globalData.checkout_id = this.data.id;
       
       wx.navigateTo({
-        url: '../checkout_sms/index'
+        url: '../checkout/index'
       });
       
     } else {

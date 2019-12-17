@@ -11,38 +11,31 @@ Component({
   },
   data: {
     code: "",
-    phone: app.globalData.phone,
-    show_edit: false,
+    phone: "",
+    phone_display: "",
+    phone_local: "",
     country_code: "+1",
     country_codes: ["+1", "+86"],
+    show_edit: false,
     btn_sms_loading: false
   },
   lifetimes: {
     attached: function () {
-      if (app.globalData.phone) {
-        let phone = app.globalData.phone;
+      this.alert = this.selectComponent("#alert");
 
-        if (phone.startsWith("86")) {
-          this.setData({
-            country_code: "+86",
-            phone: phone.substr(2),
-            show_edit: false
-          });
-        } else {
-          this.setData({
-            country_code: "+1",
-            phone: phone.substr(1),
-            show_edit: false
-          });
-        }
+      if (app.globalData.phone) {
+        this.setData({
+          phone_display: app.globalData.phone,
+          country_code: "+" + app.globalData.country_code,
+          phone: app.globalData.phone_local,
+          show_edit: false
+        });
       } else {
         this.setData({
           show_edit: true
         });
       }
-    },
-    moved: function () { },
-    detached: function () { }
+    }
   },
   methods: {
     sms: function (e) {
@@ -78,20 +71,64 @@ Component({
             btn_sms_loading: false
           });
 
-          //console.log(res.data);
+          console.log(res.data);
 
-          if (res.data.success == false) {
+          if (res.data.success) {
+
+          } else {
             var messages = [];
 
             if (res.data.code == "error_send_sms_failed") {
+
+              console.log("we are running here ... ");
+
               let message = res.data.msg;
               messages.push(message);
+
+              that.alert.show(messages);
             }
 
-            that.alert.show(messages);
+            
           }
         }
       });
+    },
+    bindCountryCodeChange: function (e) {
+      let country_code = this.data.country_codes[e.detail.value];
+
+      this.setData({
+        country_code: country_code
+      });
+    },
+    bindCode: function (e) {
+      this.setData({
+        code: e.detail.value
+      })
+    },
+    bindStatic: function (e) {
+      this.setData({
+        show_edit: false
+      });
+    },
+    bindEdit: function (e) {
+      this.setData({
+        show_edit: true
+      });
+    },
+    bindNext: function (event) {
+      app.globalData.code = this.data.code;
+
+      let data = {
+        show_checkout_sms: false,
+        show_checkout_address: true,
+        show_checkout_id: false,
+        show_checkout_plan: false,
+        show_checkout_coupon: false,
+        show_checkout_payment: false,
+        show_checkout_card: false
+      }
+
+      this.triggerEvent('notification', data);
     }
   }
 })

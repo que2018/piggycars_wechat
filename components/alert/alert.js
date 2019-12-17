@@ -21,7 +21,7 @@ Component({
   methods: {
     show: function (messages) { 
       var that = this;
-
+      
       this.setData({
         show: true,
         length: messages.length,

@@ -26,8 +26,20 @@ Page({
         complete: function (res) {
           if (res.data.success) {
             app.globalData.is_login = true;
-            app.globalData.phone = res.data.data.phone;
             app.globalData.password = that.data.password;
+
+            let phone = res.data.data.phone;
+
+            if (phone.charAt(0) == "1") {
+              app.globalData.country_code = "1";
+              app.globalData.phone_local = phone.substring(1, phone.length);
+
+            } else {
+              app.globalData.country_code = "86";
+              app.globalData.phone_local = phone.substring(2, phone.length);
+            }
+
+            app.globalData.phone = phone;
 
             wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
 
@@ -112,6 +124,5 @@ Page({
         }
       }
     });
-  },
-
+  }
 })

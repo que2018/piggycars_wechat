@@ -15,11 +15,11 @@
           <picker bindchange="bindCountryCodeChange" value="{{country_code}}" range="{{country_codes}}" class="country-code">
             <view class="picker">{{country_code}}</view>
           </picker>
-          <input name="phone" placeholder="电话" />
+          <input type="number" name="phone" placeholder="电话" />
           <image src="../../images/phone.png"></image>
         </view>
         <view class="input-group">
-          <input name="code" placeholder="短信验证码" bindinput="bindCode" />
+          <input type="number" name="code" placeholder="短信验证码" bindinput="bindCode" />
           <image src="../../images/message.png"></image>
         </view>
         <button size="default" loading="{{btn_sms_loading}}" class="btn-sms" form-type='submit'>发送代码</button>

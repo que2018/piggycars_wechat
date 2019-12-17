@@ -26,13 +26,13 @@ Page({
       first_name: app.globalData.first_name,
       last_name: app.globalData.last_name,
       email: app.globalData.email,
-      address_1: app.globalData.address.address_1,
-      address_2: app.globalData.address.address_2,
-      city: app.globalData.address.city,
-      zone: app.globalData.address.zone,
-      postcode: app.globalData.address.postcode,
-      country: app.globalData.address.country,
-      id_images: app.globalData.id_images
+      id_images: app.globalData.id_images,
+      address_1: (app.globalData.address.address_1)? app.globalData.address.address_1 : "",
+      address_2: (app.globalData.address.address_2) ? app.globalData.address.address_2 : "",
+      city: (app.globalData.address.city) ? app.globalData.address.city : "",
+      zone: (app.globalData.address.zone) ? app.globalData.address.zone : "",
+      postcode: (app.globalData.address.postcode) ? app.globalData.address.postcode : "",
+      country: (app.globalData.address.country) ? app.globalData.address.country : ""
     });
   },
   onReady: function() {
@@ -62,13 +62,25 @@ Page({
           loading: false
         });
 
-        console.log(res.data);
+        //console.log(res.data);
 
         if(res.data.success) {
           app.globalData.is_login = true;
-          app.globalData.phone = res.data.data.phone;
           app.globalData.password = that.data.password;
-          
+
+          let phone = res.data.data.phone;
+
+          if (phone.charAt(0) == "1") {
+            app.globalData.country_code = "1";
+            app.globalData.phone_local = phone.substring(1, phone.length);
+
+          } else {
+            app.globalData.country_code = "86";
+            app.globalData.phone_local = phone.substring(2, phone.length);
+          }
+
+          app.globalData.phone = phone;
+
           wx.setStorageSync("username", that.data.username);
           wx.setStorageSync("password", that.data.password);
           wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
@@ -199,6 +211,8 @@ Page({
             username: "",
             password: "",
             email: "",
+            country_code: "",
+            phone_local: "",
             phone: "",
             first_name: "",
             last_name: "",

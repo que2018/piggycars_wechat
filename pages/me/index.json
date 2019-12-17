@@ -1,7 +1,6 @@
 {
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "alert": "/components/alert/alert",
-    "checkout_sms": "/components/checkout_sms/checkout_sms"
+    "alert": "/components/alert/alert"
   }
 }

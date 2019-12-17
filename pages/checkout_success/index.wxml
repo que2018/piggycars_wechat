@@ -1,6 +1,6 @@
 <view class="container-success">
   <view class="title">下单成功</view>
-  <view class="content"></view>
+  <view class="content">感谢您的订单。我们发送了一份订单确认邮件给您</view>
 </view>
 <view class="btn-wrap">
   <view class="btn-detail" bindtap="bindOrderDetail">查看订单</view>

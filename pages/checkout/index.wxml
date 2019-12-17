@@ -1,3 +1,18 @@
 <view class="container">
-  <checkout_sms></checkout_sms>
+  <view wx:if="{{show_checkout_sms}}">
+    <checkout_sms bind:notification="checkoutNotification"></checkout_sms>
+  </view>
+  <view wx:if="{{show_checkout_address}}">
+    <checkout_address bind:notification="checkoutNotification"></checkout_address>
+  </view>
+  <view wx:if="{{show_checkout_plan}}">
+    <checkout_plan bind:notification="checkoutNotification"></checkout_plan>
+  </view>
+  <view wx:if="{{show_checkout_payment}}">
+    <checkout_payment bind:notification="checkoutNotification"></checkout_payment>
+  </view>
+  <view wx:if="{{show_checkout_card}}">
+    <checkout_card bind:notification="checkoutNotification"></checkout_card>
+  </view>
 </view>
+

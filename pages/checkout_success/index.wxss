@@ -11,6 +11,9 @@
   line-height: 80px;
   margin-top: 20px;
 }
+.content {
+  text-align: center;
+}
 .btn-wrap {
   height: 80px;
   position: fixed;

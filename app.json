@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/checkout/index",
     "pages/app/index",
     "pages/home/index",    
     "pages/car_list/index",
@@ -19,6 +18,7 @@
     "pages/id/index",
     "pages/register_sms/index",
     "pages/register_address/index",
+    "pages/checkout/index", 
     "pages/checkout_sms/index",
     "pages/checkout_address/index",
     "pages/checkout_plan/index", 

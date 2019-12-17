@@ -3,7 +3,7 @@
   bottom: 30px;
   width: 100%;
   left: 0px;
-  z-index: 1000;
+  z-index: 10000;
 }
 .alert-inner {
   display: block;

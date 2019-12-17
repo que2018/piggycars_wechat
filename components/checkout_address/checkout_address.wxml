@@ -1,0 +1,31 @@
+<view class="flex-container">
+  <view class="addr-title">您的地址</view>
+  <form bindsubmit='addr'>
+    <view class="form-inner">
+      <view class="input-group">
+        <input name="address_1" placeholder="地址1" value="{{address_1}}" />
+        <image src="../../images/street.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="address_2" placeholder="地址2" value="{{address_2}}" />
+        <image src="../../images/street.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="city" placeholder="城市" value="{{city}}" />
+        <image src="../../images/city.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="zone" placeholder="州/地区" value="{{zone}}" />
+        <image src="../../images/city.png"></image>
+      </view>
+      <view class="input-group">
+        <input name="postcode" placeholder="邮编" value="{{postcode}}" />
+        <image src="../../images/zipcode.png"></image>
+      </view>
+    </view>
+    <view class="btn-wrap">
+      <button class="btn-next" loading="{{btn_addr_loading}}" form-type='submit'>保存</button>
+    </view>
+  </form>
+</view>
+
