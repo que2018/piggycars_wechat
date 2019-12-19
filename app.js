@@ -1,7 +1,7 @@
 
 App({
   globalData: {
-    version: 'v1.0.0',
+    version: 'v1.0.1',
     is_login: false,
     user_id: "",
     username: "",
