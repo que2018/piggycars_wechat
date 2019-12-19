@@ -59,18 +59,18 @@ Component({
               amount: app.globalData.checkout_payment_down_total
             }),
             complete: function (res) {
-              //console.log(res.data);
+              console.log(res.data);
 
               that.setData({
                 btn_wechat_loading: false
               });
 
-              if (true) {
-                var nonceStr = res.data.nonceStr;
-                var paySign = res.data.paySign;
-                var signType = res.data.signType;
-                var timeStamp = res.data.timeStamp;
-                var wechatPackage = res.data.wechatPackage;
+              if (res.data.success) {
+                var nonceStr = res.data.data.nonceStr;
+                var paySign = res.data.data.paySign;
+                var signType = res.data.data.signType;
+                var timeStamp = res.data.data.timeStamp;
+                var wechatPackage = res.data.data.wechatPackage;
 
                 wx.requestPayment({
                   'timeStamp': timeStamp,
@@ -99,12 +99,9 @@ Component({
                   amount: ""
                 });
 
-                wx.showToast({
-                  title: res.data.info,
-                  image: '/images/cry.png',
-                  duration: 2500,
-                  mask: true
-                });
+                let data = { messages: "" }
+                data.messages = "内部技术错误";
+                that.triggerEvent('notification', data);
               }
             }
           });

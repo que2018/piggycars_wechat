@@ -9,9 +9,6 @@ form {
   position: relative;
   margin: 0 auto;
 }
-.form-inner {
-  padding: 26px 26px 0px 26px;
-}
 input {    
   font-size: 18px;
   height: 50px;

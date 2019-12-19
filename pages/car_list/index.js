@@ -78,6 +78,9 @@ Page({
   scroll: function (event) {
   },
   onPullDownRefresh: function () {
+    let params = {start: 0, size: 100};
+    app.globalData.filter_params = util.json2Form(params);
+
     this.loadData();  
   }
 })

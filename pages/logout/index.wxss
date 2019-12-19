@@ -5,6 +5,13 @@
   margin: 0 auto;
   margin-top: 15px;
 }
+.content {
+  font-size: 15px;
+  color: #888888;
+  width: 84vw;
+  margin: 0 auto;
+  margin-top: 20px;
+}
 .btn-wrap {
   height: 80px;
   position: fixed;

@@ -29,16 +29,16 @@
   width: 50%;
 }
 .plan-payment {
-  text-align: center;
+  text-align: right;
 }
 .plan-distance {
-  text-align: center;
+  text-align: right;
 }
 .plan-insurance {
-  text-align: center;
+  text-align: right;
 }
 .plan-pickup {
-  text-align: center;
+  text-align: right;
 }
 .btn-wrap {
   height: 80px;

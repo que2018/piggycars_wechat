@@ -12,7 +12,7 @@ Page({
   },
   bindOrderDetail: function (event) {
     wx.navigateTo({
-      url: '../order_detail/index?order_id=' + order_id
+      url: '../order/index'
     });
   }
 })

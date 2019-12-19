@@ -15,9 +15,6 @@ Page({
     if(app.globalData.phone) {
       let phone = app.globalData.phone;
 
-      console.log(phone);
-      console.log(phone.substr(2));
-
       if (phone.startsWith("86")) {
         this.setData({
           country_code: "+86",

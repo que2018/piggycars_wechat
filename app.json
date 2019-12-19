@@ -17,14 +17,7 @@
     "pages/sms/index",
     "pages/address/index",
     "pages/id/index",
-    "pages/register_sms/index",
-    "pages/register_address/index",
-    "pages/checkout/index", 
-    "pages/checkout_sms/index",
-    "pages/checkout_address/index",
-    "pages/checkout_plan/index", 
-    "pages/checkout_payment/index",
-    "pages/checkout_card/index",
+	  "pages/checkout/index", 
     "pages/checkout_success/index"
   ],
   "window": {

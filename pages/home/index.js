@@ -18,16 +18,9 @@ Page({
   loadData: function () {
     var that = this;
 
-    wx.request({
-      url: app.globalData.API_LANG,
-      complete: function (res) {
-        wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
-
-        that.getCategories();
-        that.getFeatureds();
-        that.getBlogs();
-      }
-    });
+    that.getCategories();
+    that.getFeatureds();
+    that.getBlogs();
   },
   getCategories() {
     var that = this;
@@ -39,10 +32,6 @@ Page({
       },
       url: app.globalData.API_CATEGORIES,
       complete: function (res) {
-        that.setData({
-          category_loading: false
-        });
-
         that.checkComplete();
 
         if(res.data.success) {
@@ -64,6 +53,12 @@ Page({
             categories: categories
           });
         }
+
+        that.setData({
+          category_loading: false
+        });
+
+        that.checkComplete();
       }
     });
   },
@@ -81,12 +76,6 @@ Page({
         "hot": "1"
       }),
       complete: function (res) {
-        that.setData({
-          feature_loading: false
-        });
-
-        that.checkComplete();
-
         //console.log(res.data);
 
         if (res.data.success) {
@@ -113,6 +102,12 @@ Page({
             featureds: featureds
           });
         }
+
+        that.setData({
+          feature_loading: false
+        });
+
+        that.checkComplete();
       }
     });
   },
@@ -126,12 +121,6 @@ Page({
       },
       url: app.globalData.API_BLOGS,
       complete: function(res) {
-        that.setData({
-          blog_loading: false
-        });
-
-        that.checkComplete();
-
         //console.log(res.data);
 
         if (res.data.success) {
@@ -152,6 +141,12 @@ Page({
             blogs: blogs
           });
         }
+
+        that.setData({
+          blog_loading: false
+        });
+
+        that.checkComplete();
       }
     });
   },
@@ -181,6 +176,14 @@ Page({
       this.setData({
         show_loading: false
       });
+
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
     }
+  },
+  onPullDownRefresh: function () {
+    that.getCategories();
+    that.getFeatureds();
+    that.getBlogs();
   }
 })

@@ -1,5 +1,6 @@
 <view class="flex-container">
   <view><image src="../../images/logo.png" class="logo"></image></view>
+  <view class="content">点击退出登录按钮退出登录。小猪有车不会保留您的个人信息在本地手机。</view>
 </view>
 <view class="btn-wrap">
   <button class="btn-logout" loading="{{btn_logout_loading}}" bindtap="bindLogout">退出登录</button>

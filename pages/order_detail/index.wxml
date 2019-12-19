@@ -1,129 +1,37 @@
-<view class="flex-container">
-  <view id="ld-block" class="{{show_loading?'show':'hide'}} ">
-    <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+<view class="container">
+  <view>
+    <image src='{{order.image}}' mode="aspectFill" class="image" />
+    <view class="placeholder"></view>
   </view>
-  <!-- 信息 -->
-  <view class="pinfo-content">
-    <!--<view wx:if="{{detail.image}}"><image src="{{base_url+detail.image}}" mode="aspectFit" class="pimage"></image></view>-->
-    <view class="pnames"><h1>{{pj_info.names}}</h1></view>
-    <view>
-      <view class="psub-title pgreen-text"></view>
-      <view class="pcontent">
-        <view class="pinfo">
-          <view class="pgreen-left">认购金额:</view><view class="pgreen-right pgreen-text">{{info.money}}美金</view>
-        </view>
-        <!--<view class="pinfo">
-          <view class="pgreen-left">认购金额:</view><view class="pgreen-right pgreen-text">{{pj_info.money}}美金，共{{pj_info.money/pj_info.p_money}}份</view>
-        </view>
-        <!--<view class="pinfo">
-          <view class="pgreen-left">年租金回报:</view><view class="pgreen-right pgreen-text">{{pj_info.interest}}%</view>
-        </view>
-        <view class="pinfo">
-          <view class="pgreen-left">投车期限:</view>
-          <view wx:if="{{pj_info.deadline_type=='0'}}">
-            <view class="pgreen-right pgreen-text">{{pj_info.deadline_date}}天</view>
-          </view><view wx:else>
-            <view class="pgreen-right pgreen-text">{{pj_info.deadline_month}}个月</view>
-          </view>
-        </view>
-        <view class="pinfo">
-          <view class="pgreen-left">回款方式: </view>
-          <view wx:if="{{pj_info.re_type=='1'}}">
-            <view class="pgreen-right pgreen-text">到期偿还</view>
-          </view><view wx:elif="{{pj_info.re_type == '2'}}">
-            <view class="pgreen-right pgreen-text">按月收租</view>
-          </view><view wx:elif="{{pj_info.re_type == '3'}}">
-            <view class="pgreen-right pgreen-text">按月付息，到期还本</view>
-          </view>
-        </view>
-        <view class="pinfo">
-          <view class="pgreen-left">回款总额:</view><view class="pgreen-right pgreen-text">{{pj_info.re_money}}美金</view>
-        </view>
-        <view class="pinfo">
-          <view class="pgreen-left">投标奖励:</view>
-          <view wx:if="{{pj_info.reward_status=='1'}}">
-            <view wx:if="{{pj_info.reward_type=='0'}}">
-              <view class="pgreen-right pgreen-text">{{pj_info.reward_p}}%</view>
-            </view><view wx:else>
-              <view class="pgreen-right pgreen-text">{{pj_info.reward_money}}美金</view>
-            </view>
-          </view><view wx:else>
-            <view class="pgreen-right pgreen-text">无</view>
-          </view>
-        </view>
-        <view class="pinfo">
-          <view class="pgreen-left">项目状态:</view>
-          <view wx:if="{{pj_info.status=='3'}}">
-            <view class="pgreen-right pgreen-text">认购中</view>
-          </view><view wx:elif="{{pj_info.status == '4'}}">
-            <view class="pgreen-right pgreen-text">已完成，回款中</view>
-          </view><view wx:elif="{{pj_info.status == '5'}}">
-            <view class="pgreen-right pgreen-text">已完成，回款中</view>
-          </view><view wx:elif="{{pj_info.status == '6'}}">
-            <view class="pgreen-right pgreen-text">回款完毕</view>
-          </view><view wx:elif="{{pj_info.status == '7'}}">
-            <view class="pgreen-right pgreen-text">已结束</view>
-          </view>
-        </view>
-        <view class="pinfo">
-          <view class="pgreen-left">已购份数:</view><view class="pgreen-right pgreen-text">{{info.money/pj_info.p_money}}份，共{{info.money}}美金</view>
-        </view>-->
-        <view class="pinfo">
-          <view class="pgreen-left">购买日期:</view><view class="pgreen-right pgreen-text">{{info.create_time}}</view>
-        </view>
-        <!--<view class="pinfo">
-          <view class="pgreen-left">待回款份数:</view>
-          <view wx:if="{{info.if_end=='0'}}">
-            <view class="pgreen-right pgreen-text">{{info.p_nums}}份，共{{info.last_money}}美金</view>
-          </view><view wx:else>
-            <view class="pgreen-right pgreen-text">已经全部回款</view>
-          </view>
-        </view>
-        <view wx:if="{{info.if_end=='0'}}">
-          <view class="pinfo">
-            <view class="pgreen-left">待收租金:</view><view class="pgreen-right pgreen-text">{{info.last_interest}}美金</view>
-          </view>
-          <view class="pinfo">
-            <view class="pgreen-left">当前剩余期数:</view><view class="pgreen-right pgreen-text">{{info.last_times}}期</view>
-          </view>
-          <view class="pinfo">
-            <view class="pgreen-left">本期回款日:</view>
-            <view wx:if="{{info.re_date!='0'}}">
-              <view class="pgreen-right pgreen-text">{{info.next_time}}，还有{{info.re_date}}天</view>
-            </view><view wx:else>
-              <view class="pgreen-right pgreen-text">{{info.next_time}}，今天回款</view>
-            </view>
-          </view>
-          <view class="pinfo">
-            <view class="pgreen-left">本期租金:</view><view class="pgreen-right pgreen-text">{{info.interest}}美金</view>
-          </view>
-        </view>-->
-      </view>
+  <view class="info">
+    <view class="info-inner">
+      <view><span class="make">{{order.year}} {{order.make}}</span><span class="mil">里程数: {{order.mileage}}mil</span></view>
+      <view class="model">{{order.model}}</view>
+      <view class="city">在 {{order.location.address_1}} {{order.location.city}} {{order.location.postcode}} 取车</view>
     </view>
-    <!--回款时间表-->
-    <view>
-      <view class="psub-title-table pgreen-text"><h1>回款时间表:</h1></view>
-      <view wx:if="{{re_time_list.length > 0}}">
-        <view class="ptable">
-          <view class="ptable-header">期数</view>
-          <view class="ptable-header">时间</view>
-          <view class="ptable-header">回款总额</view>
-        </view>
-      </view>
-      <view class="ptable" wx:for="{{re_time_list}}" wx:key="{{re_time_list}}">
-        <view wx:if="{{item.re_times!='0'}}">
-          <view class="ptable-body">第{{item.re_times}}期</view>
-        </view><view wx:else>
-          <view class="ptable-body">总计</view>
-        </view>
-        <view wx:if="{{item.next_time!='-'}}">
-          <view class="ptable-body">{{item.next_time}}</view>
-        </view><view wx:else>
-          <view class="ptable-body">-</view>
-        </view>
-        <view class="ptable-body">${{item.re_money}}</view>
-      </view>
+    <view class="placeholder"></view>
+  </view>
+  <view class="spec">
+    <view class="spec-inner">
+      <view class="spec-title">详情</view>
+      <view><view class="spec-key">价格</view><view class="spec-value">${{order.price}}</view></view>
+      <view><view class="spec-key">月数</view><view class="spec-value">{{order.lease_months}}个月</view></view>
+      <view><view class="spec-key">里程</view><view class="spec-value">{{}}</view></view>
     </view>
-    <view class="total">总计:<span class="pgreen-right pgreen-text">${{list_total}}</span></view>
+    <view class="placeholder"></view>
+  </view>
+  <view class="spec">
+    <view class="spec-inner">
+      <view class="spec-title">费用</view>
+      <view><view class="spec-key">订阅费</view><view class="spec-value">${{order.payment_down}}</view></view>
+      <view><view class="spec-key">订阅税</view><view class="spec-value">${{order.payment_down_tax}}</view></view>
+      <view><view class="spec-key">订阅总计</view><view class="spec-value">${{order.payment_down_total}}</view></view>
+      <view><view class="spec-key">月租金</view><view class="spec-value">${{order.payment_monthly}}</view></view>
+      <view><view class="spec-key">月费税</view><view class="spec-value">${{order.payment_monthly_tax}}</view></view>
+      <view><view class="spec-key">月费总计</view><view class="spec-value">${{order.payment_monthly_total}}</view></view>
+    </view>
+    <view class="placeholder"></view>
   </view>
 </view>
+
+

@@ -3,6 +3,7 @@ flex-container {
   flex-direction: column;
 }
 .categories {
+  min-height: 50vw;
   background-image: url("https://piggycars.com/assets/image/home_bg1.jpg");
   background-repeat: no-repeat; 
   background-position: center; 

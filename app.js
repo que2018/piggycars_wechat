@@ -39,6 +39,7 @@ App({
     API_CARS: "https://debug.piggycars.com/api/catalog/vehicle/get_list",
     API_CAR: "https://debug.piggycars.com/api/catalog/vehicle",
     API_CATEGORIES: "https://debug.piggycars.com/api/catalog/filters/featured",
+    API_ORDER: "https://debug.piggycars.com/api/sales/order/get_list",
     API_BLOGS: "https://debug.piggycars.com/info/article/get_list",
     API_BLOG_DETAIL: "https://debug.piggycars.com/info/article/json/",
     API_LANG: "https://debug.piggycars.com/api/common/language?lang=chinese&no_redirect=1",

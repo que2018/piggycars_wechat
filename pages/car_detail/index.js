@@ -43,7 +43,7 @@ Page({
     wx.request({
       url: app.globalData.API_CAR + "?id=" + this.data.id,
       complete: function (res) {
-        console.log(res);
+        //console.log(res);
 
         var car_images = [];
 

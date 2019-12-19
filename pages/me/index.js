@@ -92,8 +92,8 @@ Page({
           wx.setStorageSync("password", that.data.password);
           wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
 
-          that.get_profile();
-          that.get_id();
+          that.getProfile();
+          that.getId();
 
           that.setData({
             is_login: true,
@@ -127,7 +127,7 @@ Page({
       }
     });   
   },
-  get_profile: function (e) {
+  getProfile: function (e) {
     var that = this;
 
     let header = {
@@ -151,7 +151,7 @@ Page({
       }
     });
   },
-  get_id: function (e) {
+  getId: function (e) {
     var that = this;
 
     let header = {
@@ -183,6 +183,11 @@ Page({
           app.globalData.id_images = id_images;
         }
       }
+    });
+  },
+  bindRegister: function (event) {
+    wx.navigateTo({
+      url: '../register/index'
     });
   },
   bindOrder: function (event) {

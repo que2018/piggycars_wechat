@@ -19,7 +19,7 @@
       </view>
       <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>登录</button>
     </view>
-    <view class="register" hover-class="register-hover" bindtap="clickRegister">
+    <view class="register" hover-class="register-hover" bindtap="bindRegister">
       <view class="reg-l">没有账号?<text decode="{{true}}">&nbsp;&nbsp;</text></view>
       <view class="reg-r">快来注册吧!</view>
     </view>
@@ -46,7 +46,7 @@
   <view class="order">
     <view class="row" hover-class="row-hover" bindtap="bindOrder">
       <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">订单</span>
+      <span class="ele-text">我的订单</span>
       <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
     </view>
   </view>
