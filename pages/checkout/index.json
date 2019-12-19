@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "alert": "/components/alert/alert",
     "checkout_sms": "/components/checkout_sms/checkout_sms",
     "checkout_address": "/components/checkout_address/checkout_address",
     "checkout_plan": "/components/checkout_plan/checkout_plan",

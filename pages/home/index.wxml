@@ -32,8 +32,8 @@
                 <span class="pk2">{{item.city}}</span>
               </view>
               <view class="featured-price">
-                <span class="fp1">{{item.monthlyPayment}}</span>
-                <span class="fp2">/月</span>
+                <text decode="{{true}}" class="fp1">{{item.monthlyPayment}}</text>
+                <text decode="{{true}}" class="fp2">&nbsp;/&nbsp;月</text>
               </view>
             </view>
           </view>

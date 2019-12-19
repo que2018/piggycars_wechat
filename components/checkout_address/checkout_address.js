@@ -68,6 +68,10 @@ Component({
           "country": e.detail.value.country
         }),
         complete: function (res) {
+          that.setData({
+            btn_addr_loading: false
+          });
+
           //console.log(res.data);
 
           if (res.data.success) {
@@ -82,6 +86,46 @@ Component({
             }
 
             that.triggerEvent('notification', data);
+          } else {
+            var messages = [];
+
+            if (res.data.code == "error_form_error") {
+              if (res.data.form_error["code[sms]"]) {
+                let message = "输入的短信代码有误哦";
+                messages.push(message);
+
+                let data = {
+                  show_checkout_sms: true,
+                  show_checkout_address: false,
+                  show_checkout_id: false,
+                  show_checkout_plan: true,
+                  show_checkout_coupon: false,
+                  show_checkout_payment: false,
+                  show_checkout_card: false,
+                  messages: messages
+                }
+
+                that.triggerEvent('notification', data);
+              }
+            }
+
+            if (res.data.code == "error_form_error_code") {
+              let message = "输入的短信代码有误哦";
+              messages.push(message);
+
+              let data = {
+                show_checkout_sms: true,
+                show_checkout_address: false,
+                show_checkout_id: false,
+                show_checkout_plan: true,
+                show_checkout_coupon: false,
+                show_checkout_payment: false,
+                show_checkout_card: false,
+                messages: messages
+              }
+
+              that.triggerEvent('notification', data);
+            }
           }
         }
       });

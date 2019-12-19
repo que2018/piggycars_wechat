@@ -11,6 +11,7 @@
     "pages/fee/index",
     "pages/contact/index",
     "pages/me/index",
+    "pages/profile/index",
     "pages/register/index", 
     "pages/password/index",    
     "pages/sms/index",

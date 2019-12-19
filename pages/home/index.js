@@ -87,7 +87,7 @@ Page({
 
         that.checkComplete();
 
-        console.log(res.data);
+        //console.log(res.data);
 
         if (res.data.success) {
           var featureds = [];
@@ -132,7 +132,7 @@ Page({
 
         that.checkComplete();
 
-        console.log(res.data);
+        //console.log(res.data);
 
         if (res.data.success) {
           var blogs = [];

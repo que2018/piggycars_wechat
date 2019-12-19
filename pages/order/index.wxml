@@ -13,7 +13,9 @@
       </view>
     </view>
   </view><view wx:else>
-    <view class="empty" hover-class="prow-hover">无订单</view>
-    <button type="primary" class="pbtn" size="default" catchtap="clickGoApply">马上去投车</button>
+    <view class="no-order">无订单</view>
+    <view class="btn-wrap">
+      <button class="btn-car-list" bindtap="bindCarList">浏览车辆</button>
+    </view>
   </view>
 </view>

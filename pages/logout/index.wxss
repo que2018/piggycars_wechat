@@ -5,27 +5,26 @@
   margin: 0 auto;
   margin-top: 15px;
 }
-.info {
+.btn-wrap {
+  height: 80px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
   width: 100vw;
-  margin-top: 100px;
-}
-.note {
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-}
-.amount {
-  width: 100%;
-  text-align: center;
-  font-weight: bold;
-  font-size: 32px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ebebeb;
+  z-index: 1000;
 }
 .btn-logout {
-  width: 80vw;
-  margin: 0 auto;
-  font-size: 18px;
-  margin-top: 40px;
-  height: 38px;
-  line-height: 38px;
-  background-color: #008254 !important; 
+  color: white;
+  width: 85%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(242,72,145,1) 0%, rgba(253,79,80,1) 50%);
 }

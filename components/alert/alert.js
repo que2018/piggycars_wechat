@@ -32,7 +32,7 @@ Component({
         that.setData({
           show: false
         });
-      }, 3000);
+      }, 3000000);
     }
   }
 })

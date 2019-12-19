@@ -15,4 +15,6 @@
     <checkout_card bind:notification="checkoutNotification"></checkout_card>
   </view>
 </view>
+<alert id="alert"></alert>
+
 

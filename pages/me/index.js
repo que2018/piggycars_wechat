@@ -4,11 +4,12 @@ var util = require('../../utils/util.js');
 
 Page({
   data: {
-    username: "",
-    password: "",
+    username: "goodislook588@gmail.com",
+    password: "Sam12345678@",
     first_name: "",
     last_name: "",
     email: "",
+    phone: "",
     address_1: "",
     address_2: "",
     city: "",
@@ -26,7 +27,8 @@ Page({
       first_name: app.globalData.first_name,
       last_name: app.globalData.last_name,
       email: app.globalData.email,
-      id_images: app.globalData.id_images,
+      phone: (app.globalData.phone) ? app.globalData.phone : "",
+      id_images: (app.globalData.id_images) ? app.globalData.id_images : "",
       address_1: (app.globalData.address.address_1)? app.globalData.address.address_1 : "",
       address_2: (app.globalData.address.address_2) ? app.globalData.address.address_2 : "",
       city: (app.globalData.address.city) ? app.globalData.address.city : "",
@@ -37,6 +39,11 @@ Page({
   },
   onReady: function() {
     this.alert = this.selectComponent("#alert");
+  },
+  onShow: function () {
+    this.setData({
+      is_login: app.globalData.is_login
+    });
   },
   login: function (e) {
     var that = this;
@@ -85,15 +92,14 @@ Page({
           wx.setStorageSync("password", that.data.password);
           wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
 
+          that.get_profile();
+          that.get_id();
+
           that.setData({
             is_login: true,
             username: "",
             password: ""
           });
-
-          that.get_profile();
-          that.get_id();
-
         } else {
           var messages = [];
 
@@ -107,8 +113,13 @@ Page({
           }
 
           if (res.data.code == "validation_unsuccessful") {
-            var message = res.data.msg;
+            var message = "用户名或者密码错误";
             messages.push(message);
+
+            that.setData({
+              username: "",
+              password: ""
+            });
           }
 
           that.alert.show(messages);
@@ -130,25 +141,13 @@ Page({
       complete: function (res) {
         //console.log(res.data);
 
-        if(res.data.success) {
+        if (res.data.success) {
           app.globalData.user_id = res.data.user_id;
           app.globalData.email = res.data.email;
           app.globalData.first_name = res.data.first_name;
           app.globalData.last_name = res.data.last_name;
           app.globalData.address = res.data.address;
-
-          that.setData({
-            first_name: res.data.first_name,
-            last_name: res.data.last_name,
-            email: res.data.email,
-            address_1: res.data.address.address_1,
-            address_2: res.data.address.address_2,
-            city: res.data.address.city,
-            zone: res.data.address.zone,
-            postcode: res.data.address.postcode,
-            country: res.data.address.country
-          });
-        } 
+        }
       }
     });
   },
@@ -166,9 +165,9 @@ Page({
       complete: function (res) {
         //console.log(res.data);
 
-        var id_images =[];
-      
-        if(res.data.success) {
+        var id_images = [];
+
+        if (res.data.success) {
           if (res.data.data.dl_image) {
             id_images.push(res.data.data.dl_image);
           }
@@ -181,82 +180,29 @@ Page({
             id_images.push(res.data.data.id_image);
           }
 
-          that.setData({
-            id_images: id_images
-          });
-
           app.globalData.id_images = id_images;
         }
       }
     });
   },
-  logout: function (e) {
-    var that = this;
-
-    that.setData({
-      loading: true
-    });
-
-    wx.request({
-      url: app.globalData.API_LOGOUT,
-      complete: function (res) {
-        that.setData({
-          loading: false
-        });
-
-        if (res.data.success) {
-          that.setData({
-            is_login: false,
-            user_id: "",
-            username: "",
-            password: "",
-            email: "",
-            country_code: "",
-            phone_local: "",
-            phone: "",
-            first_name: "",
-            last_name: "",
-            address: {},
-            id_images: [],
-            filter_params: "",
-            checkout_id: 0,
-            checkout_year: "",
-            checkout_make: "",
-            checkout_model: "",
-            checkout_image: "",
-            checkout_payment_down: 0,
-            checkout_payment_down_tax: 0,
-            checkout_payment_down_total: 0
-          });
-
-          wx.setStorageSync("username", "");
-          wx.setStorageSync("password", "");
-          wx.setStorageSync("sessionid", "");
-
-        } else {
-
-        }
-      }
+  bindOrder: function (event) {
+    wx.navigateTo({
+      url: '../order/index'
     });
   },
-  clickRegister: function (event) {
+  bindProfile: function (event) {
     wx.navigateTo({
-      url: '../register/index'
+      url: '../profile/index'
     });
   },
-  goToPwd: function (event) {
+  bindVersion: function (event) {
     wx.navigateTo({
-      url: '../password/index'
+      url: '../version/index'
     });
   },
-  goToAddr: function (event) {
+  bindLogout: function (event) {
     wx.navigateTo({
-      url: '../sms/index'
-    });
-  },
-  goToID: function (event) {
-    wx.navigateTo({
-      url: '../id/index'
+      url: '../logout/index'
     });
   }
 })

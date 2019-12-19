@@ -71,34 +71,32 @@ Component({
             btn_sms_loading: false
           });
 
-          console.log(res.data);
+          //console.log(res.data);
 
-          if (res.data.success) {
-
-          } else {
+          if (!res.data.success) {
             var messages = [];
 
             if (res.data.code == "error_send_sms_failed") {
-
-              console.log("we are running here ... ");
-
               let message = res.data.msg;
               messages.push(message);
-
               that.alert.show(messages);
             }
 
-            
-          }
+            if (res.data.code == "error_operation_too_frequent") {
+              let message = "操作太频繁，请稍后再试";
+              messages.push(message);
+              that.alert.show(messages);
+            }
+          } 
         }
       });
     },
     bindCountryCodeChange: function (e) {
       let country_code = this.data.country_codes[e.detail.value];
-
-      this.setData({
-        country_code: country_code
-      });
+      app.globalData.country_code = country_code.replace("+", "");
+    },
+    bindPhoneLocal: function (e) {
+      app.globalData.phone_local = e.detail.value;
     },
     bindCode: function (e) {
       this.setData({

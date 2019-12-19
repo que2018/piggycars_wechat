@@ -15,7 +15,7 @@
           <picker bindchange="bindCountryCodeChange" value="{{country_code}}" range="{{country_codes}}" class="country-code">
             <view class="picker">{{country_code}}</view>
           </picker>
-          <input type="number" name="phone" placeholder="电话" />
+          <input type="number" name="phone" placeholder="电话" bindinput="bindPhoneLocal" />
           <image src="../../images/phone.png"></image>
         </view>
         <view class="input-group">

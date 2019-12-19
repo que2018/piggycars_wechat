@@ -59,7 +59,7 @@ Component({
               amount: app.globalData.checkout_payment_down_total
             }),
             complete: function (res) {
-              console.log(res.data);
+              //console.log(res.data);
 
               that.setData({
                 btn_wechat_loading: false
@@ -80,7 +80,7 @@ Component({
                   'paySign': paySign,
                   'success': function (res) {
                     wx.redirectTo({
-                      url: '../charge_success/index?amount=' + amount + '&project_id=' + that.data.project_id
+                      url: '../checkout_success/index'
                     });
                   },
                   'fail': function (res) {

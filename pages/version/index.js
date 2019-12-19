@@ -3,7 +3,7 @@ var app = getApp();
 
 Page({
   data: {
-    version: "ddd"
+    version: "0.0.0"
   },
   onLoad: function (options) {
     this.setData({

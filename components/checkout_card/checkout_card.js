@@ -27,8 +27,6 @@ Component({
         exp_months: exp_months,
         exp_years: exp_years
       });
-
-      this.alert = this.selectComponent("#alert");
     }
   },
   methods: {
@@ -88,7 +86,15 @@ Component({
               url: '../checkout_success/index?order_id=' + app.globalData.order_id
             });
           } else {
+            let data = {messages: ""}
 
+            if (res.data.code == "error_payment_unknown") {
+              console.log("we are running heree ... ");
+
+              data.messages = "未知支付错误";
+            }
+
+            that.triggerEvent('notification', data);
           }
         }
       });

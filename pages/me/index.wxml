@@ -27,47 +27,48 @@
   </form>
 </view>
 <view class="flex-container-user {{is_login?'show':'hide'}}">
-  <view class="captain">
-    <view class="title">基本信息</view>
-    <view class="edit-box" bindtap="goToPwd"><image src="../../images/edit.png"></image></view>
-    <view class="content">
-      <view class="cname">姓名<span class="cvalue">
-        <text decode="{{true}}">&nbsp;&nbsp;</text>{{first_name}}
-        <text decode="{{true}}">&nbsp;</text>{{last_name}}</span>
+  <view class="info-wrap">
+    <view class="info">
+      <view class="portrait">
+        <image src="../../images/portrait.png" mode="aspectFit" ></image>
       </view>
-      <view class="cname">邮箱<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{email}}</span></view>
+      <view class="capital">
+        <view class = "flex-container-info">
+          <view class="username">你好,{{first_name}}</view>
+        </view>
+        <view>
+          <view class="money">电话: <span class="linkText">{{phone}}</span></view>
+          <view class="money">邮箱: <span class="linkText">{{email}}</span></view>
+        </view>
+      </view>
     </view>
   </view>
-  <view class="space"></view>
-  <view class="captain">
-    <view class="title">地址信息</view>
-    <view class="edit-box" bindtap="goToAddr"><image src="../../images/edit.png"></image></view>
-    <view class="content">
-      <view class="cname">地址<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{address_1}}</span></view>
-      <view class="cname">地址2<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{address_2}}</span></view>
-      <view class="cname">城市<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{city}}</span></view>
-      <view class="cname">州/省<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{zone}}</span></view>
-      <view class="cname">邮编<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{postcode}}</span></view>
-      <view class="cname" style="text-transform: uppercase;">国家<span class="cvalue"><text decode="{{true}}">&nbsp;&nbsp;</text>{{country}}</span></view>
+  <view class="order">
+    <view class="row" hover-class="row-hover" bindtap="bindOrder">
+      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">订单</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
     </view>
   </view>
-  <view class="space"></view>
-  <view class="captain">
-    <view class="title">驾照信息</view>
-    <view class="edit-box" bindtap="goToID"><image src="../../images/edit.png"></image></view>
-    <view class="content">
-      <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" autoplay="true" circular="true" class="id-slider">
-      <block wx:for="{{id_images}}" wx:key="id_image">
-        <swiper-item>
-          <image src='{{item}}' mode="aspectFill" style="width:100%;height:100%;" />
-        </swiper-item> 
-      </block>
-    </swiper>
+  <view class="profile">
+    <view class="row" hover-class="row-hover" bindtap="bindProfile">
+      <image src="../../images/guard.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">个人中心</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
     </view>
   </view>
-  <view class="space"></view>
-  <view class="logout-wrap">
-    <button type="primary" size="default" loading="{{loading}}" class="logout-btn" bindtap="logout">退出登录</button>
+  <view class="about">
+    <view class="row" hover-class="row-hover" bindtap="bindVersion">
+      <image src="../../images/about.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">版本信息</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
   </view>
-  <view class="space"></view>
+  <view class="logout">
+    <view class="row" hover-class="row-hover" bindtap="bindLogout">
+      <image src="../../images/logout.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">退出登录</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
 </view>

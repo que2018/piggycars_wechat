@@ -1,51 +1,62 @@
 
-var util = require('../../utils/util.js');
 var app = getApp();
+var util = require('../../utils/util.js');
 
 Page({
   data: {
-    loading: false
+    btn_logout_loading: false
   },
   onLoad: function (options) {
 
   },
-  clickLogout: function (event) {
+  bindLogout: function (e) {
     var that = this;
 
     that.setData({
-      loading: true
+      btn_logout_loading: true
     });
 
-    wx.login({
-      success: function (res) {
-        wx.request({
-          url: app.globalData.API_LOGOUT + "?code=" + res.code,
-          complete: function (res) {
-            that.setData({
-              loading: false
-            });  
+    wx.request({
+      url: app.globalData.API_LOGOUT,
+      complete: function (res) {
+        that.setData({
+          btn_logout_loading: false
+        });
 
-            if (res.data.status == 1) {
-              app.globalData.is_login = false;
-              app.globalData.user_id = 0;
-              app.globalData.user_name = "";
-              app.globalData.money = 0;
+        if (res.data.success) {
+          app.globalData.is_login = false;
+          app.globalData.user_id = "";
+          app.globalData.username = "";
+          app.globalData.password = "";
+          app.globalData.email = "";
+          app.globalData.country_code = "";
+          app.globalData.phone_local = "";
+          app.globalData.phone = "";
+          app.globalData.first_name = "";
+          app.globalData.last_name = "";
+          app.globalData.address = {};
+          app.globalData.id_images = [];
+          app.globalData.filter_params = "";
+          app.globalData.checkout_id = 0;
+          app.globalData.checkout_year = "";
+          app.globalData.checkout_make = "";
+          app.globalData.checkout_mode = "";
+          app.globalData.checkout_image = "";
+          app.globalData.checkout_payment_down = 0;
+          app.globalData.checkout_payment_down_tax = 0;
+          app.globalData.checkout_payment_down_total = 0;
 
-              wx.switchTab({
-                url: '../me/index'
-              });
+          wx.setStorageSync("username", "");
+          wx.setStorageSync("password", "");
+          wx.setStorageSync("sessionid", "");
 
-            } else {
-              wx.showToast({
-                title: res.data.info,
-                image: '/images/cry.png',
-                duration: 2000,
-                mask: true
-              });
-            }
-          }
-        })
+          wx.switchTab({
+            url: '../home/index'
+          });
+        } else {
+
+        }
       }
-    });  
+    });
   }
 })

@@ -1,0 +1,94 @@
+.reg-l {
+  width: 42vw;
+  display: inline-block;
+  text-align: right;
+  color: #888888;
+  font-size: 14px;
+}
+.reg-r {
+  width: 42vw;
+  display: inline-block;
+  text-align: left;
+  color: #bf0985;
+  font-size: 14px;
+}
+input {    
+  font-size: 18px;
+  height: 50px;
+}
+.input-groups {
+  margin-bottom: 35px;
+}
+.input-group {
+  display:flex;
+  flex-direction: row;
+  border-bottom: 1px solid #cccccc;
+}
+.input-group image {
+  width: 26px;
+  height: 26px;
+  margin-top: 12px;
+  margin-left: auto;
+}
+.register {
+  text-align: center;
+  padding: 6px 0px;
+  margin-top: 2px;
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+}
+.flex-container-user {
+  display:flex;
+  flex-direction: column;
+}
+.info-wrap {
+  background: #ffffff;
+  position: relative;
+  padding: 0px 20px 0px 20px;
+}
+.captain {
+  padding: 20px;
+  position: relative;
+  background: #ffffff;
+}
+.title {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 40px;
+}
+.content {
+  line-height: 40px;
+}
+.cname {
+  
+}
+.cvalue {
+  color: #888888;
+}
+.logout-wrap {
+
+}
+.space {
+  height: 20px;
+  background: #dbdbdb;
+}
+.logout-wrap {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.id-slider {
+  width: 50vw;
+  height: 80vw;
+  display: block;
+  margin: 0 auto;
+}
+.edit-box image {
+  width: 30px;
+  height: 30px;
+  top: 15px;
+  right: 10px;
+  position: absolute;
+}

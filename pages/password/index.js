@@ -56,6 +56,12 @@ Page({
           }
 
           that.alert.show(messages);
+
+          that.setData({
+            old_password: "",
+            password: "",
+            password_confirm: ""
+          });
         }
       }
     });
