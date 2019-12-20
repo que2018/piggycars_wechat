@@ -93,6 +93,11 @@ Component({
     },
     bindCountryCodeChange: function (e) {
       let country_code = this.data.country_codes[e.detail.value];
+
+      this.setData({
+        country_code: country_code
+      });
+
       app.globalData.country_code = country_code.replace("+", "");
     },
     bindPhoneLocal: function (e) {

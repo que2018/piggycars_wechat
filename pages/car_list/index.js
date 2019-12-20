@@ -8,10 +8,13 @@ Page({
     show_loading: true
   },
   onLoad: function (options) {
-    
+    this.loadData();
   },
   onShow: function (options) {
-    this.loadData();
+    if (app.globalData.featured) {
+      app.globalData.featured = false;
+      this.loadData();
+    }
   },
   loadData: function () {
     var that = this;
@@ -20,13 +23,15 @@ Page({
       show_loading: true
     });
 
+    let header = {
+      "Content-Type": "application/x-www-form-urlencoded"
+    };
+
     let data = app.globalData.filter_params;
 
     wx.request({
       url: app.globalData.API_CARS,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
+      header: header,
       method: "POST",
       data: data,
       complete: function (res) {
@@ -68,14 +73,12 @@ Page({
       }
     });
   },
-  clickCar: function (event) {
+  bindCar: function (event) {
     var id = event.currentTarget.dataset.id;
 
     wx.navigateTo({
       url: '../car_detail/index?id=' + id
     });
-  },
-  scroll: function (event) {
   },
   onPullDownRefresh: function () {
     let params = {start: 0, size: 100};

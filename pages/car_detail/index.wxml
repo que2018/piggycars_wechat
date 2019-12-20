@@ -80,10 +80,6 @@
     </view>
     <view class="placeholder"></view>
   </view>
-  <!--<view class="map"> 
-    <view class="map-inner"></view>
-    <view class="placeholder"></view>
-  </view>-->
   <view class="period">
     <view class="period-inner">
       <view class="period-left">
@@ -104,7 +100,7 @@
             <view class="picker-t">
               <view class="picker-t-inner">选择月数</view>
             </view>
-            <view class="picker-c">{{payment_months[11]}}</view>
+            <view class="picker-c">{{payment_months[payment_index]}}</view>
           </view>
         </picker>
       </view>

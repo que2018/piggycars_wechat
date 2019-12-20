@@ -11,8 +11,9 @@ Component({
   },
   data: {
     card_number: "",
-    exp_month: "-",
-    exp_year: "-",
+    card_number_disp: "",
+    exp_month: "",
+    exp_year: "",
     cvv: "",
     exp_months: [],
     exp_years: [],
@@ -45,8 +46,34 @@ Component({
       });
     },
     bindCardNumber: function (e) {
+      var card_number = e.detail.value;
+      var card_number_disp = "";
+      let length = card_number.length;
+
+      if (length <= 4) {
+        card_number_disp = card_number;
+      } else if ((4 < length) && (length <= 8)) {
+        card_number_disp = card_number.substring(0, 4) + " " 
+                         + card_number.substring(4, length);
+      } else if ((8 < length) && (length <= 12)) {
+        card_number_disp = card_number.substring(0, 4) + " " 
+                         + card_number.substring(4, 8) + " " 
+                         + card_number.substring(8, length);
+      } else if ((12 < length) && (length <= 16)) {
+        card_number_disp = card_number.substring(0, 4) + " "
+                         + card_number.substring(4, 8) + " "
+                         + card_number.substring(8, 12) + " "
+                         + card_number.substring(12, 16);
+      } else {
+        card_number_disp = card_number.substring(0, 4) + " " 
+                         + card_number.substring(4, 8) + " " 
+                         + card_number.substring(8, 12) + " " 
+                         + card_number.substring(12, 16);
+      }
+
       this.setData({
-        card_number: e.detail.value
+        card_number: card_number,
+        card_number_disp: card_number_disp
       })
     },
     bindCVV: function (e) {

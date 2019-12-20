@@ -13,11 +13,8 @@
   padding: 15px 0px;
 }
 .cp1 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
-}
-.cp2 {
-  font-size: 22px;
 }
 .totals {
   background: #fc5861;

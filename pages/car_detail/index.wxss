@@ -158,6 +158,7 @@
 .monthp-t1 {
   float: left;
   color: #f55a7a;
+  font-size: 18px;
   font-weight:bold;
   line-height: 35px;
   padding-left: 25%;

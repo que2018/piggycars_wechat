@@ -1,31 +1,42 @@
-<view class="container">
-  <view class="title">个人信息</view>
-  <form bindsubmit='register'>
-    <view class="input-groups">
-      <view class="input-group">
-        <input name="first_name" placeholder="名" value="{{first_name}}" />
-        <image src="../../images/user.png"></image>
+<view class="{{success?'show':'hide'}}">
+  <view class="container">
+    <view class="title">注册成功</view>
+    <view class="content">感谢您注册小猪有车! 我们发送了一份注册确认邮件给您。</view>
+  </view>
+  <view class="btn-wrap">
+    <view class="btn-login" bindtap="bindLogin">现在登录</view>
+  </view>
+</view>
+<view class="{{success?'hide':'show'}}">
+  <view class="container">
+    <view class="title">个人信息</view>
+    <form bindsubmit='register'>
+      <view class="input-groups">
+        <view class="input-group">
+          <input name="last_name" placeholder="姓" value="{{last_name}}" />
+          <image src="../../images/user.png"></image>
+        </view>
+        <view class="input-group">
+          <input name="first_name" placeholder="名" value="{{first_name}}" />
+          <image src="../../images/user.png"></image>
+        </view>
+        <view class="input-group">
+          <input name="email" placeholder="电子邮箱" value="{{email}}" />
+          <image src="../../images/mail.png"></image>
+        </view>
+        <view class="input-group">
+          <input name="password" password="true" placeholder="请输入密码" value="{{password}}" />
+          <image src="../../images/pass.png"></image>
+        </view>
+        <view class="input-group">
+          <input name="password_confirm" password="true" placeholder="请再次输入密码" value="{{password_confirm}}" />
+          <image src="../../images/pass.png"></image>
+        </view>
       </view>
-      <view class="input-group">
-        <input name="last_name" placeholder="姓" value="{{last_name}}" />
-        <image src="../../images/user.png"></image>
+      <view class="btn-wrap">
+        <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>注册</button>
       </view>
-      <view class="input-group">
-        <input name="email" placeholder="电子邮箱" value="{{email}}" />
-        <image src="../../images/mail.png"></image>
-      </view>
-      <view class="input-group">
-        <input name="password" password="true" placeholder="请输入密码" value="{{password}}" />
-        <image src="../../images/pass.png"></image>
-      </view>
-      <view class="input-group">
-        <input name="password_confirm" password="true" placeholder="请再次输入密码" value="{{password_confirm}}" />
-        <image src="../../images/pass.png"></image>
-      </view>
-    </view>
-    <view class="btn-wrap">
-      <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>注册</button>
-    </view>
-    <alert id="alert"></alert>
-  </form>
+      <alert id="alert"></alert>
+    </form>
+  </view>
 </view>

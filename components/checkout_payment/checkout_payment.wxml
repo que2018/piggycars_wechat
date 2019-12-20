@@ -3,8 +3,7 @@
     <image src="{{checkout_image}}" mode="aspectFit"></image>
   </view>
   <view class="captain">
-    <view class="cp1">{{checkout_year}} {{checkout_make}}</view>
-    <view class="cp2">{{checkout_model}}</view>
+    <view class="cp1">{{checkout_year}} {{checkout_make}} {{checkout_model}}</view>
   </view>
   <view class="totals">
     <view class="total">

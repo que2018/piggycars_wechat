@@ -26,6 +26,7 @@ Page({
     markers: [],
     payments: [],
     payment_months: [],
+    payment_index: 0,
     default_payment: {},
     down_payment: 0,
     monthly_payment: 0
@@ -43,7 +44,7 @@ Page({
     wx.request({
       url: app.globalData.API_CAR + "?id=" + this.data.id,
       complete: function (res) {
-        //console.log(res);
+        console.log(res);
 
         var car_images = [];
 
@@ -51,6 +52,7 @@ Page({
           car_images.push(app.globalData.API_RES + "/car/lg/" + res.data.data.car_images[index]);
         }
 
+        var payment_index = 0;
         var default_payment = {};
         var payments = new Array();
         var payment_months = new Array();
@@ -59,6 +61,7 @@ Page({
           let payment = res.data.data.payments[index];
 
           if(payment.default) {
+            payment_index = index;
             default_payment = payment;
           }
 
@@ -94,6 +97,7 @@ Page({
           exterior_color: (res.data.data.exterior_color) ? res.data.data.exterior_color : "--",
           interior_color: (res.data.data.interior_color) ? res.data.data.interior_color : "--",
           payments: payments,
+          payment_index: payment_index,
           payment_months: payment_months,
           down_payment: default_payment.down_payment,
           monthly_payment: default_payment.monthly_payment,
@@ -114,6 +118,7 @@ Page({
     let payment = this.data.payments[e.detail.value];
 
     this.setData({
+      payment_index: e.detail.value,
       down_payment: payment.down_payment,
       monthly_payment: payment.monthly_payment
     });

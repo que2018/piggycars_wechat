@@ -25,6 +25,10 @@ Page({
   getCategories() {
     var that = this;
 
+    that.setData({
+      category_loading: true
+    });
+
     wx.request({
       header: {
         'cookie': wx.getStorageSync("sessionid"),
@@ -64,6 +68,10 @@ Page({
   },
   getFeatureds() {
     var that = this;
+
+    that.setData({
+      feature_loading: true
+    });
 
     wx.request({
       header: {
@@ -114,6 +122,10 @@ Page({
   getBlogs() {
     var that = this;
 
+    that.setData({
+      blog_loading: true
+    });
+
     wx.request({
       header: {
         'cookie': wx.getStorageSync("sessionid"),
@@ -151,6 +163,7 @@ Page({
     });
   },
   clickCategory: function (event) {
+    app.globalData.featured = true;
     app.globalData.filter_params = event.currentTarget.dataset.params;
 
     wx.switchTab({
@@ -182,8 +195,8 @@ Page({
     }
   },
   onPullDownRefresh: function () {
-    that.getCategories();
-    that.getFeatureds();
-    that.getBlogs();
+    this.getCategories();
+    this.getFeatureds();
+    this.getBlogs();
   }
 })

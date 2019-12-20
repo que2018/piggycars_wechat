@@ -73,20 +73,31 @@ Page({
 
         if(res.data.success) {
           app.globalData.is_login = true;
-          app.globalData.password = that.data.password;
 
-          let phone = res.data.data.phone;
+          that.setData({
+            is_login: true,
+            username: "",
+            password: "",
+          });
 
-          if (phone.charAt(0) == "1") {
-            app.globalData.country_code = "1";
-            app.globalData.phone_local = phone.substring(1, phone.length);
+          if (res.data.data.phone) {
+            let phone = res.data.data.phone;
 
-          } else {
-            app.globalData.country_code = "86";
-            app.globalData.phone_local = phone.substring(2, phone.length);
+            if (phone.charAt(0) == "1") {
+              app.globalData.country_code = "1";
+              app.globalData.phone_local = phone.substring(1, phone.length);
+
+            } else {
+              app.globalData.country_code = "86";
+              app.globalData.phone_local = phone.substring(2, phone.length);
+            }
+
+            app.globalData.phone = phone;
+
+            that.setData({
+              phone: phone
+            });
           }
-
-          app.globalData.phone = phone;
 
           wx.setStorageSync("username", that.data.username);
           wx.setStorageSync("password", that.data.password);
@@ -94,12 +105,7 @@ Page({
 
           that.getProfile();
           that.getId();
-
-          that.setData({
-            is_login: true,
-            username: "",
-            password: ""
-          });
+          
         } else {
           var messages = [];
 
@@ -142,6 +148,10 @@ Page({
         //console.log(res.data);
 
         if (res.data.success) {
+          that.setData({
+            email: res.data.email
+          });
+
           app.globalData.user_id = res.data.user_id;
           app.globalData.email = res.data.email;
           app.globalData.first_name = res.data.first_name;

@@ -9,7 +9,8 @@ Page({
     email: "",
     password: "",
     password_confirm: "",
-    btn_loading: false
+    btn_loading: false,
+    success: false
   },
   onLoad: function (options) {
     
@@ -46,8 +47,8 @@ Page({
         //console.log(res);
 
         if (res.data.success) {
-          wx.navigateBack({
-            delta: 1
+          that.setData({
+            success: true
           });
         } else {
           var messages = [];
@@ -55,9 +56,12 @@ Page({
           if (res.data.code == "error_form_error") {
             for (var index in res.data.form_error) {
               var message = res.data.form_error[index];
-              message = message.replace('<p>', '');
-              message = message.replace('</p>', '');
-              messages.push(message);
+
+              if(message) {
+                message = message.replace('<p>', '');
+                message = message.replace('</p>', '');
+                messages.push(message);
+              }
             }
           }
 
@@ -65,5 +69,10 @@ Page({
         }
       }
     });
-  }
+  },
+  bindLogin: function (event) {
+    wx.navigateBack({
+      delta: 1
+    });
+  },
 })

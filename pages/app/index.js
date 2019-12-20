@@ -6,11 +6,11 @@ Page({
   onLoad: function (options) {
     var that = this;
 
-    let username = wx.getStorageSync("username")
-    let password = wx.getStorageSync("password")
+    let username = wx.getStorageSync("username");
+    let password = wx.getStorageSync("password");
 
-    //console.log(username);
-    //console.log(password);
+    console.log(username);
+    console.log(password);
 
     if(username && password) {
       wx.request({
@@ -28,18 +28,20 @@ Page({
             app.globalData.is_login = true;
             app.globalData.password = that.data.password;
 
-            let phone = res.data.data.phone;
+            if (res.data.data.phone) {
+              let phone = res.data.data.phone;
 
-            if (phone.charAt(0) == "1") {
-              app.globalData.country_code = "1";
-              app.globalData.phone_local = phone.substring(1, phone.length);
+              if (phone.charAt(0) == "1") {
+                app.globalData.country_code = "1";
+                app.globalData.phone_local = phone.substring(1, phone.length);
 
-            } else {
-              app.globalData.country_code = "86";
-              app.globalData.phone_local = phone.substring(2, phone.length);
+              } else {
+                app.globalData.country_code = "86";
+                app.globalData.phone_local = phone.substring(2, phone.length);
+              }
+
+              app.globalData.phone = phone;
             }
-
-            app.globalData.phone = phone;
 
             wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
 

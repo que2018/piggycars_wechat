@@ -1,4 +1,4 @@
-flex-container {
+.flex-container {
   display:flex;
   flex-direction: column;
 }
@@ -61,12 +61,13 @@ flex-container {
 }
 .featured-item {
   display: flex;
-  height: 76px;
+  height: 70px;
   margin-bottom: 16px;
   border-bottom: 0.6px solid #cccccc;
 }
 .featured-item-image {
   width: 30%;
+  padding-bottom: 1px;
 }
 .featured-item-image image {
   width: 100%;
@@ -83,24 +84,30 @@ flex-container {
 .featured-captain-sub {
   display: flex;
   position: absolute;
-  bottom: 14px;
+  bottom: 5px;
   width: 100%;
 }
 .featured-pickup {
-  width: 50%;
+  display: flex;
+  flex-direction: row;
+  width: 60%;
   font-size: 12px;
   color: #888888;
+  margin-bottom: 5px;
 }
 .featured-price {
-  width: 50%;
+  width: 40%;
+  display: flex;
   font-size: 14px;
 }
 .fp1 {
   color: #fc5861;
   font-weight: bold;
+  line-height: 17px;
 }
 .fp2 {
   color: #888888;
+  line-height: 17px;
 }
 .blogs {
   margin-bottom: 20px;
@@ -149,13 +156,12 @@ flex-container {
   white-space: pre-wrap;
 }
 .pk1 image {
-  width: 12px;
-  height: 12px;
-  padding-right: 5px;
-  padding-top: 5px;
+  width: 17px;
+  height: 17px;
 }
 .pk2 {
-
+  line-height: 17px;
+  margin-left: 5px;
 }
 
 

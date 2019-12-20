@@ -1,12 +1,21 @@
 <view class="container-card">
   <view class="card-wrap">
-    <view class="card"></view>
+    <view class="card">
+      <view class="card-number">{{card_number_disp}}</view>
+      <view class="card-exp">
+        <view class="card-exp-month">{{exp_month}}</view>
+        <view wx:if="{{exp_month || exp_year}}">
+          <view class="exp-space"> / </view>
+        </view>
+        <view class="card-exp-year">{{exp_year}}</view>
+      </view>
+    </view>
   </view>
   <view class="captain">
     <view class="row-card-number">
       <view class="cn-l">信用卡卡号</view>
       <view class="cn-r">
-        <input name="card_Number" placeholder="---- ---- ---- ----" bindinput="bindCardNumber" />
+        <input type="number" name="card_Number" placeholder="" bindinput="bindCardNumber" />
       </view>
     </view>
     <view class="row-card-exp">
@@ -28,7 +37,7 @@
     <view class="row-card-cvv">
       <view class="cc-l">CVV</view>
       <view class="cc-r">
-        <input name="cvv" placeholder="cvv" bindinput="bindCVV" />
+        <input type="number" name="cvv" placeholder="cvv" bindinput="bindCVV" />
       </view>
     </view>
   </view>

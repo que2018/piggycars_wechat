@@ -43,17 +43,17 @@
       </view>
     </view>
   </view>
-  <view class="order">
-    <view class="row" hover-class="row-hover" bindtap="bindOrder">
-      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
-      <span class="ele-text">我的订单</span>
-      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
-    </view>
-  </view>
   <view class="profile">
     <view class="row" hover-class="row-hover" bindtap="bindProfile">
       <image src="../../images/guard.png" mode="aspectFit" class="ele-img"></image>
       <span class="ele-text">个人中心</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+  <view class="order">
+    <view class="row" hover-class="row-hover" bindtap="bindOrder">
+      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">我的订单</span>
       <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
     </view>
   </view>
