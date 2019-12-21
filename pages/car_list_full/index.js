@@ -8,6 +8,9 @@ Page({
     show_loading: true
   },
   onLoad: function (options) {
+    //this.loadData();
+  },
+  onShow: function (options) {
     this.loadData();
   },
   loadData: function () {
@@ -75,9 +78,9 @@ Page({
     });
   },
   onPullDownRefresh: function () {
-    let params = {start: 0, size: 100};
+    let params = { start: 0, size: 100 };
     app.globalData.filter_params = util.json2Form(params);
 
-    this.loadData();  
+    this.loadData();
   }
 })

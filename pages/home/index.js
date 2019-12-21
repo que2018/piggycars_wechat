@@ -163,11 +163,10 @@ Page({
     });
   },
   clickCategory: function (event) {
-    app.globalData.featured = true;
     app.globalData.filter_params = event.currentTarget.dataset.params;
 
-    wx.switchTab({
-      url: '../car_list/index'
+    wx.navigateTo({
+      url: '../car_list_full/index'
     });
   },
   clickFeature: function (event) {
