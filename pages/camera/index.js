@@ -3,10 +3,15 @@ var app = getApp();
 
 Page({
   data: {
+    id_key: "",
     show_preview: false
   },
   onLoad: function (options) {
-    this.ctx = wx.createCameraContext()
+    this.ctx = wx.createCameraContext();
+
+    this.setData({
+      id_key: decodeURIComponent(options.id_key)
+    });
   },
   takePhoto() {
     var that = this;
@@ -15,9 +20,14 @@ Page({
       quality: 'high',
       success: (res) => {
         console.log(res.tempImagePath);
-        that.setData({
-          show_preview: true,
-          src: res.tempImagePath
+
+        let pages = that.getCurrentPages();
+        let prevPage = pages[pages.length - 2];
+        console.log(prevPage.route);
+
+
+        prevPage.setData({
+          id_path[that.data.key]: res.tempImagePath
         })
       }
     })

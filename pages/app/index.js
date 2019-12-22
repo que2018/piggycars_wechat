@@ -9,8 +9,8 @@ Page({
     let username = wx.getStorageSync("username");
     let password = wx.getStorageSync("password");
 
-    console.log(username);
-    console.log(password);
+    //console.log(username);
+    //console.log(password);
 
     if(username && password) {
       wx.request({
