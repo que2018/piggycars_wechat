@@ -25,9 +25,10 @@ Page({
         let prevPage = pages[pages.length - 2];
         console.log(prevPage.route);
 
+        let key = that.data.key;
 
         prevPage.setData({
-          id_path[that.data.key]: res.tempImagePath
+          key: res.tempImagePath
         })
       }
     })

@@ -5,29 +5,47 @@ var util = require('../../utils/util.js');
 Page({
   data: {
     process: 0,
-    country: "cn",
+    country: "",
     description: "",
     sample_image: "",
-    id_paths: {
-      "cn_dl_photo_front": "",
-      "cn_id_photo_front": "",
-      "us_dl_photo_front": "",
-      "us_dl_photo_back": ""
-    }
+    cn_dl_photo_front: "",
+    cn_id_photo_front: "",
+    us_dl_photo_front: "",
+    us_dl_photo_back: "",
+    btn_loading: false,
+    btn_text: "现在拍照",
+    cn_selected: true,
+    us_selected: false
   },
   onLoad: function (options) {
     this.setData({
-      description: "请对您驾照正面拍摄一张照片",
-      sample_image: app.globalData.API_RES + "/id_cn.jpg"
+      process: 0,
+      country: "cn",
+      description: "请对您的驾照正面拍摄一张照片",
+      sample_image: app.globalData.API_RES + "/cn_dl_front.jpg"
     });
-
-    //var pages = getCurrentPages();
-    //var currPage = pages[pages.length - 1];   
-    //var prevPage = pages[pages.length - 2];
-    //console.log(prevPage.route);
   },
   onShow: function () {
+    if (this.data.process == 1) {
+      if (this.data.country == "cn") {
+        this.setData({
+          description: "请对您的身份证正面拍摄一张照片",
+          sample_image: app.globalData.API_RES + "/cn_id_front.jpg"
+        });
+      } else {
+        this.setData({
+          description: "请对您驾照背面拍摄一张照片",
+          sample_image: app.globalData.API_RES + "/us_dl_back.jpg"
+        });
+      }
+    }
+
     if (this.data.process == 2) {
+        this.setData({
+          btn_loading: true,
+          btn_text: "上传中..."
+        });
+
         if (this.data.country == "cn") {
           this.upload("dl_photo_front", this.data.cn_dl_photo_front);
           this.upload("id_photo_front", this.data.cn_id_photo_front);
@@ -87,5 +105,29 @@ Page({
         console.log(res);
       }
     })
+  },
+  tapCN: function (e) {
+    if(this.data.country == "us") {
+      this.setData({
+        process: 0,
+        country: "cn",
+        cn_selected: true,
+        us_selected: false,
+        description: "请对您驾照正面拍摄一张照片",
+        sample_image: app.globalData.API_RES + "/cn_id_front.jpg"
+      });
+    }
+  },
+  tapUS: function (e) {
+    if (this.data.country == "cn") {
+      this.setData({
+        process: 0,
+        country: "us",
+        cn_selected: false,
+        us_selected: true,
+        description: "请对您驾照正面拍摄一张照片",
+        sample_image: app.globalData.API_RES + "/cn_id_front.jpg"
+      });
+    }
   }
 })

@@ -1,7 +1,7 @@
 <view class="container-id">
   <view class="id-btns">
-    <view class="btn-cn">中国</view>
-    <view class="btn-en">美国</view>
+    <view class="btn-country btn-cn {{cn_selected?'btn-selected':''}}" bindtap="tapCN">中国</view>
+    <view class="btn-country btn-us {{us_selected?'btn-selected':''}}" bindtap="tapUS">美国</view>
   </view>
   <view class="id-content">
     <view class="id-desp">{{description}}</view>
@@ -11,6 +11,6 @@
   </view>
 </view>
 <view class="btn-wrap">
-  <view class="btn-id" bindtap="openCamera">现在拍照</view>
+  <button class="btn-id" loading="{{btn_loading}}" disabled="{{btn_loading}}" bindtap="openCamera">{{btn_text}}</button>
 </view>
 

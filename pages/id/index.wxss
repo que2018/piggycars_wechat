@@ -5,22 +5,22 @@
   margin-top: 40px;
 }
 .btn-cn {
-  width: 60px;
-  line-height: 30px;
-  background: #fc5861;
-  color: #ffffff;
-  text-align: center;
-  padding: 3px;
-  border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0px 0px 4px;
 }
-.btn-en {
+.btn-us {
+    border-radius: 0px 4px 4px 0px;
+}
+.btn-country {
   width: 60px;
   line-height: 30px;
   background: #dfe1e6;
   color: #000000;
   text-align: center;
   padding: 3px;
-  border-radius: 0px 4px 4px 0px;
+}
+.btn-selected {
+  background: #fc5861;
+  color: #ffffff;
 }
 .btn-wrap {
   height: 80px;
