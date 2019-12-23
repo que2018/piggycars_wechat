@@ -15,6 +15,7 @@
 .cp1 {
   font-size: 18px;
   font-weight: bold;
+  text-align: center;
 }
 .totals {
   background: #fc5861;

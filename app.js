@@ -1,7 +1,7 @@
 
 App({
   globalData: {
-    version: 'v1.1.2',
+    version: 'v1.1.4',
     is_login: false,
     user_id: "",
     username: "",
@@ -33,7 +33,7 @@ App({
     API_SMS: "https://debug.piggycars.com/api/account/validation/send_code",
     API_ADDR: "https://debug.piggycars.com/api/account/register/contact",
     API_ID: "https://debug.piggycars.com/api/account/register/get_identity",
-    API_ID_UPLOAD: "https://debug.piggycars.com/api/account/account/register/identity",
+    API_ID_UPLOAD: "https://debug.piggycars.com/api/account/register/identity",
     API_CONFIRM: "https://debug.piggycars.com/api/checkout/confirm",
     API_CARD: "https://debug.piggycars.com/api/extension/payment/stripe",
     API_WECHAT_AUTH: "https://debug.piggycars.com/api/checkout/confirm/wechat_auth",

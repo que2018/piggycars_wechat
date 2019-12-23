@@ -149,7 +149,8 @@ Page({
 
         if (res.data.success) {
           that.setData({
-            email: res.data.email
+            email: res.data.email,
+            first_name: res.data.first_name
           });
 
           app.globalData.user_id = res.data.user_id;

@@ -10,12 +10,12 @@
 <view class="{{show_preview?'show':'hide'}}">
   <view class="result">
     <view class="btn-wrap">
-      <view class="btn-dismiss" bindtap="dismissPhoto">
+      <view class="btn-dismiss" hover-class="btn-dismiss-hover" bindtap="dismissPhoto">
         <image src="../../images/x.png" mode="aspectFit"></image>
       </view>
     </view>
     <view class="btn-wrap">
-      <view class="btn-confirm" bindtap="confirmPhoto">
+      <view class="btn-confirm" hover-class="btn-confirm-hover" bindtap="confirmPhoto">
         <image src="../../images/check-white.png" mode="aspectFit"></image>
       </view>
     </view>

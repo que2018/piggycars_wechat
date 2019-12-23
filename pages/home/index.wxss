@@ -53,6 +53,9 @@
   padding-right: 8vw;
   min-height: 40vh;
 }
+.featured-item-hover {
+  background: #efefef !important;
+}
 .featured-title {
   font-weight: bold;
   font-size: 18px;
@@ -62,7 +65,7 @@
 .featured-item {
   display: flex;
   height: 70px;
-  margin-bottom: 16px;
+  padding-top: 16px;
   border-bottom: 0.6px solid #cccccc;
 }
 .featured-item-image {

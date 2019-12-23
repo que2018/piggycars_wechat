@@ -1,0 +1,8 @@
+<view class="flex-container">
+  <view class="{{show_filter?'show':'hide'}}">
+    <view id="xxxx" class="filter-content">
+    </view>
+  </view>
+  <view class="btn-filter" bindtap="toggleFilter">筛选</view>
+</view>
+

@@ -10,6 +10,9 @@ Page({
   onLoad: function (options) {
     this.loadData();
   },
+  onReady: function () {
+    this.filter = this.selectComponent("#filter");
+  },
   loadData: function () {
     var that = this;
 

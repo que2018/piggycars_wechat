@@ -19,17 +19,30 @@ Page({
     this.ctx.takePhoto({
       quality: 'high',
       success: (res) => {
-        console.log(res.tempImagePath);
-
-        let pages = that.getCurrentPages();
-        let prevPage = pages[pages.length - 2];
-        console.log(prevPage.route);
+        let pages = getCurrentPages();
+        let idPage = pages[pages.length - 2];
+        //console.log(idPage.route);
 
         let key = that.data.key;
 
-        prevPage.setData({
-          key: res.tempImagePath
-        })
+        var process = 0;
+
+        if (idPage.data.process == 0) {
+          process = 1;
+        } else {
+          process = 2;
+        }
+
+        idPage.setData({
+          process: process,
+          "cn_dl_photo_front": res.tempImagePath,
+          "cn_id_photo_front": res.tempImagePath
+        });
+
+        that.setData({
+          show_preview: true,
+          src: res.tempImagePath
+        });
       }
     })
   },

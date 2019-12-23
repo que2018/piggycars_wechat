@@ -40,17 +40,24 @@ camera {
   display: block;
   width: 40px;
   height: 40px;
-  margin: 0 auto;
   padding: 20px;
   background: red;
   border-radius: 50%;
+  margin-left: 40px;
+}
+.btn-dismiss-hover {
+  background: #990404;
 }
 .btn-confirm {
   display: block;
   width: 40px;
   height: 40px;
-  margin: 0 auto;
   padding: 20px;
   background: #2fd113;
   border-radius: 50%;
+  float: right;
+  margin-right: 40px;
+}
+.btn-confirm-hover {
+  background: #136C04;
 }

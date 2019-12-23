@@ -22,7 +22,7 @@
     <view class="featured-title">热门车辆</view>
     <view class="featured-inner">
       <block wx:for="{{featureds}}" wx:key="featured">
-        <view class="featured-item" bindtap="clickFeature" data-id="{{item.id}}">
+        <view class="featured-item" hover-class="featured-item-hover" bindtap="clickFeature" data-id="{{item.id}}">
           <view class="featured-item-image"><image src="{{item.image}}" mode="aspectFit"></image></view>
           <view class="featured-captain">
             <view class="featured-model">{{item.year}} {{item.make}} {{item.model}}</view>

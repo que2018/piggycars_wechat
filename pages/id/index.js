@@ -84,10 +84,10 @@ Page({
       "Content-Type": "multipart/form-data"
     };
 
-    let formData = util.json2Form({
+    let formData = {
       name: "id_upload",
       country: this.data.country
-    });
+    };
 
     wx.uploadFile({
       url: app.globalData.API_ID_UPLOAD,
@@ -98,11 +98,14 @@ Page({
       success: function (res) {
         console.log(res);
       },
-      fail: function (e) {
+      fail: function (res) {
         console.log(res);
       },
       complete: function () {
-        console.log(res);
+        /* this.setData({
+          btn_loading: false,
+          btn_text: "现在拍照"
+        }); */
       }
     })
   },
@@ -126,7 +129,7 @@ Page({
         cn_selected: false,
         us_selected: true,
         description: "请对您驾照正面拍摄一张照片",
-        sample_image: app.globalData.API_RES + "/cn_id_front.jpg"
+        sample_image: app.globalData.API_RES + "/us_dl_front.jpg"
       });
     }
   }
