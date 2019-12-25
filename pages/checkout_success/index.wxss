@@ -12,17 +12,20 @@
   margin-top: 20px;
 }
 .content {
-  text-align: center;
+  width: 85%;
+  display: block;
+  margin: 0 auto;
+  text-align: left;
 }
 .btn-wrap {
   height: 80px;
   position: fixed;
   bottom: 0px;
   width: 100vw;
-  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #ffffff;
   border-top: 1px solid #ebebeb;
   z-index: 1000;
 }

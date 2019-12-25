@@ -145,7 +145,7 @@ Page({
       header: header,
       url: app.globalData.API_USER,
       complete: function (res) {
-        //console.log(res.data);
+        console.log(res.data);
 
         if (res.data.success) {
           that.setData({

@@ -92,3 +92,6 @@ input {
   right: 10px;
   position: absolute;
 }
+.space-id {
+  height: 20px;
+}

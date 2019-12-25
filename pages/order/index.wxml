@@ -9,7 +9,12 @@
           <image src="{{item.image}}" mode="aspectFit" class="oimg"></image>
         </view>
         <view class="row-r">
-          <view class="name">{{item.name}}</view>
+          <view wx:if="{{item.name.length > 25}}"> 
+            <view class="lname">{{item.name}}</view>
+          </view>
+          <view wx:else> 
+            <view class="name">{{item.name}}</view>
+          </view>
           <view class="captain">
             <view class="status">{{item.order_status}}</view>
             <view class="date">{{item.date_added}}</view>

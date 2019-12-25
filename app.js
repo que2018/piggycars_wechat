@@ -1,7 +1,7 @@
 
 App({
   globalData: {
-    version: 'v1.1.4',
+    version: 'v1.1.5',
     is_login: false,
     user_id: "",
     username: "",
@@ -39,6 +39,7 @@ App({
     API_WECHAT_AUTH: "https://debug.piggycars.com/api/checkout/confirm/wechat_auth",
     API_CARS: "https://debug.piggycars.com/api/catalog/vehicle/get_list",
     API_CAR: "https://debug.piggycars.com/api/catalog/vehicle",
+    API_FILTERS: "https://debug.piggycars.com/api/catalog/filters",
     API_CATEGORIES: "https://debug.piggycars.com/api/catalog/filters/featured",
     API_ORDER: "https://debug.piggycars.com/api/sales/order/get_list",
     API_BLOGS: "https://debug.piggycars.com/info/article/get_list",

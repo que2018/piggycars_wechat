@@ -29,12 +29,13 @@
     <view class="edit-box" bindtap="bindID"><image src="../../images/edit.png"></image></view>
     <view class="content">
       <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" autoplay="true" circular="true" class="id-slider">
-      <block wx:for="{{id_images}}" wx:key="id_image">
-        <swiper-item>
-          <image src='{{item}}' mode="aspectFill" style="width:100%;height:100%;" />
-        </swiper-item> 
-      </block>
-    </swiper>
+        <block wx:for="{{id_images}}" wx:key="id_image">
+          <swiper-item>
+            <image src='{{item}}' mode="aspectFill" style="width:100%;height:100%;" />
+          </swiper-item> 
+        </block>
+      </swiper>
+      <view class="space-id"></view>
     </view>
   </view>
 </view>

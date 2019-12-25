@@ -18,7 +18,7 @@
     "pages/sms/index",
     "pages/address/index",
     "pages/id/index",
-	  "pages/checkout/index", 
+	  "pages/checkout/index",
     "pages/checkout_success/index"
   ],
   "window": {

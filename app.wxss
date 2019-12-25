@@ -1,5 +1,5 @@
-view {
-    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+view, input {
+    font-family: "Microsoft Yahei",Arial,"Helvetica Neue",Helvetica,sans-serif;
 } 
 #ld-block {
     width: 100vw;

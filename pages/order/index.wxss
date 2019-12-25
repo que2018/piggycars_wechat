@@ -26,6 +26,10 @@
   color: #000000;
   font-size: 17px;
 }
+.lname {
+  color: #000000;
+  font-size: 12px;
+}
 .captain {
   display:flex;
   flex-direction: row;
@@ -34,10 +38,10 @@
   margin-top: 30px;
 }
 .status {
-  width: 50%;
+  width: 30%;
 }
 .date {
-  width: 50%;
+  width: 70%;
 }
 .space {
   height: 15px;
