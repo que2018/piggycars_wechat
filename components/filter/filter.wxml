@@ -1,6 +1,19 @@
 <view class="flex-container">
   <view class="{{show_filter?'show':'hide'}}">
     <view id="xxxx" class="filter-content">
+      <view class="filter_item" wx:for="{{keys}}" wx:for-index="index" wx:for-item="item">
+        <view class="filter-title">{{item}}</view>
+        <view wx:if="{{filter_items[item].type == 'list'}}">
+          <view class="filter-items">
+            <view wx:for="{{filter_items[item].data}}" wx:for-index="index1" wx:for-item="itemx">
+              <view class="filter-item">
+                <view class="filter-item-inner">{{itemx.name}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:else></view>
+      </view>
     </view>
   </view>
   <view class="btn-filter" bindtap="toggleFilter">筛选</view>
