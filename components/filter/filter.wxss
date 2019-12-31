@@ -14,7 +14,7 @@
  display: none;
 }
 .filter-content {
-  background: red;
+  background: #ffffff;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -41,14 +41,18 @@
 .filter-items {
   display: flex;
   direction: row;
+  padding: 16px;
+  flex-wrap: wrap;
 }
 .filter-item {
-  width: 25vw;
-  background: black;
-  color: #ffffff;
-  border-radius: 3px;
+  width: calc(25vw - 8px);
 }
 .filter-item-inner {
-  padding: 3px;
+  margin: 3px;
   text-align: center;
+  border-radius: 3px;
+  font-size: 10px;
+  line-height: 27px;
+  background: black;
+  color: #ffffff;
 }
