@@ -11,7 +11,19 @@ Component({
   },
   data: {
     show_filter: false,
-    keys: ["cities", "colors", "dealers", "down_payment", "makes", "mileage", "monthly_payment", "styles", "years"]
+    keys: ["colors", "cities", "makes", "years", "styles", "dealers", "mileage", "monthly_payment", "down_payment"],
+    titles: {
+      "colors": "颜色",
+      "cities": "城市",
+      "makes": "厂商",
+      "years": "年份",
+      "styles": "车型",
+      "dealers": "经销商",
+      "mileage": "里程",
+      "monthly_payment": "月租金",
+      "down_payment": "订阅费"
+    },
+    filter_items: {}
   },
   lifetimes: {
     attached: function () {
@@ -20,19 +32,31 @@ Component({
       wx.request({
         url: app.globalData.API_FILTERS,
         complete: function (res) {
-          console.log(res);
+          //console.log(res);
 
           if(res.data.success) {
+            var filterItemsData = {};
             let filterItems = res.data.data;
 
-            that.setData({
-              filter_items: filterItems
-            });
+            for(var key in filterItems) {
+              let filterItem = filterItems[key];
+              filterItem["title"] = that.data.titles[key];
 
-            for (const key of that.data.keys) {
-              console.log(filterItems[key]);
+              if (filterItem.type == "list") {
+                let length = filterItem.data.length;
+                filterItem["height"] = Math.ceil(length / 4) * 33 + 35 + 32;
+              } else {
+                filterItem["height"] = 90 + 35;
+              }
+
+              filterItemsData[key] = filterItem;
             }
 
+            console.log(filterItemsData);
+
+            that.setData({
+              filter_items: filterItemsData
+            });
           }
         }
       });

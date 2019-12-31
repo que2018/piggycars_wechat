@@ -15,11 +15,7 @@
 }
 .filter-content {
   background: #ffffff;
-  width: 100vw;
   height: 100vh;
-  position: fixed;
-  top: 0px;
-  left: 0px;
 }
 .btn-filter {
   position: fixed;
@@ -35,8 +31,9 @@
   text-align: center;
 }
 .filter-title {
-  background: #fc5861;
+  background: #fd7e85;
   color: #ffffff;
+  padding: 7px 14px;
 }
 .filter-items {
   display: flex;
@@ -53,6 +50,6 @@
   border-radius: 3px;
   font-size: 10px;
   line-height: 27px;
-  background: black;
+  background: #fca5b1;
   color: #ffffff;
 }
