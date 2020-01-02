@@ -40,19 +40,65 @@ Component({
 
             for(var key in filterItems) {
               let filterItem = filterItems[key];
-              filterItem["title"] = that.data.titles[key];
 
-              if (filterItem.type == "list") {
-                let length = filterItem.data.length;
-                filterItem["height"] = Math.ceil(length / 4) * 33 + 35 + 32;
-              } else {
-                filterItem["height"] = 90 + 35;
+              var filterItemData = {};
+              filterItemData["type"] = filterItem.type;
+              filterItemData["title"] = that.data.titles[key];
+
+              let data = [];
+              let dataDraft = filterItem.data;
+
+              for (var index = 0; index < dataDraft.length; index++) {
+                var item = dataDraft[index];
+                let length = String(item.name).length;
+
+                let font_size = 0;
+
+                if(length < 3) {
+                  font_size = 14;
+                } else if (length < 4) {
+                  font_size = 13;
+                } else if (length < 5) {
+                  font_size = 13;
+                } else if (length < 6) {
+                  font_size = 12;
+                } else if (length < 7) {
+                  font_size = 12;
+                } else if (length < 8) {
+                  font_size = 11;
+                } else if (length < 9) {
+                  font_size = 10;
+                } else if (length < 10) {
+                  font_size = 9;
+                } else if (length < 11) {
+                  font_size = 9;
+                } else if (length < 12) {
+                  font_size = 9;
+                } else if (length < 13) {
+                  font_size = 9;
+                } else if (length < 14) {
+                  font_size = 8;
+                } else if (length < 16) {
+                  font_size = 8;
+                } else {
+                  font_size = 5;
+                }
+
+                item["font_size"] = font_size;
+                data.push(item);
               }
 
-              filterItemsData[key] = filterItem;
-            }
+              filterItemData["data"] = data;
+              
+              if (filterItem.type == "list") {
+                let length = filterItem.data.length;
+                filterItemData["height"] = Math.ceil(length / 4) * 33 + 35 + 32;
+              } else {
+                filterItemData["height"] = 90 + 35;
+              }
 
-            console.log(filterItemsData);
+              filterItemsData[key] = filterItemData;
+            }
 
             that.setData({
               filter_items: filterItemsData

@@ -8,13 +8,16 @@
             <view class="filter-items">
               <view wx:for="{{filter_items[key].data}}" wx:key="index" wx:for-index="index" wx:for-item="item">
                 <view class="filter-item">
-                  <view class="filter-item-inner">{{item.name}}</view>
+                  <view class="filter-item-inner" style="font-size:{{item.font_size}}px;">{{item.name}}</view>
                 </view>
               </view>
             </view>
           </view>
           <view wx:else>
-
+            <view class="slider-wrap">
+              <zy-slider minValue="0" maxValue="100" min="0" max="100" bind:lowValueChange="lowValueChangeAction"
+                bind:heighValueChange="heighValueChangeAction" />
+            </view>
           </view>
         </view>
       </view>

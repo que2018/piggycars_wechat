@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "zy-slider": "../zyslider/zyslider"
+  }
 }
