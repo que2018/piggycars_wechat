@@ -30,4 +30,4 @@
     </view>
   </view>
 </scroll-view>
-<filter id="filter"></filter>
+<filter id="filter" bind:notification="filterNotification"></filter>

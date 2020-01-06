@@ -16,6 +16,7 @@ App({
     address: {},
     id_images: [],
     filter_params: "",
+    filter_param: {},
     order_id: 0,
     checkout_id: 0,
     checkout_year: "",

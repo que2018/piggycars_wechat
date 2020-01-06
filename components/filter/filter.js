@@ -125,6 +125,25 @@ Component({
           show_filter: true
         });
       }
+    },
+    bindSelect: function (event) {
+      let index = event.currentTarget.dataset.index;
+      let id = event.currentTarget.dataset.id;
+      let name = event.currentTarget.dataset.name;
+
+      let key = name + "[" + index + "]";
+      app.globalData.filter_param[key] = id;
+    },
+    bindFilter: function (event) {
+      let data = {};
+      this.triggerEvent('notification', data);
+
+      this.setData({
+        show_filter: false
+      });
+    },
+    clearFilter: function (event) {
+      app.globalData.filter_param = {}
     }
   }
 })

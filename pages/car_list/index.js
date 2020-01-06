@@ -24,13 +24,18 @@ Page({
       "Content-Type": "application/x-www-form-urlencoded"
     };
 
-    let data = app.globalData.filter_params;
+    //let data = app.globalData.filter_params;
+
+    //var data = {};
+    //data["colors[0]"] = 6;
+
+    let data = app.globalData.filter_param;
 
     wx.request({
       url: app.globalData.API_CARS,
       header: header,
       method: "POST",
-      data: data,
+      data: util.json2Form(data),
       complete: function (res) {
         if (res.data.success) {
           var cars = [];
@@ -69,6 +74,9 @@ Page({
         wx.stopPullDownRefresh();
       }
     });
+  },
+  filterNotification: function (event) {
+    this.loadData();
   },
   bindCar: function (event) {
     var id = event.currentTarget.dataset.id;
