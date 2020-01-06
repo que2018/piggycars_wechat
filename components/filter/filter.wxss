@@ -7,6 +7,7 @@
 }
 .show {
  display: flex;
+ flex-direction: column;
 }
 .hide {
  display: none;
@@ -18,7 +19,7 @@
 .btn-filter {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  right: 25px;
   color: white;
   width: 66px;
   height: 50px;
@@ -51,9 +52,38 @@
   background: #fca5b1;
   color: #ffffff;
 }
+.filter-item-inner-selected {
+  margin: 3px;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 4px;
+  line-height: 27px;
+  background: #fc5861;
+  color: #ffffff;
+}
 .slider-wrap {
   height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.btns-filter {
+  width: 100vw;
+  height: 40px;
+  background: #fc5861;
+}
+.btn-clear {
+  float: left;
+  line-height: 40px;
+  padding-left: 15px;
+  color: #ffffff;
+}
+.btn-exe {
+  float: right;
+  padding-right: 15px;
+  line-height: 40px;
+  color: #ffffff;
+}
+.space-bottom {
+  height: 50px;
 }

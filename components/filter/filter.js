@@ -11,7 +11,8 @@ Component({
   },
   data: {
     show_filter: false,
-    keys: ["colors", "cities", "makes", "years", "styles", "dealers", "mileage", "monthly_payment", "down_payment"],
+    //keys: ["colors", "cities", "makes", "years", "styles", "dealers", "mileage", "monthly_payment", "down_payment"],
+    keys: ["colors", "cities", "makes", "years", "styles", "dealers"],
     titles: {
       "colors": "颜色",
       "cities": "城市",
@@ -85,6 +86,8 @@ Component({
                 }
 
                 item["font_size"] = font_size;
+                item["selected"] = false;
+
                 data.push(item);
               }
 
@@ -132,18 +135,45 @@ Component({
       let name = event.currentTarget.dataset.name;
 
       let key = name + "[" + index + "]";
-      app.globalData.filter_param[key] = id;
+
+      var filter_items = this.data.filter_items;
+      let selected = filter_items[name]["data"][index]["selected"];
+
+      if(selected) {
+        delete app.globalData.filter_params[key];
+        filter_items[name]["data"][index]["selected"] = false;
+      } else {
+        app.globalData.filter_params[key] = id;
+        filter_items[name]["data"][index]["selected"] = true;
+      }
+
+      this.setData({
+        filter_items: filter_items
+      });
     },
     bindFilter: function (event) {
-      let data = {};
-      this.triggerEvent('notification', data);
+      this.triggerEvent('notification', {});
 
       this.setData({
         show_filter: false
       });
     },
     clearFilter: function (event) {
-      app.globalData.filter_param = {}
+      var filterItems = this.data.filter_items;
+
+      for (var key in filterItems) {
+        let filterItem = filterItems[key];
+
+        for (var index = 0; index < filterItem.data.length; index++) {
+          filterItem.data[index]["selected"] = false;
+        }
+      }
+
+      this.setData({
+        filter_items: filterItems
+      });
+
+      app.globalData.filter_params = {}
     }
   }
 })

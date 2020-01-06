@@ -24,12 +24,7 @@ Page({
       "Content-Type": "application/x-www-form-urlencoded"
     };
 
-    //let data = app.globalData.filter_params;
-
-    //var data = {};
-    //data["colors[0]"] = 6;
-
-    let data = app.globalData.filter_param;
+    let data = app.globalData.filter_params;
 
     wx.request({
       url: app.globalData.API_CARS,

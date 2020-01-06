@@ -73,6 +73,9 @@ Page({
       }
     });
   },
+  filterNotification: function (event) {
+    this.loadData();
+  },
   bindCar: function (event) {
     var id = event.currentTarget.dataset.id;
 

@@ -1,7 +1,7 @@
 
 App({
   globalData: {
-    version: 'v1.2.0',
+    version: 'v1.3.0',
     is_login: false,
     user_id: "",
     username: "",
@@ -15,8 +15,7 @@ App({
     last_name: "",
     address: {},
     id_images: [],
-    filter_params: "",
-    filter_param: {},
+    filter_params: {},
     order_id: 0,
     checkout_id: 0,
     checkout_year: "",
