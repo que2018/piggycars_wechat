@@ -46,10 +46,8 @@ Page({
             let item = res.data.data[i];
 
             category.title = item.name;
-            category.price = item.price;
-            category.params = util.json2Form(item.params);
 
-            category.image = app.globalData.API_RES + "/" + item.image;
+            category.image = item.image;
             categories.push(category);
           }
 

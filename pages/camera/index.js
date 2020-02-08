@@ -21,23 +21,46 @@ Page({
       success: (res) => {
         let pages = getCurrentPages();
         let idPage = pages[pages.length - 2];
-        //console.log(idPage.route);
+        console.log(idPage.route);
+        console.log(res.tempImagePath);
 
         let key = that.data.key;
 
-        var process = 0;
+        console.log("getting back ...");
 
-        if (idPage.data.process == 0) {
-          process = 1;
-        } else {
-          process = 2;
+        if ((idPage.data.country == "cn") && (idPage.data.process == 0)) {
+
+          console.log("cn 0 ...");
+
+          idPage.setData({
+            process: 1,
+            "cn_id_photo_front": res.tempImagePath
+          });
+
+        } else if ((idPage.data.country == "cn") && (idPage.data.process == 1)) {
+          console.log("cn 1 ...");
+
+          idPage.setData({
+            process: 2,
+            "cn_id_photo_back": res.tempImagePath
+          });
+
+        } else if ((idPage.data.country == "us") && (idPage.data.process == 0)) {
+          console.log("us 0 ...");
+
+          idPage.setData({
+            process: 1,
+            "us_dl_photo_front": res.tempImagePath
+          });
+
+        } else if ((idPage.data.country == "us") && (idPage.data.process == 1)) {
+          console.log("us 1 ...");
+
+          idPage.setData({
+            process: 2,
+            "us_dl_photo_back": res.tempImagePath
+          });
         }
-
-        idPage.setData({
-          process: process,
-          "cn_dl_photo_front": res.tempImagePath,
-          "cn_id_photo_front": res.tempImagePath
-        });
 
         that.setData({
           show_preview: true,

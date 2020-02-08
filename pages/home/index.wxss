@@ -21,22 +21,23 @@
   padding-left: 8vw;
 }
 .category-item {
-  width: 36vw; 
-  height: 46vw; 
+  width: 40vw; 
   display: inline-block;
 }
 .category-item-inner {
-  width: 32vw; 
-  height: 42vw; 
-  margin-left: 2vw;
-  margin-top: 2vw;
+  width: 36vw;
+  height: 42vw;
+  display: block;
+  margin: 0 auto;
   border-radius: 10px;
   background: #ffffff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
 .category-item-image {
-  width: 32vw;
-  height: 26vw; 
+  width: 30vw;
+  height: 26vw;
+  margin: 0 auto;
+  display: block;
 }
 .category-item-title {
   color: #000000;

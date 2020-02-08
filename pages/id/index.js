@@ -51,26 +51,26 @@ Page({
           this.upload("id_photo_front", this.data.cn_id_photo_front);
         } else {
           this.upload("dl_photo_front", this.data.us_dl_photo_front);
-          this.upload("id_photo_back", this.data.us_id_photo_front);
+          this.upload("dl_photo_back", this.data.us_dl_photo_back);
         }
     }
   },
   openCamera: function (event) {
     var id_key = "";
 
-    if((this.data.contry == "cn") && (this.data.process == 0)) {
+    if ((this.data.country == "cn") && (this.data.process == 0)) {
       id_key = "cn_dl_photo_front";
     }
 
-    if ((this.data.contry == "cn") && (this.data.process == 1)) {
+    if ((this.data.country == "cn") && (this.data.process == 1)) {
       id_key = "cn_id_photo_front";
     }
 
-    if ((this.data.contry == "us") && (this.data.process == 0)) {
+    if ((this.data.country == "us") && (this.data.process == 0)) {
       id_key = "us_dl_photo_front";
     }
 
-    if ((this.data.contry == "us") && (this.data.process == 1)) {
+    if ((this.data.country == "us") && (this.data.process == 1)) {
       id_key = "us_dl_photo_back";
     }
 
@@ -85,9 +85,15 @@ Page({
     };
 
     let formData = {
-      name: "id_upload",
+      //name: "id_upload",
+      id_key: name,
       country: this.data.country
     };
+
+    console.log("request data: .... ");
+    console.log(formData);
+    console.log(name);
+    console.log(filePath);
 
     wx.uploadFile({
       url: app.globalData.API_ID_UPLOAD,
@@ -96,12 +102,16 @@ Page({
       header: header,
       formData: formData,
       success: function (res) {
+        console.log("upload success ... ");
         console.log(res);
       },
       fail: function (res) {
+        console.log("upload fail ... ");
         console.log(res);
       },
       complete: function () {
+        console.log("it is completed");
+
         /* this.setData({
           btn_loading: false,
           btn_text: "现在拍照"
