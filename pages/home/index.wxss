@@ -17,31 +17,34 @@
   padding-left: 10vw;
 }
 .categories-inner {
-  width: 92vw;
-  padding-left: 8vw;
+  width: 96vw;
+  padding-left: 4vw;
 }
 .category-item {
   width: 40vw; 
   display: inline-block;
 }
 .category-item-inner {
-  width: 36vw;
-  height: 42vw;
+  width: 35vw;
+  height: 38vw;
   display: block;
   margin: 0 auto;
-  border-radius: 10px;
-  background: #ffffff;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  background-image: url("https://piggycars.com/assets/image/category_bg.png");
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
 }
 .category-item-image {
-  width: 30vw;
+  width: 28vw;
   height: 26vw;
+  padding-top: 1vw;
   margin: 0 auto;
   display: block;
 }
 .category-item-title {
   color: #000000;
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
 }
 .category-item-price {
@@ -167,7 +170,6 @@
   line-height: 17px;
   margin-left: 5px;
 }
-
 
 
     
