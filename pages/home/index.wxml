@@ -7,7 +7,7 @@
     <view class="categories-inner">
       <scroll-view scroll-x="true" style="white-space: nowrap; display: flex;">
         <block wx:for="{{categories}}" wx:key="category">
-          <view class="category-item" bindtap="clickCategory" data-params="{{item.params}}">
+          <view class="category-item" bindtap="clickCategory" data-id="{{item.id}}">
             <view class="category-item-inner">
               <view><image src="{{item.image}}" mode="aspectFit" class="category-item-image"></image></view>
               <view class="category-item-title">{{item.title}}</view>

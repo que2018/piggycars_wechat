@@ -16,14 +16,26 @@ Page({
     this.loadData();
   },
   loadData: function () {
-    var that = this;
+    let that = this;
 
-    that.getCategories();
-    that.getFeatureds();
-    that.getBlogs();
+    wx.request({
+      url: app.globalData.API_LANG,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      complete: function (res) {
+        console.log(res.header["Set-Cookie"]);
+
+        wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
+
+        that.getCategories();
+        that.getFeatureds();
+        that.getBlogs();
+      }
+    });
   },
   getCategories() {
-    var that = this;
+    let that = this;
 
     that.setData({
       category_loading: true
@@ -45,8 +57,8 @@ Page({
             var category = new Object();
             let item = res.data.data[i];
 
+            category.id = item.id;
             category.title = item.name;
-
             category.image = item.image;
             categories.push(category);
           }
@@ -141,9 +153,20 @@ Page({
             let item = res.data.data.items[i];
 
             blog.id = item.id;
-            blog.title = decodeURIComponent(item.title);
-            blog.description = decodeURIComponent(item.meta_description);
+
+            let title = decodeURIComponent(item.title);
+
+            if (title.length > 25) {
+              blog.title = title.substring(0, 25) + "..";
+            } else {
+              blog.title = title;
+            }
+
+            let description = decodeURIComponent(item.meta_description);
+            blog.description = description.substring(0, 100) + " ...";
+
             blog.image = app.globalData.API_RES + "/article/lg/" + item.image;
+
             blogs.push(blog);
           }
 
@@ -161,7 +184,13 @@ Page({
     });
   },
   clickCategory: function (event) {
-    app.globalData.filter_params = event.currentTarget.dataset.params;
+    let id = event.currentTarget.dataset.id;
+    let key = "style[0]";
+    let params = {[key]: id};
+
+    app.globalData.filter_params = util.json2Form(params);
+
+    console.log(util.json2Form(params));
 
     wx.navigateTo({
       url: '../car_list_full/index'

@@ -29,6 +29,8 @@ Page({
 
     let data = app.globalData.filter_params;
 
+    console.log(data);
+
     wx.request({
       url: app.globalData.API_CARS,
       header: header,

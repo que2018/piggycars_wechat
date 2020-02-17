@@ -132,7 +132,7 @@
 }
 .blog-item {
   width: 45vw; 
-  height: 55vw; 
+  height: 48vw; 
   display: inline-block;
 }
 .blog-item-inner {
@@ -143,7 +143,7 @@
 }
 .blog-item-image {
   width: 41vw;
-  height: 26vw; 
+  height: 21.4vw; 
 }
 .blog-item-image image {
   width: 100%;
