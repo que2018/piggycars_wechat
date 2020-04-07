@@ -28,7 +28,7 @@ Page({
           that.setData({
             title: res.data.data.heading_title,
             content: res.data.data.content,
-            image: app.globalData.API_RES + "/article/lg/" + res.data.data.image
+            image: app.globalData.API_RES_INFO + "/article/lg/" + res.data.data.image
           });
 
           wxParse.wxParse('desp_html', 'html', res.data.data.content, that, 5);  

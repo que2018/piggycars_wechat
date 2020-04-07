@@ -165,7 +165,7 @@ Page({
             let description = decodeURIComponent(item.meta_description);
             blog.description = description.substring(0, 100) + " ...";
 
-            blog.image = app.globalData.API_RES + "/article/lg/" + item.image;
+            blog.image = app.globalData.API_RES_INFO + "/article/lg/" + item.image;
 
             blogs.push(blog);
           }
