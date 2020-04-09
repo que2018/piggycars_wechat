@@ -3,6 +3,7 @@
     "pages/app/index",
     "pages/home/index",    
     "pages/car_list/index",
+	  "pages/car_list2/index",
     "pages/car_list_full/index",
 	  "pages/car_detail/index",
     "pages/article_list/index",
@@ -43,7 +44,7 @@
       {
         "selectedIconPath": "images/car.png",
         "iconPath": "images/car.png",
-        "pagePath": "pages/car_list/index",
+        "pagePath": "pages/car_list2/index",
         "text": "有车"
       },
       {
