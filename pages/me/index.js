@@ -133,6 +133,11 @@ Page({
       }
     });   
   },
+  goToWechatLogin: function (e) {
+    wx.navigateTo({
+      url: '../wechat_login/index'
+    });
+  },
   getProfile: function (e) {
     var that = this;
 
@@ -145,7 +150,7 @@ Page({
       header: header,
       url: app.globalData.API_USER,
       complete: function (res) {
-        console.log(res.data);
+        //console.log(res.data);
 
         if (res.data.success) {
           that.setData({

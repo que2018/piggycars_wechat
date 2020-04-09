@@ -35,6 +35,8 @@ Page({
         if (res.data.success) {
           var cars = [];
 
+          //console.log(res.data);
+
           for (var i = 0; i < res.data.data.items.length; i++) {
             var car = new Object();
             let item = res.data.data.items[i];
@@ -48,14 +50,14 @@ Page({
             car.monthlyPayment = item.monthly_payment
             car.city = item.location.city
 
-            let images = item.car_images;
+            var images = [];
 
-            if (images[0]) {
-              car.image = app.globalData.API_RES + "/car/lg/" + images[0].value;
-            } else {
-              car.image = "../../images/logo.png"
+            for (var index in item.car_images) {
+              images.push(app.globalData.API_RES + "/car/md/" + item.car_images[index].value);
             }
 
+            car.images = images;
+            
             cars.push(car);
           }
 
@@ -73,7 +75,7 @@ Page({
   filterNotification: function (event) {
     this.loadData();
   },
-  bindCar: function (event) {
+  goToDetail: function (event) {
     var id = event.currentTarget.dataset.id;
 
     wx.navigateTo({

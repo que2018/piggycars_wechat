@@ -3,7 +3,6 @@
     "pages/app/index",
     "pages/home/index",    
     "pages/car_list/index",
-	  "pages/car_list2/index",
     "pages/car_list_full/index",
 	  "pages/car_detail/index",
     "pages/article_list/index",
@@ -13,6 +12,7 @@
     "pages/fee/index",
     "pages/contact/index",
     "pages/me/index",
+    "pages/wechat_login/index",
     "pages/profile/index",
     "pages/register/index", 
     "pages/password/index",    
@@ -44,7 +44,7 @@
       {
         "selectedIconPath": "images/car.png",
         "iconPath": "images/car.png",
-        "pagePath": "pages/car_list2/index",
+        "pagePath": "pages/car_list/index",
         "text": "有车"
       },
       {

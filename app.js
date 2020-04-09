@@ -26,6 +26,8 @@ App({
     checkout_payment_down_tax: 0,
     checkout_payment_down_total: 0,
     API_LOGIN: "https://piggycars.net/api/account/login",
+    API_WECHAT_LOGIN: "https://piggycars.net/api/account/login/with",
+    API_WECHAT_REGISTER: "https://piggycars.net/api/account/register/with",
     API_LOGOUT: "https://piggycars.net/api/account/logout",
     API_REGISTER: "https://piggycars.net/api/account/register",
     API_USER: "https://piggycars.net/api/account/user",

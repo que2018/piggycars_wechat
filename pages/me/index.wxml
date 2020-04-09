@@ -18,6 +18,7 @@
         </view>
       </view>
       <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>登录</button>
+      <view bindtap="goToWechatLogin">微信登录</view>
     </view>
     <view class="register" hover-class="register-hover" bindtap="bindRegister">
       <view class="reg-l">没有账号?<text decode="{{true}}">&nbsp;&nbsp;</text></view>

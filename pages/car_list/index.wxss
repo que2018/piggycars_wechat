@@ -6,6 +6,10 @@
 .car-wrap {
   width: 100%;
 }
+swiper {
+  width:100vw;
+  height:75vw;
+}
 .mimg {
   width: 100vw;
   height: 75vw;
@@ -38,9 +42,10 @@
   width: 39%;
 }
 .car-padding {
-  height: 20px;
+  height: 1px;
   background: #dbdbdb;
 }
+
 
 
 

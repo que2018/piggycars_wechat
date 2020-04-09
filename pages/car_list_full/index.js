@@ -1,6 +1,6 @@
 
-var app = getApp();
-var util = require('../../utils/util.js');
+let app = getApp();
+let util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -28,8 +28,6 @@ Page({
     };
 
     let data = app.globalData.filter_params;
-
-    console.log(data);
 
     wx.request({
       url: app.globalData.API_CARS,

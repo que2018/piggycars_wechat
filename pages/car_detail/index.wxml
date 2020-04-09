@@ -1,12 +1,17 @@
 <view class="container">
-  <view>
-   <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" autoplay="true" circular="true" style="width:100vw;height:75vw;">
-      <block wx:for="{{car_images}}" wx:key="car_image">
-        <swiper-item>
-          <image src='{{item}}' mode="aspectFill" style="width:100%;height:100%;" />
-        </swiper-item> 
-      </block>
-    </swiper>
+  <view class="slider">
+    <view wx:if="{{car_images.length > 1}}">
+      <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" circular="true">
+        <block wx:for="{{car_images}}" wx:key="car_image">
+          <swiper-item>
+            <image src="{{item}}" class="swimg" mode="aspectFill" />
+          </swiper-item> 
+        </block>
+      </swiper>
+    </view>
+    <view wx:else>
+      <image src='{{car_images[0]}}' class="mimg" mode="aspectFit" />
+    </view>
     <view class="placeholder"></view>
   </view>
   <view class="info">
@@ -110,7 +115,7 @@
   <view class="contact">
     <view class="contact-inner">
       <view>如有问题请联系我们</view>
-      <view>(626)-362-3730 周一到周五 早上9点到下午6点</view>
+      <view>(800)-690-2256 周一到周五 早上9点到下午6点</view>
     </view>
     <view class="placeholder"></view>
   </view>
