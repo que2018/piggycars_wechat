@@ -1,6 +1,7 @@
 {
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "alert": "/components/alert/alert"
+    "alert": "/components/alert/alert",
+    "wechat_button": "/components/wechat_button/wechat_button"
   }
 }

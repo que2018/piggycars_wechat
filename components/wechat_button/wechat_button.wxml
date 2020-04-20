@@ -1,0 +1,4 @@
+<view class="container-wechat-btn" style="background:{{background_color}}">
+  <image src="../../images/wechat_white.png" mode="aspectFit" class="wechat-img"></image>
+  <view class="wechat-title">{{title}}</view>
+</view>

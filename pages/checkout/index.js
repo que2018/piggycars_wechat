@@ -1,5 +1,5 @@
 
-var app = getApp();
+let app = getApp();
 
 Page({
   data: {
@@ -14,6 +14,7 @@ Page({
   },
   onLoad: function (options) {
     this.alert = this.selectComponent("#alert");
+    this.wechat_button = this.selectComponent("#wechat_button");
 
     this.setData({
       show_checkout_sms: true,

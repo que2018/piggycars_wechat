@@ -13,6 +13,7 @@
     "pages/contact/index",
     "pages/me/index",
     "pages/wechat_login/index",
+    "pages/wechat_register/index",  
     "pages/profile/index",
     "pages/register/index", 
     "pages/password/index",    

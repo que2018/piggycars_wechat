@@ -195,3 +195,13 @@ input {
   flex-direction: row;
   margin-bottom: 5px;
 }
+.btn-socials {
+  display:flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+#wechat-button {
+  width: 50%;
+  height: 36px;
+  line-height: 36px;
+}

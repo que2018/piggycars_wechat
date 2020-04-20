@@ -1,6 +1,6 @@
 
-let app = getApp();
-let util = require('../../utils/util.js');
+var app = getApp();
+var util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -8,13 +8,10 @@ Page({
     show_loading: true
   },
   onLoad: function (options) {
-    //this.loadData();
+    this.loadData();
   },
   onReady: function () {
     this.filter = this.selectComponent("#filter");
-  },
-  onShow: function (options) {
-    this.loadData();
   },
   loadData: function () {
     var that = this;
@@ -33,10 +30,12 @@ Page({
       url: app.globalData.API_CARS,
       header: header,
       method: "POST",
-      data: data,
+      data: util.json2Form(data),
       complete: function (res) {
         if (res.data.success) {
           var cars = [];
+
+          //console.log(res.data);
 
           for (var i = 0; i < res.data.data.items.length; i++) {
             var car = new Object();
@@ -51,14 +50,14 @@ Page({
             car.monthlyPayment = item.monthly_payment
             car.city = item.location.city
 
-            let images = item.car_images;
+            var images = [];
 
-            if (images[0]) {
-              car.image = app.globalData.API_RES + "/car/lg/" + images[0].value;
-            } else {
-              car.image = "../../images/logo.png"
+            for (var index in item.car_images) {
+              images.push(app.globalData.API_RES + "/car/md/" + item.car_images[index].value);
             }
 
+            car.images = images;
+            
             cars.push(car);
           }
 
@@ -76,7 +75,7 @@ Page({
   filterNotification: function (event) {
     this.loadData();
   },
-  bindCar: function (event) {
+  goToDetail: function (event) {
     var id = event.currentTarget.dataset.id;
 
     wx.navigateTo({
@@ -84,9 +83,9 @@ Page({
     });
   },
   onPullDownRefresh: function () {
-    let params = { start: 0, size: 100 };
+    let params = {start: 0, size: 100};
     app.globalData.filter_params = util.json2Form(params);
 
-    this.loadData();
+    this.loadData();  
   }
 })

@@ -18,6 +18,7 @@ Page({
     country: "",
     id_images: "",
     is_login: false,
+    loading_wechat: false,
     show_loading: true
   },
   onLoad: function (options) {
@@ -39,6 +40,7 @@ Page({
   },
   onReady: function() {
     this.alert = this.selectComponent("#alert");
+    this.wechat_button = this.selectComponent("#wechat-button");
   },
   onShow: function () {
     this.setData({
@@ -133,9 +135,62 @@ Page({
       }
     });   
   },
-  goToWechatLogin: function (e) {
-    wx.navigateTo({
-      url: '../wechat_login/index'
+  bindWechatLogin: function (e) {
+    this.wechat_button.start_loading();
+
+    wx.login({
+      success: function (res) {
+        wx.request({
+          url: app.globalData.API_WECHAT_LOGIN,
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: "POST",
+          data: util.json2Form({
+            api: "2",
+            type: "wechat",
+            param: res.code
+          }),
+          complete: function (res_login) {
+            if (res_login.data.success) {
+              app.globalData.is_login = true;
+
+              that.setData({
+                is_login: true,
+              });
+
+              if (res.data.data.phone) {
+                let phone = res.data.data.phone;
+
+                if (phone.charAt(0) == "1") {
+                  app.globalData.country_code = "1";
+                  app.globalData.phone_local = phone.substring(1, phone.length);
+
+                } else {
+                  app.globalData.country_code = "86";
+                  app.globalData.phone_local = phone.substring(2, phone.length);
+                }
+
+                app.globalData.phone = phone;
+
+                that.setData({
+                  phone: phone
+                });
+              }
+
+              wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
+
+              that.getProfile();
+              that.getId();
+
+            } else {
+              wx.navigateTo({
+                url: '../wechat_register/index?code=' + res.code
+              });
+            }
+          }
+        })
+      }
     });
   },
   getProfile: function (e) {
