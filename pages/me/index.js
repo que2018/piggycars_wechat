@@ -185,7 +185,7 @@ Page({
 
             } else {
               wx.navigateTo({
-                url: '../wechat_register/index?code=' + res.code
+                url: '../wechat_register/index'
               });
             }
           }
