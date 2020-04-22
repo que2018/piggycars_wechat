@@ -35,7 +35,7 @@ Page({
         if (res.data.success) {
           var cars = [];
 
-          //console.log(res.data);
+          console.log(res.data);
 
           for (var i = 0; i < res.data.data.items.length; i++) {
             var car = new Object();
@@ -56,6 +56,10 @@ Page({
               images.push(app.globalData.API_RES + "/car/md/" + item.car_images[index].value);
             }
 
+            for (var index in item.vehicle_images) {
+              images.push(app.globalData.API_RES + "/vehicle/md/" + item.vehicle_images[index].value);
+            }
+            
             car.images = images;
             
             cars.push(car);

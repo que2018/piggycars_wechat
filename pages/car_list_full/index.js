@@ -56,6 +56,10 @@ Page({
               images.push(app.globalData.API_RES + "/car/md/" + item.car_images[index].value);
             }
 
+            for (var index in item.vehicle_images) {
+              images.push(app.globalData.API_RES + "/vehicle/md/" + item.vehicle_images[index].value);
+            }
+
             car.images = images;
             
             cars.push(car);
