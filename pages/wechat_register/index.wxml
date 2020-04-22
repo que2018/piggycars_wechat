@@ -26,7 +26,7 @@
         </view>
       </view>
       <view class="btn-wrap">
-        <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>注册</button>
+        <button type="primary" class="btn-submit" size="default" loading="{{btn_loading}}" form-type='submit'>注册</button>
       </view>
       <alert id="alert"></alert>
     </form>

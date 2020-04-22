@@ -200,8 +200,15 @@ input {
   flex-direction: row;
   margin-top: 10px;
 }
-#wechat-button {
+.btn-wechat-wrap {
   width: 50%;
   height: 36px;
+}
+#btn-wechat {
+  width: 100%;
+  height: 100%;
   line-height: 36px;
+  background: #1aad19;
+  color: #ffffff;
+  font-size: 17px;
 }

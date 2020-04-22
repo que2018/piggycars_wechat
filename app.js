@@ -1,7 +1,7 @@
 
 App({
   globalData: {
-    version: 'v1.3.7',
+    version: 'v1.4.0',
     is_login: false,
     user_id: "",
     username: "",
@@ -11,6 +11,7 @@ App({
     phone_local: "",
     phone: "",
     code: "",
+    openid: "",
     first_name: "",
     last_name: "",
     address: {},

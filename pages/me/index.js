@@ -19,24 +19,10 @@ Page({
     id_images: "",
     is_login: false,
     loading_wechat: false,
-    show_loading: true
+    show_loading: true,
+    wechat_loading: false
   },
   onLoad: function (options) {
-    this.setData({ 
-      show_loading: false,
-      is_login: app.globalData.is_login,
-      first_name: app.globalData.first_name,
-      last_name: app.globalData.last_name,
-      email: app.globalData.email,
-      phone: (app.globalData.phone) ? app.globalData.phone : "",
-      id_images: (app.globalData.id_images) ? app.globalData.id_images : "",
-      address_1: (app.globalData.address.address_1)? app.globalData.address.address_1 : "",
-      address_2: (app.globalData.address.address_2) ? app.globalData.address.address_2 : "",
-      city: (app.globalData.address.city) ? app.globalData.address.city : "",
-      zone: (app.globalData.address.zone) ? app.globalData.address.zone : "",
-      postcode: (app.globalData.address.postcode) ? app.globalData.address.postcode : "",
-      country: (app.globalData.address.country) ? app.globalData.address.country : ""
-    });
   },
   onReady: function() {
     this.alert = this.selectComponent("#alert");
@@ -44,11 +30,15 @@ Page({
   },
   onShow: function () {
     this.setData({
-      is_login: app.globalData.is_login
+      show_loading: false,
+      is_login: app.globalData.is_login,
     });
+
+    this.getProfile();
+    this.getId();
   },
   login: function (e) {
-    var that = this;
+    let that = this;
 
     that.setData({
       loading: true,
@@ -79,7 +69,7 @@ Page({
           that.setData({
             is_login: true,
             username: "",
-            password: "",
+            password: ""
           });
 
           if (res.data.data.phone) {
@@ -136,60 +126,85 @@ Page({
     });   
   },
   bindWechatLogin: function (e) {
-    this.wechat_button.start_loading();
+    this.setData({
+      wechat_loading: true
+    });
+
+    let that = this;
 
     wx.login({
       success: function (res) {
-        wx.request({
-          url: app.globalData.API_WECHAT_LOGIN,
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          method: "POST",
-          data: util.json2Form({
-            api: "2",
-            type: "wechat",
-            param: res.code
-          }),
-          complete: function (res_login) {
-            if (res_login.data.success) {
-              app.globalData.is_login = true;
+        wx.getUserInfo({
+          withCredentials: true,
+          success: function(res_user) {
+            //console.log(res_user);
 
-              that.setData({
-                is_login: true,
-              });
+            wx.request({
+              url: app.globalData.API_WECHAT_LOGIN,
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              method: "POST",
+              data: util.json2Form({
+                api: "2",
+                type: "wechat",
+                param: res.code,
+                iv: res_user.iv,
+                encrypted_data: res_user.encryptedData
+              }),
+              complete: function (res_login) {
+                if (res_login.data.success) {
+                  app.globalData.is_login = true;
 
-              if (res.data.data.phone) {
-                let phone = res.data.data.phone;
+                  that.setData({
+                    is_login: true,
+                  });
 
-                if (phone.charAt(0) == "1") {
-                  app.globalData.country_code = "1";
-                  app.globalData.phone_local = phone.substring(1, phone.length);
+                  if (res_login.data.data.phone) {
+                    let phone = res_login.data.data.phone;
+
+                    if (phone.charAt(0) == "1") {
+                      app.globalData.country_code = "1";
+                      app.globalData.phone_local = phone.substring(1, phone.length);
+
+                    } else {
+                      app.globalData.country_code = "86";
+                      app.globalData.phone_local = phone.substring(2, phone.length);
+                    }
+
+                    app.globalData.phone = phone;
+
+                    that.setData({
+                      phone: phone
+                    });
+                  }
+
+                  app.globalData.openid = res_login.openid;
+                  wx.setStorageSync("sessionid", res_login.header["Set-Cookie"]);
+
+                  that.getProfile();
+                  that.getId();
 
                 } else {
-                  app.globalData.country_code = "86";
-                  app.globalData.phone_local = phone.substring(2, phone.length);
+                  that.setData({
+                    wechat_loading: false
+                  });
+
+                  wx.navigateTo({
+                    url: '../wechat_register/index'
+                  });
                 }
-
-                app.globalData.phone = phone;
-
-                that.setData({
-                  phone: phone
-                });
               }
+            });
+          },
+          fail: function (res) {
+            that.setData({
+              wechat_loading: false
+            });
 
-              wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
-
-              that.getProfile();
-              that.getId();
-
-            } else {
-              wx.navigateTo({
-                url: '../wechat_register/index'
-              });
-            }
+            that.alert.show(["您拒绝了微信登录授权"]);
           }
-        })
+        });
       }
     });
   },
@@ -208,17 +223,14 @@ Page({
         //console.log(res.data);
 
         if (res.data.success) {
-          that.setData({
-            email: res.data.email,
-            first_name: res.data.first_name
-          });
-
           app.globalData.user_id = res.data.user_id;
           app.globalData.email = res.data.email;
           app.globalData.first_name = res.data.first_name;
           app.globalData.last_name = res.data.last_name;
           app.globalData.address = res.data.address;
         }
+
+        that.refreshProfile();
       }
     });
   },
@@ -252,8 +264,27 @@ Page({
           }
 
           app.globalData.id_images = id_images;
+
+          that.refreshProfile();
         }
       }
+    });
+  },
+  refreshProfile: function () {
+    this.setData({
+      show_loading: false,
+      is_login: app.globalData.is_login,
+      first_name: app.globalData.first_name,
+      last_name: app.globalData.last_name,
+      email: app.globalData.email,
+      phone: (app.globalData.phone) ? app.globalData.phone : "",
+      id_images: (app.globalData.id_images) ? app.globalData.id_images : "",
+      address_1: (app.globalData.address.address_1) ? app.globalData.address.address_1 : "",
+      address_2: (app.globalData.address.address_2) ? app.globalData.address.address_2 : "",
+      city: (app.globalData.address.city) ? app.globalData.address.city : "",
+      zone: (app.globalData.address.zone) ? app.globalData.address.zone : "",
+      postcode: (app.globalData.address.postcode) ? app.globalData.address.postcode : "",
+      country: (app.globalData.address.country) ? app.globalData.address.country : ""
     });
   },
   bindRegister: function (event) {

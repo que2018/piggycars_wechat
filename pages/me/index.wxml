@@ -19,7 +19,9 @@
       </view>
       <button type="primary" class="btn-submit" size="default" loading="{{loading}}" form-type='submit'>登录</button>
       <view class="btn-socials">
-        <wechat_button id="wechat-button" bindtap="bindWechatLogin"></wechat_button>
+        <view class="btn-wechat-wrap">
+          <button id="btn-wechat" loading="{{wechat_loading}}" open-type="getUserInfo" bindgetuserinfo="bindWechatLogin">微信登录</button>
+        </view>
       </view>
     </view>
     <view class="register" hover-class="register-hover" bindtap="bindRegister">

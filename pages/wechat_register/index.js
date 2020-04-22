@@ -24,57 +24,66 @@ Page({
 
     wx.login({
       success: function (res) {
-        wx.request({
-          url: app.globalData.API_WECHAT_REGISTER,
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          method: "POST",
-          data: util.json2Form({
-            api: "2",
-            type: "wechat",
-            param: res.code,
-            first_name: e.detail.value.first_name,
-            last_name: e.detail.value.last_name,
-            email: e.detail.value.email
-          }),
-          complete: function (res) {
-            that.setData({
-              btn_loading: false
-            });
+        wx.getUserInfo({
+          withCredentials: true,
+          success: function (res_user) {
+            wx.request({
+              url: app.globalData.API_WECHAT_REGISTER,
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              method: "POST",
+              data: util.json2Form({
+                api: "2",
+                type: "wechat",
+                param: res.code,
+                iv: res_user.iv,
+                encrypted_data: res_user.encryptedData,
+                first_name: e.detail.value.first_name,
+                last_name: e.detail.value.last_name,
+                email: e.detail.value.email
+              }),
+              complete: function (res) {
+                that.setData({
+                  btn_loading: false
+                });
 
-            console.log(res.data);
+                //console.log(res.data);
 
-            if (res.data.success) {
-              wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
+                if (res.data.success) {
+                  app.globalData.is_login = true;
+                  app.globalData.openid = res.openid;
+                  wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
 
-              wx.navigateTo({
-                url: '../profile/index'
-              });
-            } else {
-              var messages = [];
+                  wx.switchTab({
+                    url: '../me/index'
+                  });
+                } else {
+                  var messages = [];
 
-              if (res.data.code == "error_form_error") {
-                for (var index in res.data.form_error) {
-                  var message = res.data.form_error[index];
+                  if (res.data.code == "error_form_error") {
+                    for (var index in res.data.form_error) {
+                      var message = res.data.form_error[index];
 
-                  if(message) {
+                      if (message) {
+                        message = message.replace('<p>', '');
+                        message = message.replace('</p>', '');
+                        messages.push(message);
+                      }
+                    }
+                  } else {
+                    var message = res.data.msg;
                     message = message.replace('<p>', '');
                     message = message.replace('</p>', '');
+                    message = message.replace('<em>', '');
+                    message = message.replace('</em>', '');
                     messages.push(message);
                   }
-                }
-              } else {
-                  var message = res.data.msg;
-                  message = message.replace('<p>', '');
-                  message = message.replace('</p>', '');
-                  message = message.replace('<em>', '');
-                  message = message.replace('</em>', '');
-                  messages.push(message);
-              }
 
-              that.alert.show(messages);
-            }
+                  that.alert.show(messages);
+                }
+              }
+            });
           }
         });
       }
