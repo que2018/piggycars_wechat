@@ -1,6 +1,6 @@
 
-var app = getApp();
-var util = require('../../utils/util.js');
+let app = getApp();
+let util = require('../../utils/util.js');
 
 Component({
   properties: {

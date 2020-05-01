@@ -225,6 +225,7 @@ swiper {
 .picker-c {
   height: 50px;
   color: #f55a7a;
+  font-weight: bold;
   text-align: center;
 }
 

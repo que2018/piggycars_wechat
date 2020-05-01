@@ -32,7 +32,7 @@
       <view><view class="spec-key">发动机</view><view class="spec-value">{{engine}}</view></view>
       <view><view class="spec-key">变速器</view><view class="spec-value">{{transmission}}</view></view>
       <view><view class="spec-key">驱动</view><view class="spec-value">{{drivetrain}}</view></view>
-      <view><view class="spec-key">VIN</view><view class="spec-value">{{vin}}</view></view>
+      <!--<view><view class="spec-key">VIN</view><view class="spec-value">{{vin}}</view></view>-->
     </view>
     <view class="placeholder"></view>
   </view>
@@ -95,7 +95,7 @@
           <view class="monthp-t4">月</view>
         </view>
         <view class="downp">
-          <view class="downp-t1">订阅费:</view>
+          <view class="downp-t1">首付款:</view>
           <view class="downp-t2">${{monthly_payment}}</view>
         </view>
       </view>
@@ -103,7 +103,7 @@
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{payment_months}}">
           <view class="picker">
             <view class="picker-t">
-              <view class="picker-t-inner">选择月数</view>
+              <view class="picker-t-inner">点我选时间</view>
             </view>
             <view class="picker-c">{{payment_months[payment_index]}}</view>
           </view>

@@ -1,6 +1,6 @@
 
-var app = getApp();
-var util = require('../../utils/util.js');
+let app = getApp();
+let util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -24,8 +24,10 @@ Page({
       "Content-Type": "application/x-www-form-urlencoded"
     };
 
-    let data = app.globalData.filter_params;
-
+    var data = app.globalData.filter_params;
+    data["start"] = 0;
+    data["size"] = 100;
+ 
     wx.request({
       url: app.globalData.API_CARS,
       header: header,
@@ -35,7 +37,7 @@ Page({
         if (res.data.success) {
           var cars = [];
 
-          console.log(res.data);
+          //console.log(res.data);
 
           for (var i = 0; i < res.data.data.items.length; i++) {
             var car = new Object();

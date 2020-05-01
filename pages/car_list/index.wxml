@@ -27,7 +27,7 @@
               <view class="pickup">在{{item.city}}取车</view>
             </view>
             <view class="right">
-              <view class="month-pay-tx">月租金</view>
+              <view class="month-pay-tx">月供</view>
               <view class="month-pay">${{item.monthlyPayment}}</view>
               <view class="mileage">里程:{{item.mileage}}mil</view>
             </view>

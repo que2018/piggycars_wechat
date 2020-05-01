@@ -56,6 +56,8 @@
   padding-left: 8vw;
   padding-right: 8vw;
   min-height: 40vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .featured-item-hover {
   background: #efefef !important;
@@ -64,7 +66,7 @@
   font-weight: bold;
   font-size: 18px;
   color: #5b5561;
-  line-height: 70px;
+  line-height: 35px;
 }
 .featured-item {
   display: flex;
@@ -117,10 +119,10 @@
   line-height: 17px;
 }
 .blogs {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .blog-title {
-  line-height: 50px;
+  line-height: 37px;
   font-size: 18px;
   font-weight: bold;
   padding-left: 10vw;
@@ -132,12 +134,11 @@
 }
 .blog-item {
   width: 45vw; 
-  height: 48vw; 
+  height: 22vw;
   display: inline-block;
 }
 .blog-item-inner {
   width: 41vw; 
-  height: 51vw; 
   margin-left: 2vw;
   margin-top: 2vw;
 }

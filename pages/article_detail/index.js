@@ -1,13 +1,14 @@
 
-var app = getApp();
-var wxParse = require('../../utils/wxParse/wxParse.js');
+let app = getApp();
+let wxParse = require('../../utils/wxParse/wxParse.js');
 
 Page({
   data: {
     id: "",
     title: "",
     content: "",
-    image: ""
+    image: "",
+    show_loading: true
   },
   onLoad: function (options) {
     this.setData({
@@ -31,7 +32,11 @@ Page({
             image: app.globalData.API_RES_INFO + "/article/lg/" + res.data.data.image
           });
 
-          wxParse.wxParse('desp_html', 'html', res.data.data.content, that, 5);  
+          wxParse.wxParse('desp_html', 'html', res.data.data.content, that, 5); 
+
+          that.setData({
+            show_loading: false
+          }); 
         }
       }
     });

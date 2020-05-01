@@ -16,23 +16,9 @@ Page({
     this.loadData();
   },
   loadData: function () {
-    let that = this;
-
-    wx.request({
-      url: app.globalData.API_LANG,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      complete: function (res) {
-        console.log(res.header["Set-Cookie"]);
-
-        wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
-
-        that.getCategories();
-        that.getFeatureds();
-        that.getBlogs();
-      }
-    });
+    this.getCategories();
+    this.getFeatureds();
+    this.getBlogs();
   },
   getCategories() {
     let that = this;
@@ -112,7 +98,7 @@ Page({
             featured.city = item.location.city
 
             let images = item.car_images;
-            featured.image = app.globalData.API_RES + "/car/lg/" + images[0].value;
+            featured.image = app.globalData.API_RES + "/car/md/" + images[0].value;
             featureds.push(featured);
           }
 
@@ -165,7 +151,7 @@ Page({
             let description = decodeURIComponent(item.meta_description);
             blog.description = description.substring(0, 100) + " ...";
 
-            blog.image = app.globalData.API_RES_INFO + "/article/lg/" + item.image;
+            blog.image = app.globalData.API_RES_INFO + "/article/md/" + item.image;
 
             blogs.push(blog);
           }

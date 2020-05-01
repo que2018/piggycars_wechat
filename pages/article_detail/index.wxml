@@ -1,4 +1,7 @@
 <import src="../../utils/wxParse/wxParse.wxml"/>
+<view id="ld-block" class="{{show_loading?'show':'hide'}}">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+</view>
 <view class="article">
   <view class="title">{{title}}</view>
   <view class="image"><image src="{{image}}" mode="aspectFit"></image></view>

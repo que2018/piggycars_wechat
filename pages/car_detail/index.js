@@ -29,7 +29,8 @@ Page({
     payment_index: 0,
     default_payment: {},
     down_payment: 0,
-    monthly_payment: 0
+    monthly_payment: 0,
+    show_loading: true
   },
   onLoad: function (options) {
     this.setData({
@@ -76,7 +77,7 @@ Page({
             monthly_payment_tax: payment.monthly_payment_tax
           }
 
-          payments[payment.months] = payment_obj;
+          payments[index] = payment_obj;
           payment_months.push(payment.months + "个月");
         }
 
@@ -120,7 +121,7 @@ Page({
   },
   bindPickerChange: function (e) {
     let payment = this.data.payments[e.detail.value];
-
+    
     this.setData({
       payment_index: e.detail.value,
       down_payment: payment.down_payment,
