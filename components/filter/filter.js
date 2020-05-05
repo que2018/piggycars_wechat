@@ -151,14 +151,14 @@ Component({
         filter_items: filter_items
       });
     },
-    bindFilter: function (event) {
+    clearFilter: function (event) {
       this.triggerEvent('notification', {});
 
       this.setData({
         show_filter: false
       });
     },
-    clearFilter: function (event) {
+    bindFilter: function (event) {
       var filterItems = this.data.filter_items;
 
       for (var key in filterItems) {

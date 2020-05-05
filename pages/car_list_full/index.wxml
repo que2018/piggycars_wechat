@@ -1,6 +1,9 @@
 <view id="ld-block" class="{{show_loading?'show':'hide'}}">
   <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
 </view>
+<view class="{{show_no_car?'show':'hide'}}">
+  <view id="no-car">暂无可选车辆</view>
+</view>
 <scroll-view class="scroll-view_H" scroll-x="ture" bindscrolltolower="scroll" style="width: 100%">
   <view class="container">
     <view class="car-wrap">

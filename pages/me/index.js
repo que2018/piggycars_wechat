@@ -61,7 +61,7 @@ Page({
           loading: false
         });
 
-        //console.log(res.data);
+        console.log(res.data);
 
         if(res.data.success) {
           app.globalData.is_login = true;

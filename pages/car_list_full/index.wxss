@@ -45,7 +45,13 @@ swiper {
   height: 1px;
   background: #dbdbdb;
 }
-
+#no-car {
+  width: 100%;
+  color: #888888;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 19px;
+}
 
 
 

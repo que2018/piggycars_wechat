@@ -47,16 +47,17 @@ Component({
         success: function (res) {
           var code = res.code;
 
+          let header = {
+            'content-type': 'application/x-www-form-urlencoded',
+            'cookie': wx.getStorageSync("sessionid")
+          };
+
           wx.request({
             url: app.globalData.API_WECHAT_AUTH,
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
+            header: header,
             method: "POST",
             data: util.json2Form({
-              code: code,
-              order_id: app.globalData.order_id,
-              amount: app.globalData.checkout_payment_down_total
+              code: code
             }),
             complete: function (res) {
               console.log(res.data);

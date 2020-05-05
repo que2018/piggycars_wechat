@@ -171,12 +171,10 @@ Page({
   },
   clickCategory: function (event) {
     let id = event.currentTarget.dataset.id;
-    let key = "style[0]";
-    let params = {[key]: id};
+    let key = "styles[0]";
+    let params = {[key]: id, "start": 0, "size": 100};
 
     app.globalData.filter_params = util.json2Form(params);
-
-    console.log(util.json2Form(params));
 
     wx.navigateTo({
       url: '../car_list_full/index'

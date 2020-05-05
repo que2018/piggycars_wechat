@@ -23,6 +23,34 @@
     </view>
     <view class="placeholder"></view>
   </view>
+  <view class="period">
+    <view class="period-inner">
+      <view class="period-left">
+        <view class="monthp">
+          <view class="monthp-t1">$</view>
+          <view class="monthp-t2">{{monthly_payment}}</view>
+          <view class="monthp-t3">/</view>
+          <view class="monthp-t4">月</view>
+        </view>
+        <view class="downp">
+          <view class="downp-t1">首付款:</view>
+          <view class="downp-t2">${{down_payment}}</view>
+        </view>
+      </view>
+      <view class="period-right">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{payment_months}}">
+          <view class="picker">
+            <view class="picker-t">
+              <view class="picker-t-inner">点我选租期</view>
+            </view>
+            <view class="picker-c">{{payment_months[payment_index]}}</view>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="period-notice">租期不同，首付款和月租金会有变化</view>
+    <view class="placeholder"></view>
+  </view>
   <view class="spec">
     <view class="spec-inner">
       <view class="spec-title">车辆规格</view>
@@ -81,33 +109,6 @@
           </view>
           <view class="bf-text">附加驾驶员</view>
         </view>
-      </view>
-    </view>
-    <view class="placeholder"></view>
-  </view>
-  <view class="period">
-    <view class="period-inner">
-      <view class="period-left">
-        <view class="monthp">
-          <view class="monthp-t1">$</view>
-          <view class="monthp-t2">{{down_payment}}</view>
-          <view class="monthp-t3">/</view>
-          <view class="monthp-t4">月</view>
-        </view>
-        <view class="downp">
-          <view class="downp-t1">首付款:</view>
-          <view class="downp-t2">${{monthly_payment}}</view>
-        </view>
-      </view>
-      <view class="period-right">
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{payment_months}}">
-          <view class="picker">
-            <view class="picker-t">
-              <view class="picker-t-inner">点我选时间</view>
-            </view>
-            <view class="picker-c">{{payment_months[payment_index]}}</view>
-          </view>
-        </picker>
       </view>
     </view>
     <view class="placeholder"></view>

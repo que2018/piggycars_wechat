@@ -5,7 +5,8 @@ var util = require('../../utils/util.js');
 Page({
   data: {
     cars: "",
-    show_loading: true
+    show_loading: true,
+    show_no_car: false
   },
   onLoad: function (options) {
     this.loadData();
@@ -14,7 +15,7 @@ Page({
     this.filter = this.selectComponent("#filter");
   },
   loadData: function () {
-    var that = this;
+    let that = this;
 
     that.setData({
       show_loading: true
@@ -24,20 +25,16 @@ Page({
       "Content-Type": "application/x-www-form-urlencoded"
     };
 
-    var data = app.globalData.filter_params;
-    data["start"] = 0;
-    data["size"] = 100;
-
+    let data = app.globalData.filter_params;
+    
     wx.request({
       url: app.globalData.API_CARS,
       header: header,
       method: "POST",
-      data: util.json2Form(data),
+      data: data,
       complete: function (res) {
         if (res.data.success) {
           var cars = [];
-
-          //console.log(res.data);
 
           for (var i = 0; i < res.data.data.items.length; i++) {
             var car = new Object();
@@ -67,10 +64,19 @@ Page({
             cars.push(car);
           }
 
-          that.setData({
-            show_loading: false,
-            cars: cars
-          });
+          if(cars.length > 0) {
+            that.setData({
+              show_loading: false,
+              show_no_car: false,
+              cars: cars
+            });
+          } else {
+            that.setData({
+              show_loading: false,
+              show_no_car: true,
+              cars: cars
+            });
+          }
         }
 
         wx.hideNavigationBarLoading();

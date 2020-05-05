@@ -132,6 +132,12 @@ swiper {
 .period-right {
   width: 50vw;
 }
+.period-notice {
+  text-align: center;
+  font-size: 13px;
+  color: #888888;
+  margin-bottom: 15px;
+}
 .contact {
   width: 100vw;
 }
@@ -177,7 +183,7 @@ swiper {
   font-size: 18px;
   font-weight:bold;
   line-height: 35px;
-  padding-left: 25%;
+  padding-left: 15%;
 }
 .monthp-t2 {
   float: left;
@@ -204,7 +210,7 @@ swiper {
 .downp-t1 {
   float: left;
   color: #888888;
-  padding-left: 25%;
+  padding-left: 20%;
 }
 .downp-t2 {
   float: left;
