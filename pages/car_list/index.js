@@ -29,7 +29,7 @@ Page({
 
     var data = app.globalData.filter_params;
     data["start"] = 0;
-    data["size"] = 5;
+    data["size"] = app.globalData.limit;
 
     wx.request({
       url: app.globalData.API_CARS,
@@ -73,7 +73,7 @@ Page({
           if (cars.length > 0) {
             that.setData({
               cars: cars,
-              pointer: 5,
+              pointer: app.globalData.limit,
               show_loading: false
             });
           } else {
@@ -110,7 +110,7 @@ Page({
 
       var data = app.globalData.filter_params;
       data["start"] = this.data.pointer;
-      data["size"] = 5;
+      data["size"] = app.globalData.limit;
   
       wx.request({
         url: app.globalData.API_CARS,
@@ -151,18 +151,18 @@ Page({
               cars.push(car);
             }
 
-            if(cars.length < 5) {
+            if (cars.length < app.globalData.limit) {
               that.setData({
                 cars: cars,
                 is_end: true,
                 is_loading: false,
-                pointer: (that.data.pointer + 5),
+                pointer: (that.data.pointer + app.globalData.limit),
               });
             } else {
               that.setData({
                 cars: cars,
                 is_loading: false,
-                pointer: (that.data.pointer + 5),
+                pointer: (that.data.pointer + app.globalData.limit),
               });
             }
           }

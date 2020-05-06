@@ -172,7 +172,7 @@ Page({
   clickCategory: function (event) {
     let id = event.currentTarget.dataset.id;
     let key = "styles[0]";
-    let params = {[key]: id};
+    let params = { [key]: id, "start": 0, "size": app.globalData.limit};
 
     app.globalData.filter_params = params;
 

@@ -147,18 +147,11 @@ Component({
         filter_items[name]["data"][index]["selected"] = true;
       }
 
-      console.log(app.globalData.filter_params);
-
       this.setData({
         filter_items: filter_items
       });
-    },
-    exeFilter: function (event) {
-      this.triggerEvent('notification', {});
 
-      this.setData({
-        show_filter: false
-      });
+      this.triggerEvent('notification', {});
     },
     clearFilter: function (event) {
       var filterItems = this.data.filter_items;
@@ -176,6 +169,8 @@ Component({
       });
 
       app.globalData.filter_params = {}
+
+      this.triggerEvent('notification', {});
     }
   }
 })

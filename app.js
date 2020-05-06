@@ -1,7 +1,8 @@
 
 App({
   globalData: {
-    version: 'v1.5.0',
+    version: 'v1.5.2',
+    limit: 8,
     is_login: false,
     user_id: "",
     username: "",
@@ -40,10 +41,7 @@ App({
     API_CONFIRM: "https://api.piggycars.net/checkout/confirm",
     API_CARD: "https://api.piggycars.net/extension/payment/stripe",
     //API_WECHAT_AUTH: "https://api.piggycars.net/checkout/confirm/wechat_auth",
-
     API_WECHAT_AUTH: "https://api.piggycars.net/extension/payment/hantepay",
-
-
     API_CARS: "https://api.piggycars.net/catalog/vehicle/get_list",
     API_CAR: "https://api.piggycars.net/catalog/vehicle",
     API_FILTERS: "https://api.piggycars.net/catalog/filters",

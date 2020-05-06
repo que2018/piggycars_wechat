@@ -2,7 +2,6 @@
   <view class="{{show_filter?'show':'hide'}}">
     <view class="btns-filter">
       <view class="btn-clear" bindtap="clearFilter">清空</view>
-      <view class="btn-exe" bindtap="exeFilter">过滤</view>
     </view>
     <scroll-view scroll-y="true" class="filter-content">
       <view wx:for="{{keys}}" wx:key="index" wx:for-index="index" wx:for-item="key">
