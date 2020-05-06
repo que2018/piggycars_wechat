@@ -1,6 +1,6 @@
 
-var app = getApp();
-var util = require('../../utils/util.js');
+let app = getApp();
+let util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -172,9 +172,9 @@ Page({
   clickCategory: function (event) {
     let id = event.currentTarget.dataset.id;
     let key = "styles[0]";
-    let params = {[key]: id, "start": 0, "size": 100};
+    let params = {[key]: id};
 
-    app.globalData.filter_params = util.json2Form(params);
+    app.globalData.filter_params = params;
 
     wx.navigateTo({
       url: '../car_list_full/index'
@@ -208,5 +208,18 @@ Page({
     this.getCategories();
     this.getFeatureds();
     this.getBlogs();
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: '汽车订阅服务&随心换车',
+      path: '/pages/home/index',
+      imageUrl: "../../images/banner1.jpg",
+      success: function (res) {
+        
+      },
+      fail: function (res) {
+        
+      }
+    }
   }
 })

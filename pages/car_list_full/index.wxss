@@ -10,6 +10,9 @@ swiper {
   width:100vw;
   height:75vw;
 }
+.scroll-view {
+  height: 100vh;
+}
 .mimg {
   width: 100vw;
   height: 75vw;

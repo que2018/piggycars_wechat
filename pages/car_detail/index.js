@@ -34,7 +34,8 @@ Page({
   },
   onLoad: function (options) {
     this.setData({
-      id: decodeURIComponent(options.id)
+      id: decodeURIComponent(options.id),
+      make: decodeURIComponent(options.make)
     });
 
     this.loadData();
@@ -146,6 +147,25 @@ Page({
       wx.switchTab({
         url: '../me/index'
       });
+    }
+  },
+  onShareAppMessage: function (res) {
+
+    console.log(this.data.make);
+    console.log(this.data.car_images[0]);
+
+    if (res.from === 'button') {
+      console.log(res.target)
+    }
+    return {
+      title: this.data.year + " " + this.data.make + " " + this.data.model,
+      imageUrl: this.data.car_images[0],
+      success: function (res) {
+
+      },
+      fail: function (res) {
+
+      }
     }
   }
 })

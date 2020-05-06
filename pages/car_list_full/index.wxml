@@ -4,7 +4,7 @@
 <view class="{{show_no_car?'show':'hide'}}">
   <view id="no-car">暂无可选车辆</view>
 </view>
-<scroll-view class="scroll-view_H" scroll-x="ture" bindscrolltolower="scroll" style="width: 100%">
+<scroll-view class="scroll-view" scroll-y="ture" bindscrolltolower="scrollToBottom" style="width: 100%">
   <view class="container">
     <view class="car-wrap">
       <block wx:for="{{cars}}" wx:key="car">

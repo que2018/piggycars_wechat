@@ -147,18 +147,20 @@ Component({
         filter_items[name]["data"][index]["selected"] = true;
       }
 
+      console.log(app.globalData.filter_params);
+
       this.setData({
         filter_items: filter_items
       });
     },
-    clearFilter: function (event) {
+    exeFilter: function (event) {
       this.triggerEvent('notification', {});
 
       this.setData({
         show_filter: false
       });
     },
-    bindFilter: function (event) {
+    clearFilter: function (event) {
       var filterItems = this.data.filter_items;
 
       for (var key in filterItems) {
