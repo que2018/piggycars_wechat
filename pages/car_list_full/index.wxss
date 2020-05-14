@@ -6,6 +6,10 @@
 .car-wrap {
   width: 100%;
 }
+.car {
+  overflow: hidden;
+  position: relative;
+}
 swiper {
   width:100vw;
   height:75vw;
@@ -54,6 +58,26 @@ swiper {
   line-height: 100vh;
   text-align: center;
   font-size: 19px;
+}
+.leased {
+  background-color: #ff0000a1;
+  height: 120px;
+  left: -60px;
+  position: absolute;
+  top: -60px;
+  width: 120px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(-45deg);
+  z-index: 1000;
+  overflow: hidden;
+}
+.leased-text {
+  color: #fff;
+  font-size: 17px;
+  top: 90px;
+  position: absolute;
+  width: 120px;
+  text-align: center;
 }
 
 

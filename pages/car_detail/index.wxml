@@ -1,4 +1,9 @@
 <view class="container">
+  <block wx:if="{{leased == 1}}">
+    <view class="leased">
+      <view class="leased-text">已租</view>
+    </view>
+  </block>
   <view class="slider">
     <view wx:if="{{car_images.length > 1}}">
       <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" circular="true">
@@ -23,9 +28,9 @@
     </view>
     <view class="placeholder"></view>
   </view>
-  <view class="period">
-    <view class="period-inner">
-      <view class="period-left">
+  <view class="option">
+    <view class="option-inner">
+      <view class="option-number">
         <view class="monthp">
           <view class="monthp-t1">$</view>
           <view class="monthp-t2">{{monthly_payment}}</view>
@@ -37,18 +42,34 @@
           <view class="downp-t2">${{down_payment}}</view>
         </view>
       </view>
-      <view class="period-right">
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{payment_months}}">
-          <view class="picker">
-            <view class="picker-t">
-              <view class="picker-t-inner">点我选租期</view>
-            </view>
-            <view class="picker-c">{{payment_months[payment_index]}}</view>
+      <view class="plan-items">
+        <view class="plan-item">
+          <view class="plan-item-l">订阅期</view>
+          <view class="plan-item-r">
+            <picker bindchange="bindPickerPayment" range="{{payments}}">
+              <view class="plan-payment">{{payments[selected_payment_index]}}</view>
+            </picker>
           </view>
-        </picker>
+        </view>
+        <view class="plan-item">
+          <view class="plan-item-l">包含距离</view>
+          <view class="plan-item-r">
+            <picker bindchange="bindPickerDistance" range="{{distances}}">
+              <view class="plan-distance">{{distances[selected_distance_index]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="plan-item">
+          <view class="plan-item-l">保险</view>
+          <view class="plan-item-r">
+            <picker bindchange="bindPickerInsurance" range="{{insurances}}">
+              <view class="plan-insurance">{{insurances[selected_insurance_index]}}</view>
+            </picker>
+          </view>
+        </view>
       </view>
     </view>
-    <view class="period-notice">租期不同，首付款和月租金会有变化</view>
+    <view class="plan-notice">租期不同，首付款和月租金会有变化。点击选项改变计划</view>
     <view class="placeholder"></view>
   </view>
   <view class="spec">

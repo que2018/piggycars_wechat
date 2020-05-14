@@ -9,6 +9,11 @@
     <view class="car-wrap">
       <block wx:for="{{cars}}" wx:key="car">
         <view class="car">
+          <block wx:if="{{item.leased == 1}}">
+            <view class="leased">
+              <view class="leased-text">已租</view>
+            </view>
+          </block>
           <view>
             <view wx:if="{{item.images.length > 1}}">
               <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" circular="true" bindtap="goToDetail" data-id="{{item.id}}">

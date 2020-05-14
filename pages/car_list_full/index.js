@@ -55,6 +55,7 @@ Page({
             car.mileage = item.mileage
             car.monthlyPayment = item.monthly_payment
             car.city = item.location.city
+            car.leased = item.leased;
 
             var images = [];
 
