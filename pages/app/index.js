@@ -1,71 +1,42 @@
 
-var app = getApp();
-var util = require('../../utils/util.js');
+let app = getApp();
+let util = require('../../utils/util.js');
 
 Page({
   onLoad: function (options) {
     var that = this;
 
-    let username = wx.getStorageSync("username");
-    let password = wx.getStorageSync("password");
+    wx.login({
+      success: function (res) {
+        wx.request({
+          url: app.globalData.API_WECHAT_LOGIN,
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: "POST",
+          data: util.json2Form({
+            api: "2",
+            type: "wechat",
+            param: res.code
+          }),
+          complete: function (res_login) {
+            console.log(res_login);
 
-    //console.log(username);
-    //console.log(password);
+            if (res_login.data.success) {
+              app.globalData.is_login = true;
+              wx.setStorageSync("sessionid", res_login.header["Set-Cookie"]);
 
-    if(username && password) {
-      wx.request({
-        url: app.globalData.API_LOGIN,
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        method: "POST",
-        data: util.json2Form({
-          username: username,
-          password: password
-        }),
-        complete: function (res) {
-          if (res.data.success) {
-            app.globalData.is_login = true;
-            app.globalData.password = that.data.password;
-
-            if (res.data.data.phone) {
-              let phone = res.data.data.phone;
-
-              if (phone.charAt(0) == "1") {
-                app.globalData.country_code = "1";
-                app.globalData.phone_local = phone.substring(1, phone.length);
-
-              } else {
-                app.globalData.country_code = "86";
-                app.globalData.phone_local = phone.substring(2, phone.length);
-              }
-
-              app.globalData.phone = phone;
+              that.get_profile();
+              that.get_id();
             }
 
-            wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
-
-            that.get_profile();
-            that.get_id();
-          } 
-
-          wx.switchTab({
-            url: '../home/index'
-          });
-        }
-      });
-    } else {
-      wx.switchTab({
-        url: '../home/index'
-      });
-    }
- 
-    /* wx.request({
-      url: app.globalData.API_LANG,
-      complete: function (res) {
-        
+            wx.switchTab({
+              url: '../home/index'
+            });
+          }
+        });
       }
-    }); */
+    });
   },
   get_profile: function (e) {
     var that = this;

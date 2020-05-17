@@ -10,8 +10,10 @@
     "pages/about/index",
     "pages/camera/index",
     "pages/fee/index",
+	  "pages/flow/index",
     "pages/contact/index",
     "pages/me/index",
+    "pages/wechat/index",
     "pages/wechat_login/index",
     "pages/wechat_register/index",  
     "pages/profile/index",
@@ -57,7 +59,7 @@
       {
         "selectedIconPath": "images/me.png",
         "iconPath": "images/me.png",
-        "pagePath": "pages/me/index",
+        "pagePath": "pages/wechat/index",
         "text": "我的"
       }
     ]

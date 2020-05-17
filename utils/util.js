@@ -1,3 +1,4 @@
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -23,7 +24,6 @@ function json2Form(json) {
 }
 
 function formatTimeWithFormat(number, format) {
-
   var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
   var returnArr = [];
 
@@ -58,11 +58,39 @@ const wxPromisify = fn => {
   }
 }
 
+function wechatBgLogin() {
+  var done = true;
+  var app = getApp();
+  
+  wx.login({
+    success: function (res) {
+      wx.request({
+        url: app.globalData.API_WECHAT_LOGIN,
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: "POST",
+        data: this.json2Form({
+          api: "2",
+          type: "wechat",
+          param: res.code
+        }),
+        complete: function (res_login) {
+          if (res_login.data.success) {
+            app.globalData.is_login = true;
+            wx.setStorageSync("sessionid", res_login.header["Set-Cookie"]);
+          }
+        }
+      });  
+    }
+  });
+}
 
 module.exports = {
   formatTime: formatTime,
   formatTimeWithFormat: formatTimeWithFormat,
   json2Form: json2Form,
+  wechatBgLogin: wechatBgLogin,
   wxPromisify: wxPromisify
 }
 

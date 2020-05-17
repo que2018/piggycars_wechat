@@ -1,0 +1,55 @@
+<view id="ld-block" class="{{show_loading?'show':'hide'}}">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+</view>
+<view class="flex-container-login {{is_login?'hide':'show'}}">
+  <view class="btn-wechat-wrap">
+    <button id="btn-wechat" loading="{{wechat_loading}}" open-type="getUserInfo" bindgetuserinfo="bindWechatLogin">微信登录</button>
+  </view>
+  <alert id="alert"></alert>
+</view>
+<view class="flex-container-user {{is_login?'show':'hide'}}">
+  <view class="info-wrap">
+    <view class="info">
+      <view class="portrait">
+        <image src="../../images/portrait.png" mode="aspectFit" ></image>
+      </view>
+      <view class="capital">
+        <view class = "flex-container-info">
+          <view class="username">你好,{{first_name}}</view>
+        </view>
+        <view>
+          <view class="money">电话: <span class="linkText">{{phone}}</span></view>
+          <view class="money">邮箱: <span class="linkText">{{email}}</span></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="profile">
+    <view class="row" hover-class="row-hover" bindtap="bindProfile">
+      <image src="../../images/guard.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">个人中心</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+  <view class="order">
+    <view class="row" hover-class="row-hover" bindtap="bindOrder">
+      <image src="../../images/order.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">我的订单</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+  <view class="about">
+    <view class="row" hover-class="row-hover" bindtap="bindVersion">
+      <image src="../../images/about.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">版本信息</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+  <view class="logout">
+    <view class="row" hover-class="row-hover" bindtap="bindLogout">
+      <image src="../../images/logout.png" mode="aspectFit" class="ele-img"></image>
+      <span class="ele-text">退出登录</span>
+      <image src="../../images/arrow_right.png" mode="aspectFit" class="ele-arrow"></image>
+    </view>
+  </view>
+</view>
