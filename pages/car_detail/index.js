@@ -36,7 +36,8 @@ Page({
     distances: [],
     insurances: [],
     insurance_objs: [],
-    show_loading: true
+    show_loading: true,
+    drivetrain: ["前驱", "后驱", "四轮驱动", "全轮驱动"]
   },
   onLoad: function (options) {
     this.setData({
@@ -152,10 +153,10 @@ Page({
           lat: res.data.data.location.lat,
           lng: res.data.data.location.lng,
           car_features: res.data.data.car_features,
-          transmission: (res.data.data.transmission) ? res.data.data.transmission : "--",
+          transmission: (res.data.data.transmission == 1) ? "自动挡" : "手动挡",
           passenger: (res.data.data.passenger) ? res.data.data.passenger:"--",
           engine: (res.data.data.engine) ? res.data.data.engine : "--",
-          drivetrain: (res.data.data.drivetrain) ? res.data.data.drivetrain : "--",
+          drivetrain: that.data.drivetrain[res.data.data.drivetrain],
           exterior_color: (res.data.data.exterior_color) ? res.data.data.exterior_color : "--",
           interior_color: (res.data.data.interior_color) ? res.data.data.interior_color : "--",
           car_images: car_images,

@@ -39,7 +39,7 @@ Page({
     });
   },
   get_profile: function (e) {
-    var that = this;
+    let that = this;
 
     let header = {
       'cookie': wx.getStorageSync("sessionid"),

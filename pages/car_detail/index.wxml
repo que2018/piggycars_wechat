@@ -31,6 +31,7 @@
   <view class="option">
     <view class="option-inner">
       <view class="option-number">
+        <view class="monthp-tax">+税</view>
         <view class="monthp">
           <view class="monthp-t1">$</view>
           <view class="monthp-t2">{{monthly_payment}}</view>
@@ -39,7 +40,7 @@
         </view>
         <view class="downp">
           <view class="downp-t1">首付款:</view>
-          <view class="downp-t2">${{down_payment}}</view>
+          <view class="downp-t2">${{down_payment}} + 税</view>
         </view>
       </view>
       <view class="plan-items">

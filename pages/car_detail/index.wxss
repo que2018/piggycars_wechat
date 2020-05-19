@@ -120,6 +120,7 @@ swiper {
 }
 .option {
   width: 100vw;
+  position: relative;
 }
 .option-inner {
   display: block;
@@ -203,6 +204,13 @@ swiper {
   margin-top: 15px;
   line-height: 45px;
 }
+.monthp-tax {
+  position: absolute;
+  font-size: 12px;
+  left: 103px;
+  top: 20px;
+  color: #f55a7a;
+}
 .monthp-t1 {
   float: left;
   color: #f55a7a;
@@ -221,7 +229,7 @@ swiper {
 .monthp-t3 {
   float: left;
   color: #888888;
-  padding-left: 10px;
+  padding-left: 24px;
 }
 .monthp-t4 {
   float: left;
