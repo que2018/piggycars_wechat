@@ -201,16 +201,16 @@ input {
 }
 .btn-wechat-wrap {
   width: 100vw;
-  height: 36px;
+  height: 40px;
   position: fixed;
-  bottom: 50px;
+  bottom: 30px;
   margin: 0 auto;
   display: block;
 }
 #btn-wechat {
-  width: 70%;
+  width: 85%;
   height: 100%;
-  line-height: 36px;
+  line-height: 40px;
   background: #1aad19;
   color: #ffffff;
   font-size: 17px;

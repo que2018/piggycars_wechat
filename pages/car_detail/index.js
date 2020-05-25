@@ -1,5 +1,5 @@
 
-var app = getApp();
+let app = getApp();
 
 Page({
   data: {
@@ -28,9 +28,9 @@ Page({
     down_payment: 0,
     monthly_payment: 0,
     monthly_insurance: 0,
-    selected_payment_index: 0,
-    selected_distance_index: 0,
-    selected_insurance_index: 0,
+    selected_payment_index: false,
+    selected_distance_index: false,
+    selected_insurance_index: false,
     payments: [],
     payment_objs: [],
     distances: [],
@@ -44,6 +44,24 @@ Page({
       id: decodeURIComponent(options.id),
       make: decodeURIComponent(options.make)
     });
+
+    if(typeof options.selected_payment_index !== 'undefined') {
+      this.setData({
+        selected_payment_index: decodeURIComponent(options.selected_payment_index)
+      });
+    }
+
+    if (typeof options.selected_distance_index !== 'undefined') {
+      this.setData({
+        selected_distance_index: decodeURIComponent(options.selected_distance_index)
+      });
+    }
+
+    if (typeof options.selected_insurance_index !== 'undefined') {
+      this.setData({
+        selected_insurance_index: decodeURIComponent(options.selected_insurance_index)
+      });
+    }
 
     this.loadData();
   },
@@ -73,7 +91,7 @@ Page({
         for (var index in res.data.data.payments) {
           let payment = res.data.data.payments[index];
 
-          if (payment.default) {
+          if (payment.default && (!that.data.selected_payment_index)) {
             that.setData({
               selected_payment_index: index,
               down_payment: payment.down_payment
@@ -99,7 +117,7 @@ Page({
         for (var index in res.data.data.distances) {
           let distance = res.data.data.distances[index];
 
-          if (distance.default) {
+          if (distance.default && (!that.data.selected_distance_index)) {
             that.setData({
               selected_distance_index: index
             });
@@ -126,6 +144,12 @@ Page({
 
         insurance_objs[0] = { price: "0" };
         insurances.push("自己的保险");
+
+        if (!that.data.selected_insurance_index) {
+          that.setData({
+            selected_insurance_index: 0
+          });
+        }
 
         for (var index in res.data.data.insurances) {
           let insurance = res.data.data.insurances[index];
@@ -179,7 +203,9 @@ Page({
         //set default monthly payment
         let payment = that.data.payment_objs[that.data.selected_payment_index];
         let distance_obj = that.data.distance_objs[that.data.selected_distance_index];
-        let monthly_payment = parseInt(payment.monthly_payment) + parseInt(distance_obj.price);
+        let insurance_obj = that.data.distance_objs[that.data.selected_insurance_index];
+
+        let monthly_payment = parseInt(payment.monthly_payment) + parseInt(distance_obj.price) + parseInt(insurance_obj.price);;
 
         that.setData({
           monthly_payment: monthly_payment
@@ -191,6 +217,7 @@ Page({
     let payment = this.data.payment_objs[e.detail.value];
     let distance_obj = this.data.distance_objs[this.data.selected_distance_index];
     let insurance_obj = this.data.insurance_objs[this.data.selected_insurance_index];
+
     let monthly_payment = parseInt(payment.monthly_payment) + parseInt(distance_obj.price) + parseInt(insurance_obj.price);
 
     this.setData({
@@ -203,6 +230,7 @@ Page({
     let payment = this.data.payment_objs[this.data.selected_payment_index];
     let distance_obj = this.data.distance_objs[e.detail.value];
     let insurance_obj = this.data.insurance_objs[this.data.selected_insurance_index];
+
     let monthly_payment = parseInt(payment.monthly_payment) + parseInt(distance_obj.price) + parseInt(insurance_obj.price);
 
     this.setData({
@@ -214,6 +242,7 @@ Page({
     let payment = this.data.payment_objs[this.data.selected_payment_index];
     let distance_obj = this.data.distance_objs[this.data.selected_distance_index];
     let insurance_obj = this.data.insurance_objs[e.detail.value];
+
     let monthly_payment = parseInt(payment.monthly_payment) + parseInt(distance_obj.price) + parseInt(insurance_obj.price);
 
     this.setData({
@@ -242,16 +271,19 @@ Page({
     }
   },
   onShareAppMessage: function (res) {
-
-    console.log(this.data.make);
-    console.log(this.data.car_images[0]);
-
     if (res.from === 'button') {
       console.log(res.target)
     }
+
+    var path = "/pages/car_detail/index?id=" + this.data.id;
+    path += "&selected_payment_index=" + this.data.selected_payment_index;
+    path += "&selected_distance_index=" + this.data.selected_distance_index;
+    path += "&selected_insurance_index=" + this.data.selected_insurance_index;
+
     return {
       title: this.data.year + " " + this.data.make + " " + this.data.model,
       imageUrl: this.data.car_images[0],
+      path: path, 
       success: function (res) {
 
       },

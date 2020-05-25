@@ -1,7 +1,7 @@
 
 App({
   globalData: {
-    version: 'v1.8.1',
+    version: 'v1.8.5',
     limit: 8,
     is_login: false,
     user_id: "",
