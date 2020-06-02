@@ -1,3 +1,6 @@
+<view id="ld-block" class="{{show_loading?'show':'hide'}}">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+</view>
 <view class="container">
   <block wx:if="{{leased == 1}}">
     <view class="leased">
