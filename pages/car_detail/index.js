@@ -208,7 +208,8 @@ Page({
         let monthly_payment = parseInt(payment.monthly_payment) + parseInt(distance_obj.price) + parseInt(insurance_obj.price);;
 
         that.setData({
-          monthly_payment: monthly_payment
+          monthly_payment: monthly_payment,
+          down_payment: payment.down_payment
         });
       }
     });
