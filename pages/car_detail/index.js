@@ -257,7 +257,13 @@ Page({
     });
   },
   bindReserve: function (e) {
+
+    console.log("try to reserve ... ");
+
     if(app.globalData.is_login) {
+
+      console.log("is login ... ");
+
       app.globalData.checkout_id = this.data.id;
       app.globalData.checkout_year = this.data.year;
       app.globalData.checkout_make = this.data.make;
@@ -271,8 +277,10 @@ Page({
       });
       
     } else {
+      console.log("me ... ");
+
       wx.switchTab({
-        url: '../me/index'
+        url: '../wechat/index'
       });
     }
   },
