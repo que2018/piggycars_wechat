@@ -48,7 +48,7 @@ Page({
                   btn_loading: false
                 });
 
-                //console.log(res.data);
+                console.log(res.data);
 
                 if (res.data.success) {
                   app.globalData.is_login = true;
@@ -56,7 +56,7 @@ Page({
                   wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
 
                   wx.switchTab({
-                    url: '../me/index'
+                    url: '../wechat/index'
                   });
                 } else {
                   var messages = [];
