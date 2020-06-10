@@ -1,13 +1,15 @@
 <view class="container">
   <view class="monthly-payment">
     <span class="mo-value">${{monthly_payment + monthly_insurance}}</span>
-    <text decode="true">&nbsp;&nbsp;</text>
+    <text decode="true">&nbsp;</text>
+    <span class="mo-tax">+税</span>
+    <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;</text>
     <span class="mo-text">/<text decode="true">&nbsp;&nbsp;</text>月供</span>
   </view>
   <view class="down-payment">
     <span class="dp-text">首付款<text decode="true">&nbsp;&nbsp;</text>/</span>
     <text decode="true">&nbsp;&nbsp;</text>
-    <span class="dp-value">${{down_payment}}</span>
+    <span class="dp-value">${{down_payment}} + 税</span>
   </view>
   <view class="plan-items">
     <view class="plan-item">
@@ -35,7 +37,7 @@
       </view>
     </view>
     <view class="plan-item">
-      <view class="plan-item-l">取车地址</view>
+      <view class="plan-item-l">取车/送车</view>
       <view class="plan-item-r">
         <picker bindchange="bindPickerPickup" range="{{pickups}}">
           <view class="plan-pickup">{{pickups[selected_pickup_index]}}</view>

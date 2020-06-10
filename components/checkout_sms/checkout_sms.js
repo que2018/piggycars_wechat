@@ -1,6 +1,6 @@
 
-var app = getApp();
-var util = require('../../utils/util.js');
+let app = getApp();
+let util = require('../../utils/util.js');
 
 Component({
   properties: {
@@ -17,6 +17,7 @@ Component({
     country_code: "+1",
     country_codes: ["+1", "+86"],
     show_edit: false,
+    show_reset: false,
     btn_sms_loading: false
   },
   lifetimes: {
@@ -28,11 +29,13 @@ Component({
           phone_display: app.globalData.phone,
           country_code: "+" + app.globalData.country_code,
           phone: app.globalData.phone_local,
-          show_edit: false
+          show_edit: false,
+          show_reset: true
         });
       } else {
         this.setData({
-          show_edit: true
+          show_edit: true,
+          show_reset: false
         });
       }
     }

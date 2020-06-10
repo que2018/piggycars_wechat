@@ -194,6 +194,11 @@ Page({
       url: '../article_detail/index?id=' + id
     });
   },
+  goToCarList: function (event) {
+    wx.navigateTo({
+      url: '../car_list_full/index'
+    });
+  },
   checkComplete() {
     if((!this.category_loading) && (!this.feature_loading) && (!this.blog_loading)) {
       this.setData({

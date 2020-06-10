@@ -19,7 +19,7 @@
     </view>
   </view>
   <view class="featured">
-    <view class="featured-title">热门车辆</view>
+    <view class="featured-title">热门车辆<span class="featured-all" bindtap="goToCarList">浏览所有</span></view>
     <view class="featured-inner">
       <block wx:for="{{featureds}}" wx:key="featured">
         <view class="featured-item" hover-class="featured-item-hover" bindtap="clickFeature" data-id="{{item.id}}">

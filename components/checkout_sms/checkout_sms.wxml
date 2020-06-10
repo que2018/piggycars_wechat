@@ -23,7 +23,9 @@
           <image src="../../images/message.png"></image>
         </view>
         <button size="default" loading="{{btn_sms_loading}}" class="btn-sms" form-type='submit'>发送代码</button>
-        <view class="sms-cancel" bindtap="bindStatic">取消重置</view>
+        <block wx:if="{{show_reset}}">
+          <view class="sms-cancel" bindtap="bindStatic">取消重置</view>
+        </block>        
       </view>
       <alert id="alert"></alert>
     </form>

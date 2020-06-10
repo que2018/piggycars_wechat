@@ -56,6 +56,20 @@ Page({
           app.globalData.first_name = res.data.first_name;
           app.globalData.last_name = res.data.last_name;
           app.globalData.address = res.data.address;
+
+          if (res.data.phone) {
+            let phone = res.data.phone;
+
+            if (phone.charAt(0) == "1") {
+              app.globalData.country_code = "1";
+              app.globalData.phone_local = phone.substring(1, phone.length);
+            } else {
+              app.globalData.country_code = "86";
+              app.globalData.phone_local = phone.substring(2, phone.length);
+            }
+
+            app.globalData.phone = phone;
+          }
         }
       }
     });

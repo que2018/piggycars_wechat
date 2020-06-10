@@ -37,8 +37,6 @@ Component({
         country: app.globalData.address.country,
         postcode: app.globalData.address.postcode
       });
-
-      this.alert = this.selectComponent("#alert");
     }
   },
   methods: {
@@ -72,9 +70,10 @@ Component({
             btn_addr_loading: false
           });
 
-          //console.log(res.data);
+          console.log(res.data);
 
-          if (res.data.success) {
+          if (res.data.success) 
+          {
             let data = {
               show_checkout_sms: false,
               show_checkout_address: false,
@@ -86,11 +85,14 @@ Component({
             }
 
             that.triggerEvent('notification', data);
-          } else {
-            var messages = [];
-
-            if (res.data.code == "error_form_error") {
-              if (res.data.form_error["code[sms]"]) {
+          } 
+          else 
+          {  
+            if (res.data.code == "error_form_error") 
+            {
+              if (res.data.form_error["code[sms]"]) 
+              {
+                var messages = [];
                 let message = "输入的短信代码有误哦";
                 messages.push(message);
 
@@ -98,33 +100,73 @@ Component({
                   show_checkout_sms: true,
                   show_checkout_address: false,
                   show_checkout_id: false,
-                  show_checkout_plan: true,
+                  show_checkout_plan: false,
                   show_checkout_coupon: false,
                   show_checkout_payment: false,
                   show_checkout_card: false,
                   messages: messages
                 }
 
+                //recover global phone setting
+                app.globalData.code = "";
+
+                let phone = app.globalData.phone;
+
+                if (phone.charAt(0) == "1") {
+                  app.globalData.country_code = "1";
+                  app.globalData.phone_local = phone.substring(1, phone.length);
+
+                } else {
+                  app.globalData.country_code = "86";
+                  app.globalData.phone_local = phone.substring(2, phone.length);
+                }
+
+                //trigger parent
                 that.triggerEvent('notification', data);
               }
-            }
+              else
+              {
+                var messages = [];
 
-            if (res.data.code == "error_form_error_code") {
-              let message = "输入的短信代码有误哦";
-              messages.push(message);
+                if (res.data.form_error["address_1"]) {
+                  let message = "输入的地址有误";
+                  messages.push(message);
+                }
 
-              let data = {
-                show_checkout_sms: true,
-                show_checkout_address: false,
-                show_checkout_id: false,
-                show_checkout_plan: true,
-                show_checkout_coupon: false,
-                show_checkout_payment: false,
-                show_checkout_card: false,
-                messages: messages
+                if (res.data.form_error["city"]) {
+                  let message = "输入的城市有误";
+                  messages.push(message);
+                }
+
+                if (res.data.form_error["zone"]) {
+                  let message = "输入的州有误";
+                  messages.push(message);
+                }
+
+                if (res.data.form_error["postcode"]) {
+                  let message = "输入的邮编有误";
+                  messages.push(message);
+                }
+
+                if (res.data.form_error["country"]) {
+                  let message = "输入的国家有误";
+                  messages.push(message);
+                }
+
+                let data = {
+                  show_checkout_sms: false,
+                  show_checkout_address: true,
+                  show_checkout_id: false,
+                  show_checkout_plan: false,
+                  show_checkout_coupon: false,
+                  show_checkout_payment: false,
+                  show_checkout_card: false,
+                  messages: messages
+                }
+
+                //trigger parent
+                that.triggerEvent('notification', data);
               }
-
-              that.triggerEvent('notification', data);
             }
           }
         }

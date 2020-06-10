@@ -8,6 +8,9 @@ view, input {
     display: flex;
     justify-content:center; 
     align-items:center;
+    background: white;
+    z-index: 2000;
+    position: fixed;
 }
 .ld-img {
   width: 110px;

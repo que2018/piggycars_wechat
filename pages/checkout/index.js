@@ -72,6 +72,7 @@ Page({
       });
     }
 
+    /*
     if (typeof e.detail.messages !== 'undefined') {
       this.setData({
         messages: e.detail.messages
@@ -80,6 +81,11 @@ Page({
 
     if ((typeof this.data.messages !== 'undefined') && (this.data.messages.length > 0)){
       this.alert.show(this.data.messages);
+    }
+    */
+
+    if (typeof e.detail.messages !== 'undefined') {
+      this.alert.show(e.detail.messages);
     }
   }
 })
