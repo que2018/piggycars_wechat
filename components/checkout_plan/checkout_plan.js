@@ -16,6 +16,7 @@ Component({
     payments: [],
     payment_objs: [],
     distances: [],
+    distance_objs: [],
     insurances: [],
     insurance_objs: [],
     pickups: ["取车", "送车"],
@@ -72,6 +73,12 @@ Component({
           for (var index in res.data.data.distances) {
             let distance = res.data.data.distances[index];
 
+            if (distance.default) {
+              that.setData({
+                selected_distance_index: index
+              });
+            }
+
             let distance_obj = {
               is_default: distance.default,
               mileage: distance.mileage,
@@ -79,7 +86,12 @@ Component({
             }
 
             distance_objs[index] = distance_obj;
-            distances.push(distance.mileage + "英里");
+
+            if (distance.mileage == 0) {
+              distances.push("不限里程");
+            } else {
+              distances.push(distance.mileage + "英里");
+            }
           }
 
           //insurance
@@ -108,31 +120,58 @@ Component({
             insurances: insurances,
             insurance_objs: insurance_objs
           });
+
+          //set default monthly payment
+          let payment_obj = that.data.payment_objs[that.data.selected_payment_index];
+          let distance_obj = that.data.distance_objs[that.data.selected_distance_index];
+          let insurance_obj = that.data.insurance_objs[that.data.selected_insurance_index];
+
+          let monthly_payment = parseInt(payment_obj.monthly_payment) + parseInt(distance_obj.price) + parseInt(insurance_obj.price);;
+
+          that.setData({
+            monthly_payment: monthly_payment,
+            down_payment: payment_obj.down_payment
+          });
+
         }
       });
     }
   },
   methods: {
     bindPickerPayment: function (e) {
-      let payment = this.data.payment_objs[e.detail.value];
+      let payment_obj = this.data.payment_objs[e.detail.value];
+      let distance_obj = this.data.distance_objs[this.data.selected_distance_index];
+      let insurance_obj = this.data.insurance_objs[this.data.selected_insurance_index];
+
+      let monthly_payment = parseInt(payment_obj.monthly_payment) + parseInt(distance_obj.price) + parseInt(insurance_obj.price);
 
       this.setData({
-        down_payment: payment.down_payment,
-        monthly_payment: payment.monthly_payment,
+        monthly_payment: monthly_payment,
+        down_payment: payment_obj.down_payment,
         selected_payment_index: e.detail.value
       });
     },
     bindPickerDistance: function (e) {
+      let payment_obj = this.data.payment_objs[this.data.selected_payment_index];
+      let distance_obj = this.data.distance_objs[e.detail.value];
+      let insurance_obj = this.data.insurance_objs[this.data.selected_insurance_index];
+
+      let monthly_payment = parseInt(payment_obj.monthly_payment) + parseInt(distance_obj.price) + parseInt(insurance_obj.price);
+
       this.setData({
+        monthly_payment: monthly_payment,
         selected_distance_index: e.detail.value
       });
     },
     bindPickerInsurance: function (e) {
+      let payment_obj = this.data.payment_objs[this.data.selected_payment_index];
+      let distance_obj = this.data.distance_objs[this.data.selected_distance_index];
       let insurance_obj = this.data.insurance_objs[e.detail.value];
-      let price = insurance_obj["price"];
+
+      let monthly_payment = parseInt(payment_obj.monthly_payment) + parseInt(distance_obj.price) + parseInt(insurance_obj.price);
 
       this.setData({
-        monthly_insurance: parseInt(price),
+        monthly_payment: monthly_payment,
         selected_insurance_index: e.detail.value
       });
     },

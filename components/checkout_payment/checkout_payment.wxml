@@ -21,7 +21,7 @@
   </view>
   <view class="btns">
     <view class="btns-left">
-      <button plain="true" loading="{{btn_wechat_loading}}" class="btn-payment btn-wechat" bindtap="wechatPay">
+      <button plain="true" loading="{{btn_wechat_loading}}" class="btn-payment btn-wechat" bindtap="wechatPay" style="display:none;">
       </button>
     </view>
     <view class="btns-right">

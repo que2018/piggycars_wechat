@@ -36,7 +36,7 @@ Page({
           app.globalData.last_name = "";
           app.globalData.address = {};
           app.globalData.id_images = [];
-          app.globalData.filter_params = "";
+          app.globalData.filter_params = {};
           app.globalData.checkout_id = 0;
           app.globalData.checkout_year = "";
           app.globalData.checkout_make = "";

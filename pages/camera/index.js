@@ -17,7 +17,7 @@ Page({
     var that = this;
 
     this.ctx.takePhoto({
-      quality: 'high',
+      quality: 'low',
       success: (res) => {
         let pages = getCurrentPages();
         let idPage = pages[pages.length - 2];

@@ -20,7 +20,7 @@ Component({
     zone: "",
     country: "",
     postcode: "",
-    country: "",
+    country: "US",
     btn_addr_loading: false
   },
   lifetimes: {

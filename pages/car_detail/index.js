@@ -9,7 +9,7 @@ Page({
     mileage: "",
     color: "",
     price: "",
-    leased: 0,
+    leased: false,
     year: "",
     style: "",
     vin: "",
@@ -34,6 +34,7 @@ Page({
     payments: [],
     payment_objs: [],
     distances: [],
+    distance_objs: [],
     insurances: [],
     insurance_objs: [],
     show_loading: true,
@@ -94,7 +95,8 @@ Page({
           if (payment.default && (!that.data.selected_payment_index)) {
             that.setData({
               selected_payment_index: index,
-              down_payment: payment.down_payment
+              down_payment: payment.down_payment,
+			  monthly_payment: payment.monthly_payment
             });
           }
 
