@@ -70,15 +70,15 @@ Component({
             btn_addr_loading: false
           });
 
-          console.log(res.data);
+          //console.log(res.data);
 
           if (res.data.success) 
           {
             let data = {
               show_checkout_sms: false,
               show_checkout_address: false,
-              show_checkout_id: false,
-              show_checkout_plan: true,
+              show_checkout_id: true,
+              show_checkout_plan: false,
               show_checkout_coupon: false,
               show_checkout_payment: false,
               show_checkout_card: false

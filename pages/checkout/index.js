@@ -10,11 +10,16 @@ Page({
     show_checkout_coupon: false,
     show_checkout_payment: false,
     show_checkout_card: false,
+    id_process: 0,
+    id_country: "cn",
+    cn_dl_photo_front: "",
+    cn_id_photo_front: "",
+    us_dl_photo_front: "",
+    us_dl_photo_back: "",
     messages: []
   },
   onLoad: function (options) {
     this.alert = this.selectComponent("#alert");
-    this.wechat_button = this.selectComponent("#wechat_button");
 
     this.setData({
       show_checkout_sms: true,
@@ -24,8 +29,17 @@ Page({
       show_checkout_coupon: false,
       show_checkout_payment: false,
       show_checkout_card: false,
+      id_process: 0,
+      id_country: "cn",
+      cn_dl_photo_front: "",
+      cn_id_photo_front: "",
+      us_dl_photo_front: "",
+      us_dl_photo_back: "",
       messages: []
     });
+  },
+  onShow: function () {
+    console.log("checkout on show .... ");
   },
   checkoutNotification: function (e) {
     //console.log(e.detail);
@@ -42,7 +56,7 @@ Page({
       });
     }
 
-    if (e.detail.show_checkout_id !== 'undefined') {
+    if (typeof e.detail.show_checkout_id !== 'undefined') {
       this.setData({
         show_checkout_id: e.detail.show_checkout_id
       });
@@ -72,17 +86,14 @@ Page({
       });
     }
 
-    /*
-    if (typeof e.detail.messages !== 'undefined') {
+    if (typeof e.detail.id_country !== 'undefined') {
+
+      console.log("country changed ...");
+
       this.setData({
-        messages: e.detail.messages
+        id_country: e.detail.id_country
       });
     }
-
-    if ((typeof this.data.messages !== 'undefined') && (this.data.messages.length > 0)){
-      this.alert.show(this.data.messages);
-    }
-    */
 
     if (typeof e.detail.messages !== 'undefined') {
       this.alert.show(e.detail.messages);

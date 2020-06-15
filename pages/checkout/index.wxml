@@ -5,6 +5,16 @@
   <view wx:if="{{show_checkout_address}}">
     <checkout_address bind:notification="checkoutNotification"></checkout_address>
   </view>
+  <view wx:if="{{show_checkout_id}}">
+    <checkout_id 
+      process="{{id_process}}"
+      cn_dl_photo_front="{{cn_dl_photo_front}}"
+      cn_id_photo_front="{{cn_id_photo_front}}"
+      us_dl_photo_front="{{us_dl_photo_front}}"
+      us_dl_photo_back="{{us_dl_photo_back}}"
+      bind:notification="checkoutNotification">
+    </checkout_id>
+  </view>
   <view wx:if="{{show_checkout_plan}}">
     <checkout_plan bind:notification="checkoutNotification"></checkout_plan>
   </view>

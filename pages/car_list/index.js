@@ -28,12 +28,10 @@ Page({
     };
 
     var data = app.globalData.filter_params;
-
-    console.log("going to print ... ");
-    console.log(app.globalData);
-    
+ 
     data["start"] = 0;
     data["size"] = app.globalData.limit;
+    data["sft"] = "wechat";
 
     wx.request({
       url: app.globalData.API_CARS,
@@ -116,7 +114,8 @@ Page({
       var data = app.globalData.filter_params;
       data["start"] = this.data.pointer;
       data["size"] = app.globalData.limit;
-  
+      data["sft"] = "wechat";
+
       wx.request({
         url: app.globalData.API_CARS,
         header: header,

@@ -67,7 +67,7 @@ input {
   text-align: center;
   color:#888888;
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 15px;
 }
 .country-code {
   width: 45px;

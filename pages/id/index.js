@@ -1,6 +1,6 @@
 
-var app = getApp();
-var util = require('../../utils/util.js');
+let app = getApp();
+let util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -12,6 +12,10 @@ Page({
     cn_id_photo_front: "",
     us_dl_photo_front: "",
     us_dl_photo_back: "",
+    cn_dl_photo_front_success: false,
+    cn_id_photo_front_success: false,
+    us_dl_photo_front_success: false,
+    us_dl_photo_back_success: false,
     btn_loading: false,
     btn_text: "现在拍照",
     cn_selected: true,
@@ -22,7 +26,7 @@ Page({
       process: 0,
       country: "cn",
       description: "请对您的驾照正面拍摄一张照片",
-      sample_image: app.globalData.API_RES + "/cn_dl_front.jpg"
+      sample_image: app.globalData.API_RES + "/cn_dl_front.png"
     });
   },
   onShow: function () {
@@ -30,12 +34,12 @@ Page({
       if (this.data.country == "cn") {
         this.setData({
           description: "请对您的身份证正面拍摄一张照片",
-          sample_image: app.globalData.API_RES + "/cn_id_front.jpg"
+          sample_image: app.globalData.API_RES + "/cn_id_front.png"
         });
       } else {
         this.setData({
           description: "请对您驾照背面拍摄一张照片",
-          sample_image: app.globalData.API_RES + "/us_dl_back.jpg"
+          sample_image: app.globalData.API_RES + "/us_dl_back.png"
         });
       }
     }
@@ -79,21 +83,26 @@ Page({
     });
   },
   upload: function(name, filePath) {
+    let that = this;
+
     let header = {
       "cookie": wx.getStorageSync("sessionid"),
       "Content-Type": "multipart/form-data"
     };
 
     let formData = {
-      //name: "id_upload",
       id_key: name,
       country: this.data.country
     };
 
-    console.log("request data: .... ");
-    console.log(formData);
-    console.log(name);
-    console.log(filePath);
+    /* 
+      console.log("form data:");
+      console.log(formData);
+      console.log("name:");
+      console.log(name);
+      console.log("filePath:");
+      console.log(filePath);
+    */
 
     wx.uploadFile({
       url: app.globalData.API_ID_UPLOAD,
@@ -102,20 +111,43 @@ Page({
       header: header,
       formData: formData,
       success: function (res) {
-        console.log("upload success ... ");
         console.log(res);
+
+        if ((that.data.country == "cn") && (name == "dl_photo_front")) {
+          that.setData({
+            cn_dl_photo_front_success: true
+          });
+        } else if ((that.data.country == "cn") && (name == "id_photo_front")) {
+          that.setData({
+            cn_id_photo_front_success: true
+          });
+        } else if ((that.data.country == "us") && (name == "dl_photo_front")) {
+          that.setData({
+            us_dl_photo_front_success: true
+          });
+        } else if ((that.data.country == "us") && (name == "dl_photo_back")) {
+          that.setData({
+            us_dl_photo_back_success: true
+          });
+        }
+
+        if ((that.data.country == "cn") && (that.data.cn_dl_photo_front_success) && (that.data.cn_id_photo_front_success)) {
+          console.log("cn total success");
+
+          wx.navigateBack();
+        }
+
+        if ((that.data.country == "us") && (that.data.us_dl_photo_front_success) && (that.data.us_dl_photo_back_success)) {
+          console.log("us total success")
+
+          wx.navigateBack();
+        }
       },
       fail: function (res) {
-        console.log("upload fail ... ");
-        console.log(res);
+        //console.log(res);
       },
       complete: function () {
-        console.log("it is completed");
-
-        /* this.setData({
-          btn_loading: false,
-          btn_text: "现在拍照"
-        }); */
+        //console.log("completed:");
       }
     })
   },
@@ -127,7 +159,7 @@ Page({
         cn_selected: true,
         us_selected: false,
         description: "请对您驾照正面拍摄一张照片",
-        sample_image: app.globalData.API_RES + "/cn_id_front.jpg"
+        sample_image: app.globalData.API_RES + "/cn_id_front.png"
       });
     }
   },
@@ -139,7 +171,7 @@ Page({
         cn_selected: false,
         us_selected: true,
         description: "请对您驾照正面拍摄一张照片",
-        sample_image: app.globalData.API_RES + "/us_dl_front.jpg"
+        sample_image: app.globalData.API_RES + "/us_dl_front.png"
       });
     }
   }

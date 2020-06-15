@@ -80,7 +80,7 @@ Page({
         "hot": "1"
       }),
       complete: function (res) {
-        //console.log(res.data);
+        console.log(res.data);
 
         if (res.data.success) {
           var featureds = [];
@@ -92,6 +92,7 @@ Page({
             featured.id = item.id;
             featured.carId = item.carId;
             featured.year = item.year;
+            featured.leased = item.leased;
             featured.make = decodeURIComponent(item.make);
             featured.model = decodeURIComponent(item.model);
             featured.monthlyPayment = item.monthly_payment

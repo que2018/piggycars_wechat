@@ -9,6 +9,7 @@
     "pages/article_detail/index",   
     "pages/about/index",
     "pages/camera/index",
+    "pages/camera_checkout/index",
     "pages/fee/index",
 	  "pages/flow/index",
     "pages/contact/index",

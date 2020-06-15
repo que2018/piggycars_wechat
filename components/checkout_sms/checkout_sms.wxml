@@ -9,7 +9,7 @@
     </view>
   </view>
   <view class="{{show_edit?'show':'hide'}}">
-    <form bindsubmit='sms'>
+    <form bindsubmit='sendMessage'>
       <view class="form-inner">
         <view class="input-group">
           <picker bindchange="bindCountryCodeChange" value="{{country_code}}" range="{{country_codes}}" class="country-code">
@@ -22,7 +22,10 @@
           <input type="number" name="code" placeholder="短信验证码" bindinput="bindCode" />
           <image src="../../images/message.png"></image>
         </view>
-        <button size="default" loading="{{btn_sms_loading}}" class="btn-sms" form-type='submit'>发送代码</button>
+        <button size="default" loading="{{btn_sms_loading}}" disabled="{{btn_sms_disabled}}" class="btn-sms" form-type='submit'>
+          <block wx:if="{{disable_send}}"><strong>{{seconds}}秒后可再次发送</strong></block>
+          <block wx:else>发送代码</block>
+        </button>
         <block wx:if="{{show_reset}}">
           <view class="sms-cancel" bindtap="bindStatic">取消重置</view>
         </block>        

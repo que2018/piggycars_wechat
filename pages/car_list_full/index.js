@@ -31,6 +31,7 @@ Page({
     var data = app.globalData.filter_params;
     data["start"] = 0;
     data["size"] = app.globalData.limit;
+    data["sft"] = "wechat";
 
     wx.request({
       url: app.globalData.API_CARS,
@@ -103,8 +104,9 @@ Page({
       var data = app.globalData.filter_params;
       data["start"] = this.data.pointer;
       data["size"] = app.globalData.limit;
+      data["sft"] = "wechat";
 
-      console.log(data);
+      //console.log(data);
 
       wx.request({
         url: app.globalData.API_CARS,

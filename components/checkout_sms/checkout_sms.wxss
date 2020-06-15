@@ -63,11 +63,18 @@ input {
   background: #007aff;
   margin-top: 20px;
 }
+.btn-sms-disable {
+  height:40px;
+  line-height: 40px;
+  color:#ffffff;
+  background: #ececec;
+  margin-top: 20px;
+}
 .sms-cancel {
   text-align: center;
   color:#888888;
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 15px;
 }
 .country-code {
   width: 45px;

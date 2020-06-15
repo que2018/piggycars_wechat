@@ -35,37 +35,37 @@ Page({
   },
   confirmPhoto() {
     let pages = getCurrentPages();
-    let idPage = pages[pages.length - 2];
+    let checkoutPage = pages[pages.length - 2];
 
-    if ((idPage.data.country == "cn") && (idPage.data.process == 0)) {
+    if ((checkoutPage.data.id_country == "cn") && (checkoutPage.data.id_process == 0)) {
       console.log("cn0 photo");
 
-      idPage.setData({
-        process: 1,
+      checkoutPage.setData({
+        id_process: 1,
         "cn_dl_photo_front": this.data.src
       });
 
-    } else if ((idPage.data.country == "cn") && (idPage.data.process == 1)) {
+    } else if ((checkoutPage.data.id_country == "cn") && (checkoutPage.data.id_process == 1)) {
       console.log("cn1 photo");
 
-      idPage.setData({
-        process: 2,
+      checkoutPage.setData({
+        id_process: 2,
         "cn_id_photo_front": this.data.src
       });
 
-    } else if ((idPage.data.country == "us") && (idPage.data.process == 0)) {
+    } else if ((checkoutPage.data.id_country == "us") && (checkoutPage.data.id_process == 0)) {
       console.log("us0 photo");
 
-      idPage.setData({
-        process: 1,
+      checkoutPage.setData({
+        id_process: 1,
         "us_dl_photo_front": this.data.src
       });
 
-    } else if ((idPage.data.country == "us") && (idPage.data.process == 1)) {
+    } else if ((checkoutPage.data.id_country == "us") && (checkoutPage.data.id_process == 1)) {
       console.log("us1 photo");
 
-      idPage.setData({
-        process: 2,
+      checkoutPage.setData({
+        id_process: 2,
         "us_dl_photo_back": this.data.src
       });
     }

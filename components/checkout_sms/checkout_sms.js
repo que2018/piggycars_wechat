@@ -16,9 +16,12 @@ Component({
     phone_local: "",
     country_code: "+1",
     country_codes: ["+1", "+86"],
+    seconds: 60,
     show_edit: false,
     show_reset: false,
-    btn_sms_loading: false
+    disable_send: false,
+    btn_sms_loading: false,
+    btn_sms_disabled: false
   },
   lifetimes: {
     attached: function () {
@@ -41,8 +44,8 @@ Component({
     }
   },
   methods: {
-    sms: function (e) {
-      var that = this;
+    sendMessage: function (e) {
+      let that = this;
 
       that.setData({
         phone: e.detail.value.phone,
@@ -70,8 +73,12 @@ Component({
           phone: phone
         }),
         complete: function (res) {
+          wx.hideKeyboard();
+
           that.setData({
-            btn_sms_loading: false
+            disable_send: true,
+            btn_sms_loading: false,
+            btn_sms_disabled: true
           });
 
           //console.log(res.data);
@@ -91,6 +98,8 @@ Component({
               that.alert.show(messages);
             }
           } 
+
+          that.countdown();
         }
       });
     },
@@ -107,9 +116,15 @@ Component({
       app.globalData.phone_local = e.detail.value;
     },
     bindCode: function (e) {
+      let code = e.detail.value;
+
       this.setData({
-        code: e.detail.value
-      })
+        code: code
+      });
+
+      if (code.length == 6) {
+        wx.hideKeyboard();
+      }
     },
     bindStatic: function (e) {
       this.setData({
@@ -135,6 +150,28 @@ Component({
       }
 
       this.triggerEvent('notification', data);
+    },
+    countdown: function () {
+      let that = this;
+      let seconds = this.data.seconds;
+
+      if (seconds == 0) {
+        that.setData({
+          seconds: 60,
+          disable_send: false,
+          btn_sms_disabled: false
+        });
+
+        return;
+      }
+
+      let time = setTimeout(function () {
+        that.setData({
+          seconds: seconds - 1
+        });
+
+        that.countdown();
+      } , 1000);
     }
   }
 })

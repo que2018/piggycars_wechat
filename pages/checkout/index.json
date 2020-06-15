@@ -3,6 +3,7 @@
     "alert": "/components/alert/alert",
     "checkout_sms": "/components/checkout_sms/checkout_sms",
     "checkout_address": "/components/checkout_address/checkout_address",
+    "checkout_id": "/components/checkout_id/checkout_id",    
     "checkout_plan": "/components/checkout_plan/checkout_plan",
     "checkout_payment": "/components/checkout_payment/checkout_payment",
     "checkout_card": "/components/checkout_card/checkout_card"

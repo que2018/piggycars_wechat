@@ -1,15 +1,19 @@
 
-var app = getApp();
-var util = require('../../utils/util.js');
+let app = getApp();
+let util = require('../../utils/util.js');
 
 Page({
   data: {
     code: "",
     phone: "",
-    show_edit: false,
     country_code: "+1",
     country_codes: ["+1", "+86"],
-    btn_sms_loading: false
+    seconds: 60,
+    show_edit: false,
+    show_reset: false,
+    disable_send: false,
+    btn_sms_loading: false,
+    btn_sms_disabled: false
   },
   onLoad: function (options) {
     if(app.globalData.phone) {
@@ -38,7 +42,7 @@ Page({
     this.alert = this.selectComponent("#alert");
   },
   sms: function (e) {
-    var that = this;
+    let that = this;
 
     that.setData({
       phone: e.detail.value.phone,
@@ -66,8 +70,12 @@ Page({
         phone: phone
       }),
       complete: function (res) {
+        wx.hideKeyboard();
+
         that.setData({
-          btn_sms_loading: false
+          disable_send: true,
+          btn_sms_loading: false,
+          btn_sms_disabled: true
         });
 
         //console.log(res.data);
@@ -82,6 +90,8 @@ Page({
 
           that.alert.show(messages);
         }
+
+        that.countdown();
       }
     });
   },
@@ -93,9 +103,15 @@ Page({
     });
   },
   bindCode: function (e) {
+    let code = e.detail.value;
+
     this.setData({
-      code: e.detail.value
-    })
+      code: code
+    });
+
+    if (code.length == 6) {
+      wx.hideKeyboard();
+    }
   },
   bindStatic: function (e) {
     this.setData({
@@ -116,11 +132,30 @@ Page({
       country_code = "86";
     }
 
-    console.log(this.data.country_code);
-    console.log(this.data.phone);
-
     wx.navigateTo({
       url: '../address/index?code=' + this.data.code + "&country_code=" + country_code + "&phone=" + this.data.phone
     });
   },
+  countdown: function () {
+    let that = this;
+    let seconds = this.data.seconds;
+
+    if (seconds == 0) {
+      that.setData({
+        seconds: 60,
+        disable_send: false,
+        btn_sms_disabled: false
+      });
+
+      return;
+    }
+
+    let time = setTimeout(function () {
+      that.setData({
+        seconds: seconds - 1
+      });
+
+      that.countdown();
+    }, 1000);
+  }
 })
