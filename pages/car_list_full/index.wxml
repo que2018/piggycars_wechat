@@ -31,7 +31,7 @@
           <view class="caption">
             <view class="left">
               <view class="make">{{item.year}} {{item.make}}</view>
-              <view class="model">{{item.model}}</view>
+              <view class="model">{{item.model}} {{item.trim}}</view>
               <view class="pickup">在{{item.city}}取车</view>
             </view>
             <view class="right">

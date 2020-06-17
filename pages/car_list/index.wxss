@@ -72,7 +72,10 @@ swiper {
   width: 120px;
   text-align: center;
 }
-
+#filter {
+  position: fixed;
+  z-index: 10000;
+}
 
 
 

@@ -42,7 +42,7 @@ Page({
         if (res.data.success) {
           var cars = [];
 
-          //console.log(res.data);
+          console.log(res.data);
 
           for (var i = 0; i < res.data.data.items.length; i++) {
             var car = new Object();
@@ -53,6 +53,7 @@ Page({
             car.year = item.year;
             car.make = decodeURIComponent(item.make);
             car.model = decodeURIComponent(item.model);
+            car.trim = decodeURIComponent(item.trim);
             car.mileage = item.mileage
             car.monthlyPayment = item.monthly_payment
             car.city = item.location.city
@@ -106,7 +107,7 @@ Page({
       data["size"] = app.globalData.limit;
       data["sft"] = "wechat";
 
-      //console.log(data);
+      console.log(data);
 
       wx.request({
         url: app.globalData.API_CARS,
@@ -128,6 +129,7 @@ Page({
               car.year = item.year;
               car.make = decodeURIComponent(item.make);
               car.model = decodeURIComponent(item.model);
+              car.trim = decodeURIComponent(item.trim);
               car.mileage = item.mileage
               car.monthlyPayment = item.monthly_payment
               car.city = item.location.city

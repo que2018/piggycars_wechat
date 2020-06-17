@@ -25,7 +25,7 @@
   <view class="info">
     <view class="info-inner">
       <view><span class="make">{{year}} {{make}}</span><span class="mil">里程数: {{mileage}}mil</span></view>
-      <view class="model">{{model}}</view>
+      <view class="model">{{model}} {{trim}}</view>
       <view class="city">在{{city}}取车</view>
       <view></view>
     </view>

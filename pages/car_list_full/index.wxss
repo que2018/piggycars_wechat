@@ -38,7 +38,7 @@ swiper {
   text-align: right;
 }
 .caption {
-  padding: 0px 15px 15px 15px;
+  padding: 15px 15px 15px 15px;
 }
 .caption .left {
   display: inline-block;
@@ -79,7 +79,10 @@ swiper {
   width: 120px;
   text-align: center;
 }
-
+#filter {
+  position: fixed;
+  z-index: 10000;
+}
 
 
 
