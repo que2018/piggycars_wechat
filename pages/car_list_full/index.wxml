@@ -1,6 +1,11 @@
 <view id="ld-block" class="{{show_loading?'show':'hide'}}">
   <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
 </view>
+<view class="search-header">
+  <view class="search-box">
+    <view class="keyword" bindtap="showSearch">搜索车辆</view>
+  </view>
+</view>
 <view class="{{show_no_car?'show':'hide'}}">
   <view id="no-car">暂无可选车辆</view>
 </view>
@@ -46,4 +51,5 @@
     </view>
   </view>
 </scroll-view>
+<search id="search"></search>
 <filter id="filter" bind:notification="filterNotification"></filter>

@@ -14,6 +14,7 @@ Page({
     this.refreshData();
   },
   onReady: function () {
+    this.search = this.selectComponent("#search");
     this.filter = this.selectComponent("#filter");
   },
   refreshData: function () {
@@ -97,13 +98,6 @@ Page({
   filterNotification: function (event) {
     this.refershData();
   },
-  goToDetail: function (event) {
-    var id = event.currentTarget.dataset.id;
-
-    wx.navigateTo({
-      url: '../car_detail/index?id=' + id
-    });
-  },
   loadData: function () {
     if(!this.data.is_end) {
       let that = this;
@@ -181,6 +175,9 @@ Page({
   },
   filterNotification: function (event) {
     this.refreshData();
+  },
+  showSearch() {
+    this.search.show();
   },
   goToDetail: function (event) {
     var id = event.currentTarget.dataset.id;

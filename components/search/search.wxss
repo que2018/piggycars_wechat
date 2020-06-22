@@ -1,7 +1,34 @@
 .container {
-  display:flex;
-  flex-direction: column;
-  padding: 0vw;
+  width: 100vw;
+  height: 100vh;
+}
+.show-search {
+  display: block;
+}
+.hide-search {
+  display: none;
+}
+.search-header {
+  height: 40px;
+  padding: 10px;
+}
+.search-box {
+  width: 87%;
+  display: inline-block;
+}
+.search-box input {
+  line-height: 40px;
+  height: 40px;
+  padding: -1px;
+  background: #ebebeb;
+  padding-left: 6px;
+  border-radius: 3px;
+}
+.search-cancel {
+  width: 12%;
+  height: 40px;
+  text-align: right;
+  display: inline-block;
 }
 .car-wrap {
   width: 100%;
@@ -72,29 +99,3 @@ swiper {
   width: 120px;
   text-align: center;
 }
-#filter {
-  position: fixed;
-  z-index: 10000;
-}
-#search {
-  position: fixed;
-  top: 0;
-  background: #fff;
-  z-index: 99999;
-}
-.search-header {
-  height: 40px;
-  padding: 10px;
-}
-.search-box {
-  display: block;
-  line-height: 40px;
-  background: #ececec;
-  padding-left: 6px;
-  color: #888888;
-  border-radius: 3px;
-}
-
-
-
-

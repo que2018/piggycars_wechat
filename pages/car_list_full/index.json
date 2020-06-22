@@ -1,6 +1,7 @@
 {
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "filter": "/components/filter/filter"
+    "filter": "/components/filter/filter",
+    "search": "/components/search/search"
   }
 }

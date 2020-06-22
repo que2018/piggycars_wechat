@@ -1,6 +1,11 @@
 <view id="ld-block" class="{{show_loading?'show':'hide'}}">
   <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
 </view>
+<view class="search-header">
+  <view class="search-box">
+    <view class="keyword" bindtap="showSearch">搜索车辆</view>
+  </view>
+</view>
 <scroll-view class="scroll-view" scroll-y="ture" bindscrolltolower="scrollToBottom" style="width: 100%">
   <view class="container">
     <view class="car-wrap">
@@ -43,4 +48,5 @@
     </view>
   </view>
 </scroll-view>
+<search id="search"></search>
 <filter id="filter" bind:notification="filterNotification"></filter>

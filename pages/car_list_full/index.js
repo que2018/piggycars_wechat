@@ -15,6 +15,7 @@ Page({
     this.refreshData();
   },
   onReady: function () {
+    this.search = this.selectComponent("#search");
     this.filter = this.selectComponent("#filter");
   },
   refreshData: function () {
@@ -173,6 +174,9 @@ Page({
   },
   filterNotification: function (event) {
     this.refreshData();
+  },
+  showSearch() {
+    this.search.show();
   },
   scrollToBottom: function (event) {
     this.loadData();

@@ -1,0 +1,51 @@
+<view class="container" class="{{show?'show-search':'hide-search'}}">
+  <view class="search-header">
+    <view class="search-box"><input class="keyword" focus="{{focus}}" value="{{keyword}}" placeholder="搜索车辆" bindinput="bindkeyword" /></view>
+    <view class="search-cancel" bindtap="hide">取消</view>
+  </view>
+  <view class="search-result">
+    <scroll-view class="scroll-view" scroll-y="ture" bindscrolltolower="scrollToBottom" style="width: 100%">
+      <view class="container">
+        <view class="car-wrap">
+          <block wx:for="{{cars}}" wx:key="car">
+            <view class="car">
+              <block wx:if="{{item.leased == 1}}">
+                <view class="leased">
+                  <view class="leased-text">已租</view>
+                </view>
+              </block>
+              <view>
+                <view wx:if="{{item.images.length > 1}}">
+                  <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" circular="true" bindtap="goToDetail" data-id="{{item.id}}">
+                    <block wx:for="{{item.images}}" wx:key="car_image">
+                      <swiper-item>
+                        <image src='{{item}}' mode="aspectFill" style="width:100%;height:100%;" />
+                      </swiper-item> 
+                    </block>
+                  </swiper>
+                </view>
+                <view wx:else>
+                  <image src="{{item.images[0]}}" mode="aspectFit" class="mimg" bindtap="goToDetail" data-id="{{item.id}}"></image>
+                </view>
+              </view>
+              <view class="caption">
+                <view class="left">
+                  <view class="make">{{item.year}} {{item.make}}</view>
+                  <view class="model">{{item.model}} {{item.trim}}</view>
+                  <view class="pickup">在{{item.city}}取车</view>
+                </view>
+                <view class="right">
+                  <view class="month-pay-tx">月供</view>
+                  <view class="month-pay">${{item.monthlyPayment}}</view>
+                  <view class="mileage">里程:{{item.mileage}}mil</view>
+                </view>
+              </view>
+              <view class="car-padding"></view>
+            </view>
+          </block>
+          <view style="height: 70px;"></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
