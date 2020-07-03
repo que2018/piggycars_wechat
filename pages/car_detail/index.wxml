@@ -56,7 +56,7 @@
           </view>
         </view>
         <view class="plan-item">
-          <view class="plan-item-l">包含距离</view>
+          <view class="plan-item-l">包含里程</view>
           <view class="plan-item-r">
             <picker bindchange="bindPickerDistance" range="{{distances}}">
               <view class="plan-distance">{{distances[selected_distance_index]}}</view>

@@ -163,7 +163,8 @@ swiper {
 .plan-notice {
   text-align: center;
   font-size: 13px;
-  color: #888888;
+  color: #d11400;
+  font-weight: bold;
   line-height: 50px;
 }
 .contact {
