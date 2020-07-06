@@ -40,7 +40,8 @@ Component({
     btn_loading: false,
     btn_text: "现在拍照",
     cn_selected: true,
-    us_selected: false
+    us_selected: false,
+    progress: [0, 0]
   },
   lifetimes: {
     attached: function () {
@@ -78,11 +79,11 @@ Component({
         });
 
         if (this.data.country == "cn") {
-          this.upload("dl_photo_front", this.data.cn_dl_photo_front);
-          this.upload("id_photo_front", this.data.cn_id_photo_front);
+          this.upload("dl_photo_front", this.data.cn_dl_photo_front, 0);
+          this.upload("id_photo_front", this.data.cn_id_photo_front, 1);
         } else {
-          this.upload("dl_photo_front", this.data.us_dl_photo_front);
-          this.upload("dl_photo_back", this.data.us_dl_photo_back);
+          this.upload("dl_photo_front", this.data.us_dl_photo_front, 0);
+          this.upload("dl_photo_back", this.data.us_dl_photo_back, 1);
         }
       }
     }
@@ -111,7 +112,7 @@ Component({
         url: '../camera_checkout/index?id_key=' + id_key
       });
     },
-    upload: function (name, filePath) {
+    upload: function (name, filePath, progess_id) {
       let that = this;
 
       let header = {
@@ -133,7 +134,7 @@ Component({
         console.log(filePath);
       */
 
-      wx.uploadFile({
+      const uploadTask = wx.uploadFile({
         url: app.globalData.API_ID_UPLOAD,
         filePath: filePath,
         name: name,
@@ -198,7 +199,22 @@ Component({
         complete: function () {
           //console.log("completed:");
         }
-      })
+      });
+
+      uploadTask.onProgressUpdate((res) => {
+        var progress = that.data.progress;
+
+        progress[progess_id] = res.progress;
+
+        let pvalue = Math.min.apply(null, progress);
+
+        //console.log(that.data.progress);
+
+        this.setData({
+          progress: progress,
+          btn_text: "上传中(" + pvalue + "%)"
+        });
+      });
     },
     tapCN: function (e) {
       if (this.data.country == "us") {
