@@ -6,7 +6,10 @@
   <view class="take">
     <image src="../../images/btn_take.png" mode="aspectFit" class="btn-take" bindtap="takePhoto"></image>
   </view>
-  <view class="border"></view>
+  <view class="border">
+    <view class="border-top-text">证件上边沿</view>
+    <view class="border-bottom-text">证件下边沿</view>
+  </view>
 </view>
 <view class="{{show_preview?'show':'hide'}}">
   <view class="result">

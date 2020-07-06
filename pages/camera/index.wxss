@@ -72,3 +72,17 @@ camera {
 .btn-confirm-hover {
   background: #136C04;
 }
+.border-top-text {
+  transform: rotate(90deg);
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  color: #ffffff;
+}
+.border-bottom-text {
+  transform: rotate(90deg);
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  color: #ffffff;
+}

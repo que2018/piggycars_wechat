@@ -54,6 +54,9 @@
               <view class="plan-payment">{{payments[selected_payment_index]}}</view>
             </picker>
           </view>
+          <view class="plan-item-icon">
+            <image src="../../images/arrow_down.png" class="plan-arrow" mode="aspectFill" />
+          </view>
         </view>
         <view class="plan-item">
           <view class="plan-item-l">包含里程</view>
@@ -62,6 +65,9 @@
               <view class="plan-distance">{{distances[selected_distance_index]}}</view>
             </picker>
           </view>
+          <view class="plan-item-icon">
+            <image src="../../images/arrow_down.png" class="plan-arrow" mode="aspectFill" />
+          </view>
         </view>
         <view class="plan-item">
           <view class="plan-item-l">保险</view>
@@ -69,6 +75,9 @@
             <picker bindchange="bindPickerInsurance" range="{{insurances}}">
               <view class="plan-insurance">{{insurances[selected_insurance_index]}}</view>
             </picker>
+          </view>
+          <view class="plan-item-icon">
+            <image src="../../images/arrow_down.png" class="plan-arrow" mode="aspectFill" />
           </view>
         </view>
       </view>

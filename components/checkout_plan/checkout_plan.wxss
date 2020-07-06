@@ -28,6 +28,13 @@
 .plan-item-r {
   width: 50%;
 }
+.plan-item-icon {
+  width: 20px;
+}
+.plan-arrow {
+  width: 15px;
+  height: 15px;
+}
 .plan-payment {
   text-align: right;
 }

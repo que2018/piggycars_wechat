@@ -148,6 +148,13 @@ swiper {
   width: 50%;
   color: #f55a7a;
 }
+.plan-item-icon {
+  width: 20px;
+}
+.plan-arrow {
+  width: 15px;
+  height: 15px;
+}
 .plan-payment {
   text-align: right;
 }

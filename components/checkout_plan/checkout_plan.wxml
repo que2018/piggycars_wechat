@@ -19,6 +19,9 @@
           <view class="plan-payment">{{payments[selected_payment_index]}}</view>
         </picker>
       </view>
+      <view class="plan-item-icon">
+        <image src="../../images/arrow_down.png" class="plan-arrow" mode="aspectFill" />
+      </view>
     </view>
     <view class="plan-item">
       <view class="plan-item-l">包含里程</view>
@@ -26,6 +29,9 @@
         <picker bindchange="bindPickerDistance" range="{{distances}}">
           <view class="plan-distance">{{distances[selected_distance_index]}}</view>
         </picker>
+      </view>
+      <view class="plan-item-icon">
+        <image src="../../images/arrow_down.png" class="plan-arrow" mode="aspectFill" />
       </view>
     </view>
     <view class="plan-item">
@@ -35,6 +41,9 @@
           <view class="plan-insurance">{{insurances[selected_insurance_index]}}</view>
         </picker>
       </view>
+      <view class="plan-item-icon">
+        <image src="../../images/arrow_down.png" class="plan-arrow" mode="aspectFill" />
+      </view>
     </view>
     <view class="plan-item">
       <view class="plan-item-l">取车/送车</view>
@@ -42,6 +51,9 @@
         <picker bindchange="bindPickerPickup" range="{{pickups}}">
           <view class="plan-pickup">{{pickups[selected_pickup_index]}}</view>
         </picker>
+      </view>
+      <view class="plan-item-icon">
+        <image src="../../images/arrow_down.png" class="plan-arrow" mode="aspectFill" />
       </view>
     </view>
   </view>
