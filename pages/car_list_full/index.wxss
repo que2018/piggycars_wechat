@@ -60,7 +60,7 @@ swiper {
   font-size: 19px;
 }
 .leased {
-  background-color: #ff0000a1;
+  background-color: #676767a1;
   height: 120px;
   left: -60px;
   position: absolute;
@@ -72,6 +72,26 @@ swiper {
   overflow: hidden;
 }
 .leased-text {
+  color: #fff;
+  font-size: 17px;
+  top: 90px;
+  position: absolute;
+  width: 120px;
+  text-align: center;
+}
+.hot {
+  background-color: #ff0000a1;
+  height: 120px;
+  left: -60px;
+  position: absolute;
+  top: -60px;
+  width: 120px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(-45deg);
+  z-index: 1000;
+  overflow: hidden;
+}
+.hot-text {
   color: #fff;
   font-size: 17px;
   top: 90px;
@@ -97,26 +117,6 @@ swiper {
 .car-padding {
   height: 1px;
   background: #dbdbdb;
-}
-.leased {
-  background-color: #ff0000a1;
-  height: 120px;
-  left: -60px;
-  position: absolute;
-  top: -60px;
-  width: 120px;
-  -webkit-transform: rotate(135deg);
-  transform: rotate(-45deg);
-  z-index: 1000;
-  overflow: hidden;
-}
-.leased-text {
-  color: #fff;
-  font-size: 17px;
-  top: 90px;
-  position: absolute;
-  width: 120px;
-  text-align: center;
 }
 #filter {
   position: fixed;

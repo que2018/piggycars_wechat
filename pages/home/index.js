@@ -100,6 +100,16 @@ Page({
 
             let images = item.car_images;
             featured.image = app.globalData.API_RES + "/car/md/" + images[0].value;
+
+            featured.hot = false;
+
+            item.attributes.forEach(function (item) {
+              if (item.code == "hot") {
+                featured.hot = true;
+                return;
+              }
+            }); 
+
             featureds.push(featured);
           }
 

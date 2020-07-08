@@ -16,6 +16,11 @@
               <view class="leased-text">已租</view>
             </view>
           </block>
+          <block wx:elif="{{item.hot == 1}}">
+            <view class="hot">
+              <view class="hot-text">热门</view>
+            </view>
+          </block>
           <view>
             <view wx:if="{{item.images.length > 1}}">
               <swiper indicator-dots="{{true}}" indicator-active-color="#fc5861" indicator-color="#888888" circular="true" bindtap="goToDetail" data-id="{{item.id}}">

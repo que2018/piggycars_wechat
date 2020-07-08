@@ -43,7 +43,7 @@ Page({
         if (res.data.success) {
           var cars = [];
 
-          //console.log(res.data);
+          console.log(res.data);
 
           for (var i = 0; i < res.data.data.items.length; i++) {
             var car = new Object();
@@ -71,6 +71,15 @@ Page({
             }
 
             car.images = images;
+
+            car.hot = false;
+
+            item.attributes.forEach(function (item) {
+              if (item.code == "hot") {
+                car.hot = true;
+                return;
+              }
+            }); 
 
             cars.push(car);
           }

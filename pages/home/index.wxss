@@ -200,3 +200,23 @@
   text-align: center;
   position: absolute;
 }
+.hot {
+  background-color: #ff0000a1;
+  height: 60px;
+  left: -30px;
+  position: absolute;
+  top: -30px;
+  width: 60px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(-45deg);
+  z-index: 1000;
+  overflow: hidden;
+}
+.hot-text {
+  color: #fff;
+  top: 43px;
+  width: 60px;
+  font-size: 10px;
+  text-align: center;
+  position: absolute;
+}

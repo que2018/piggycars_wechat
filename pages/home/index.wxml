@@ -28,6 +28,11 @@
               <view class="leased-text">已租</view>
             </view>
           </block>
+          <block wx:elif="{{item.hot == 1}}">
+            <view class="hot">
+              <view class="hot-text">热门</view>
+            </view>
+          </block>
           <view class="featured-item-image"><image src="{{item.image}}" mode="aspectFit"></image></view>
           <view class="featured-captain">
             <view class="featured-model">{{item.year}} {{item.make}} {{item.model}}</view>
