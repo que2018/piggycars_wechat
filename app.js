@@ -1,7 +1,7 @@
 
 App({
   globalData: {
-    version: 'v2.1.8',
+    version: 'v2.2.0',
     limit: 8,
     is_login: false,
     user_id: "",
@@ -18,6 +18,7 @@ App({
     address: {},
     id_images: [],
     filter_params: {},
+    vehicle_id: 0,
     order_id: 0,
     checkout_id: 0,
     checkout_year: "",

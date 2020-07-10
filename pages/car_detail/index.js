@@ -84,7 +84,7 @@ Page({
         for (var index in res.data.data.vehicle_images) {
           car_images.push(app.globalData.API_RES + "/vehicle/lg/" + res.data.data.vehicle_images[index]);
         }
-
+        
         //payments
         var default_payment = {};
         var payments = new Array();

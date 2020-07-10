@@ -237,5 +237,10 @@ Page({
         
       }
     }
+  },
+  onShareTimeline: function (res) {
+    return {
+      title: '小猪有车'
+    }
   }
 })
