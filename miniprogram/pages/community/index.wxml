@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="section-top">
+    <view class="level1">
+      <view class="top1"></view>
+      <view class="top2"></view>
+    </view>
+    <view class="level2">
+      <view class="top3"></view>
+      <view class="top4"></view>
+      <view class="top5"></view>
+    </view>
+  </view>
+  <view class="section-bottom">
+  </view>
+</view>

@@ -1,0 +1,46 @@
+<view id="ld-block" class="{{show_loading?'show':'hide'}}">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
+</view>
+<view class="container">
+  <view>
+    <image src="{{vehicle_image}}" class="cimge" mode="aspectFill" />
+    <view class="placeholder"></view>
+  </view>
+  <view class="info">
+    <view class="info-inner">
+      <view><span class="make">{{year}} {{make}}</span><span class="mil">里程数: {{mileage}}mil</span></view>
+      <view class="model">{{model}} {{trim}}</view>
+      <view class="city">在{{city}}取车</view>
+    </view>
+    <view class="placeholder"></view>
+  </view>
+  <view class="option">
+    <view class="option-inner">
+      <view class="option-number">
+        <view class="monthp-tax">+税</view>
+        <view class="monthp">
+          <view class="monthp-t1">$</view>
+          <view class="monthp-t2">{{monthly_payment}}</view>
+          <view class="monthp-t3">/</view>
+          <view class="monthp-t4">月</view>
+        </view>
+        <view class="downp">
+          <view class="downp-t1">首付款:</view>
+          <view class="downp-t2">${{down_payment}} + 税</view>
+        </view>
+      </view>
+    </view>
+    <view class="placeholder"></view>
+  </view>
+  <view class="captain">
+    <view class="cap-left">
+      <image src="{{qr_image}}" class="qrimg" mode="aspectFill" />
+    </view>
+    <view class="cap-right">
+      <view class="cap-t1">长按识别</view>
+      <view class="cap-t2">小猪有车</view>
+    </view>
+  </view>
+  <view class="bottom">
+  </view>
+</view>

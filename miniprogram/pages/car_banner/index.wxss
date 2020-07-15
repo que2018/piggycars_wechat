@@ -1,0 +1,135 @@
+.container {
+  padding-top: 25px;
+  height: 100vh;
+}
+.cimge {
+  width: 100vw;
+  height: 75vw;
+}
+.placeholder {
+  height: 1px;
+  background: #dbdbdb;
+}
+.info {
+  width: 100vw;
+}
+.info-inner {
+  padding: 20px;
+}
+.make {
+  font-size: 15px;
+}
+.model {
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 30px;
+}
+.city {
+  font-size: 15px;
+  color: #888888;
+}
+.mil {
+  float: right;
+  font-size: 15px;
+  color: #888888;
+}
+.captain {
+  display: flex;
+  flex-direction: row;
+  padding-top: 15px;
+}
+.qrimg {
+  width: 140px;
+  height: 140px;
+  display: block;
+  margin: 0 auto;
+}
+.cap-left {
+  width: 60vw;
+}
+.cap-right {
+  width: 40vw;
+  padding-top: 40px;
+}
+.cap-t1 {
+  font-size: 23px;
+  font-weight: bold;
+  color: #f55a7a;
+}
+.cap-t2 {
+  font-size: 23px;
+  font-weight: bold;
+  color: #f55a7a;
+}
+.option {
+  width: 100vw;
+  position: relative;
+}
+.option-inner {
+  display: block;
+  padding-bottom: 20px;
+}
+.option-number {
+  width:100vw;
+}
+.monthp {
+  height: 45px;
+  margin-top: 15px;
+  line-height: 45px;
+}
+.monthp-tax {
+  position: absolute;
+  font-size: 12px;
+  left: 103px;
+  top: 20px;
+  color: #f55a7a;
+}
+.monthp-t1 {
+  float: left;
+  color: #f55a7a;
+  font-size: 18px;
+  font-weight:bold;
+  line-height: 35px;
+  padding-left: 9%;
+}
+.monthp-t2 {
+  float: left;
+  color: #f55a7a;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 5px;
+}
+.monthp-t3 {
+  float: left;
+  color: #888888;
+  padding-left: 30px;
+}
+.monthp-t4 {
+  float: left;
+  color: #888888;
+  padding-left: 5px;
+}
+.downp {
+  height: 25px;
+  line-height: 25px;
+}
+.downp-t1 {
+  float: left;
+  color: #888888;
+  padding-left: 11%;
+}
+.downp-t2 {
+  float: left;
+  color: #888888;
+  padding-left: 6px;
+}
+.bottom {
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+  height: 100px;
+  background-image: url("https://piggycars.com/assets/image/wechat_banner_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

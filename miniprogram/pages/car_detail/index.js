@@ -23,6 +23,7 @@ Page({
     exterior_color: "",
     interior_color: "",
     car_features: [],
+    main_image: "",
     car_images: [],
     show_loading: true,
     markers: [],
@@ -85,6 +86,8 @@ Page({
           car_images.push(app.globalData.API_RES + "/vehicle/lg/" + res.data.data.vehicle_images[index]);
         }
         
+        let main_image = app.globalData.API_RES + "/vehicle/lg/" + res.data.data.vehicle_images[0];
+
         //payments
         var default_payment = {};
         var payments = new Array();
@@ -187,6 +190,7 @@ Page({
           drivetrain: that.data.drivetrain[res.data.data.drivetrain],
           exterior_color: (res.data.data.exterior_color) ? res.data.data.exterior_color : "--",
           interior_color: (res.data.data.interior_color) ? res.data.data.interior_color : "--",
+          main_image: main_image,
           car_images: car_images,
           markers: [{
             iconPath: "../../images/map.png",
@@ -275,12 +279,30 @@ Page({
       });
       
     } else {
-      console.log("me ... ");
-
       wx.switchTab({
         url: '../wechat/index'
       });
     }
+  },
+  bindBanner: function (e) {
+    var url = "../car_banner/index";
+
+    url += "?id=" + this.data.id;
+    url += "&year=" + this.data.year;
+    url += "&make=" + this.data.make;
+    url += "&model=" + this.data.model;
+    url += "&city=" + this.data.city;
+    url += "&mileage=" + this.data.mileage;
+    url += "&vehicle_image=" + this.data.car_images[0];
+    url += "&down_payment=" + this.data.down_payment;
+    url += "&monthly_payment=" + this.data.monthly_payment;
+    url += "&selected_payment_index=" + this.data.selected_payment_index;
+    url += "&selected_distance_index=" + this.data.selected_distance_index;
+    url += "&selected_insurance_index=" + this.data.selected_insurance_index;
+
+    wx.navigateTo({
+      url: url
+    });
   },
   onShareAppMessage: function (res) {
     if (res.from === 'button') {

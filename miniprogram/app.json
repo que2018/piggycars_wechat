@@ -2,9 +2,11 @@
   "pages": [
     "pages/app/index",
     "pages/home/index",    
+    "pages/community/index",    
     "pages/car_list/index",
     "pages/car_list_full/index",
-	  "pages/car_detail/index",
+    "pages/car_detail/index",
+    "pages/car_banner/index",
     "pages/article_list/index",
     "pages/article_detail/index",   
     "pages/about/index",
