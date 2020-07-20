@@ -36,10 +36,12 @@ Page({
 
     let that = this;
 
-    var path = "pages/car_detail/index?id=" + this.data.id;
+    var path = "miniprogram/pages/car_detail/index?id=" + this.data.id;
     path += "&selected_payment_index=" + this.data.selected_payment_index;
     path += "&selected_distance_index=" + this.data.selected_distance_index;
     path += "&selected_insurance_index=" + this.data.selected_insurance_index;
+
+    console.log(path);
 
     wx.cloud.callFunction({
       name: 'wecode',
@@ -49,8 +51,10 @@ Page({
       success: function(res) {
         console.log(res.result);
 
+        console.log("data:image/jpeg;base64," + wx.arrayBufferToBase64(res.result.buffer));
+
         that.setData({
-          qr_image: "data:image/png;base64," + wx.arrayBufferToBase64(res.result.buffer)
+          qr_image: "data:image/jpeg;base64," + wx.arrayBufferToBase64(res.result.buffer)
         });
 
       },

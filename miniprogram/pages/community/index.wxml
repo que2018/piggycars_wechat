@@ -1,15 +1,34 @@
-<view class="container">
-  <view class="section-top">
-    <view class="level1">
-      <view class="top1"></view>
-      <view class="top2"></view>
-    </view>
-    <view class="level2">
-      <view class="top3"></view>
-      <view class="top4"></view>
-      <view class="top5"></view>
-    </view>
-  </view>
-  <view class="section-bottom">
-  </view>
+<view id="ld-block" class="{{show_loading?'show':'hide'}}">
+  <image src="../../images/loading.gif" mode="aspectFit" class="ld-img"></image>
 </view>
+<scroll-view class="scroll-view" scroll-y="ture" bindscrolltolower="scrollToBottom" style="width: 100%">
+  <view class="container">
+    <view class="section-top"> 
+      <view class="section-title">热门</view>
+      <view class="hot-cates">
+         <block wx:for="{{hot_categories}}" wx:key="index">
+          <view class="hot-cate hot-cate{{index}}" style="background: {{item.background_color}}">
+            <view>{{item.title}}</view>
+          </view>
+        </block>
+      </view>
+      
+    </view>
+    <view class="section-bottom">
+      <view class="section-title">最新</view>
+      <scroll-view class="nav-cate" scroll-x="true">
+        <block wx:for="{{top_categories}}" wx:key="top_category">
+          <view class="cate">
+            <view class="cate-inner">{{item.title}}</view>
+          </view>
+        </block>
+      </scroll-view>
+      <view class="posts">
+      </view>
+
+    </view>
+  </view>
+</scroll-view>
+
+
+

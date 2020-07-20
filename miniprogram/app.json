@@ -54,6 +54,12 @@
         "text": "找车"
       },
       {
+        "selectedIconPath": "images/community.png",
+        "iconPath": "images/community.png",
+        "pagePath": "pages/community/index",
+        "text": "找车"
+      },
+      {
         "selectedIconPath": "images/news.png",
         "iconPath": "images/news.png",
         "pagePath": "pages/article_list/index",
