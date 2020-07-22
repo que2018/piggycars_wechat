@@ -52,6 +52,30 @@
 .hot-cates {
   
 }
+.hot-cate-inner {
+  padding: 8px;
+  color: #ffffff;
+}
+.hot-cate0 .hc-btitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+.hot-cate1 .hc-btitle {
+  font-size: 22px;
+  font-weight: bold;
+}
+.hot-cate2 .hc-btitle {
+  font-size: 20px;
+}
+.hot-cate3 .hc-btitle {
+  font-size: 20px;
+}
+.hot-cate4 .hc-btitle {
+  font-size: 20px;
+}
+.hc-stitle {
+  font-size: 15px;
+}
 .hot-cate0 {
   width: 50vw;
   height: 130px;
@@ -76,4 +100,23 @@
   width: 34vw;
   height: 130px;
   float: left;
+}
+.posts {
+  padding: 10px 15px 10px 15px;
+}
+.post {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+}
+.post-img {
+  width: 30%;
+}
+.post-img image {
+  height: 80px;
+  width: 100%;
+}
+.post-captain {
+  width: 70%;
+  padding: 20px;
 }

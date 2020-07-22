@@ -1,0 +1,19 @@
+.posts {
+  padding: 10px 15px 10px 15px;
+}
+.post {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+}
+.post-img {
+  width: 30%;
+}
+.post-img image {
+  height: 80px;
+  width: 100%;
+}
+.post-captain {
+  width: 70%;
+  padding: 20px;
+}

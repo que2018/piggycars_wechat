@@ -50,6 +50,8 @@ App({
     API_BLOGS: "https://front.piggycars.net/info/article/get_list",
     API_BLOG_DETAIL: "https://front.piggycars.net/info/article/json",
     API_COMMUNITY_HOME: "https://cmsfront.piggycars.net/catalog/post_category/get_home",
+    API_COMMUNITY_CATEGORY: "https://cmsfront.piggycars.net/catalog/post_category/get_posts",
+    API_COMMUNITY_POST: "https://cmsfront.piggycars.net/catalog/post/get_detail",
     API_LANG: "https://front.piggycars.net/api/common/language&lang=chinese&no_redirect=1",
     API_RES: "https://piggycars.com/api/assets/image",
     API_RES_INFO: "https://piggycars.com/assets/image"

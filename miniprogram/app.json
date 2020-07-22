@@ -3,6 +3,8 @@
     "pages/app/index",
     "pages/home/index",    
     "pages/community/index",    
+    "pages/community_category/index",   
+    "pages/community_post/index",   
     "pages/car_list/index",
     "pages/car_list_full/index",
     "pages/car_detail/index",
@@ -57,7 +59,7 @@
         "selectedIconPath": "images/community.png",
         "iconPath": "images/community.png",
         "pagePath": "pages/community/index",
-        "text": "找车"
+        "text": "社区"
       },
       {
         "selectedIconPath": "images/news.png",

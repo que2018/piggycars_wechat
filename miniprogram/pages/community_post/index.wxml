@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="image"><image src="{{image}}" mode="aspectFit" /></view>
+  <view class="title">{{title}}</view>
+  <view class="description">{{descripition}}</view>
+</view>

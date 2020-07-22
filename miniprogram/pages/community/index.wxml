@@ -7,25 +7,32 @@
       <view class="section-title">热门</view>
       <view class="hot-cates">
          <block wx:for="{{hot_categories}}" wx:key="index">
-          <view class="hot-cate hot-cate{{index}}" style="background: {{item.background_color}}">
-            <view>{{item.title}}</view>
+          <view class="hot-cate hot-cate{{index}}" style="background: {{item.background_color}}" bindtap="tabHot" data-id="{{item.id}}">
+            <view class="hot-cate-inner">
+              <view class="hc-btitle">{{item.title}}</view>
+              <view class="hc-stitle">{{item.meta_description}}</view>
+            </view>
           </view>
         </block>
       </view>
-      
     </view>
     <view class="section-bottom">
       <view class="section-title">最新</view>
       <scroll-view class="nav-cate" scroll-x="true">
-        <block wx:for="{{top_categories}}" wx:key="top_category">
-          <view class="cate">
+        <block wx:for="{{top_categories}}" wx:key="index">
+          <view class="cate" bindtap="tabCategory" data-index="{{index}}">
             <view class="cate-inner">{{item.title}}</view>
           </view>
         </block>
       </scroll-view>
       <view class="posts">
+        <block wx:for="{{posts}}" wx:key="index">
+          <view class="post" bindtap="tabPost" data-id="{{item.id}}">
+            <view class="post-img"><image src="../../images/placeholder.jpg" mode="aspectFit" /></view>
+            <view class="post-captain">{{item.title}}</view>
+          </view>
+        </block>
       </view>
-
     </view>
   </view>
 </scroll-view>
