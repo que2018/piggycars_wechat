@@ -1,5 +1,12 @@
+<import src="../../utils/wxParse/wxParse.wxml"/> 
 <view class="container">
-  <view class="image"><image src="{{image}}" mode="aspectFit" /></view>
-  <view class="title">{{title}}</view>
-  <view class="description">{{descripition}}</view>
+  <scroll-view class="scroll-view" scroll-y="ture" style="width: 100%">
+    <view class="image"><image src="{{image}}" mode="aspectFit" /></view>
+    <view class="content">
+      <view class="title">{{title}}</view>
+      <view class="description">
+        <template is="wxParse" data="{{wxParseData:desp_html.nodes}}" />
+      </view>
+    </view>
+  </scroll-view>
 </view>

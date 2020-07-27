@@ -1,7 +1,7 @@
 
 App({
   globalData: {
-    version: 'v2.2.5',
+    version: 'v2.2.8',
     limit: 8,
     is_login: false,
     user_id: "",
@@ -54,6 +54,7 @@ App({
     API_COMMUNITY_POST: "https://cmsfront.piggycars.net/catalog/post/get_detail",
     API_LANG: "https://front.piggycars.net/api/common/language&lang=chinese&no_redirect=1",
     API_RES: "https://piggycars.com/api/assets/image",
-    API_RES_INFO: "https://piggycars.com/assets/image"
+    API_RES_INFO: "https://piggycars.com/assets/image",
+    API_RES_WECHAT: "https://front.piggycars.net/assets/image"
   }
 })

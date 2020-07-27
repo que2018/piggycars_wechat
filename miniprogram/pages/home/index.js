@@ -238,9 +238,10 @@ Page({
       }
     }
   },
-  onShareTimeline: function (res) {
+  onShareTimeline: function () {
     return {
-      title: '小猪有车'
+      title: '汽车订阅服务&随心换车',
+      imageUrl: "../../images/banner1.jpg"
     }
   }
 })

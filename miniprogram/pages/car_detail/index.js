@@ -325,5 +325,11 @@ Page({
 
       }
     }
+  },
+  onShareTimeline: function () {
+    return {
+      title: "小猪有车 • " + this.data.year + this.data.make + this.data.model,
+      imageUrl: this.data.car_images[0]
+    }
   }
 })

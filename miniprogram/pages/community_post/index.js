@@ -1,5 +1,6 @@
 
 let app = getApp();
+let wxParse = require('../../utils/wxParse/wxParse.js');
 
 Page({
   data: {
@@ -10,11 +11,11 @@ Page({
     show_loading: true
   },
   onLoad: function (options) {
-    this.loadData(options.id);
-
-    that.setData({
-      id: option.id
+    this.setData({
+      id: options.id
     });
+
+    this.loadData(options.id);    
   },
   loadData: function (post_id) {
     let that = this;
@@ -23,6 +24,9 @@ Page({
       url: app.globalData.API_COMMUNITY_POST + "?id=" + post_id,
       complete: function (res) {
         console.log(res.data);
+
+        var description = res.data.description;  
+        wxParse.wxParse('desp_html', 'html', description, that, 5);  
 
         that.setData({
           show_loading: false,
@@ -39,12 +43,8 @@ Page({
       title: this.data.title,
       imageUrl: this.data.image,
       path: path, 
-      success: function (res) {
-
-      },
-      fail: function (res) {
-
-      }
+      success: function (res) {},
+      fail: function (res) {}
     }
   }
 });
