@@ -55,6 +55,9 @@
 .hot-cate-inner {
   padding: 8px;
   color: #ffffff;
+  position: relative;
+  height: 114px;
+  overflow: hidden;
 }
 .hot-cate0 .hc-btitle {
   font-size: 24px;
@@ -75,6 +78,13 @@
 }
 .hc-stitle {
   font-size: 15px;
+}
+.hc-img {
+  width: 70px;
+  height: 70px;
+  bottom: -15px;
+  position: absolute;
+  left: -15px
 }
 .hot-cate0 {
   width: 50vw;

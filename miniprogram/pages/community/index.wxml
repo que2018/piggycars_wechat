@@ -11,6 +11,7 @@
             <view class="hot-cate-inner">
               <view class="hc-btitle">{{item.title}}</view>
               <view class="hc-stitle">{{item.meta_description}}</view>
+              <image class="hc-img" src="{{item.image}}" mode="aspectFit" />
             </view>
           </view>
         </block>
@@ -28,7 +29,7 @@
       <view class="posts">
         <block wx:for="{{posts}}" wx:key="index">
           <view class="post" bindtap="tabPost" data-id="{{item.id}}">
-            <view class="post-img"><image src="../../images/placeholder.jpg" mode="aspectFit" /></view>
+            <view class="post-img"><image src="{{item.image}}" mode="aspectFit" /></view>
             <view class="post-captain">{{item.title}}</view>
           </view>
         </block>
