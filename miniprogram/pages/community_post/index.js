@@ -23,15 +23,24 @@ Page({
     wx.request({
       url: app.globalData.API_COMMUNITY_POST + "?id=" + post_id,
       complete: function (res) {
-        console.log(res.data);
+        //console.log(res.data);
 
-        var description = res.data.description;  
+        var image = "";
+
+        if(res.data.data.image) {
+          image = app.globalData.API_RES_INFO + "/post/orig/" + res.data.data.image;
+        } else {
+          image = "../../images/placeholder.jpg";
+        }
+
+        var description = res.data.data.description;  
         wxParse.wxParse('desp_html', 'html', description, that, 5);  
 
         that.setData({
           show_loading: false,
-          title: res.data.title,
-          description: res.data.description
+          image: image,
+          title: res.data.data.title,
+          description: res.data.data.description
         });
       }
     });

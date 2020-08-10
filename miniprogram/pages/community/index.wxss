@@ -34,10 +34,11 @@
 	color: transparent;
 }
 .nav-cate .cate {
-	width: 80px;
-	text-align: center;
+	width: 90px;
+  text-align: center;
   display: inline-block;
   padding: 5px;
+  font-size: 14px;
 }
 .cate-inner {
   background: #fc5861;
@@ -68,13 +69,13 @@
   font-weight: bold;
 }
 .hot-cate2 .hc-btitle {
-  font-size: 20px;
+  font-size: 18px;
 }
 .hot-cate3 .hc-btitle {
-  font-size: 20px;
+  font-size: 18px;
 }
 .hot-cate4 .hc-btitle {
-  font-size: 20px;
+  font-size: 18px;
 }
 .hc-stitle {
   font-size: 15px;

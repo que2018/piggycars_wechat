@@ -23,6 +23,8 @@ Page({
     data["size"] = app.globalData.limit;
     data["post_category_id"] = post_category_id;
 
+    console.log(post_category_id);
+
     wx.request({
       url: app.globalData.API_COMMUNITY_CATEGORY,
       header: header,
@@ -30,18 +32,24 @@ Page({
       data: util.json2Form(data),
       complete: function (res) {
         if (res.data.success) {
-          console.log(res.data);
+          //console.log(res.data);
 
           var posts = [];
 
-          if (res.data.posts) {
-            for (var i = 0; i < res.data.posts.length; i++) {
-             var post = new Object();
+          if (res.data.data.items) {
+            for (var i = 0; i < res.data.data.items.length; i++) {
+              let item = res.data.data.items[i];
 
-              let item = res.data.posts[i];
+              var post = new Object();
 
               post.id = decodeURIComponent(item.id);
               post.title = decodeURIComponent(item.title);
+
+              if(item.image) {
+                post.image = app.globalData.API_RES_INFO + "/post/sm/" + item.image;
+              } else {
+                post.image = "../../images/placeholder.jpg";
+              }
 
               posts.push(post); 
             }

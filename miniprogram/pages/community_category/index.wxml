@@ -5,7 +5,7 @@
   <view class="posts">
     <block wx:for="{{posts}}" wx:key="index">
       <view class="post" bindtap="tabPost" data-id="{{item.id}}">
-        <view class="post-img"><image src="../../images/placeholder.jpg" mode="aspectFit" /></view>
+        <view class="post-img"><image src="{{item.image}}" mode="aspectFit" /></view>
         <view class="post-captain">{{item.title}}</view>
       </view>
     </block>
