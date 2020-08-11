@@ -55,5 +55,11 @@ Page({
       success: function (res) {},
       fail: function (res) {}
     }
+  },
+  onShareTimeline: function () {
+    return {
+      title: this.data.title,
+      imageUrl: this.data.image
+    }
   }
 });
