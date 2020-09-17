@@ -32,6 +32,8 @@ Page({
     var data = app.globalData.filter_params;
     data["start"] = 0;
     data["size"] = app.globalData.limit;
+    data["sort"] = 'price';
+    data["order"] = 'ASC';
     data["sft"] = "wechat";
 
     wx.request({
