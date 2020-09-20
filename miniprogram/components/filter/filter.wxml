@@ -17,10 +17,8 @@
             </view>
           </view>
           <view wx:else>
-            <!--<view class="slider-wrap">
-              <zy-slider minValue="0" maxValue="100" min="0" max="100" bind:lowValueChange="lowValueChangeAction"
-                bind:heighValueChange="heighValueChangeAction" />
-            </view>-->
+            <slider class="slider-monthly-payment" min="400" max="1500" value="{{monthly_payment_limit}}" bindchange="sliderMonthlychange" selected-color="#fca5b1" left-icon="cancel" right-icon="success_no_circle" />
+            <view class="slider-monthly-text">小于$<span>{{monthly_payment_limit}}</span></view>
           </view>
         </view>
       </view>

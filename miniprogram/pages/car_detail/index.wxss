@@ -226,7 +226,7 @@ swiper {
 .monthp-tax {
   position: absolute;
   font-size: 12px;
-  left: 103px;
+  left: 120px;
   top: 20px;
   color: #f55a7a;
 }

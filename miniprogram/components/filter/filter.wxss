@@ -41,7 +41,7 @@
   flex-wrap: wrap;
 }
 .filter-item {
-  width: calc(25vw - 8px);
+  width: calc(32vw - 6px);
 }
 .filter-item-inner {
   margin: 3px;
@@ -86,4 +86,15 @@
 }
 .space-bottom {
   height: 50px;
+}
+.slider-monthly-payment {
+  padding-top: 10px;
+  padding-right: 20px;
+}
+.slider-monthly-text {
+  float: right;
+  color: #fc5861;
+  font-weight: bold;
+  margin-right: 28px;
+  font-size: 18px;
 }

@@ -50,3 +50,7 @@
 .hide{
   display: none;
 }
+.zy-slider {
+    margin: 60rpx;
+    width: 60vw;
+}

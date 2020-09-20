@@ -12,7 +12,7 @@ Component({
   data: {
     show_filter: false,
     //keys: ["colors", "cities", "makes", "years", "styles", "dealers", "mileage", "monthly_payment", "down_payment"],
-    keys: ["colors", "cities", "makes", "years", "styles", "dealers"],
+    keys: ["monthly_payment", "colors", "cities", "makes", "years", "styles", "dealers"],
     titles: {
       "colors": "颜色",
       "cities": "城市",
@@ -24,7 +24,8 @@ Component({
       "monthly_payment": "月租金",
       "down_payment": "订阅费"
     },
-    filter_items: {}
+    filter_items: {},
+    monthly_payment_limit: 3000
   },
   lifetimes: {
     attached: function () {
@@ -33,7 +34,7 @@ Component({
       wx.request({
         url: app.globalData.API_FILTERS,
         complete: function (res) {
-          //console.log(res);
+          console.log(res);
 
           if(res.data.success) {
             var filterItemsData = {};
@@ -56,33 +57,33 @@ Component({
                 let font_size = 0;
 
                 if(length < 3) {
-                  font_size = 14;
+                  font_size = 15;
                 } else if (length < 4) {
-                  font_size = 13;
+                  font_size = 14;
                 } else if (length < 5) {
-                  font_size = 13;
+                  font_size = 14;
                 } else if (length < 6) {
-                  font_size = 12;
+                  font_size = 13;
                 } else if (length < 7) {
-                  font_size = 12;
+                  font_size = 13;
                 } else if (length < 8) {
-                  font_size = 11;
+                  font_size = 12;
                 } else if (length < 9) {
-                  font_size = 10;
+                  font_size = 12;
                 } else if (length < 10) {
-                  font_size = 9;
+                  font_size = 11;
                 } else if (length < 11) {
-                  font_size = 9;
+                  font_size = 11;
                 } else if (length < 12) {
-                  font_size = 9;
+                  font_size = 11;
                 } else if (length < 13) {
-                  font_size = 9;
+                  font_size = 10;
                 } else if (length < 14) {
-                  font_size = 8;
+                  font_size = 10;
                 } else if (length < 16) {
-                  font_size = 8;
+                  font_size = 10;
                 } else {
-                  font_size = 5;
+                  font_size = 7;
                 }
 
                 item["font_size"] = font_size;
@@ -95,7 +96,7 @@ Component({
               
               if (filterItem.type == "list") {
                 let length = filterItem.data.length;
-                filterItemData["height"] = Math.ceil(length / 4) * 33 + 35 + 32;
+                filterItemData["height"] = Math.ceil(length / 3) * 33 + 35 + 32;
               } else {
                 filterItemData["height"] = 90 + 35;
               }
@@ -113,12 +114,7 @@ Component({
   },
   methods: {
     toggleFilter: function (event) {
-      /* this.animate('#xxxx', [
-        { opacity: 1.0, rotate: 0, backgroundColor: '#FF0000' },
-        { opacity: 0.5, rotate: 45, backgroundColor: '#00FF00' },
-        { opacity: 1.0, rotate: 90, backgroundColor: '#FF0000' },
-      ], 5000); */
-
+    
       if(this.data.show_filter) {
         this.setData({
           show_filter: false
@@ -165,12 +161,26 @@ Component({
       }
 
       this.setData({
-        filter_items: filterItems
+        filter_items: filterItems,
+        monthly_payment_limit: 3000
       });
 
       app.globalData.filter_params = {}
 
       this.triggerEvent('notification', {});
+    },
+    sliderMonthlychange: function (event) {
+      let key_min = "monthly_payment[min]";
+      let key_max = "monthly_payment[max]";
+
+      app.globalData.filter_params[key_min] = 300;
+      app.globalData.filter_params[key_max] = event.detail.value;
+
+      this.triggerEvent('notification', {});
+
+      this.setData({
+        monthly_payment_limit: event.detail.value
+      });
     }
   }
 })

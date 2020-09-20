@@ -85,7 +85,12 @@ Page({
         for (var index in res.data.data.vehicle_images) {
           car_images.push(app.globalData.API_RES + "/vehicle/lg/" + res.data.data.vehicle_images[index]);
         }
-        
+       
+        //avoid too many images
+        if(car_images.length > 20) {
+          car_images = car_images.slice(0, 20);
+        } 
+
         let main_image = app.globalData.API_RES + "/vehicle/lg/" + res.data.data.vehicle_images[0];
 
         //payments
@@ -100,7 +105,7 @@ Page({
             that.setData({
               selected_payment_index: index,
               down_payment: payment.down_payment,
-			  monthly_payment: payment.monthly_payment
+			        monthly_payment: payment.monthly_payment
             });
           }
 

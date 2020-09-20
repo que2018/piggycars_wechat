@@ -43,7 +43,7 @@ Page({
         if (res.data.success) {
           var cars = [];
 
-          console.log(res.data);
+          //console.log(res.data);
 
           for (var i = 0; i < res.data.data.items.length; i++) {
             var car = new Object();
@@ -70,7 +70,12 @@ Page({
               images.push(app.globalData.API_RES + "/vehicle/sm/" + item.vehicle_images[index].value);
             }
 
-            car.images = images;
+            //avoid too many images
+            if(images.length > 20) {
+              car.images = images.slice(0, 20);
+            } else {
+              car.images = images;
+            }
 
             car.hot = false;
 
@@ -131,7 +136,7 @@ Page({
           if (res.data.success) {
             var cars = that.data.cars;
 
-            //console.log(res.data);
+            console.log(res.data);
 
             for (var i = 0; i < res.data.data.items.length; i++) {
               var car = new Object();
