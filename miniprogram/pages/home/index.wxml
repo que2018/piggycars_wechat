@@ -68,3 +68,5 @@
     </view>
   </view>
 </view>
+<view class="btn-lookup" bindtap="goToCarList">找车</view>
+

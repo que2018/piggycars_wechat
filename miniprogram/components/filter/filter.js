@@ -12,7 +12,7 @@ Component({
   data: {
     show_filter: false,
     //keys: ["colors", "cities", "makes", "years", "styles", "dealers", "mileage", "monthly_payment", "down_payment"],
-    keys: ["monthly_payment", "colors", "cities", "makes", "years", "styles", "dealers"],
+    keys: ["monthly_payment", "makes", "cities", "years", "dealers", "styles", "colors"],
     titles: {
       "colors": "颜色",
       "cities": "城市",
