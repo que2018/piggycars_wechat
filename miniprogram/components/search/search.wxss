@@ -99,3 +99,6 @@ swiper {
   width: 120px;
   text-align: center;
 }
+.keyword {
+  padding: 1px 0px 0px 12px;
+}

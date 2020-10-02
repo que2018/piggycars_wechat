@@ -1,6 +1,6 @@
 <view class="container" class="{{show?'show-search':'hide-search'}}">
   <view class="search-header">
-    <view class="search-box"><input class="keyword" focus="{{focus}}" value="{{keyword}}" placeholder="搜索车辆" bindinput="bindkeyword" /></view>
+    <view class="search-box"><input class="keyword" focus="{{focus}}" value="{{keyword}}" bindinput="bindkeyword" /></view>
     <view class="search-cancel" bindtap="hide">取消</view>
   </view>
   <view class="search-result">

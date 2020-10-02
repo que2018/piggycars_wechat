@@ -140,4 +140,6 @@ swiper {
   color: #888888;
   border-radius: 3px;
 }
-
+.keyword {
+  padding-left: 8px;
+}
