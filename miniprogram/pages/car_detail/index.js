@@ -170,7 +170,8 @@ Page({
           }
 
           insurance_objs[parseInt(index) + 1] = insurance_obj;
-          insurances.push("$" + insurance.price + "/月");
+          //insurances.push("$" + insurance.price + "/月");
+          insurances.push(decodeURIComponent(insurance.name));
         }
   
         that.setData({
