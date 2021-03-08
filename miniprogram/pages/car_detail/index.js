@@ -74,7 +74,7 @@ Page({
     wx.request({
       url: app.globalData.API_CAR + "?l=1&id=" + this.data.id,
       complete: function (res) {
-        //console.log(res);
+        console.log(res.data);
 
         var car_images = [];
 
@@ -118,7 +118,8 @@ Page({
           }
 
           payment_objs[index] = payment_obj;
-          payments.push(payment.months + "个月");
+          //spayments.push(payment.months + "个月");
+          payments.push(payment.plan_name);
         }
 
         //distances
