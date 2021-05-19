@@ -61,6 +61,8 @@ Page({
             car.monthlyPayment = item.monthly_payment
             car.city = item.location.city
             car.leased = item.leased;
+            car.termLabel = item.term_label;
+            car.termUnit = item.term_unit;
 
             var images = [];
 
@@ -150,6 +152,8 @@ Page({
               car.mileage = item.mileage
               car.monthlyPayment = item.monthly_payment
               car.city = item.location.city
+              car.termLabel = item.term_label;
+              car.termUnit = item.term_unit;
 
               var images = [];
 

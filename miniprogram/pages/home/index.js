@@ -97,6 +97,7 @@ Page({
             featured.model = decodeURIComponent(item.model);
             featured.monthlyPayment = item.monthly_payment
             featured.city = item.location.city
+            featured.termUnit = item.term_unit;
 
             let images = item.car_images;
             featured.image = app.globalData.API_RES + "/car/md/" + images[0].value;

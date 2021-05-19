@@ -22,6 +22,7 @@ Page({
     drivetrain: "",
     exterior_color: "",
     interior_color: "",
+    type_term_unit: "",
     car_features: [],
     main_image: "",
     car_images: [],
@@ -197,6 +198,7 @@ Page({
           drivetrain: that.data.drivetrain[res.data.data.drivetrain],
           exterior_color: (res.data.data.exterior_color) ? res.data.data.exterior_color : "--",
           interior_color: (res.data.data.interior_color) ? res.data.data.interior_color : "--",
+          type_term_unit: res.data.data.type_term_unit,
           main_image: main_image,
           car_images: car_images,
           markers: [{

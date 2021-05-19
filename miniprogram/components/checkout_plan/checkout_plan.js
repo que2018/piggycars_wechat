@@ -6,6 +6,7 @@ Component({
   properties: {},
   data: {
     id: "",
+    type_term_unit: "",
     down_payment: 0,
     monthly_payment: 0,
     monthly_insurance: 0,
@@ -38,6 +39,11 @@ Component({
         complete: function (res) {
           console.log(res);
 
+          //term unit
+          that.setData({
+            type_term_unit: res.data.data.type_term_unit
+          });
+
           //payments
           var default_payment = {};
           var payments = new Array();
@@ -63,7 +69,8 @@ Component({
             }
 
             payment_objs[index] = payment_obj;
-            payments.push(payment.months + "个月");
+            //payments.push(payment.months + "个月");
+            payments.push(payment.plan_name);
           }
 
           //distances
@@ -132,7 +139,6 @@ Component({
             monthly_payment: monthly_payment,
             down_payment: payment_obj.down_payment
           });
-
         }
       });
     }

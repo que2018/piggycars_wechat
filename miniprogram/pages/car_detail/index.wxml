@@ -43,7 +43,7 @@
             </view>
           </view>
           <view class="monthp-t3">/</view>
-          <view class="monthp-t4">月</view>
+          <view class="monthp-t4">{{type_term_unit}}</view>
         </view>
         <view class="downp">
           <view class="downp-t1">首付款:</view>

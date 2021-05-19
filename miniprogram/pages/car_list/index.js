@@ -59,6 +59,8 @@ Page({
             car.monthlyPayment = item.monthly_payment
             car.city = item.location.city
             car.leased = item.leased;
+            car.termLabel = item.term_label;
+            car.termUnit = item.term_unit;
 
             var images = [];
 
@@ -136,8 +138,6 @@ Page({
           if (res.data.success) {
             var cars = that.data.cars;
 
-            console.log(res.data);
-
             for (var i = 0; i < res.data.data.items.length; i++) {
               var car = new Object();
               let item = res.data.data.items[i];
@@ -151,6 +151,8 @@ Page({
               car.monthlyPayment = item.monthly_payment
               car.city = item.location.city
               car.leased = item.leased;
+              car.termLabel = item.term_label;
+              car.termUnit = item.term_unit;
 
               var images = [];
 

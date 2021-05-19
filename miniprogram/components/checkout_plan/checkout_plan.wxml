@@ -4,7 +4,7 @@
     <text decode="true">&nbsp;</text>
     <span class="mo-tax">+税</span>
     <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;</text>
-    <span class="mo-text">/<text decode="true">&nbsp;&nbsp;</text>月供</span>
+    <span class="mo-text">/<text decode="true">&nbsp;&nbsp;</text>{{type_term_unit}}</span>
   </view>
   <view class="down-payment">
     <span class="dp-text">首付款<text decode="true">&nbsp;&nbsp;</text>/</span>
